@@ -1,3 +1,8 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 :root{
   --bg: #ffffff;
   --paper: #f7f6f4;
@@ -1016,7 +1021,7 @@ body{
 }
 
 #different .different-title{
-  font-size: clamp(36px, 8vw, 56px);
+  font-size: clamp(30px, 7.5vw, 56px);
   line-height: 1.2;
   white-space: normal;
 }
@@ -1032,8 +1037,8 @@ body{
   #different .copy{ gap: 22px; }
 
   #different .different-title{
-    font-size: 42px;
-    line-height: 1.15;
+    font-size: 32px;
+    line-height: 1.2;
   }
 
   #different .different-lead,
