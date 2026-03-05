@@ -143,8 +143,12 @@ body{
   font-family: var(--serif);
   font-weight: 500;
   font-size: clamp(40px, 6vw, 72px);
-  line-height: 1.25;
-  letter-spacing: .06em;
+  line-height: 1.2;
+  letter-spacing: .02em;
+}
+
+.hero-title-line{
+  display: inline-block;
 }
 
 .hero-list{
