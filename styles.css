@@ -142,7 +142,7 @@ body{
   margin: 0;
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(28px, 6.4vw, 45px);
   line-height: 1.2;
   letter-spacing: .02em;
 }
