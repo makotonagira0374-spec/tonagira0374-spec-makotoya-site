@@ -1152,3 +1152,19 @@ body{
   .gift{ padding: 120px 0; }
   .contact{ padding: 110px 0 96px; }
 }
+
+/* ===== Typography step 1 ===== */
+body{
+  font-family: "Noto Serif JP", serif;
+}
+
+p{
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.page-title{
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 700;
+}
