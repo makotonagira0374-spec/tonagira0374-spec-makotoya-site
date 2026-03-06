@@ -356,12 +356,12 @@ body{
 
 .photo-text p{
   font-size: 18px;
-  line-height: 2.3;
+  line-height: 1.9;
   margin: 0;
 }
 
-.space{
-  height: 20px;
+.photo-text .space{
+  height: 24px;
 }
 
 .plan-box{
@@ -1193,14 +1193,3 @@ p{
   font-size: 1rem;
 }
 
-/* photo plan body text */
-.photo-text p{
-  font-size: 18px;
-  line-height: 1.9;
-}
-
-/* photo plan paragraph final override */
-.makotoya-photo-plan .photo-text p{
-  font-size: 18px !important;
-  line-height: 1.9 !important;
-}
