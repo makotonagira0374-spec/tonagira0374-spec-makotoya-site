@@ -1192,3 +1192,9 @@ body{
 p{
   font-size: 1rem;
 }
+
+/* photo plan body text */
+.makotoya-photo-plan p{
+  font-size: 18px;
+  line-height: 1.9;
+}
