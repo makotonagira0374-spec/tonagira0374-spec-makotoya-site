@@ -1172,3 +1172,16 @@ p{
 #different .different-title.page-title{
   font-size: 32px;
 }
+
+/* ===== Body Typography ===== */
+
+body{
+  font-family: "Noto Serif JP", serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #333;
+}
+
+p{
+  font-size: 1rem;
+}
