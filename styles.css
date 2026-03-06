@@ -383,8 +383,8 @@ body{
 }
 
 .plan-box li{
-  line-height: 2;
-  font-size: 17px;
+  font-size: 14px;
+  line-height: 1.9;
 }
 
 /* =========================
