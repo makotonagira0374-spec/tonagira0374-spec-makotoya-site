@@ -1009,8 +1009,15 @@ body{
 /* =========================
    DIFFERENT（3ページ目）
 ========================= */
+
+/* different section background full width */
+#different{
+  background: #ffffff;
+  padding: 120px 20px;
+}
+
 #different .copy{
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
