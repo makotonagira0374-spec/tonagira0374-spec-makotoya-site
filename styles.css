@@ -1198,3 +1198,12 @@ p{
   line-height: 1.9;
 }
 
+/* plan box font size */
+.plan-box h3{
+  font-size: 20px;
+}
+
+.plan-box li{
+  font-size: 18px;
+}
+
