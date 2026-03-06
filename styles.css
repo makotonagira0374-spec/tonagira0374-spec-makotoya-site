@@ -1168,3 +1168,7 @@ p{
   line-height: 1.25;
   font-weight: 700;
 }
+
+#different .different-title.page-title{
+  font-size: 32px;
+}
