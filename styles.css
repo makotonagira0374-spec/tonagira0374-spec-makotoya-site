@@ -1198,3 +1198,9 @@ p{
   font-size: 18px;
   line-height: 1.9;
 }
+
+/* photo plan paragraph final override */
+.makotoya-photo-plan .photo-text p{
+  font-size: 18px !important;
+  line-height: 1.9 !important;
+}
