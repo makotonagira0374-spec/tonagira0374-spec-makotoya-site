@@ -259,6 +259,27 @@ body{
 }
 .time-body p{ margin: 10px 0; }
 
+/* =========================
+   DIFFERENT LEAD PHOTO
+========================= */
+.different-lead-photo{
+  background: #ffffff;
+  padding: 20px 0 12px;
+}
+
+.different-lead-photo__media{
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.1);
+}
+
+.different-lead-photo__media img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 
 /* =========================
    MAKOTOYA STORY
@@ -1112,6 +1133,14 @@ body{
     min-width: 92px;
     padding: 10px 14px;
     font-size: 13px;
+  }
+
+  .different-lead-photo{
+    padding: 14px 0 8px;
+  }
+
+  .different-lead-photo__media{
+    border-radius: 14px;
   }
 
   .pre-plans-repromo{
