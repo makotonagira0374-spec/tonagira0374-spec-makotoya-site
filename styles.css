@@ -365,6 +365,31 @@ body{
 }
 
 /* =========================
+   PRE-PLANS REPROMO
+========================= */
+.pre-plans-repromo{
+  background: #f6f4ef;
+  padding: 26px 0 12px;
+}
+
+.pre-plans-repromo__inner{
+  max-width: 1040px;
+}
+
+.pre-plans-repromo__media{
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,.1);
+}
+
+.pre-plans-repromo__media img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
    MAKOTOYA PLANS
 ========================= */
 .makotoya-plans{
@@ -1087,6 +1112,14 @@ body{
     min-width: 92px;
     padding: 10px 14px;
     font-size: 13px;
+  }
+
+  .pre-plans-repromo{
+    padding: 20px 0 8px;
+  }
+
+  .pre-plans-repromo__media{
+    border-radius: 14px;
   }
 }
 
