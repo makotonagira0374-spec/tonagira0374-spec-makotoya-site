@@ -177,6 +177,16 @@ body{
 
 .hero-cta{ display:flex; justify-content:center; }
 
+/* Title font unification */
+.hero-title,
+.time-title,
+#different .different-title,
+.makotoya-story__title,
+.photo-title,
+.album-title{
+  font-family: var(--serif);
+}
+
 /* =========================
    HERO PHOTO
 ========================= */
@@ -1122,4 +1132,14 @@ body{
 .photographer-btn:hover{
   background: #333;
   color: #fff;
+}
+
+/* Title size unification */
+.hero-title,
+.time-title,
+#different .different-title,
+.makotoya-story__title,
+.photo-title,
+.album-title{
+  font-size: 22px;
 }
