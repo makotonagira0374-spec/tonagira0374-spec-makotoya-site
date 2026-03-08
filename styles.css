@@ -471,6 +471,11 @@ body{
   color: #1f1f1f;
 }
 
+.plan-features p.feature-plus{
+  color: #8a4b08;
+  font-weight: 600;
+}
+
 .plan-divider{
   border: none;
   border-top: 1px solid #dedede;
