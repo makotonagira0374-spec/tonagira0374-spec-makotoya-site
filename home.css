@@ -303,7 +303,14 @@
   .home-header-inner .header-actions .btn:first-child {
     display: inline-flex;
     flex-direction: column;
+    align-items: center;
     gap: 2px;
+  }
+
+  .home-header-inner .header-actions .btn:first-child .header-btn-line {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 
   .home-header-inner .header-actions .btn:first-child .header-btn-line + .header-btn-line {
