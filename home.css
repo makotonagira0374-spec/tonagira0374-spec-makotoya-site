@@ -284,6 +284,18 @@
     padding: 72px 0 64px;
   }
 
+  .home-header-inner .header-actions {
+    gap: 10px;
+  }
+
+  .home-header-inner .header-actions .btn {
+    width: auto;
+    min-width: 92px;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
   .home-intro,
   .home-experience,
   .home-gallery,
