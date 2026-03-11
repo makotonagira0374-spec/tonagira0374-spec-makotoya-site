@@ -27,6 +27,10 @@
   color: var(--ink);
 }
 
+.header-btn-line + .header-btn-line {
+  margin-left: 0.25em;
+}
+
 .home-hero {
   padding: 96px 0 88px;
 }
@@ -294,6 +298,16 @@
     padding: 10px 14px;
     font-size: 13px;
     line-height: 1.2;
+  }
+
+  .home-header-inner .header-actions .btn:first-child {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .home-header-inner .header-actions .btn:first-child .header-btn-line + .header-btn-line {
+    margin-left: 0;
   }
 
   .home-intro,
