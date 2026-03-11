@@ -57,13 +57,13 @@
 }
 
 .home-title {
-  font-size: clamp(30px, 5.1vw, 54px);
+  font-size: clamp(30px, 4.6vw, 50px);
 }
 
 .home-subtitle {
   margin: 16px 0 0;
   font-family: var(--serif);
-  font-size: clamp(16px, 2vw, 22px);
+  font-size: clamp(11px, 1.6vw, 17px);
   line-height: 1.9;
   letter-spacing: 0.08em;
   color: rgba(17, 17, 17, 0.74);
@@ -80,6 +80,7 @@
 
 .home-lead {
   margin: 22px 0 0;
+  font-size: clamp(10px, 1.05vw, 13px);
   max-width: 34em;
   color: rgba(17, 17, 17, 0.75);
   line-height: 2;
