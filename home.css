@@ -60,6 +60,15 @@
   font-size: clamp(30px, 5.1vw, 54px);
 }
 
+.home-subtitle {
+  margin: 16px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  color: rgba(17, 17, 17, 0.74);
+}
+
 .section-heading {
   text-align: center;
   margin-bottom: 42px;
@@ -70,7 +79,7 @@
 }
 
 .home-lead {
-  margin: 26px 0 0;
+  margin: 22px 0 0;
   max-width: 34em;
   color: rgba(17, 17, 17, 0.75);
   line-height: 2;
