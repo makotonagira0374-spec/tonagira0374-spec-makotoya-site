@@ -84,7 +84,7 @@
 
 .home-lead {
   margin: 22px 0 0;
-  font-size: clamp(10px, 1.05vw, 13px);
+  font-size: clamp(15px, 2.3vw, 25px);
   max-width: 34em;
   color: rgba(17, 17, 17, 0.75);
   line-height: 2;
