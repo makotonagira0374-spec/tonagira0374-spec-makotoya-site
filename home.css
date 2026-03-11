@@ -63,7 +63,7 @@
 .home-subtitle {
   margin: 16px 0 0;
   font-family: var(--serif);
-  font-size: clamp(11px, 1.6vw, 17px);
+  font-size: clamp(21px, 3.22vw, 35px);
   line-height: 1.9;
   letter-spacing: 0.08em;
   color: rgba(17, 17, 17, 0.74);
