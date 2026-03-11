@@ -288,6 +288,15 @@
     padding: 72px 0 64px;
   }
 
+  .home-hero__copy {
+    text-align: center;
+  }
+
+  .home-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .home-header-inner .header-actions {
     gap: 10px;
   }
