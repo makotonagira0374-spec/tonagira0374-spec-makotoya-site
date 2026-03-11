@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Contact/link click tracking
   document.querySelectorAll('a[href]').forEach((anchor) => {
     anchor.addEventListener('click', () => {
       const href = anchor.getAttribute('href') || '';
@@ -54,23 +53,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // FAQ accordion
   document.querySelectorAll('.faq-item .faq-q').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
+      if (!item) return;
+
       const isOpen = item.classList.contains('is-open');
 
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('is-open');
-        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        i.querySelector('.faq-icon').textContent = '+';
+      document.querySelectorAll('.faq-item').forEach((entry) => {
+        entry.classList.remove('is-open');
+
+        const question = entry.querySelector('.faq-q');
+        const icon = entry.querySelector('.faq-icon');
+
+        if (question) question.setAttribute('aria-expanded', 'false');
+        if (icon) icon.textContent = '+';
       });
 
-      if (!isOpen) {
-        item.classList.add('is-open');
-        btn.setAttribute('aria-expanded', 'true');
-        item.querySelector('.faq-icon').textContent = '−';
-      }
+      if (isOpen) return;
+
+      item.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+
+      const icon = item.querySelector('.faq-icon');
+      if (icon) icon.textContent = '-';
     });
   });
 });
