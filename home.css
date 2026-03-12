@@ -240,7 +240,7 @@
 }
 
 .rate-card__price span {
-  font-size: 0.72em;
+  font-size: 15px;
   color: rgba(17, 17, 17, 0.62);
   font-weight: 500;
 }
