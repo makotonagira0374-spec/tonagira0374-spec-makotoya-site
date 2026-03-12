@@ -183,6 +183,10 @@
   line-height: 1.95;
 }
 
+.experience-panel__cta {
+  margin-top: 20px;
+}
+
 .experience-panel__number,
 .flow-step span {
   display: inline-block;
