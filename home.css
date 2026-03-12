@@ -359,6 +359,12 @@
     padding: 72px 0 64px;
   }
 
+  .home-header-inner {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    padding: 18px 0 12px;
+  }
+
   .home-hero__copy {
     text-align: center;
   }
@@ -369,14 +375,15 @@
   }
 
   .home-header-inner .header-actions {
+    margin-left: auto;
     gap: 10px;
   }
 
   .home-header-inner .header-actions .btn {
-    width: 148px;
-    min-width: 148px;
-    min-height: 74px;
-    padding: 0 18px;
+    width: 112px;
+    min-width: 112px;
+    min-height: 54px;
+    padding: 8px 12px;
     font-size: 13px;
     line-height: 1.2;
     justify-content: center;
