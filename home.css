@@ -82,6 +82,19 @@
   font-size: clamp(26px, 4vw, 42px);
 }
 
+.section-heading__title--compact {
+  font-size: clamp(21px, 3.2vw, 34px);
+}
+
+.home-intro__lead {
+  margin: 24px auto 0;
+  max-width: 34em;
+  font-size: clamp(15px, 2.3vw, 25px);
+  line-height: 1.95;
+  letter-spacing: 0.04em;
+  color: rgba(17, 17, 17, 0.74);
+}
+
 .home-lead {
   margin: 22px 0 0;
   font-size: clamp(15px, 2.3vw, 25px);
