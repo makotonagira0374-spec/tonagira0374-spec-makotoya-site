@@ -373,11 +373,13 @@
   }
 
   .home-header-inner .header-actions .btn {
-    width: auto;
-    min-width: 92px;
-    padding: 10px 14px;
+    width: 148px;
+    min-width: 148px;
+    min-height: 74px;
+    padding: 0 18px;
     font-size: 13px;
     line-height: 1.2;
+    justify-content: center;
   }
 
   .home-header-inner .header-actions .btn:first-child {
@@ -391,6 +393,7 @@
     display: block;
     width: 100%;
     text-align: center;
+    line-height: 1.15;
   }
 
   .home-header-inner .header-actions .btn:first-child .header-btn-line + .header-btn-line {
