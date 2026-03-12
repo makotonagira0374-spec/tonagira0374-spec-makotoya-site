@@ -239,9 +239,10 @@
   line-height: 1.45;
 }
 
-.rate-card h3 span {
+.rate-card__price span {
   font-size: 0.72em;
   color: rgba(17, 17, 17, 0.62);
+  font-weight: 500;
 }
 
 .rate-card__price {
