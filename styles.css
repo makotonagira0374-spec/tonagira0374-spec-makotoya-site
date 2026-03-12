@@ -1160,6 +1160,18 @@ body{
   }
 
   /* 固定タブ */
+  .lp-page .header-actions{
+    gap: 10px;
+  }
+
+  .lp-page .header-actions .btn{
+    width: auto;
+    min-width: 92px;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
   .contact-tabs{
     right: 12px;
     bottom: 88px;
