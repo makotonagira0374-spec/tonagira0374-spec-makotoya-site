@@ -203,6 +203,20 @@
   gap: 22px;
 }
 
+.event-intro__photo {
+  margin: 26px 0 0;
+  overflow: hidden;
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(36, 27, 18, 0.1);
+}
+
+.event-intro__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .event-intro__grid,
 .event-pricing__grid,
 .event-flow__grid {
@@ -470,6 +484,11 @@
 
   .event-intro__grid {
     gap: 10px;
+  }
+
+  .event-intro__photo {
+    margin-top: 18px;
+    border-radius: 18px;
   }
 
   .event-intro .event-card {
