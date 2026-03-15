@@ -284,6 +284,12 @@
 }
 
 @media (min-width: 769px) {
+  .event-intro .event-card {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+  }
+
   .event-card h3 {
     font-size: clamp(18px, 2vw, 22px);
     white-space: nowrap;
