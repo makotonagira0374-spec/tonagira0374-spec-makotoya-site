@@ -190,6 +190,10 @@
   font-size: clamp(28px, 4vw, 46px);
 }
 
+.event-mobile-break {
+  display: none;
+}
+
 .event-intro__grid,
 .event-benefits__grid,
 .event-pricing__grid,
@@ -456,6 +460,10 @@
 
   .event-benefits__grid {
     grid-template-columns: 1fr;
+  }
+
+  .event-mobile-break {
+    display: inline;
   }
 
   .event-intro__grid {
