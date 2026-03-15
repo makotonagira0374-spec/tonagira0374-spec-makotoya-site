@@ -244,6 +244,10 @@
   color: var(--event-ink);
 }
 
+.event-card h3 {
+  font-size: clamp(18px, 2vw, 22px);
+}
+
 .event-card p,
 .event-benefit p,
 .event-feature p,
