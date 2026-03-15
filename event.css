@@ -428,4 +428,16 @@
   .event-cta__actions .btn {
     width: 100%;
   }
+
+  .event-page .header-actions {
+    gap: 10px;
+  }
+
+  .event-page .header-actions .btn {
+    width: auto;
+    min-width: 92px;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
 }
