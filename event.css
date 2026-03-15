@@ -260,6 +260,10 @@
   padding: 28px;
 }
 
+.event-intro .event-card {
+  padding: 16px 20px;
+}
+
 .event-card h3,
 .event-benefit h3,
 .event-feature h3,
@@ -509,7 +513,7 @@
   }
 
   .event-intro .event-card {
-    padding: 10px 14px;
+    padding: 8px 12px;
     border-radius: 18px;
   }
 
