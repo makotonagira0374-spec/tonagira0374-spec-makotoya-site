@@ -95,7 +95,7 @@
 }
 
 .event-hero__title {
-  font-size: clamp(32px, 5vw, 60px);
+  font-size: clamp(29px, 4.5vw, 54px);
 }
 
 .event-hero__lead,
