@@ -1,0 +1,431 @@
+.event-page {
+  --event-red: #9f1d22;
+  --event-red-dark: #7b1317;
+  --event-gold: #c49a3a;
+  --event-gold-soft: #e8d6a3;
+  --event-green: #234235;
+  --event-paper: #f6f1e7;
+  --event-ink: #1a1714;
+  background:
+    linear-gradient(rgba(246, 241, 231, 0.94), rgba(246, 241, 231, 0.98)),
+    radial-gradient(circle at top left, rgba(196, 154, 58, 0.22), transparent 32%),
+    radial-gradient(circle at top right, rgba(159, 29, 34, 0.15), transparent 28%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(196, 154, 58, 0.04) 0,
+      rgba(196, 154, 58, 0.04) 12px,
+      rgba(255, 255, 255, 0) 12px,
+      rgba(255, 255, 255, 0) 24px
+    );
+  color: var(--event-ink);
+}
+
+.event-page .site-header {
+  background: rgba(246, 241, 231, 0.92);
+}
+
+.event-page .btn-primary {
+  background: var(--event-red);
+}
+
+.event-page .btn-primary:hover {
+  background: var(--event-red-dark);
+}
+
+.event-page .btn-outline {
+  border-color: rgba(35, 66, 53, 0.75);
+  color: var(--event-green);
+}
+
+.event-page .btn-outline:hover {
+  border-color: var(--event-green);
+}
+
+.event-hero,
+.event-intro,
+.event-benefits,
+.event-experience,
+.event-pricing,
+.event-cases,
+.event-flow,
+.event-cta {
+  padding: 96px 0;
+}
+
+.event-hero {
+  padding-top: 88px;
+  position: relative;
+}
+
+.event-hero::before {
+  content: "";
+  position: absolute;
+  inset: 18px 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196, 154, 58, 0.7), transparent);
+}
+
+.event-hero__grid,
+.event-experience__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+}
+
+.event-eyebrow,
+.event-section-heading__eyebrow,
+.event-cta__eyebrow {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--event-green);
+}
+
+.event-hero__title,
+.event-section-heading__title,
+.event-cta h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+}
+
+.event-hero__title {
+  font-size: clamp(32px, 5vw, 60px);
+}
+
+.event-hero__lead,
+.event-cta p {
+  margin: 24px 0 0;
+  font-size: clamp(15px, 2vw, 20px);
+  line-height: 2;
+  color: rgba(26, 23, 20, 0.78);
+}
+
+.event-hero__points {
+  display: grid;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.event-hero__points p {
+  margin: 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--event-gold);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 14px 32px rgba(36, 27, 18, 0.06);
+}
+
+.event-hero__actions,
+.event-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.event-hero__media,
+.event-experience__photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(36, 27, 18, 0.16);
+}
+
+.event-hero__media img,
+.event-experience__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-hero__media img {
+  min-height: 560px;
+}
+
+.event-section-heading {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.event-section-heading--left {
+  text-align: left;
+}
+
+.event-section-heading__title {
+  font-size: clamp(28px, 4vw, 46px);
+}
+
+.event-intro__grid,
+.event-benefits__grid,
+.event-pricing__grid,
+.event-cases__grid,
+.event-flow__grid {
+  display: grid;
+  gap: 22px;
+}
+
+.event-intro__grid,
+.event-pricing__grid,
+.event-flow__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.event-benefits__grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.event-card,
+.event-benefit,
+.event-plan-card,
+.event-note-card,
+.event-flow-step,
+.event-aside-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 243, 231, 0.92));
+  border: 1px solid rgba(196, 154, 58, 0.24);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(36, 27, 18, 0.07);
+}
+
+.event-card,
+.event-benefit,
+.event-flow-step,
+.event-aside-card {
+  padding: 28px;
+}
+
+.event-card h3,
+.event-benefit h3,
+.event-feature h3,
+.event-plan-card h3,
+.event-note-card h3,
+.event-scene-card h3,
+.event-flow-step h3,
+.event-aside-card h3 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.45;
+  color: var(--event-ink);
+}
+
+.event-card p,
+.event-benefit p,
+.event-feature p,
+.event-plan-card li,
+.event-note-card p,
+.event-scene-card p,
+.event-flow-step p,
+.event-aside-card li {
+  margin: 0;
+  color: rgba(26, 23, 20, 0.74);
+  line-height: 1.95;
+}
+
+.event-benefit span,
+.event-flow-step span {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: var(--event-red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.event-experience__aside {
+  display: grid;
+  gap: 22px;
+}
+
+.event-feature-list {
+  display: grid;
+  gap: 18px;
+}
+
+.event-feature {
+  padding: 24px 26px;
+  border-left: 4px solid var(--event-red);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 18px;
+}
+
+.event-aside-card ul,
+.event-plan-card ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.event-plan-card {
+  position: relative;
+  padding: 34px 28px 30px;
+}
+
+.event-plan-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, var(--event-red), var(--event-gold));
+  border-radius: 24px 24px 0 0;
+}
+
+.event-plan-card--featured {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 52px rgba(159, 29, 34, 0.12);
+}
+
+.event-plan-card__time {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--event-green);
+}
+
+.event-plan-card h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-size: clamp(30px, 4vw, 42px);
+  color: var(--event-red);
+}
+
+.event-plan-card h3 span,
+.event-note-card__price {
+  font-size: 16px;
+  color: rgba(26, 23, 20, 0.72);
+}
+
+.event-plan-card ul {
+  display: grid;
+  gap: 10px;
+}
+
+.event-pricing__notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.event-note-card {
+  padding: 26px 28px;
+}
+
+.event-scene-card {
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 40px rgba(36, 27, 18, 0.08);
+}
+
+.event-scene-card img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.event-scene-card div {
+  padding: 24px;
+}
+
+.event-cta {
+  padding-bottom: 110px;
+}
+
+.event-cta__inner {
+  padding: 48px 34px;
+  text-align: center;
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(159, 29, 34, 0.95), rgba(35, 66, 53, 0.95));
+  color: #fff;
+  box-shadow: 0 26px 60px rgba(36, 27, 18, 0.18);
+}
+
+.event-cta__inner .event-cta__eyebrow,
+.event-cta__inner p,
+.event-cta__inner h2 {
+  color: #fff;
+}
+
+.event-cta__inner .btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.event-cta__inner .btn-outline:hover {
+  border-color: #fff;
+}
+
+.event-page .contact {
+  padding-top: 0;
+}
+
+@media (max-width: 1100px) {
+  .event-benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .event-hero__grid,
+  .event-experience__grid,
+  .event-intro__grid,
+  .event-pricing__grid,
+  .event-flow__grid,
+  .event-pricing__notes {
+    grid-template-columns: 1fr;
+  }
+
+  .event-cases__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-plan-card--featured {
+    transform: none;
+  }
+
+  .event-hero__media {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-hero,
+  .event-intro,
+  .event-benefits,
+  .event-experience,
+  .event-pricing,
+  .event-cases,
+  .event-flow,
+  .event-cta {
+    padding: 72px 0;
+  }
+
+  .event-hero__media img {
+    min-height: 360px;
+  }
+
+  .event-benefits__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-cta__inner {
+    padding: 38px 22px;
+  }
+
+  .event-hero__actions .btn,
+  .event-cta__actions .btn {
+    width: 100%;
+  }
+}
