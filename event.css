@@ -118,13 +118,35 @@
   margin-top: 34px;
 }
 
-.event-hero__points p {
-  margin: 0;
+.event-hero__point {
   padding: 14px 18px;
   border-left: 4px solid var(--event-gold);
   background: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
   box-shadow: 0 14px 32px rgba(36, 27, 18, 0.06);
+}
+
+.event-hero__point span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--event-red);
+}
+
+.event-hero__point h2 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  color: var(--event-ink);
+}
+
+.event-hero__point p {
+  margin: 0;
+  color: rgba(26, 23, 20, 0.78);
+  line-height: 1.85;
 }
 
 .event-hero__actions,
