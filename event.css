@@ -203,8 +203,15 @@
   gap: 22px;
 }
 
+.event-intro__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
 .event-intro__photo {
-  margin: 26px 0 0;
+  margin: 0;
   overflow: hidden;
   border-radius: 28px;
   box-shadow: 0 18px 40px rgba(36, 27, 18, 0.1);
@@ -221,6 +228,10 @@
 .event-pricing__grid,
 .event-flow__grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.event-intro__grid {
+  grid-template-columns: 1fr;
 }
 
 .event-benefits__grid {
@@ -438,7 +449,7 @@
 @media (max-width: 900px) {
   .event-hero__grid,
   .event-experience__grid,
-  .event-intro__grid,
+  .event-intro__body,
   .event-pricing__grid,
   .event-flow__grid,
   .event-pricing__notes {
