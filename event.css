@@ -248,6 +248,12 @@
   font-size: clamp(18px, 2vw, 22px);
 }
 
+@media (min-width: 769px) {
+  .event-card h3 {
+    font-size: clamp(16px, 1.35vw, 18px);
+  }
+}
+
 .event-card p,
 .event-benefit p,
 .event-feature p,
