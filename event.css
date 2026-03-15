@@ -448,6 +448,23 @@
     grid-template-columns: 1fr;
   }
 
+  .event-hero__point {
+    padding: 14px 16px;
+    overflow: hidden;
+  }
+
+  .event-hero__point span,
+  .event-hero__point h2,
+  .event-hero__point p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .event-hero__point h2 {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
   .event-cta__inner {
     padding: 38px 22px;
   }
