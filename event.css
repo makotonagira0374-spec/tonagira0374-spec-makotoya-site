@@ -194,6 +194,10 @@
   display: none;
 }
 
+.event-desktop-break {
+  display: inline;
+}
+
 .event-intro__grid,
 .event-benefits__grid,
 .event-pricing__grid,
@@ -513,6 +517,10 @@
 
   .event-mobile-break {
     display: inline;
+  }
+
+  .event-desktop-break {
+    display: none;
   }
 
   .event-intro__grid {
