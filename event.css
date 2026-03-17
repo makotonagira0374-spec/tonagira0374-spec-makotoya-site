@@ -385,6 +385,12 @@
   color: rgba(26, 23, 20, 0.72);
 }
 
+.event-plan-card__sub {
+  margin: -2px 0 12px;
+  color: rgba(26, 23, 20, 0.74);
+  line-height: 1.95;
+}
+
 .event-plan-card ul {
   display: grid;
   gap: 10px;
