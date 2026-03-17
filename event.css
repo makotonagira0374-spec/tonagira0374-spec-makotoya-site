@@ -315,10 +315,10 @@
 }
 
 .event-flow-step__emphasis {
-  font-size: 1em;
+  font-size: inherit;
   line-height: inherit;
-  font-weight: 600;
-  color: #111111;
+  font-weight: inherit;
+  color: inherit;
 }
 
 .event-benefit span,
