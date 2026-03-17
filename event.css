@@ -321,8 +321,8 @@
   color: inherit;
 }
 
-.event-benefit span,
-.event-flow-step span {
+.event-benefit > span,
+.event-flow-step > span {
   display: inline-flex;
   margin-bottom: 16px;
   color: var(--event-red);
