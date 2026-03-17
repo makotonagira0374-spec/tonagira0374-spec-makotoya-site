@@ -314,6 +314,11 @@
   line-height: 1.95;
 }
 
+.event-flow-step__emphasis {
+  font-weight: 600;
+  color: rgba(26, 23, 20, 0.9);
+}
+
 .event-benefit span,
 .event-flow-step span {
   display: inline-flex;
