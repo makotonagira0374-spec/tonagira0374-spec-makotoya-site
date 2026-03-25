@@ -53,6 +53,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  const memorySlider = document.querySelector('[data-memory-slider]');
+  const memoryTrack = memorySlider?.querySelector('.memory-slider__track');
+  const memorySlides = memorySlider ? Array.from(memorySlider.querySelectorAll('[data-memory-slide]')) : [];
+  const memoryDots = Array.from(document.querySelectorAll('[data-memory-dot]'));
+  let activeMemoryIndex = 0;
+
+  const syncMemorySlider = (index) => {
+    if (!memoryTrack || !memorySlides.length) return;
+
+    activeMemoryIndex = index;
+    memoryTrack.style.transform = `translateX(-${index * 100}%)`;
+
+    memorySlides.forEach((slide, slideIndex) => {
+      slide.classList.toggle('is-active', slideIndex === index);
+    });
+
+    memoryDots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === index;
+      dot.classList.toggle('is-active', isActive);
+      dot.setAttribute('aria-current', String(isActive));
+    });
+  };
+
+  if (memoryTrack && memorySlides.length && memoryDots.length) {
+    memoryDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const nextIndex = Number(dot.getAttribute('data-memory-dot'));
+        if (Number.isNaN(nextIndex)) return;
+        syncMemorySlider(nextIndex);
+      });
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    memorySlider.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0]?.clientX || 0;
+    }, { passive: true });
+
+    memorySlider.addEventListener('touchend', (event) => {
+      touchEndX = event.changedTouches[0]?.clientX || 0;
+      const deltaX = touchEndX - touchStartX;
+
+      if (Math.abs(deltaX) < 36) return;
+      if (deltaX < 0 && activeMemoryIndex < memorySlides.length - 1) syncMemorySlider(activeMemoryIndex + 1);
+      if (deltaX > 0 && activeMemoryIndex > 0) syncMemorySlider(activeMemoryIndex - 1);
+    }, { passive: true });
+
+    syncMemorySlider(0);
+  }
   document.querySelectorAll('.faq-item .faq-q').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
