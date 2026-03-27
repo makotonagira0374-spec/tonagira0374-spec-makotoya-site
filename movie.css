@@ -138,6 +138,7 @@
 }
 
 .movie-hero__media img,
+.movie-hero__media video,
 .movie-overview__image img,
 .movie-experience__media img,
 .movie-scenes__photo img {
@@ -149,6 +150,11 @@
 
 .movie-hero__media img {
   min-height: 560px;
+}
+
+.movie-hero__media video {
+  min-height: 560px;
+  background: #000;
 }
 
 .movie-overview__inner {
@@ -520,7 +526,8 @@
     border-radius: 24px;
   }
 
-  .movie-hero__media img {
+  .movie-hero__media img,
+  .movie-hero__media video {
     min-height: 420px;
   }
 
