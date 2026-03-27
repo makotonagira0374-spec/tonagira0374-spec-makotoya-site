@@ -454,6 +454,17 @@
 }
 
 @media (max-width: 768px) {
+  .movie-page .header-actions {
+    gap: 10px;
+  }
+
+  .movie-page .header-actions .btn {
+    width: auto;
+    min-width: 92px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
   .movie-hero,
   .movie-empathy,
   .movie-values,
