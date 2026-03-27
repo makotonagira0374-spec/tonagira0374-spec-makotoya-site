@@ -497,6 +497,14 @@
     grid-template-columns: 1fr;
   }
 
+  .movie-hero__title,
+  .movie-section-heading,
+  .movie-section-heading--left,
+  .movie-section-heading__title,
+  .movie-cta h2 {
+    text-align: center;
+  }
+
   .movie-mobile-break {
     display: inline;
   }
