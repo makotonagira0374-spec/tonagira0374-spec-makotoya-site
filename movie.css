@@ -188,6 +188,14 @@
   font-size: clamp(28px, 4vw, 46px);
 }
 
+.movie-section-heading__sub {
+  margin: 18px auto 0;
+  max-width: 34em;
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 2;
+  color: var(--movie-muted);
+}
+
 .movie-mobile-break {
   display: none;
 }
@@ -515,6 +523,7 @@
 
   .movie-hero__lead,
   .movie-hero__sub,
+  .movie-section-heading__sub,
   .movie-soft-card p,
   .movie-value-card p,
   .movie-feature p,
