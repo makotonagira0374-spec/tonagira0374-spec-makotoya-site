@@ -121,6 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
     dotSelector: '[data-gallery-dot]',
     dotAttribute: 'data-gallery-dot'
   });
+
+  setupSlider({
+    root: document.querySelector('[data-plan-slider]'),
+    trackSelector: '.movie-plans__grid',
+    slideSelector: '[data-plan-slide]',
+    dotSelector: '[data-plan-dot]',
+    dotAttribute: 'data-plan-dot'
+  });
   document.querySelectorAll('.faq-item .faq-q').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
