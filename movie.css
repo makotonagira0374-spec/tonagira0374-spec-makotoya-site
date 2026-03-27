@@ -1,0 +1,523 @@
+.movie-page {
+  --movie-paper: #f6f2ec;
+  --movie-mist: #edf4f5;
+  --movie-ink: #181818;
+  --movie-muted: rgba(24, 24, 24, 0.68);
+  --movie-line: rgba(110, 144, 153, 0.22);
+  --movie-accent: #87aeb9;
+  --movie-accent-dark: #6b95a1;
+  --movie-warm: #cdb6a2;
+  background:
+    radial-gradient(circle at top left, rgba(135, 174, 185, 0.14), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(205, 182, 162, 0.16), transparent 24%),
+    linear-gradient(180deg, #fcfbf9 0%, #ffffff 42%, #f8f5f1 100%);
+  color: var(--movie-ink);
+}
+
+.movie-page .site-header {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.movie-page .btn-primary {
+  background: var(--movie-accent);
+}
+
+.movie-page .btn-primary:hover {
+  background: var(--movie-accent-dark);
+}
+
+.movie-page .btn-outline {
+  border-color: rgba(24, 24, 24, 0.7);
+}
+
+.movie-hero,
+.movie-empathy,
+.movie-values,
+.movie-experience,
+.movie-direction,
+.movie-plans,
+.movie-benefits,
+.movie-cta {
+  padding: 96px 0;
+}
+
+.movie-overview,
+.movie-philosophy,
+.movie-scenes {
+  padding: 0 0 96px;
+}
+
+.movie-narrow {
+  max-width: 820px;
+}
+
+.movie-hero {
+  padding-top: 88px;
+}
+
+.movie-hero__grid,
+.movie-experience__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.94fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+
+.movie-eyebrow,
+.movie-section-heading__eyebrow,
+.movie-cta__eyebrow {
+  margin: 0 0 16px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--movie-accent-dark);
+}
+
+.movie-hero__title,
+.movie-section-heading__title,
+.movie-cta h2,
+.movie-plan-card h3,
+.movie-value-card h3,
+.movie-feature h3,
+.movie-direction-card h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
+}
+
+.movie-hero__title {
+  font-size: clamp(32px, 5vw, 58px);
+}
+
+.movie-hero__lead,
+.movie-hero__sub,
+.movie-philosophy__copy p,
+.movie-philosophy__body p,
+.movie-soft-card p,
+.movie-value-card p,
+.movie-feature p,
+.movie-direction-card p,
+.movie-plan-card li,
+.movie-plan-card__recommend,
+.movie-cta p {
+  margin: 0;
+  color: var(--movie-muted);
+  line-height: 2;
+}
+
+.movie-hero__lead {
+  margin-top: 26px;
+  font-size: clamp(16px, 2vw, 21px);
+}
+
+.movie-hero__sub {
+  margin-top: 24px;
+  font-size: clamp(15px, 1.9vw, 19px);
+}
+
+.movie-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.movie-hero__media,
+.movie-overview__image,
+.movie-experience__media,
+.movie-scenes__photo {
+  margin: 0;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+.movie-hero__media {
+  border-radius: 30px;
+}
+
+.movie-hero__media img,
+.movie-overview__image img,
+.movie-experience__media img,
+.movie-scenes__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-hero__media img {
+  min-height: 560px;
+}
+
+.movie-overview__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 22px;
+  align-items: end;
+}
+
+.movie-overview__image--large {
+  border-radius: 26px;
+  height: 520px;
+}
+
+.movie-overview__image--small {
+  border-radius: 24px;
+  height: 360px;
+  transform: translateY(36px);
+}
+
+.movie-section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.movie-section-heading--left {
+  text-align: left;
+}
+
+.movie-section-heading__title {
+  font-size: clamp(28px, 4vw, 46px);
+}
+
+.movie-empathy {
+  background: linear-gradient(180deg, rgba(237, 244, 245, 0.72), rgba(246, 242, 236, 0.72));
+}
+
+.movie-empathy__list,
+.movie-values__grid,
+.movie-direction__grid,
+.movie-plans__grid,
+.movie-scenes__grid {
+  display: grid;
+  gap: 22px;
+}
+
+.movie-empathy__list {
+  grid-template-columns: 1fr;
+}
+
+.movie-soft-card,
+.movie-value-card,
+.movie-direction-card,
+.movie-plan-card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--movie-line);
+  border-radius: 24px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.05);
+}
+
+.movie-soft-card {
+  padding: 28px 30px;
+  text-align: center;
+}
+
+.movie-philosophy__copy {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.movie-philosophy__copy p {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.4vw, 38px);
+  line-height: 1.8;
+  color: rgba(24, 24, 24, 0.86);
+}
+
+.movie-philosophy__body {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+}
+
+.movie-values__grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.movie-value-card {
+  padding: 28px;
+  min-height: 230px;
+}
+
+.movie-value-card span {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--movie-accent-dark);
+}
+
+.movie-value-card h3 {
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.movie-experience__media {
+  border-radius: 28px;
+  height: 100%;
+  min-height: 620px;
+}
+
+.movie-feature-list {
+  display: grid;
+  gap: 16px;
+}
+
+.movie-feature {
+  padding: 0 0 18px;
+  border-bottom: 1px solid rgba(24, 24, 24, 0.1);
+}
+
+.movie-feature:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.movie-feature h3,
+.movie-direction-card h3 {
+  margin-bottom: 8px;
+  font-size: clamp(20px, 2.2vw, 26px);
+}
+
+.movie-direction__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.movie-direction-card {
+  padding: 28px;
+  min-height: 210px;
+}
+
+.movie-plans {
+  background: linear-gradient(180deg, rgba(246, 242, 236, 0.86), rgba(255, 255, 255, 0.9));
+}
+
+.movie-plans__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.movie-plan-card {
+  position: relative;
+  padding: 34px 28px 30px;
+}
+
+.movie-plan-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(90deg, var(--movie-accent), var(--movie-warm));
+}
+
+.movie-plan-card--featured {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 56px rgba(107, 149, 161, 0.16);
+}
+
+.movie-plan-card__label {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--movie-accent-dark);
+}
+
+.movie-plan-card h3 {
+  font-size: clamp(23px, 2.2vw, 30px);
+}
+
+.movie-plan-card__price {
+  margin: 22px 0 6px;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #2c4b55;
+}
+
+.movie-plan-card__price span,
+.movie-plan-card__time {
+  font-size: 15px;
+  color: var(--movie-muted);
+}
+
+.movie-plan-card__time {
+  margin: 0 0 18px;
+}
+
+.movie-plan-card ul {
+  margin: 0;
+  padding-left: 1.15em;
+  display: grid;
+  gap: 8px;
+}
+
+.movie-plan-card__recommend {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(24, 24, 24, 0.1);
+}
+
+.movie-benefits__list {
+  display: grid;
+  gap: 18px;
+  text-align: center;
+}
+
+.movie-benefits__list p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.8;
+  color: rgba(24, 24, 24, 0.84);
+}
+
+.movie-scenes__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.movie-scenes__photo {
+  border-radius: 26px;
+  height: 420px;
+}
+
+.movie-cta {
+  padding-bottom: 110px;
+}
+
+.movie-cta__inner {
+  padding: 54px 32px;
+  text-align: center;
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(107, 149, 161, 0.96), rgba(52, 70, 77, 0.96));
+  color: #ffffff;
+  box-shadow: 0 28px 64px rgba(52, 70, 77, 0.2);
+}
+
+.movie-cta__inner .movie-cta__eyebrow,
+.movie-cta__inner h2,
+.movie-cta__inner p {
+  color: #ffffff;
+}
+
+.movie-page .contact {
+  padding-top: 0;
+}
+
+@media (max-width: 1100px) {
+  .movie-values__grid,
+  .movie-direction__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .movie-plans__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-plan-card--featured {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .movie-hero__grid,
+  .movie-experience__grid,
+  .movie-overview__inner,
+  .movie-scenes__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-hero__media {
+    order: -1;
+  }
+
+  .movie-overview__image--large,
+  .movie-overview__image--small,
+  .movie-scenes__photo {
+    height: auto;
+  }
+
+  .movie-overview__image--small {
+    transform: none;
+  }
+
+  .movie-experience__media {
+    min-height: 0;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-hero,
+  .movie-empathy,
+  .movie-values,
+  .movie-experience,
+  .movie-direction,
+  .movie-plans,
+  .movie-benefits,
+  .movie-cta {
+    padding: 72px 0;
+  }
+
+  .movie-overview,
+  .movie-philosophy,
+  .movie-scenes {
+    padding: 0 0 72px;
+  }
+
+  .movie-values__grid,
+  .movie-direction__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-hero__title {
+    letter-spacing: 0.04em;
+  }
+
+  .movie-hero__lead,
+  .movie-hero__sub,
+  .movie-soft-card p,
+  .movie-value-card p,
+  .movie-feature p,
+  .movie-direction-card p,
+  .movie-plan-card li,
+  .movie-plan-card__recommend,
+  .movie-philosophy__body p,
+  .movie-cta p {
+    font-size: 14px;
+  }
+
+  .movie-value-card,
+  .movie-direction-card,
+  .movie-plan-card,
+  .movie-soft-card {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .movie-hero__media,
+  .movie-experience__media,
+  .movie-overview__image,
+  .movie-scenes__photo,
+  .movie-cta__inner {
+    border-radius: 24px;
+  }
+
+  .movie-hero__media img {
+    min-height: 420px;
+  }
+
+  .movie-benefits__list {
+    gap: 10px;
+  }
+
+  .movie-benefits__list p {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+}
