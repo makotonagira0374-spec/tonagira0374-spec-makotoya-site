@@ -379,6 +379,17 @@
   gap: 8px;
 }
 
+.movie-plan-card__body {
+  display: grid;
+  gap: 10px;
+}
+
+.movie-plan-card__body p {
+  margin: 0;
+  color: var(--movie-muted);
+  line-height: 1.95;
+}
+
 .movie-plan-card__recommend {
   margin-top: 20px;
   padding-top: 18px;
