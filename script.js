@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setupSlider({
-    root: document.querySelector('[data-memory-slider]'),
+    root: document.querySelector('.memory-slider'),
     trackSelector: '.memory-slider__track',
     slideSelector: '[data-memory-slide]',
     dotSelector: '[data-memory-dot]',
