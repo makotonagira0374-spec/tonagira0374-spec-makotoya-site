@@ -534,18 +534,24 @@
 
   .movie-values-slider {
     overflow: hidden;
+    width: 100%;
   }
 
   .movie-values__grid {
-    display: flex;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100%;
     gap: 0;
     transition: transform 0.35s ease;
     will-change: transform;
   }
 
   .movie-value-card {
-    min-width: 100%;
-    flex: 0 0 100%;
+    display: block;
+    min-width: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
     margin: 0;
   }
 
