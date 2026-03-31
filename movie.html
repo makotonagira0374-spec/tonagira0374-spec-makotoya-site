@@ -101,27 +101,35 @@
           <h2 class="movie-section-heading__title">動画だからこそ、<span class="movie-mobile-break"><br></span>残せるもの。</h2>
         </div>
 
-        <div class="movie-values__grid">
-          <article class="movie-value-card">
+        <div class="movie-values-slider" data-value-slider>
+          <div class="movie-values__grid">
+          <article class="movie-value-card" data-value-slide>
             <span>01</span>
             <h3>視点</h3>
             <p>それぞれの目線で、<br>同じ一日を残す。</p>
           </article>
-          <article class="movie-value-card">
+          <article class="movie-value-card" data-value-slide>
             <span>02</span>
             <h3>空気</h3>
             <p>風も、光も、音も。<br>その日の空気ごと残す。</p>
           </article>
-          <article class="movie-value-card">
+          <article class="movie-value-card" data-value-slide>
             <span>03</span>
             <h3>時間</h3>
             <p>今のためだけではなく、<br>未来に向けて残す。</p>
           </article>
-          <article class="movie-value-card">
+          <article class="movie-value-card" data-value-slide>
             <span>04</span>
             <h3>言葉</h3>
             <p>言えなかった想いも、<br>そっと残す。</p>
           </article>
+          </div>
+          <div class="movie-values-dots" aria-label="価値の切り替え">
+            <button class="movie-values-dot" type="button" data-value-dot="0" aria-label="1枚目を表示"></button>
+            <button class="movie-values-dot" type="button" data-value-dot="1" aria-label="2枚目を表示"></button>
+            <button class="movie-values-dot" type="button" data-value-dot="2" aria-label="3枚目を表示"></button>
+            <button class="movie-values-dot" type="button" data-value-dot="3" aria-label="4枚目を表示"></button>
+          </div>
         </div>
       </div>
     </section>

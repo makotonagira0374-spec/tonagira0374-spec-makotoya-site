@@ -254,6 +254,10 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.movie-values-slider {
+  overflow: visible;
+}
+
 .movie-value-card {
   padding: 28px;
   min-height: 230px;
@@ -271,6 +275,10 @@
 .movie-value-card h3 {
   margin-bottom: 12px;
   font-size: 28px;
+}
+
+.movie-values-dots {
+  display: none;
 }
 
 .movie-experience__media {
@@ -522,6 +530,45 @@
   .movie-values__grid,
   .movie-direction__grid {
     grid-template-columns: 1fr;
+  }
+
+  .movie-values-slider {
+    overflow: hidden;
+  }
+
+  .movie-values__grid {
+    display: flex;
+    gap: 0;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+
+  .movie-value-card {
+    min-width: 100%;
+    flex: 0 0 100%;
+    margin: 0;
+  }
+
+  .movie-values-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .movie-values-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(24, 24, 24, 0.18);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .movie-values-dot.is-active {
+    background: var(--movie-accent-dark);
+    transform: scale(1.15);
   }
 
   .movie-plans-slider {
