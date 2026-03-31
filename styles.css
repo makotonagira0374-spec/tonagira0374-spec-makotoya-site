@@ -476,6 +476,11 @@ body{
   font-weight: 600;
 }
 
+.plan-features p.feature-premium{
+  color: #6b4fd3;
+  font-weight: 600;
+}
+
 .nowrap-inline{
   white-space: nowrap;
 }
