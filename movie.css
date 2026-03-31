@@ -634,16 +634,16 @@
     overflow-x: auto;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    padding: 4px 4px 14px;
-    margin: 0 -4px;
+    padding: 0 0 14px;
+    margin: 0;
   }
 
   .movie-plans__grid {
     display: grid;
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(280px, 86vw);
-    gap: 14px;
+    grid-auto-columns: 100%;
+    gap: 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
