@@ -130,6 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
     dotAttribute: 'data-value-dot'
   });
 
+  setupSlider({
+    root: document.querySelector('[data-direction-slider]'),
+    trackSelector: '.movie-direction__grid',
+    slideSelector: '[data-direction-slide]',
+    dotSelector: '[data-direction-dot]',
+    dotAttribute: 'data-direction-dot'
+  });
+
   document.querySelectorAll('.faq-item .faq-q').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
