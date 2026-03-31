@@ -406,6 +406,10 @@
   line-height: 1.95;
 }
 
+.movie-plan-card__closing {
+  color: #2c4b55 !important;
+}
+
 .movie-plan-card__recommend {
   margin-top: 20px;
   padding-top: 18px;
