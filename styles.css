@@ -1485,6 +1485,11 @@ body{
     text-align: center;
   }
 
+  .different-reel-link .plans-cta{
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
   /* 固定タブ */
   .lp-page .header-actions{
     gap: 10px;
