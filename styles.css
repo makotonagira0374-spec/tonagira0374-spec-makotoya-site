@@ -452,6 +452,28 @@ body{
   background: var(--accent);
 }
 
+@media (min-width: 769px){
+  .art-photo-slider__viewport{
+    overflow: visible;
+  }
+
+  .art-photo-slider__track{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    transform: none !important;
+  }
+
+  .art-photo-slide{
+    width: auto;
+    flex: initial;
+  }
+
+  .art-photo-slider__dots{
+    display: none;
+  }
+}
+
 /* =========================
    PRE-PLANS REPROMO
 ========================= */
