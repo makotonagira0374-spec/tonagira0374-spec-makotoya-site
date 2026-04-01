@@ -507,6 +507,16 @@ body{
   height: auto;
 }
 
+.story-box__body{
+  display: block;
+}
+
+.story-box__copy p,
+.story-box__intro,
+.story-box__outro{
+  margin: 0;
+}
+
 .mobile-story-card{
   display: none;
 }
@@ -520,6 +530,29 @@ body{
 
   .photo-detail-grid .plan-box{
     height: 100%;
+  }
+
+  .plan-box--story-desktop{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .story-box__body{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0.78fr;
+    gap: 18px;
+    align-items: center;
+    margin: 18px 0;
+  }
+
+  .story-box__media{
+    margin: 0;
+  }
+
+  .story-box__media img{
+    width: 56%;
+    margin: 0 auto;
   }
 }
 
