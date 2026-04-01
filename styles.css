@@ -494,6 +494,18 @@ body{
   padding: 28px 26px;
 }
 
+.story-box__media{
+  margin: 18px 0 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.story-box__media img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .mobile-story-card{
   display: none;
 }
