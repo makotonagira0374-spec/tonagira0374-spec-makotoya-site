@@ -538,6 +538,10 @@ body{
     justify-content: flex-start;
   }
 
+  .mobile-story-card{
+    display: none !important;
+  }
+
   .story-box__body{
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) 1.08fr;
