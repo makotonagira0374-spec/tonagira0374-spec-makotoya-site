@@ -291,6 +291,15 @@ body{
   height: auto;
 }
 
+.different-reel-link{
+  margin-top: 18px;
+  text-align: center;
+}
+
+.different-reel-link .plans-cta{
+  margin-top: 0;
+}
+
 
 /* =========================
    MAKOTOYA STORY
