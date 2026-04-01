@@ -709,7 +709,7 @@
 
   .movie-hero__media img,
   .movie-hero__media iframe {
-    min-height: 294px;
+    min-height: 220px;
   }
 
   .movie-benefits__list {
