@@ -1326,7 +1326,7 @@ body{
   .hero-photo{ padding-bottom: 72px; }
   .hero-photo-card{ border-radius: 16px; }
   #different{ padding: 56px 20px 120px; }
-  #different .different-title{ font-size: 24px; letter-spacing: .02em; white-space: nowrap; }
+  #different .different-title{ font-size: 21px; letter-spacing: 0; white-space: nowrap; }
   .time-story{ padding: 110px 0; }
   .contact{ padding: 110px 0 96px; }
 }
