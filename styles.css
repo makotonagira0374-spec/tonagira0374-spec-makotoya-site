@@ -540,8 +540,8 @@ body{
 
   .story-box__body{
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 0.78fr;
-    gap: 18px;
+    grid-template-columns: minmax(0, 0.92fr) 1.08fr;
+    gap: 12px;
     align-items: center;
     margin: 18px 0;
   }
@@ -551,7 +551,7 @@ body{
   }
 
   .story-box__media img{
-    width: 56%;
+    width: 90%;
     margin: 0 auto;
   }
 }
