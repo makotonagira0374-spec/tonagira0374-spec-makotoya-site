@@ -477,6 +477,35 @@ body{
   color: #555;
 }
 
+.photo-detail-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.photo-detail-grid .plan-box{
+  margin-top: 0;
+}
+
+.plan-box--story{
+  border-radius: 18px;
+  border: 2px solid #cfcfcf;
+  padding: 28px 26px;
+}
+
+@media (min-width: 769px){
+  .photo-detail-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 22px);
+    align-items: stretch;
+  }
+
+  .photo-detail-grid .plan-box{
+    height: 100%;
+  }
+}
+
 @media (min-width: 769px){
   .art-photo-slider__viewport{
     overflow: visible;
