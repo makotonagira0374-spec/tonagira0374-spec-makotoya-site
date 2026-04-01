@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  const setupSlider = ({ root, trackSelector, slideSelector, dotSelector, dotAttribute }) => {
+  const setupSlider = ({ root, trackSelector, slideSelector, dotSelector, dotAttribute, loop = false }) => {
     if (!root) return;
 
     const track = root.querySelector(trackSelector);
@@ -99,8 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const deltaX = touchEndX - touchStartX;
 
       if (Math.abs(deltaX) < 36) return;
-      if (deltaX < 0 && activeIndex < slides.length - 1) syncSlider(activeIndex + 1);
-      if (deltaX > 0 && activeIndex > 0) syncSlider(activeIndex - 1);
+      if (deltaX < 0) {
+        if (activeIndex < slides.length - 1) syncSlider(activeIndex + 1);
+        else if (loop) syncSlider(0);
+      }
+      if (deltaX > 0) {
+        if (activeIndex > 0) syncSlider(activeIndex - 1);
+        else if (loop) syncSlider(slides.length - 1);
+      }
     }, { passive: true });
 
     syncSlider(0);
@@ -136,6 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
     slideSelector: '[data-direction-slide]',
     dotSelector: '[data-direction-dot]',
     dotAttribute: 'data-direction-dot'
+  });
+
+  setupSlider({
+    root: document.querySelector('[data-plan-slider]'),
+    trackSelector: '.movie-plans__grid',
+    slideSelector: '[data-plan-slide]',
+    dotSelector: '[data-plan-dot]',
+    dotAttribute: 'data-plan-dot',
+    loop: true
   });
 
   document.querySelectorAll('.faq-item .faq-q').forEach((btn) => {
