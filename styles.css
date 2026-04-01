@@ -557,6 +557,12 @@ body{
 }
 
 @media (min-width: 769px){
+  .album-section{
+    display: none;
+  }
+}
+
+@media (min-width: 769px){
   .art-photo-slider__viewport{
     overflow: visible;
   }
