@@ -1388,6 +1388,7 @@ body{
 
   .mobile-story-card{
     display: flex;
+    width: min(92vw, 360px);
   }
 
   .plan-features p{
