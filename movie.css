@@ -661,6 +661,17 @@
     scroll-snap-align: start;
   }
 
+  .movie-plan-card::after {
+    content: "SWIPE";
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: rgba(44, 75, 85, 0.58);
+  }
+
   .movie-hero__title,
   .movie-section-heading,
   .movie-section-heading--left,
