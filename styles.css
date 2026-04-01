@@ -452,6 +452,31 @@ body{
   background: var(--accent);
 }
 
+.art-photo-room-box{
+  margin-top: 22px;
+}
+
+.art-photo-room-box__media{
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+.art-photo-room-box__media img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.art-photo-room-box__caption{
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+}
+
 @media (min-width: 769px){
   .art-photo-slider__viewport{
     overflow: visible;
