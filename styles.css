@@ -1325,6 +1325,7 @@ body{
   .hero-list{ margin: 34px 0 26px; }
   .hero-photo{ padding-bottom: 72px; }
   .hero-photo-card{ border-radius: 16px; }
+  #different{ padding: 56px 20px 120px; }
   .time-story{ padding: 110px 0; }
   .contact{ padding: 110px 0 96px; }
 }
