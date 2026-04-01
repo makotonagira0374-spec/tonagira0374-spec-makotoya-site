@@ -1,0 +1,452 @@
+:root{
+  --reserve-bg: #f7f1e8;
+  --reserve-paper: #fffdf9;
+  --reserve-ink: #221d18;
+  --reserve-muted: rgba(34, 29, 24, 0.68);
+  --reserve-line: rgba(84, 64, 46, 0.14);
+  --reserve-accent: #9b6b3d;
+  --reserve-accent-dark: #7f5328;
+  --reserve-sage: #6f7f68;
+  --reserve-rose: #b37b69;
+  --reserve-shadow: 0 22px 48px rgba(49, 35, 20, 0.12);
+}
+
+.reserve-page{
+  color: var(--reserve-ink);
+  background:
+    radial-gradient(circle at top right, rgba(155, 107, 61, 0.12), transparent 28%),
+    linear-gradient(180deg, #f5ede3 0%, #fcfaf7 34%, #f7f1e8 100%);
+}
+
+.reserve-header-actions{
+  flex-wrap: wrap;
+}
+
+.reserve-hero{
+  padding: 84px 0 56px;
+}
+
+.reserve-hero__grid{
+  display: grid;
+  gap: 24px;
+}
+
+.reserve-hero__copy,
+.reserve-hero__panel,
+.reserve-flow__card,
+.reserve-plan-card,
+.availability-board,
+.reserve-footer-cta__inner{
+  border: 1px solid var(--reserve-line);
+  background: rgba(255, 253, 249, 0.88);
+  box-shadow: var(--reserve-shadow);
+  backdrop-filter: blur(8px);
+}
+
+.reserve-hero__copy{
+  padding: 36px 24px;
+  border-radius: 28px;
+}
+
+.reserve-eyebrow,
+.reserve-section-heading__eyebrow{
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--reserve-accent);
+  font-family: var(--sans);
+  font-weight: 600;
+}
+
+.reserve-hero__title,
+.reserve-section-heading__title,
+.reserve-panel__label{
+  font-family: var(--serif);
+}
+
+.reserve-hero__title{
+  margin: 0;
+  font-size: clamp(30px, 7vw, 54px);
+  line-height: 1.28;
+  letter-spacing: 0.05em;
+}
+
+.reserve-hero__lead,
+.reserve-section-heading__note,
+.reserve-availability__lead,
+.reserve-footer-cta__inner p,
+.reserve-panel__list dd,
+.reserve-plan-card__lead,
+.availability-day p{
+  color: var(--reserve-muted);
+}
+
+.reserve-hero__lead{
+  margin: 22px 0 0;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.reserve-hero__points{
+  margin: 28px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.reserve-hero__points p{
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(155, 107, 61, 0.08);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.reserve-hero__actions{
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reserve-hero__actions .btn{
+  width: 100%;
+}
+
+.reserve-hero__panel{
+  padding: 28px 24px;
+  border-radius: 24px;
+}
+
+.reserve-panel__label{
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(111, 127, 104, 0.12);
+  color: var(--reserve-sage);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.reserve-hero__panel h2{
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.reserve-hero__panel > p{
+  margin: 16px 0 0;
+  color: var(--reserve-muted);
+  font-size: 14px;
+}
+
+.reserve-panel__list{
+  margin: 22px 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+.reserve-panel__list div{
+  padding-top: 14px;
+  border-top: 1px solid var(--reserve-line);
+}
+
+.reserve-panel__list dt{
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--reserve-accent);
+  text-transform: uppercase;
+}
+
+.reserve-panel__list dd{
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+.reserve-intro,
+.reserve-plans,
+.reserve-availability,
+.reserve-footer-cta{
+  padding: 18px 0 56px;
+}
+
+.reserve-section-heading{
+  margin-bottom: 24px;
+}
+
+.reserve-section-heading__title{
+  margin: 0;
+  font-size: clamp(26px, 5vw, 40px);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.reserve-section-heading__note{
+  margin: 14px 0 0;
+  font-size: 14px;
+}
+
+.reserve-flow,
+.reserve-plan-grid{
+  display: grid;
+  gap: 18px;
+}
+
+.reserve-flow__card{
+  padding: 24px 20px;
+  border-radius: 24px;
+}
+
+.reserve-flow__card span{
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(155, 107, 61, 0.12);
+  color: var(--reserve-accent);
+  font-family: var(--sans);
+  font-weight: 700;
+}
+
+.reserve-flow__card h3,
+.reserve-plan-card h3{
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.reserve-flow__card p{
+  margin: 12px 0 0;
+  color: var(--reserve-muted);
+  font-size: 14px;
+}
+
+.reserve-plan-card{
+  padding: 28px 22px;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reserve-plan-card::before{
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+}
+
+.reserve-plan-card--rickshaw::before{
+  background: linear-gradient(90deg, #9b6b3d, #c6a27f);
+}
+
+.reserve-plan-card--photo::before{
+  background: linear-gradient(90deg, #b37b69, #d8ae9f);
+}
+
+.reserve-plan-card--movie::before{
+  background: linear-gradient(90deg, #6f7f68, #a4b299);
+}
+
+.reserve-plan-card__tag{
+  margin: 0;
+  color: var(--reserve-accent);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.reserve-plan-card__list{
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.reserve-plan-card__list li{
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(34, 29, 24, 0.04);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.reserve-plan-card__cta{
+  margin-top: 20px;
+  width: 100%;
+}
+
+.reserve-availability__grid{
+  display: grid;
+  gap: 18px;
+}
+
+.reserve-legend{
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.reserve-legend div{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 253, 249, 0.85);
+  border: 1px solid var(--reserve-line);
+}
+
+.reserve-legend p{
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+
+.status{
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-family: var(--sans);
+  font-weight: 700;
+}
+
+.status--open{
+  background: rgba(111, 127, 104, 0.12);
+  color: var(--reserve-sage);
+}
+
+.status--few{
+  background: rgba(155, 107, 61, 0.12);
+  color: var(--reserve-accent);
+}
+
+.status--full{
+  background: rgba(179, 123, 105, 0.14);
+  color: var(--reserve-rose);
+}
+
+.availability-board{
+  padding: 22px;
+  border-radius: 28px;
+  display: grid;
+  gap: 14px;
+}
+
+.availability-day{
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(34, 29, 24, 0.03);
+  border: 1px solid var(--reserve-line);
+}
+
+.availability-day__date{
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--reserve-muted);
+  text-transform: uppercase;
+}
+
+.availability-day__status{
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.availability-day__status strong{
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.availability-day p{
+  margin: 10px 0 0;
+  font-size: 14px;
+}
+
+.reserve-footer-cta__inner{
+  padding: 28px 24px;
+  border-radius: 28px;
+}
+
+.reserve-footer-cta__actions{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reserve-footer-cta__actions .btn{
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  .reserve-hero{
+    padding-top: 110px;
+  }
+
+  .reserve-flow,
+  .reserve-plan-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .reserve-footer-cta__actions,
+  .reserve-hero__actions{
+    flex-direction: row;
+  }
+
+  .reserve-hero__actions .btn,
+  .reserve-footer-cta__actions .btn{
+    width: auto;
+  }
+
+  .reserve-section-heading--split{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
+
+@media (min-width: 980px){
+  .reserve-hero__grid,
+  .reserve-availability__grid{
+    grid-template-columns: minmax(0, 1.4fr) minmax(320px, .9fr);
+    align-items: stretch;
+  }
+
+  .reserve-footer-cta__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .reserve-footer-cta__actions{
+    margin-top: 0;
+    min-width: 230px;
+  }
+}
+
+@media (max-width: 520px){
+  .reserve-header-actions .btn{
+    padding-inline: 14px;
+    font-size: 13px;
+  }
+}
