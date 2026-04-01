@@ -124,21 +124,6 @@
   margin-top: 36px;
 }
 
-.movie-hero__sample {
-  margin-top: 24px;
-  overflow: hidden;
-  border-radius: 24px;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
-}
-
-.movie-hero__sample iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  background: #000;
-}
-
 .movie-hero__media,
 .movie-overview__image,
 .movie-experience__media,
@@ -153,7 +138,7 @@
 }
 
 .movie-hero__media img,
-.movie-hero__media video,
+.movie-hero__media iframe,
 .movie-overview__image img,
 .movie-experience__media img,
 .movie-scenes__photo img {
@@ -167,9 +152,10 @@
   min-height: 560px;
 }
 
-.movie-hero__media video {
+.movie-hero__media iframe {
   min-height: 560px;
   background: #000;
+  border: 0;
 }
 
 .movie-overview__inner {
@@ -714,7 +700,6 @@
   }
 
   .movie-hero__media,
-  .movie-hero__sample,
   .movie-experience__media,
   .movie-overview__image,
   .movie-scenes__photo,
@@ -723,7 +708,7 @@
   }
 
   .movie-hero__media img,
-  .movie-hero__media video {
+  .movie-hero__media iframe {
     min-height: 420px;
   }
 
