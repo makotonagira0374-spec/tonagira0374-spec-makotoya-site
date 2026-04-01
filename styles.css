@@ -1321,7 +1321,7 @@ body{
 
 @media (max-width: 600px){
   .header-inner{ height: 70px; }
-  .hero{ padding: 96px 0 104px; }
+  .hero{ padding: 18px 0 104px; }
   .hero-list{ margin: 34px 0 26px; }
   .hero-photo{ padding-bottom: 72px; }
   .hero-photo-card{ border-radius: 16px; }
