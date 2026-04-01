@@ -1428,6 +1428,9 @@ body{
   .hero-list{ margin: 34px 0 26px; }
   .hero-photo{ padding-bottom: 72px; }
   .hero-photo-card{ border-radius: 16px; }
+  .art-photo-room-box{ padding: 0; overflow: hidden; }
+  .art-photo-room-box__media{ border-radius: 0; box-shadow: none; }
+  .art-photo-room-box__caption{ padding: 14px 16px 18px; margin: 0; }
 
   #different{ padding: 56px 20px 120px; }
   #different .different-title{ font-size: 21px; letter-spacing: 0; white-space: nowrap; }
