@@ -298,6 +298,9 @@ body{
 
 .different-reel-link .plans-cta{
   margin-top: 0;
+  background: #E4405F;
+  border-color: transparent;
+  color: #fff;
 }
 
 
