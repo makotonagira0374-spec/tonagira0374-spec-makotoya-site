@@ -494,6 +494,10 @@ body{
   padding: 28px 26px;
 }
 
+.mobile-story-card{
+  display: none;
+}
+
 @media (min-width: 769px){
   .photo-detail-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1376,6 +1380,14 @@ body{
 
   .plan-card.is-featured{
     transform: none;
+  }
+
+  .plan-box--story-desktop{
+    display: none;
+  }
+
+  .mobile-story-card{
+    display: flex;
   }
 
   .plan-features p{
