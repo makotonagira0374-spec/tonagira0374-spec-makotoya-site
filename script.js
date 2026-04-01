@@ -129,6 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   setupSlider({
+    root: document.querySelector('[data-art-slider]'),
+    trackSelector: '.art-photo-slider__track',
+    slideSelector: '[data-art-slide]',
+    dotSelector: '[data-art-dot]',
+    dotAttribute: 'data-art-dot'
+  });
+
+  setupSlider({
     root: document.querySelector('[data-value-slider]'),
     trackSelector: '.movie-values__grid',
     slideSelector: '[data-value-slide]',

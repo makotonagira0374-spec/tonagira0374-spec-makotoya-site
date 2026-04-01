@@ -400,10 +400,19 @@ body{
   margin-bottom: 18px;
 }
 
-.art-photo-grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+.art-photo-slider__viewport{
+  overflow: hidden;
+}
+
+.art-photo-slider__track{
+  display: flex;
+  transition: transform .32s ease;
+  will-change: transform;
+}
+
+.art-photo-slide{
+  width: 100%;
+  flex: 0 0 100%;
 }
 
 .art-photo-card{
@@ -418,6 +427,29 @@ body{
   display: block;
   width: 100%;
   height: auto;
+}
+
+.art-photo-slider__dots{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.art-photo-slider__dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(31,31,31,.18);
+  padding: 0;
+  cursor: pointer;
+}
+
+.art-photo-slider__dot.is-active{
+  width: 28px;
+  background: var(--accent);
 }
 
 /* =========================
@@ -1349,7 +1381,7 @@ body{
   .hero-list{ margin: 34px 0 26px; }
   .hero-photo{ padding-bottom: 72px; }
   .hero-photo-card{ border-radius: 16px; }
-  .art-photo-grid{ grid-template-columns: 1fr; gap: 12px; }
+
   #different{ padding: 56px 20px 120px; }
   #different .different-title{ font-size: 21px; letter-spacing: 0; white-space: nowrap; }
   .time-story{ padding: 110px 0; }

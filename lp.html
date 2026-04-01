@@ -109,18 +109,31 @@
         </div>
 
         <!-- プラン内容 -->
-        <div class="plan-box art-photo-box">
+        <div class="plan-box art-photo-box" data-art-slider>
           <h3>アートフォト サンプル</h3>
-          <div class="art-photo-grid">
-            <figure class="art-photo-card">
-              <img src="./photo/24.png" alt="アートフォトサンプル 1" loading="lazy" decoding="async">
-            </figure>
-            <figure class="art-photo-card">
-              <img src="./photo/25.png" alt="アートフォトサンプル 2" loading="lazy" decoding="async">
-            </figure>
-            <figure class="art-photo-card">
-              <img src="./photo/26.jpg" alt="アートフォトサンプル 3" loading="lazy" decoding="async">
-            </figure>
+          <div class="art-photo-slider__viewport">
+            <div class="art-photo-slider__track">
+              <article class="art-photo-slide is-active" data-art-slide>
+                <figure class="art-photo-card">
+                  <img src="./photo/24.png" alt="アートフォトサンプル 1" loading="lazy" decoding="async">
+                </figure>
+              </article>
+              <article class="art-photo-slide" data-art-slide>
+                <figure class="art-photo-card">
+                  <img src="./photo/25.png" alt="アートフォトサンプル 2" loading="lazy" decoding="async">
+                </figure>
+              </article>
+              <article class="art-photo-slide" data-art-slide>
+                <figure class="art-photo-card">
+                  <img src="./photo/26.jpg" alt="アートフォトサンプル 3" loading="lazy" decoding="async">
+                </figure>
+              </article>
+            </div>
+          </div>
+          <div class="art-photo-slider__dots" aria-label="アートフォトサンプル切り替え">
+            <button class="art-photo-slider__dot is-active" type="button" aria-label="1枚目を表示" aria-current="true" data-art-dot="0"></button>
+            <button class="art-photo-slider__dot" type="button" aria-label="2枚目を表示" aria-current="false" data-art-dot="1"></button>
+            <button class="art-photo-slider__dot" type="button" aria-label="3枚目を表示" aria-current="false" data-art-dot="2"></button>
           </div>
         </div>
 
