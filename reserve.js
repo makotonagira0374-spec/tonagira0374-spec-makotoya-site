@@ -450,7 +450,6 @@ document.addEventListener('DOMContentLoaded', () => {
       customer: {
         name: raw.name,
         phone: raw.phone,
-        email: raw.email,
         lineContact: raw.lineContact
       },
       details: collectServiceDetails(raw),
@@ -468,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function collectServiceDetails(raw) {
     const details = {};
     Object.keys(raw).forEach((key) => {
-      if (!['name', 'phone', 'email', 'lineContact', 'date', 'time', 'guests', 'purpose', 'notes'].includes(key)) {
+      if (!['name', 'phone', 'lineContact', 'date', 'time', 'guests', 'purpose', 'notes'].includes(key)) {
         details[key] = raw[key];
       }
     });
