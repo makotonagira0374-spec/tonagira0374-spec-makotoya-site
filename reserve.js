@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const TIME_SLOTS = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'];
   const START_DATE = createLocalDate('2026-04-03');
   const MAX_MONTH_OFFSET = 5;
+  const BOOKING_API_URL = (window.MAKOTOYA_BOOKING_API_URL || '').trim();
 
   const serviceCatalog = {
     rickshaw: {
@@ -465,22 +466,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function notifyBooking(booking) {
-    fetch('/api/booking-notify', {
+    if (!BOOKING_API_URL || BOOKING_API_URL.includes('your-vercel-project')) {
+      console.warn('Booking API URL is not configured.');
+      return;
+    }
+
+    fetch(BOOKING_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         name: booking.customer.name,
-        serviceName: booking.serviceName,
-        planName: booking.planName,
+        service: booking.serviceName,
+        plan: booking.planName,
         date: booking.date,
         time: booking.time,
-        guests: booking.guests,
+        people: booking.guests,
         phone: booking.customer.phone,
-        lineContact: booking.customer.lineContact,
-        purpose: booking.purpose,
-        notes: booking.notes
+        email: '',
+        lineId: booking.customer.lineContact,
+        note: [booking.purpose ? `利用目的: ${booking.purpose}` : '', booking.notes].filter(Boolean).join(' / ')
       })
     })
       .then((response) => {
