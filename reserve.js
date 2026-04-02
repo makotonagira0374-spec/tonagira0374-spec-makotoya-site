@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'rickshaw',
       tag: 'Rickshaw Experience',
       name: '人力車体験',
-      lead: '水間の空気を、いちばん近くで味わう。',
-      description: '観光にも、ちょっと特別な時間にも。まちと会話を楽しみながら巡る、誠屋の定番体験です。',
+      lead: '観光地の人力車のように長いコースを巡るのではなく、気軽に人力車を体験できるのが誠屋の特徴です。',
+      description: '',
       meta: ['料金 3,000円〜6,000円', '所要時間 約15分〜35分', '当日予約にもつなげやすいカテゴリ'],
       completionTitle: '予約を受け付けました',
       completionMessage: '予約を受け付けました。LINEでご連絡します。',
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="service-card__tag">${service.tag}</p>
         <h3>${service.name}</h3>
         <p class="service-card__lead">${service.lead}</p>
-        <p class="service-card__description">${service.description}</p>
+        ${service.description ? `<p class="service-card__description">${service.description}</p>` : ''}
         <div class="service-card__meta">${service.meta.map((item) => `<p>${item}</p>`).join('')}</div>
         <div class="service-card__actions">
           <button class="btn btn-primary btn-lg" type="button" data-select-service="${service.id}">空き状況を見る</button>
