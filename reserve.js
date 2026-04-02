@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       completionTitle: '予約を受け付けました',
       completionMessage: '予約を受け付けました。LINEでご連絡します。',
       plans: [
+        { id: 'rickshaw-undecided', name: '未定', price: '', duration: '', note: 'コースは当日または事前のご相談で決めたい方向け。' },
         { id: 'rickshaw-yukkuri', name: 'ゆっくり水間コース', price: '3,000円', duration: '約15分', note: '迷ったら、これ。街道を抜けて、水間の空気をちょうどよく楽しめるコースです。' },
         { id: 'rickshaw-river', name: 'しずかな川沿いコース', price: '4,000円', duration: '約20分', note: '自然を感じながら、少しだけ静かな時間を楽しめるコースです。' },
         { id: 'rickshaw-full', name: 'たっぷり水間コース', price: '6,000円', duration: '約35分', note: '山も、街も、駅も。水間門前町をたっぷり巡る一番贅沢な体験です。' }
