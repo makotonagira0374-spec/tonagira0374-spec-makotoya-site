@@ -472,7 +472,7 @@
 @media (min-width: 1040px){
   .reserve-hero__grid{ grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.82fr); }
   .booking-layout__grid{ grid-template-columns: minmax(0, 1fr) 256px; align-items: start; }
-  .booking-sidebar{ position: sticky; top: 96px; }
+  .booking-sidebar{ position: sticky; top: 96px; margin-top: 84px; }
 }
 
 @media (max-width: 520px){
