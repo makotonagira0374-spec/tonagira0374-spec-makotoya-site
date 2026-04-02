@@ -1,4 +1,27 @@
+const ALLOWED_ORIGINS = new Set([
+  'https://makotoyarickshaw.jp',
+  'https://www.makotoyarickshaw.jp'
+]);
+
+function setCorsHeaders(req, res) {
+  const origin = req.headers.origin || '';
+
+  if (ALLOWED_ORIGINS.has(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+}
+
 export default async function handler(req, res) {
+  setCorsHeaders(req, res);
+
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -12,53 +35,61 @@ export default async function handler(req, res) {
 
   const {
     name = '',
-    serviceName = '',
-    planName = '',
+    service = '',
+    plan = '',
     date = '',
     time = '',
-    guests = '',
+    people = '',
     phone = '',
-    lineContact = '',
-    purpose = '',
-    notes = ''
+    email = '',
+    lineId = '',
+    note = ''
   } = req.body || {};
 
-  const lines = [
-    '【新規予約】',
-    '',
-    `名前：${name}`,
-    `サービス：${serviceName}`,
-    `プラン：${planName || '未定'}`,
-    `日時：${date} ${time}`,
-    `人数：${guests}名`,
-    `電話：${phone}`,
-    `LINE：${lineContact || '未記入'}`
-  ];
-
-  if (purpose) lines.push(`利用目的：${purpose}`);
-  if (notes) lines.push(`備考：${notes}`);
-
-  const response = await fetch('https://api.line.me/v2/bot/message/push', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`
-    },
-    body: JSON.stringify({
-      to: userId,
-      messages: [
-        {
-          type: 'text',
-          text: lines.join('\n')
-        }
-      ]
-    })
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    return res.status(500).json({ error: errorText || 'LINE push failed' });
+  if (!name || !service || !date || !time || !people) {
+    return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  return res.status(200).json({ success: true });
+  const message = [
+    '【新規予約】',
+    `サービス：${service}`,
+    `プラン：${plan || '未定'}`,
+    `お名前：${name}`,
+    `日時：${date} ${time}`,
+    `人数：${people}名`,
+    `電話：${phone || '未記入'}`,
+    `メール：${email || '未記入'}`,
+    `LINE：${lineId || '未記入'}`,
+    `備考：${note || 'なし'}`
+  ].join('\n');
+
+  try {
+    const response = await fetch('https://api.line.me/v2/bot/message/push', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      },
+      body: JSON.stringify({
+        to: userId,
+        messages: [
+          {
+            type: 'text',
+            text: message
+          }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      return res.status(500).json({ error: errorText || 'LINE push failed' });
+    }
+
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    return res.status(500).json({
+      error: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
 }
