@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: '人力車体験',
       lead: '観光地の人力車のように長いコースを巡るのではなく、気軽に人力車を体験できるのが誠屋の特徴です。',
       description: '',
-      meta: ['料金 3,000円〜6,000円', '所要時間 約15分〜35分', '当日予約にもつなげやすいカテゴリ'],
+      meta: ['料金 3,000円〜6,000円', '所要時間 約15分〜35分', '※当日予約はお電話ください。'],
       completionTitle: '予約を受け付けました',
       completionMessage: '予約を受け付けました。LINEでご連絡します。',
       plans: [
