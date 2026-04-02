@@ -420,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     if (!state.selectedService || !state.selectedDate || !state.selectedTime) {
@@ -458,45 +458,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     bookings.push(booking);
     saveBookings();
-    notifyBooking(booking);
+    const notificationResult = await notifyBooking(booking);
     state.lastBooking = booking;
     renderCompletion();
     renderSelectionSummary();
     updateStep('complete');
+
+    if (notificationResult.status === 'failed') {
+      window.alert(`予約は保存されましたが、LINE通知の送信に失敗しました。\n${notificationResult.message}`);
+    }
   }
 
-  function notifyBooking(booking) {
+  async function notifyBooking(booking) {
     if (!BOOKING_API_URL || BOOKING_API_URL.includes('your-vercel-project')) {
       console.warn('Booking API URL is not configured.');
-      return;
+      return { status: 'skipped', message: 'Booking API URL is not configured.' };
     }
 
-    fetch(BOOKING_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: booking.customer.name,
-        service: booking.serviceName,
-        plan: booking.planName,
-        date: booking.date,
-        time: booking.time,
-        people: booking.guests,
-        phone: booking.customer.phone,
-        email: '',
-        lineId: booking.customer.lineContact,
-        note: [booking.purpose ? `利用目的: ${booking.purpose}` : '', booking.notes].filter(Boolean).join(' / ')
-      })
-    })
-      .then((response) => {
-        if (!response.ok) {
-          console.warn('LINE notification request was not accepted:', response.status);
-        }
-      })
-      .catch((error) => {
-        console.warn('LINE notification failed:', error);
-    });
+    try {
+      const response = await fetch(BOOKING_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: booking.customer.name,
+          service: booking.serviceName,
+          plan: booking.planName,
+          date: booking.date,
+          time: booking.time,
+          people: booking.guests,
+          phone: booking.customer.phone,
+          email: '',
+          lineId: booking.customer.lineContact,
+          note: [booking.purpose ? `利用目的: ${booking.purpose}` : '', booking.notes].filter(Boolean).join(' / ')
+        })
+      });
+
+      let payload = null;
+      try {
+        payload = await response.json();
+      } catch {
+        payload = null;
+      }
+
+      if (!response.ok) {
+        const message = payload?.details || payload?.error || `HTTP ${response.status}`;
+        console.warn('LINE notification request was not accepted:', response.status, message);
+        return { status: 'failed', message };
+      }
+
+      return { status: 'sent', message: '' };
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      console.warn('LINE notification failed:', message);
+      return { status: 'failed', message };
+    }
   }
 
   function collectServiceDetails(raw) {

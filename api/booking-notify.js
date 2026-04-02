@@ -83,7 +83,10 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      return res.status(500).json({ error: errorText || 'LINE push failed' });
+      return res.status(502).json({
+        error: 'LINE push failed',
+        details: errorText || 'Unknown LINE API error'
+      });
     }
 
     return res.status(200).json({ success: true });
