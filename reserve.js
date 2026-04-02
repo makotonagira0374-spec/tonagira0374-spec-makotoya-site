@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tag: 'Anniversary Photo',
       name: '記念日フォトプラン',
       cardTitle: '記念日<br>フォトプラン',
-      lead: 'その日の一枚を、未来に残す。',
+      lead: '日常に、埋もれない一瞬を。',
       description: '人力車体験と組み合わせても、写真だけでも。節目を自然体で残したい方向けの撮影プランです。',
       meta: ['料金 19,800円〜59,800円', '内容確認後に日程を確定', 'LINEでヒアリングしながら調整'],
       completionTitle: '予約リクエストを受け付けました',
