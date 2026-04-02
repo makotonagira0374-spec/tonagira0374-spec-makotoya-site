@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'makotoyaBookings';
   const MAX_BOOKINGS_PER_DAY = 5;
-  const timeSlots = ['09:00', '10:30', '12:00', '13:30', '15:00'];
+  const TIME_SLOTS = ['09:00', '10:30', '12:00', '13:30', '15:00'];
+  const START_DATE = createLocalDate('2026-04-03');
+  const MAX_MONTH_OFFSET = 5;
 
   const serviceCatalog = {
     rickshaw: {
@@ -71,15 +73,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const seedCounts = {
-    '2026-04-05': 2,
-    '2026-04-06': 4,
+  const seededDailyCounts = {
+    '2026-04-03': 2,
+    '2026-04-04': 3,
+    '2026-04-05': 4,
+    '2026-04-06': 1,
     '2026-04-07': 5,
-    '2026-04-08': 1,
-    '2026-04-09': 3,
-    '2026-04-10': 2,
+    '2026-04-08': 2,
+    '2026-04-09': 0,
+    '2026-04-10': 3,
     '2026-04-11': 4,
     '2026-04-12': 1
+  };
+
+  const seededBookedSlots = {
+    '2026-04-03': ['09:00', '10:30'],
+    '2026-04-04': ['12:00', '13:30', '15:00'],
+    '2026-04-05': ['09:00', '10:30', '12:00', '15:00'],
+    '2026-04-07': ['09:00', '10:30', '12:00', '13:30', '15:00']
   };
 
   const state = {
@@ -87,13 +98,21 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedService: null,
     selectedDate: '',
     selectedTime: '',
-    lastBooking: null
+    lastBooking: null,
+    currentMonthOffset: 0
   };
 
   const elements = {
     serviceGrid: document.getElementById('service-grid'),
     availabilityLead: document.getElementById('availability-lead'),
-    availabilityList: document.getElementById('availability-list'),
+    calendarTitle: document.getElementById('calendar-title'),
+    calendar: document.getElementById('availability-calendar'),
+    calendarPrev: document.getElementById('calendar-prev'),
+    calendarNext: document.getElementById('calendar-next'),
+    timeSlotsPanel: document.getElementById('time-slots-panel'),
+    timeSlotsTitle: document.getElementById('time-slots-title'),
+    timeSlotsLead: document.getElementById('time-slots-lead'),
+    timeSlotsGrid: document.getElementById('time-slots-grid'),
     selectionSummary: document.getElementById('selection-summary'),
     formSummary: document.getElementById('form-summary'),
     form: document.getElementById('booking-form'),
@@ -105,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const bookings = loadBookings();
+
   renderServices();
   bindCommonActions();
   updateStep('top');
@@ -143,12 +163,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    elements.calendarPrev.addEventListener('click', () => {
+      if (state.currentMonthOffset > 0) {
+        state.currentMonthOffset -= 1;
+        renderCalendar();
+      }
+    });
+
+    elements.calendarNext.addEventListener('click', () => {
+      if (state.currentMonthOffset < MAX_MONTH_OFFSET) {
+        state.currentMonthOffset += 1;
+        renderCalendar();
+      }
+    });
+
     elements.form.addEventListener('submit', handleSubmit);
 
     elements.clearStorage.addEventListener('click', () => {
       localStorage.removeItem(STORAGE_KEY);
       bookings.splice(0, bookings.length);
-      renderAvailability();
+      renderCalendar();
+      renderTimeSlots();
       renderSelectionSummary();
       window.alert('この端末の仮予約データを削除しました。');
     });
@@ -169,9 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
 
     elements.serviceGrid.querySelectorAll('[data-select-service]').forEach((button) => {
-      button.addEventListener('click', () => {
-        selectService(button.getAttribute('data-select-service'));
-      });
+      button.addEventListener('click', () => selectService(button.getAttribute('data-select-service')));
     });
   }
 
@@ -180,36 +213,114 @@ document.addEventListener('DOMContentLoaded', () => {
     state.selectedDate = '';
     state.selectedTime = '';
     state.lastBooking = null;
+    state.currentMonthOffset = 0;
     elements.form.reset();
-    renderAvailability();
+    renderCalendar();
+    renderTimeSlots();
     renderSelectionSummary();
     updateStep('availability');
   }
 
-  function renderAvailability() {
+  function renderCalendar() {
     const service = serviceCatalog[state.selectedService];
-    if (!service || !elements.availabilityList) return;
+    if (!service) return;
 
-    elements.availabilityLead.textContent = `${service.name}の空き状況です。ご希望の日付を選び、空いている時間帯からそのまま予約フォームへ進めます。`;
+    const monthDate = addMonths(startOfMonth(START_DATE), state.currentMonthOffset);
+    elements.availabilityLead.textContent = `${service.name}の空き状況です。まず日程を選ぶと、その日だけの時間枠が表示されます。`;
+    elements.calendarTitle.textContent = formatMonthTitle(monthDate);
+    elements.calendarPrev.disabled = state.currentMonthOffset === 0;
+    elements.calendarNext.disabled = state.currentMonthOffset === MAX_MONTH_OFFSET;
 
-    elements.availabilityList.innerHTML = buildAvailabilityDates().map((entry) => `
-      <article class="availability-day">
-        <div class="availability-day__header">
-          <div>
-            <p class="availability-day__date">${formatDisplayDate(entry.date)}</p>
-            <p class="availability-day__copy">この日の予約数は ${entry.totalCount} / ${MAX_BOOKINGS_PER_DAY} 枠です。</p>
-          </div>
-          <span class="status-badge ${statusClass(entry.totalCount)}">${statusLabel(entry.totalCount)}</span>
-        </div>
-        <div class="availability-day__slots">
-          ${timeSlots.map((time) => renderSlot(entry.date, time, entry.totalCount)).join('')}
-        </div>
-      </article>
-    `).join('');
+    const monthCells = buildCalendarCells(monthDate);
+    elements.calendar.innerHTML = monthCells.map((cell) => {
+      if (cell.type === 'empty') {
+        return '<div class="calendar-day--empty"></div>';
+      }
 
-    elements.availabilityList.querySelectorAll('.slot-button').forEach((button) => {
+      const disabled = cell.isPast || cell.count >= MAX_BOOKINGS_PER_DAY;
+      const selected = state.selectedDate === cell.dateString;
+
+      return `
+        <button
+          class="calendar-day ${selected ? 'is-selected' : ''} ${cell.count >= MAX_BOOKINGS_PER_DAY ? 'is-full' : ''}"
+          type="button"
+          data-date="${cell.dateString}"
+          ${disabled ? 'disabled' : ''}
+        >
+          <span class="calendar-day__number">${cell.day}</span>
+          <span class="calendar-day__status ${statusClass(cell.count)}">${statusLabel(cell.count)}</span>
+        </button>
+      `;
+    }).join('');
+
+    elements.calendar.querySelectorAll('.calendar-day[data-date]').forEach((button) => {
       button.addEventListener('click', () => {
         state.selectedDate = button.getAttribute('data-date') || '';
+        state.selectedTime = '';
+        renderCalendar();
+        renderTimeSlots();
+        renderSelectionSummary();
+      });
+    });
+  }
+
+  function buildCalendarCells(monthDate) {
+    const firstDay = startOfMonth(monthDate);
+    const lastDay = endOfMonth(monthDate);
+    const cells = [];
+
+    for (let index = 0; index < firstDay.getDay(); index += 1) {
+      cells.push({ type: 'empty' });
+    }
+
+    for (let day = 1; day <= lastDay.getDate(); day += 1) {
+      const current = new Date(firstDay.getFullYear(), firstDay.getMonth(), day);
+      if (current < START_DATE) {
+        cells.push({
+          type: 'day',
+          day,
+          dateString: formatDateKey(current),
+          count: MAX_BOOKINGS_PER_DAY,
+          isPast: true
+        });
+        continue;
+      }
+
+      cells.push({
+        type: 'day',
+        day,
+        dateString: formatDateKey(current),
+        count: getDailyCount(formatDateKey(current)),
+        isPast: false
+      });
+    }
+
+    return cells;
+  }
+
+  function renderTimeSlots() {
+    if (!state.selectedDate) {
+      elements.timeSlotsPanel.classList.add('is-hidden');
+      elements.timeSlotsGrid.innerHTML = '';
+      return;
+    }
+
+    elements.timeSlotsPanel.classList.remove('is-hidden');
+    elements.timeSlotsTitle.textContent = `${formatDisplayDate(state.selectedDate)} の時間を選ぶ`;
+    elements.timeSlotsLead.textContent = '空いている時間だけ押せます。時間を選ぶと予約フォームへ進みます。';
+
+    elements.timeSlotsGrid.innerHTML = TIME_SLOTS.map((time) => {
+      const disabled = isSlotDisabled(state.selectedDate, time);
+      return `
+        <button class="slot-button" type="button" data-time="${time}" ${disabled ? 'disabled' : ''}>
+          <strong>${time}</strong>
+          <small>${disabled ? 'この時間は埋まっています' : 'この時間で予約する'}</small>
+        </button>
+      `;
+    }).join('');
+
+    elements.timeSlotsGrid.querySelectorAll('.slot-button[data-time]').forEach((button) => {
+      button.addEventListener('click', () => {
         state.selectedTime = button.getAttribute('data-time') || '';
         prepareForm();
         updateStep('form');
@@ -217,36 +328,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function renderSlot(date, time, dailyCount) {
-    const slotCount = getSlotCount(date, time);
-    const disabled = slotCount >= 1 || dailyCount >= MAX_BOOKINGS_PER_DAY;
-    return `
-      <button class="slot-button" type="button" data-date="${date}" data-time="${time}" ${disabled ? 'disabled' : ''}>
-        <strong>${time}</strong>
-        <small>${disabled ? 'この時間は埋まっています' : 'この時間で予約する'}</small>
-      </button>
-    `;
+  function getDailyCount(dateString) {
+    const savedCount = bookings.filter((booking) => booking.date === dateString && booking.status !== 'cancelled').length;
+    const baseCount = typeof seededDailyCounts[dateString] === 'number' ? seededDailyCounts[dateString] : createDummyDailyCount(dateString);
+    return Math.min(MAX_BOOKINGS_PER_DAY, baseCount + savedCount);
   }
 
-  function buildAvailabilityDates() {
-    const result = [];
-    const start = new Date('2026-04-05T00:00:00');
-    for (let index = 0; index < 8; index += 1) {
-      const current = new Date(start);
-      current.setDate(start.getDate() + index);
-      const date = current.toISOString().slice(0, 10);
-      result.push({ date, totalCount: getDailyCount(date) });
-    }
-    return result;
+  function createDummyDailyCount(dateString) {
+    const numeric = Number(dateString.replaceAll('-', ''));
+    return numeric % 6;
   }
 
-  function getDailyCount(date) {
-    const savedCount = bookings.filter((booking) => booking.date === date && booking.status !== 'cancelled').length;
-    return (seedCounts[date] || 0) + savedCount;
-  }
-
-  function getSlotCount(date, time) {
-    return bookings.filter((booking) => booking.date === date && booking.time === time && booking.status !== 'cancelled').length;
+  function isSlotDisabled(dateString, time) {
+    const bookedTimes = new Set([...(seededBookedSlots[dateString] || []), ...bookings.filter((booking) => booking.date === dateString).map((booking) => booking.time)]);
+    return bookedTimes.has(time) || getDailyCount(dateString) >= MAX_BOOKINGS_PER_DAY;
   }
 
   function prepareForm() {
@@ -329,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
 
     if (!state.selectedService || !state.selectedDate || !state.selectedTime) {
-      window.alert('先にサービス、日付、時間を選んでください。');
+      window.alert('先にカテゴリ、日程、時間を選んでください。');
       updateStep('availability');
       return;
     }
@@ -407,16 +502,18 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const blocks = [
-      { label: 'Service', title: service.name, body: service.lead }
-    ];
+    const blocks = [{ label: 'Service', title: service.name, body: service.lead.replaceAll('<br>', ' ') }];
 
     if (state.selectedDate) {
-      blocks.push({ label: 'Date', title: formatDisplayDate(state.selectedDate), body: '予約候補日' });
+      blocks.push({ label: 'Date', title: formatDisplayDate(state.selectedDate), body: '選択中の日程' });
+    } else {
+      blocks.push({ label: 'Date', title: '日程を選択', body: 'まずはカレンダーから日付を選びます。' });
     }
 
     if (state.selectedTime) {
       blocks.push({ label: 'Time', title: state.selectedTime, body: '選択中の時間帯' });
+    } else if (state.selectedDate) {
+      blocks.push({ label: 'Time', title: '時間を選択', body: '日付を選ぶと、その日の時間枠が表示されます。' });
     }
 
     if (state.lastBooking) {
@@ -437,9 +534,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.booking-step').forEach((section) => {
       section.classList.toggle('is-hidden', section.getAttribute('data-step') !== step);
     });
-    document.querySelectorAll('[data-progress-step]').forEach((item) => {
-      item.classList.toggle('is-active', item.getAttribute('data-progress-step') === step);
-    });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -449,6 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
     state.selectedDate = '';
     state.selectedTime = '';
     state.lastBooking = null;
+    state.currentMonthOffset = 0;
     elements.form.reset();
     elements.dynamicFields.innerHTML = '';
     elements.formSummary.innerHTML = '';
@@ -456,10 +551,38 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStep('top');
   }
 
+  function createLocalDate(dateString) {
+    const [year, month, day] = dateString.split('-').map(Number);
+    return new Date(year, month - 1, day);
+  }
+
+  function startOfMonth(date) {
+    return new Date(date.getFullYear(), date.getMonth(), 1);
+  }
+
+  function endOfMonth(date) {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  }
+
+  function addMonths(date, months) {
+    return new Date(date.getFullYear(), date.getMonth() + months, 1);
+  }
+
+  function formatDateKey(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
   function formatDisplayDate(dateString) {
     if (!dateString) return '未選択';
-    const date = new Date(`${dateString}T00:00:00`);
+    const date = createLocalDate(dateString);
     return new Intl.DateTimeFormat('ja-JP', { month: 'long', day: 'numeric', weekday: 'short' }).format(date);
+  }
+
+  function formatMonthTitle(date) {
+    return `${date.getFullYear()}年${date.getMonth() + 1}月`;
   }
 
   function statusLabel(count) {

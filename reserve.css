@@ -32,7 +32,6 @@
 .reserve-hero__grid,
 .booking-layout__grid,
 .service-grid,
-.availability-list,
 .booking-sidebar,
 .form-grid,
 .subfields-grid,
@@ -51,7 +50,6 @@
 .reserve-hero__panel,
 .card-panel,
 .service-card,
-.availability-day,
 .complete-card,
 .sidebar-card{
   background: var(--reserve-paper);
@@ -102,7 +100,6 @@
 .service-card__lead,
 .service-card__description,
 .service-card__meta,
-.availability-day__copy,
 .slot-button small,
 .sidebar-card p,
 .form-note,
@@ -277,28 +274,161 @@
 .status-badge--few{ background: var(--reserve-accent-soft); color: var(--reserve-accent-dark); }
 .status-badge--full{ background: var(--reserve-red-soft); color: var(--reserve-red); }
 
-.availability-day{
-  border-radius: var(--reserve-radius);
-  padding: 20px;
+.calendar-shell,
+.time-slots-panel{
+  background: var(--reserve-paper);
+  border: 1px solid var(--reserve-line);
+  box-shadow: var(--reserve-shadow);
+  border-radius: 30px;
+  padding: 20px 16px;
 }
 
-.availability-day__header{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.calendar-toolbar{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
   gap: 12px;
 }
 
-.availability-day__date{
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 24px;
-  line-height: 1.45;
+.calendar-nav{
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--reserve-line);
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.availability-day__copy{ margin: 10px 0 0; font-size: 14px; line-height: 1.8; }
+.calendar-nav[disabled]{
+  opacity: 0.42;
+  cursor: not-allowed;
+}
 
-.availability-day__slots{
+.calendar-heading{
+  text-align: center;
+}
+
+.calendar-heading__eyebrow,
+.time-slots-panel__eyebrow{
+  margin: 0 0 6px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--reserve-muted);
+}
+
+.calendar-heading h3,
+.time-slots-panel h3{
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(22px, 4vw, 30px);
+  line-height: 1.4;
+}
+
+.calendar-weekdays{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calendar-weekdays span{
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--reserve-muted);
+}
+
+.availability-calendar{
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calendar-day,
+.calendar-day--empty{
+  aspect-ratio: 1 / 1;
+}
+
+.calendar-day{
+  padding: 8px 4px;
+  border-radius: 18px;
+  border: 1px solid rgba(20, 20, 20, 0.08);
+  background: #fff;
+  display: grid;
+  align-content: space-between;
+  justify-items: center;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.calendar-day:hover{
+  transform: translateY(-1px);
+  border-color: rgba(125, 180, 195, 0.32);
+  box-shadow: 0 12px 18px rgba(125, 180, 195, 0.12);
+}
+
+.calendar-day.is-selected{
+  border-color: rgba(183, 150, 82, 0.5);
+  box-shadow: 0 14px 22px rgba(183, 150, 82, 0.12);
+  background: rgba(183, 150, 82, 0.08);
+}
+
+.calendar-day.is-full{
+  opacity: 0.58;
+}
+
+.calendar-day[disabled]{
+  cursor: not-allowed;
+}
+
+.calendar-day--empty{
+  visibility: hidden;
+}
+
+.calendar-day__number{
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.calendar-day__status{
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.calendar-day__status.status-badge--open{ background: var(--reserve-green-soft); color: var(--reserve-green); }
+.calendar-day__status.status-badge--few{ background: var(--reserve-accent-soft); color: var(--reserve-accent-dark); }
+.calendar-day__status.status-badge--full{ background: var(--reserve-red-soft); color: var(--reserve-red); }
+
+.time-slots-panel{
+  margin-top: 16px;
+}
+
+.time-slots-panel.is-hidden{
+  display: none;
+}
+
+.time-slots-panel__lead{
+  margin: 10px 0 0;
+  color: var(--reserve-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.time-slots-grid{
   margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -462,7 +592,6 @@
     align-items: end;
   }
   .service-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .availability-list{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form-grid,
   .subfields-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form-actions,
@@ -489,6 +618,22 @@
   }
   .service-grid::-webkit-scrollbar{ display: none; }
   .service-card{ scroll-snap-align: start; }
-  .availability-day__slots{ grid-template-columns: 1fr; }
+  .calendar-shell,
+  .time-slots-panel{
+    padding-inline: 12px;
+  }
+  .calendar-toolbar{
+    grid-template-columns: 1fr;
+  }
+  .calendar-heading{
+    order: -1;
+  }
+  .calendar-nav{
+    width: 100%;
+  }
+  .calendar-day{
+    min-height: 72px;
+  }
+  .time-slots-grid{ grid-template-columns: 1fr; }
   .mobile-break{ display: block; }
 }

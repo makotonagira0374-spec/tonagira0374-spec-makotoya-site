@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://makotoyarickshaw.jp/reserve.html" />
   <link rel="stylesheet" href="./styles.css?v=20260311-1" />
-  <link rel="stylesheet" href="./reserve.css?v=20260402-1" />
+  <link rel="stylesheet" href="./reserve.css?v=20260402-2" />
   <meta property="og:title" content="予約専用ページ | 誠屋 | 水間門前町 人力車体験">
   <meta property="og:description" content="人力車体験・記念日フォトプラン・記念日ムービープランをまとめて予約できる誠屋の予約専用ページです。">
   <meta property="og:image" content="https://makotoyarickshaw.jp/ogp.jpg">
@@ -80,7 +80,7 @@
             <div class="section-heading-reserve section-heading-reserve--with-action">
               <div>
                 <p class="section-heading-reserve__eyebrow">Step 2</p>
-                <h2 class="section-heading-reserve__title">空き状況を見て、日付と時間を選ぶ</h2>
+                <h2 class="section-heading-reserve__title">日程を選んで、時間を選ぶ</h2>
                 <p class="section-heading-reserve__lead" id="availability-lead"></p>
               </div>
               <button class="mini-link" type="button" data-action="back-to-top">カテゴリを変える</button>
@@ -88,11 +88,41 @@
 
             <div class="status-guide" aria-label="空き状況ルール">
               <div><span class="status-badge status-badge--open">〇</span><p>空きあり（0〜3件）</p></div>
-              <div><span class="status-badge status-badge--few">△</span><p>残り1枠（4件）</p></div>
+              <div><span class="status-badge status-badge--few">△</span><p>残りわずか（4件）</p></div>
               <div><span class="status-badge status-badge--full">×</span><p>満席（5件）</p></div>
             </div>
 
-            <div class="availability-list" id="availability-list"></div>
+            <div class="calendar-shell">
+              <div class="calendar-toolbar">
+                <button class="calendar-nav" type="button" id="calendar-prev" aria-label="前の月">前月</button>
+                <div class="calendar-heading">
+                  <p class="calendar-heading__eyebrow">Calendar</p>
+                  <h3 id="calendar-title">2026年4月</h3>
+                </div>
+                <button class="calendar-nav" type="button" id="calendar-next" aria-label="次の月">次月</button>
+              </div>
+              <div class="calendar-weekdays" aria-hidden="true">
+                <span>日</span>
+                <span>月</span>
+                <span>火</span>
+                <span>水</span>
+                <span>木</span>
+                <span>金</span>
+                <span>土</span>
+              </div>
+              <div class="availability-calendar" id="availability-calendar"></div>
+            </div>
+
+            <div class="time-slots-panel is-hidden" id="time-slots-panel">
+              <div class="time-slots-panel__header">
+                <div>
+                  <p class="time-slots-panel__eyebrow">Step 3</p>
+                  <h3 id="time-slots-title">時間を選ぶ</h3>
+                  <p class="time-slots-panel__lead" id="time-slots-lead"></p>
+                </div>
+              </div>
+              <div class="time-slots-grid" id="time-slots-grid"></div>
+            </div>
           </section>
 
           <section class="booking-step is-hidden" data-step="form">
@@ -203,6 +233,6 @@
   </main>
 
   <script src="./script.js?v=20260401-1" defer></script>
-  <script src="./reserve.js?v=20260402-1" defer></script>
+  <script src="./reserve.js?v=20260402-2" defer></script>
 </body>
 </html>
