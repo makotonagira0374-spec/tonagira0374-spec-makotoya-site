@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'makotoyaBookings';
   const MAX_BOOKINGS_PER_DAY = 5;
-  const TIME_SLOTS = ['09:00', '10:30', '12:00', '13:30', '15:00'];
+  const TIME_SLOTS = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'];
   const START_DATE = createLocalDate('2026-04-03');
   const MAX_MONTH_OFFSET = 5;
 
