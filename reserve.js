@@ -457,10 +457,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     bookings.push(booking);
     saveBookings();
+    notifyBooking(booking);
     state.lastBooking = booking;
     renderCompletion();
     renderSelectionSummary();
     updateStep('complete');
+  }
+
+  function notifyBooking(booking) {
+    fetch('/api/booking-notify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: booking.customer.name,
+        serviceName: booking.serviceName,
+        planName: booking.planName,
+        date: booking.date,
+        time: booking.time,
+        guests: booking.guests,
+        phone: booking.customer.phone,
+        lineContact: booking.customer.lineContact,
+        purpose: booking.purpose,
+        notes: booking.notes
+      })
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.warn('LINE notification request was not accepted:', response.status);
+        }
+      })
+      .catch((error) => {
+        console.warn('LINE notification failed:', error);
+    });
   }
 
   function collectServiceDetails(raw) {
