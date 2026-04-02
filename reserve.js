@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tag: 'Anniversary Movie',
       name: '記念日ムービープラン',
       cardTitle: '記念日<br>ムービープラン',
-      lead: '表情も、空気も、物語として残す。',
+      lead: 'あなたの笑顔も、ちゃんと残す。',
       description: 'その日の余韻ごと、映像として未来に残したい方向けのプランです。',
       meta: ['料金 19,800円〜59,800円', '内容確認後に制作条件を調整', 'フォトより相談項目が多いカテゴリ'],
       completionTitle: '予約リクエストを受け付けました',
