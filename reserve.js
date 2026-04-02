@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'photo',
       tag: 'Anniversary Photo',
       name: '記念日フォトプラン',
+      cardTitle: '記念日<br>フォトプラン',
       lead: 'その日の一枚を、未来に残す。',
       description: '人力車体験と組み合わせても、写真だけでも。節目を自然体で残したい方向けの撮影プランです。',
       meta: ['料金 19,800円〜59,800円', '内容確認後に日程を確定', 'LINEでヒアリングしながら調整'],
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.serviceGrid.innerHTML = Object.values(serviceCatalog).map((service) => `
       <article class="service-card" data-service="${service.id}">
         <p class="service-card__tag">${service.tag}</p>
-        <h3>${service.name}</h3>
+        <h3>${service.cardTitle || service.name}</h3>
         <p class="service-card__lead">${service.lead}</p>
         ${service.description ? `<p class="service-card__description">${service.description}</p>` : ''}
         <div class="service-card__meta">${service.meta.map((item) => `<p>${item}</p>`).join('')}</div>
