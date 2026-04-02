@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardTitle: '記念日<br>ムービープラン',
       lead: 'あなたの笑顔も、ちゃんと残す。',
       description: 'あなたの笑顔も、<br>その日の感情も、<br>その場の空気も残す。',
-      meta: ['料金 19,800円〜59,800円', '※内容確認後に日程を確定', 'フォトより相談項目が多いカテゴリ'],
+      meta: ['料金 19,800円〜59,800円', '※内容確認後に日程を確定'],
       completionTitle: '予約リクエストを受け付けました',
       completionMessage: '予約リクエストを受け付けました。確認後LINEでご連絡します。',
       plans: [
