@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: '記念日フォトプラン',
       cardTitle: '記念日<br>フォトプラン',
       lead: '日常に、埋もれない一瞬を。',
-      description: '人力車に乗る姿や表情を、プロのカメラマンが撮影し、一生残るかたちに。',
+      description: '人力車に乗る姿や表情を、<br>プロのカメラマンが撮影し、<br>一生残るかたちに。',
       meta: ['料金 19,800円〜59,800円', '※内容確認後に日程を確定'],
       completionTitle: '予約リクエストを受け付けました',
       completionMessage: '予約リクエストを受け付けました。確認後LINEでご連絡します。',
