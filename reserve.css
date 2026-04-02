@@ -172,33 +172,7 @@
 }
 
 .reserve-panel__note{ margin: 18px 0 0; font-size: 14px; line-height: 1.85; }
-.reserve-progress{ padding: 0 0 22px; }
-
-.progress-steps{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.progress-steps li{
-  padding: 14px 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--reserve-line);
-  color: var(--reserve-muted);
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.progress-steps li.is-active{
-  background: var(--reserve-paper-strong);
-  color: var(--reserve-ink);
-  border-color: rgba(183, 150, 82, 0.3);
-  box-shadow: 0 10px 24px rgba(183, 150, 82, 0.12);
-}
-
-.booking-layout{ padding: 0 0 72px; }
+.booking-layout{ padding: 6px 0 72px; }
 .booking-step.is-hidden{ display: none; }
 .section-heading-reserve{ margin-bottom: 22px; }
 
@@ -480,7 +454,6 @@
 
 @media (min-width: 768px){
   .reserve-hero{ padding-top: 112px; }
-  .progress-steps{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .section-heading-reserve--with-action{
     flex-direction: row;
     justify-content: space-between;
