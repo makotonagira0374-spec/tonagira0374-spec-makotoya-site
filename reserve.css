@@ -452,6 +452,8 @@
 
 .selection-block strong{ display: block; font-family: var(--sans); font-size: 15px; }
 
+.mobile-break{ display: none; }
+
 @media (min-width: 768px){
   .reserve-hero{ padding-top: 112px; }
   .section-heading-reserve--with-action{
@@ -476,4 +478,5 @@
 @media (max-width: 520px){
   .reserve-header-actions .btn{ padding-inline: 14px; font-size: 13px; }
   .availability-day__slots{ grid-template-columns: 1fr; }
+  .mobile-break{ display: block; }
 }
