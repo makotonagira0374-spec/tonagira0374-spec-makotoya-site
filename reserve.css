@@ -513,6 +513,14 @@
   font-weight: 700;
 }
 
+.subfields legend{
+  display: block;
+  width: 100%;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  white-space: normal;
+}
+
 .field input,
 .field select,
 .field textarea,
