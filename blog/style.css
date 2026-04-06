@@ -164,7 +164,7 @@ img{ max-width: 100%; }
 }
 
 .blog-hero__title{
-  font-size: clamp(32px, 5vw, 56px);
+  font-size: clamp(26px, 4vw, 45px);
 }
 
 .blog-hero__lead,
