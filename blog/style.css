@@ -167,6 +167,10 @@ img{ max-width: 100%; }
   font-size: clamp(26px, 4vw, 45px);
 }
 
+.desktop-break{
+  display: inline;
+}
+
 .blog-hero__lead,
 .blog-section__heading p,
 .blog-card p,
@@ -461,6 +465,9 @@ img{ max-width: 100%; }
 }
 
 @media (max-width: 820px){
+  .desktop-break{
+    display: none;
+  }
   .blog-header{
     position: static;
   }
