@@ -540,6 +540,21 @@ img{ max-width: 100%; }
     line-height: 1.45;
   }
 
+  .blog-hero .blog-eyebrow,
+  .blog-hero__title,
+  .blog-hero__lead{
+    text-align: center;
+  }
+
+  .blog-hero__lead{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-hero__actions{
+    justify-content: center;
+  }
+
   .blog-hero__actions,
   .article-cta__actions,
   .blog-card__actions{
