@@ -171,6 +171,10 @@ img{ max-width: 100%; }
   display: inline;
 }
 
+.mobile-break{
+  display: none;
+}
+
 .blog-hero__lead,
 .blog-section__heading p,
 .blog-card p,
@@ -527,6 +531,9 @@ img{ max-width: 100%; }
 }
 
 @media (max-width: 600px){
+  .mobile-break{
+    display: inline;
+  }
   .blog-shell{
     width: min(var(--shell), calc(100% - 28px));
   }
