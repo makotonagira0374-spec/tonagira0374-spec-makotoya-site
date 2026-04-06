@@ -465,9 +465,6 @@ img{ max-width: 100%; }
 }
 
 @media (max-width: 820px){
-  .desktop-break{
-    display: none;
-  }
   .blog-header{
     position: static;
   }
@@ -536,6 +533,11 @@ img{ max-width: 100%; }
 
   .blog-btn{
     width: 100%;
+  }
+
+  .blog-hero__title{
+    font-size: clamp(21px, 7vw, 24px);
+    line-height: 1.45;
   }
 
   .blog-hero__actions,
