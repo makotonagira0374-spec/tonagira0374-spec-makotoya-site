@@ -1,9 +1,15 @@
-import { createSign, randomUUID } from 'node:crypto';
+import { randomUUID } from 'node:crypto';
 
 const GOOGLE_TOKEN_ENDPOINT = 'https://oauth2.googleapis.com/token';
 const GOOGLE_CALENDAR_BASE = 'https://www.googleapis.com/calendar/v3';
-const GOOGLE_SCOPE = 'https://www.googleapis.com/auth/calendar';
 const TOKYO_TIME_ZONE = 'Asia/Tokyo';
+
+type AccessTokenCache = {
+  accessToken: string;
+  expiresAt: number;
+};
+
+let tokenCache: AccessTokenCache | null = null;
 
 export type CalendarBookingEvent = {
   id: string;
@@ -23,44 +29,15 @@ function getRequiredEnv(name: string) {
   return value;
 }
 
-function base64UrlEncode(value: string | Buffer) {
-  return Buffer.from(value)
-    .toString('base64')
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/g, '');
-}
-
-function normalizePrivateKey(value: string) {
-  return value.replace(/\\n/g, '\n');
-}
-
 async function getGoogleAccessToken() {
-  const clientEmail = getRequiredEnv('GOOGLE_CLIENT_EMAIL');
-  const privateKey = normalizePrivateKey(getRequiredEnv('GOOGLE_PRIVATE_KEY'));
-  const issuedAt = Math.floor(Date.now() / 1000);
+  const now = Date.now();
+  if (tokenCache && tokenCache.expiresAt > now + 60_000) {
+    return tokenCache.accessToken;
+  }
 
-  const header = {
-    alg: 'RS256',
-    typ: 'JWT'
-  };
-
-  const payload = {
-    iss: clientEmail,
-    scope: GOOGLE_SCOPE,
-    aud: GOOGLE_TOKEN_ENDPOINT,
-    exp: issuedAt + 3600,
-    iat: issuedAt
-  };
-
-  const encodedHeader = base64UrlEncode(JSON.stringify(header));
-  const encodedPayload = base64UrlEncode(JSON.stringify(payload));
-  const unsignedToken = `${encodedHeader}.${encodedPayload}`;
-
-  const signer = createSign('RSA-SHA256');
-  signer.update(unsignedToken);
-  const signature = signer.sign(privateKey);
-  const assertion = `${unsignedToken}.${base64UrlEncode(signature)}`;
+  const clientId = getRequiredEnv('GOOGLE_CLIENT_ID');
+  const clientSecret = getRequiredEnv('GOOGLE_CLIENT_SECRET');
+  const refreshToken = getRequiredEnv('GOOGLE_REFRESH_TOKEN');
 
   const response = await fetch(GOOGLE_TOKEN_ENDPOINT, {
     method: 'POST',
@@ -68,8 +45,10 @@ async function getGoogleAccessToken() {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion
+      client_id: clientId,
+      client_secret: clientSecret,
+      refresh_token: refreshToken,
+      grant_type: 'refresh_token'
     })
   });
 
@@ -79,7 +58,16 @@ async function getGoogleAccessToken() {
   }
 
   const data = await response.json();
-  return data.access_token as string;
+  if (!data.access_token) {
+    throw new Error('Google token response did not include access_token');
+  }
+
+  tokenCache = {
+    accessToken: data.access_token as string,
+    expiresAt: now + Number(data.expires_in || 3600) * 1000
+  };
+
+  return tokenCache.accessToken;
 }
 
 async function calendarRequest(path: string, init: RequestInit = {}) {
