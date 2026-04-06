@@ -547,6 +547,11 @@ img{ max-width: 100%; }
     line-height: 1.45;
   }
 
+  .blog-card h3{
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
   .blog-hero .blog-eyebrow,
   .blog-hero__title,
   .blog-hero__lead{
