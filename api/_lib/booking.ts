@@ -32,6 +32,7 @@ export type BookingEvent = {
   description: string;
   startMs: number;
   endMs: number;
+  allDay: boolean;
 };
 
 function createLocalDate(dateString: string) {
@@ -178,19 +179,37 @@ export function splitEventsByDate(events: BookingEvent[]) {
   const map = new Map<string, BookingEvent[]>();
 
   for (const event of events) {
-    const dateKey = new Intl.DateTimeFormat('sv-SE', {
-      timeZone: TOKYO_TIME_ZONE,
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }).format(new Date(event.startMs));
+    if (event.allDay) {
+      let cursor = createLocalDate(formatDateKey(event.startMs));
+      const endDate = createLocalDate(formatDateKey(event.endMs));
 
+      while (cursor < endDate) {
+        const dateKey = formatDateKey(cursor.getTime());
+        const current = map.get(dateKey) || [];
+        current.push(event);
+        map.set(dateKey, current);
+        cursor = addDays(cursor, 1);
+      }
+
+      continue;
+    }
+
+    const dateKey = formatDateKey(event.startMs);
     const current = map.get(dateKey) || [];
     current.push(event);
     map.set(dateKey, current);
   }
 
   return map;
+}
+
+function formatDateKey(timestamp: number) {
+  return new Intl.DateTimeFormat('sv-SE', {
+    timeZone: TOKYO_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(new Date(timestamp));
 }
 
 function overlaps(startA: number, endA: number, startB: number, endB: number) {
@@ -207,6 +226,10 @@ export function generateAvailableSlots(dateString: string, events: BookingEvent[
   }
 
   if (events.length >= MAX_BOOKINGS_PER_DAY) {
+    return [];
+  }
+
+  if (events.some((event) => event.allDay)) {
     return [];
   }
 

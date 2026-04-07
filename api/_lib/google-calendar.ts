@@ -17,6 +17,7 @@ export type CalendarBookingEvent = {
   description: string;
   startMs: number;
   endMs: number;
+  allDay: boolean;
 };
 
 function getRequiredEnv(name: string) {
@@ -97,7 +98,22 @@ async function calendarRequest(path: string, init: RequestInit = {}) {
 }
 
 function toCalendarBookingEvent(item: any): CalendarBookingEvent | null {
-  if (!item?.start?.dateTime || !item?.end?.dateTime || item.status === 'cancelled') {
+  if (item?.status === 'cancelled') {
+    return null;
+  }
+
+  if (item?.start?.date && item?.end?.date) {
+    return {
+      id: item.id || randomUUID(),
+      summary: item.summary || '',
+      description: item.description || '',
+      startMs: new Date(`${item.start.date}T00:00:00+09:00`).getTime(),
+      endMs: new Date(`${item.end.date}T00:00:00+09:00`).getTime(),
+      allDay: true
+    };
+  }
+
+  if (!item?.start?.dateTime || !item?.end?.dateTime) {
     return null;
   }
 
@@ -106,7 +122,8 @@ function toCalendarBookingEvent(item: any): CalendarBookingEvent | null {
     summary: item.summary || '',
     description: item.description || '',
     startMs: new Date(item.start.dateTime).getTime(),
-    endMs: new Date(item.end.dateTime).getTime()
+    endMs: new Date(item.end.dateTime).getTime(),
+    allDay: false
   };
 }
 
