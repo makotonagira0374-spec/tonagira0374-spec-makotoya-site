@@ -331,9 +331,11 @@ document.addEventListener('DOMContentLoaded', () => {
     url.searchParams.set('year', String(year));
     url.searchParams.set('month', String(month));
     url.searchParams.set('plan', plan || '6000');
+    url.searchParams.set('_ts', String(Date.now()));
 
     const response = await fetch(url.toString(), {
       method: 'GET',
+      cache: 'no-store',
       headers: {
         'Accept': 'application/json'
       }
