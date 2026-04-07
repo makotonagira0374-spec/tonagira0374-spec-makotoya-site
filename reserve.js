@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const MAX_MONTH_OFFSET = 5;
   const BOOKING_API_URL = (window.MAKOTOYA_BOOKING_API_URL || '').trim();
   const AVAILABILITY_API_BASE_URL = 'https://tonagira0374-spec-makotoya-site.vercel.app/api/availability';
+  const CONTACT_PHONE_DISPLAY = '070-8506-3988';
+  const CONTACT_PHONE_LINK = '07085063988';
 
   const serviceCatalog = {
     rickshaw: {
@@ -197,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const monthDate = addMonths(startOfMonth(START_DATE), state.currentMonthOffset);
     const monthKey = getAvailabilityMonthKey(monthDate);
 
-    elements.availabilityLead.textContent = `${service.name}の空き状況です。まず日程を選ぶと、その日だけの時間枠が表示されます。`;
+    elements.availabilityLead.innerHTML = buildAvailabilityLead(service);
     elements.calendarTitle.textContent = formatMonthTitle(monthDate);
     elements.calendarPrev.disabled = state.currentMonthOffset === 0;
     elements.calendarNext.disabled = state.currentMonthOffset === MAX_MONTH_OFFSET;
@@ -262,18 +264,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const availability = getAvailabilityEntry(state.selectedDate);
+    const consultationOnly = isConsultationOnlyDate(state.selectedDate);
     elements.timeSlotsPanel.classList.remove('is-hidden');
     elements.timeSlotsTitle.textContent = `${formatDisplayDate(state.selectedDate)} の時間を選ぶ`;
-    elements.timeSlotsLead.textContent = state.availabilityError
-      ? state.availabilityError
-      : '空いている時間だけ押せます。時間を選ぶと予約フォームへ進みます。';
+    if (state.availabilityError) {
+      elements.timeSlotsLead.textContent = state.availabilityError;
+    } else if (consultationOnly) {
+      elements.timeSlotsLead.innerHTML = `フォト・ムービーは7日前までの予約制です。この期間は要相談のため、お電話 <a href="tel:${CONTACT_PHONE_LINK}">${CONTACT_PHONE_DISPLAY}</a> へご連絡ください。`;
+    } else {
+      elements.timeSlotsLead.textContent = '空いている時間だけ押せます。時間を選ぶと予約フォームへ進みます。';
+    }
 
     elements.timeSlotsGrid.innerHTML = TIME_SLOTS.map((time) => {
-      const disabled = state.availabilityLoading || !availability || !availability.slots.includes(time);
+      const disabled = consultationOnly || state.availabilityLoading || !availability || !availability.slots.includes(time);
       return `
         <button class="slot-button" type="button" data-time="${time}" ${disabled ? 'disabled' : ''}>
           <strong>${time}</strong>
-          <small>${disabled ? 'この時間は埋まっています' : 'この時間で予約する'}</small>
+          <small>${consultationOnly ? 'この期間はお電話でご相談ください' : disabled ? 'この時間は埋まっています' : 'この時間で予約する'}</small>
         </button>
       `;
     }).join('');
@@ -378,11 +385,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const entry = getAvailabilityEntry(cell.dateString, availability);
+      const consultationOnly = isConsultationOnlyDate(cell.dateString);
       const isCross = cell.isPast || (entry && entry.status === 'cross');
       const isDisabled = cell.isPast || state.availabilityLoading || (entry && entry.status === 'cross');
       const selected = state.selectedDate === cell.dateString;
-      const label = cell.isPast ? '×' : state.availabilityLoading ? '...' : getStatusLabel(entry);
-      const statusClassName = cell.isPast ? 'status-badge--full' : getStatusClass(entry);
+      const label = cell.isPast ? '×' : consultationOnly ? '要' : state.availabilityLoading ? '...' : getStatusLabel(entry);
+      const statusClassName = cell.isPast ? 'status-badge--full' : consultationOnly ? 'status-badge--few' : getStatusClass(entry);
 
       return `
         <button
@@ -422,6 +430,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     return availability[dateString];
+  }
+
+  function buildAvailabilityLead(service) {
+    if (service.id === 'photo' || service.id === 'movie') {
+      return `${service.name}の空き状況です。<br>翌日から1週間以内は要相談のため、お電話 <a href="tel:${CONTACT_PHONE_LINK}">${CONTACT_PHONE_DISPLAY}</a> へご連絡ください。`;
+    }
+
+    return `${service.name}の空き状況です。まず日程を選ぶと、その日だけの時間枠が表示されます。`;
+  }
+
+  function isConsultationOnlyDate(dateString) {
+    if (!dateString) {
+      return false;
+    }
+
+    if (state.selectedService !== 'photo' && state.selectedService !== 'movie') {
+      return false;
+    }
+
+    const date = createLocalDate(dateString);
+    const threshold = createConsultationThresholdDate();
+    return date < threshold;
+  }
+
+  function createConsultationThresholdDate() {
+    const today = new Date();
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
   }
 
   function getStatusLabel(entry) {
