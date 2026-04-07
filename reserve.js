@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'makotoyaBookings';
-  const MAX_BOOKINGS_PER_DAY = 5;
-  const TIME_SLOTS = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'];
-  const START_DATE = createLocalDate('2026-04-03');
+  const TIME_SLOTS = ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00'];
+  const START_DATE = createStartDate();
   const MAX_MONTH_OFFSET = 5;
   const BOOKING_API_URL = (window.MAKOTOYA_BOOKING_API_URL || '').trim();
+  const AVAILABILITY_API_BASE_URL = 'https://tonagira0374-spec-makotoya-site.vercel.app/api/availability';
 
   const serviceCatalog = {
     rickshaw: {
@@ -73,33 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const seededDailyCounts = {
-    '2026-04-03': 2,
-    '2026-04-04': 3,
-    '2026-04-05': 4,
-    '2026-04-06': 1,
-    '2026-04-07': 5,
-    '2026-04-08': 2,
-    '2026-04-09': 0,
-    '2026-04-10': 3,
-    '2026-04-11': 4,
-    '2026-04-12': 1
-  };
-
-  const seededBookedSlots = {
-    '2026-04-03': ['09:00', '10:30'],
-    '2026-04-04': ['12:00', '13:30', '15:00'],
-    '2026-04-05': ['09:00', '10:30', '12:00', '15:00'],
-    '2026-04-07': ['09:00', '10:30', '12:00', '13:30', '15:00']
-  };
-
   const state = {
     currentStep: 'top',
     selectedService: null,
     selectedDate: '',
     selectedTime: '',
     lastBooking: null,
-    currentMonthOffset: 0
+    currentMonthOffset: 0,
+    selectedPlanId: '',
+    availabilityByMonth: {},
+    availabilityLoading: false,
+    availabilityError: '',
+    activeAvailabilityMonthKey: ''
   };
 
   const elements = {
@@ -149,7 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelectorAll('[data-action="back-to-availability"]').forEach((button) => {
-      button.addEventListener('click', () => updateStep('availability'));
+      button.addEventListener('click', () => {
+        renderCalendar();
+        renderTimeSlots();
+        updateStep('availability');
+      });
     });
 
     document.querySelectorAll('[data-action="restart"]').forEach((button) => {
@@ -214,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     state.selectedTime = '';
     state.lastBooking = null;
     state.currentMonthOffset = 0;
+    state.selectedPlanId = '';
     elements.form.reset();
     renderCalendar();
     renderTimeSlots();
@@ -221,47 +211,36 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStep('availability');
   }
 
-  function renderCalendar() {
+  async function renderCalendar() {
     const service = serviceCatalog[state.selectedService];
     if (!service) return;
 
     const monthDate = addMonths(startOfMonth(START_DATE), state.currentMonthOffset);
+    const monthKey = getAvailabilityMonthKey(monthDate);
+
     elements.availabilityLead.textContent = `${service.name}の空き状況です。まず日程を選ぶと、その日だけの時間枠が表示されます。`;
     elements.calendarTitle.textContent = formatMonthTitle(monthDate);
     elements.calendarPrev.disabled = state.currentMonthOffset === 0;
     elements.calendarNext.disabled = state.currentMonthOffset === MAX_MONTH_OFFSET;
+    state.activeAvailabilityMonthKey = monthKey;
+    state.availabilityLoading = true;
+    state.availabilityError = '';
 
-    const monthCells = buildCalendarCells(monthDate);
-    elements.calendar.innerHTML = monthCells.map((cell) => {
-      if (cell.type === 'empty') {
-        return '<div class="calendar-day--empty"></div>';
-      }
+    renderCalendarStatus(buildCalendarCells(monthDate), null);
 
-      const disabled = cell.isPast || cell.count >= MAX_BOOKINGS_PER_DAY;
-      const selected = state.selectedDate === cell.dateString;
+    try {
+      const availability = await loadAvailabilityForMonth(monthDate);
+      if (state.activeAvailabilityMonthKey !== monthKey) return;
 
-      return `
-        <button
-          class="calendar-day ${selected ? 'is-selected' : ''} ${cell.count >= MAX_BOOKINGS_PER_DAY ? 'is-full' : ''}"
-          type="button"
-          data-date="${cell.dateString}"
-          ${disabled ? 'disabled' : ''}
-        >
-          <span class="calendar-day__number">${cell.day}</span>
-          <span class="calendar-day__status ${statusClass(cell.count)}">${statusLabel(cell.count)}</span>
-        </button>
-      `;
-    }).join('');
+      state.availabilityLoading = false;
+      applyAvailabilityToUI(monthDate, availability);
+    } catch {
+      if (state.activeAvailabilityMonthKey !== monthKey) return;
 
-    elements.calendar.querySelectorAll('.calendar-day[data-date]').forEach((button) => {
-      button.addEventListener('click', () => {
-        state.selectedDate = button.getAttribute('data-date') || '';
-        state.selectedTime = '';
-        renderCalendar();
-        renderTimeSlots();
-        renderSelectionSummary();
-      });
-    });
+      state.availabilityLoading = false;
+      state.availabilityError = '空き状況の取得に失敗しました。時間をおいて再度お試しください。';
+      applyAvailabilityToUI(monthDate, null);
+    }
   }
 
   function buildCalendarCells(monthDate) {
@@ -280,7 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
           type: 'day',
           day,
           dateString: formatDateKey(current),
-          count: MAX_BOOKINGS_PER_DAY,
           isPast: true
         });
         continue;
@@ -290,7 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
         type: 'day',
         day,
         dateString: formatDateKey(current),
-        count: getDailyCount(formatDateKey(current)),
         isPast: false
       });
     }
@@ -305,12 +282,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const availability = getAvailabilityEntry(state.selectedDate);
     elements.timeSlotsPanel.classList.remove('is-hidden');
     elements.timeSlotsTitle.textContent = `${formatDisplayDate(state.selectedDate)} の時間を選ぶ`;
-    elements.timeSlotsLead.textContent = '空いている時間だけ押せます。時間を選ぶと予約フォームへ進みます。';
+    elements.timeSlotsLead.textContent = state.availabilityError
+      ? state.availabilityError
+      : '空いている時間だけ押せます。時間を選ぶと予約フォームへ進みます。';
 
     elements.timeSlotsGrid.innerHTML = TIME_SLOTS.map((time) => {
-      const disabled = isSlotDisabled(state.selectedDate, time);
+      const disabled = state.availabilityLoading || !availability || !availability.slots.includes(time);
       return `
         <button class="slot-button" type="button" data-time="${time}" ${disabled ? 'disabled' : ''}>
           <strong>${time}</strong>
@@ -328,20 +308,149 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function getDailyCount(dateString) {
-    const savedCount = bookings.filter((booking) => booking.date === dateString && booking.status !== 'cancelled').length;
-    const baseCount = typeof seededDailyCounts[dateString] === 'number' ? seededDailyCounts[dateString] : createDummyDailyCount(dateString);
-    return Math.min(MAX_BOOKINGS_PER_DAY, baseCount + savedCount);
+  function getAvailabilityMonthKey(monthDate) {
+    return `${monthDate.getFullYear()}-${monthDate.getMonth() + 1}-${getSelectedAvailabilityPlan()}`;
   }
 
-  function createDummyDailyCount(dateString) {
-    const numeric = Number(dateString.replaceAll('-', ''));
-    return numeric % 6;
+  function getSelectedAvailabilityPlan() {
+    if (!state.selectedPlanId) {
+      return '6000';
+    }
+
+    return mapPlanIdToAvailabilityPlan(state.selectedPlanId);
   }
 
-  function isSlotDisabled(dateString, time) {
-    const bookedTimes = new Set([...(seededBookedSlots[dateString] || []), ...bookings.filter((booking) => booking.date === dateString).map((booking) => booking.time)]);
-    return bookedTimes.has(time) || getDailyCount(dateString) >= MAX_BOOKINGS_PER_DAY;
+  function mapPlanIdToAvailabilityPlan(planId) {
+    const availabilityPlanMap = {
+      'rickshaw-yukkuri': '3000',
+      'rickshaw-river': '4000',
+      'rickshaw-full': '6000',
+      'rickshaw-undecided': '6000'
+    };
+
+    return availabilityPlanMap[planId] || '6000';
+  }
+
+  async function loadAvailabilityForMonth(monthDate) {
+    const monthKey = getAvailabilityMonthKey(monthDate);
+    if (state.availabilityByMonth[monthKey]) {
+      return state.availabilityByMonth[monthKey];
+    }
+
+    const availability = await fetchAvailability(
+      monthDate.getFullYear(),
+      monthDate.getMonth() + 1,
+      getSelectedAvailabilityPlan()
+    );
+
+    state.availabilityByMonth[monthKey] = availability;
+    return availability;
+  }
+
+  async function fetchAvailability(year, month, plan) {
+    const url = new URL(AVAILABILITY_API_BASE_URL);
+    url.searchParams.set('year', String(year));
+    url.searchParams.set('month', String(month));
+    url.searchParams.set('plan', plan || '6000');
+
+    const response = await fetch(url.toString(), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch availability');
+    }
+
+    return response.json();
+  }
+
+  function applyAvailabilityToUI(monthDate, availability) {
+    renderCalendarStatus(buildCalendarCells(monthDate), availability);
+
+    if (state.selectedDate) {
+      const selectedEntry = getAvailabilityEntry(state.selectedDate, availability);
+      if (!selectedEntry || selectedEntry.status === 'cross') {
+        state.selectedDate = '';
+        state.selectedTime = '';
+      }
+    }
+
+    if (state.availabilityError) {
+      elements.availabilityLead.textContent = state.availabilityError;
+    }
+
+    renderTimeSlots();
+    renderSelectionSummary();
+  }
+
+  function renderCalendarStatus(monthCells, availability) {
+    elements.calendar.innerHTML = monthCells.map((cell) => {
+      if (cell.type === 'empty') {
+        return '<div class="calendar-day--empty"></div>';
+      }
+
+      const entry = getAvailabilityEntry(cell.dateString, availability);
+      const isCross = cell.isPast || (entry && entry.status === 'cross');
+      const isDisabled = cell.isPast || state.availabilityLoading || (entry && entry.status === 'cross');
+      const selected = state.selectedDate === cell.dateString;
+      const label = cell.isPast ? '×' : state.availabilityLoading ? '...' : getStatusLabel(entry);
+      const statusClassName = cell.isPast ? 'status-badge--full' : getStatusClass(entry);
+
+      return `
+        <button
+          class="calendar-day ${selected ? 'is-selected' : ''} ${isCross ? 'is-full' : ''}"
+          type="button"
+          data-date="${cell.dateString}"
+          ${isDisabled ? 'disabled' : ''}
+        >
+          <span class="calendar-day__number">${cell.day}</span>
+          <span class="calendar-day__status ${statusClassName}">${label}</span>
+        </button>
+      `;
+    }).join('');
+
+    elements.calendar.querySelectorAll('.calendar-day[data-date]').forEach((button) => {
+      button.addEventListener('click', () => {
+        state.selectedDate = button.getAttribute('data-date') || '';
+        state.selectedTime = '';
+        renderCalendarStatus(buildCalendarCells(addMonths(startOfMonth(START_DATE), state.currentMonthOffset)), getCurrentAvailability());
+        renderTimeSlots();
+        renderSelectionSummary();
+      });
+    });
+  }
+
+  function getCurrentAvailability() {
+    return state.availabilityByMonth[getAvailabilityMonthKey(addMonths(startOfMonth(START_DATE), state.currentMonthOffset))] || null;
+  }
+
+  function getAvailabilityEntry(dateString, availability = getCurrentAvailability()) {
+    if (!availability || !availability[dateString]) {
+      return {
+        status: 'cross',
+        count: 0,
+        slots: []
+      };
+    }
+
+    return availability[dateString];
+  }
+
+  function getStatusLabel(entry) {
+    if (!entry) return '×';
+    if (entry.status === 'circle') return '〇';
+    if (entry.status === 'triangle') return '△';
+    return '×';
+  }
+
+  function getStatusClass(entry) {
+    if (!entry) return 'status-badge--full';
+    if (entry.status === 'circle') return 'status-badge--open';
+    if (entry.status === 'triangle') return 'status-badge--few';
+    return 'status-badge--full';
   }
 
   function prepareForm() {
@@ -369,6 +478,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ${service.extraFields.map((field) => renderField(field, service)).join('')}
       </div>
     `;
+
+    elements.dynamicFields.querySelectorAll('input[name="planId"]').forEach((input) => {
+      input.addEventListener('change', (event) => {
+        state.selectedPlanId = event.target.value;
+      });
+    });
   }
 
   function renderField(field, service) {
@@ -596,11 +711,20 @@ document.addEventListener('DOMContentLoaded', () => {
     state.selectedTime = '';
     state.lastBooking = null;
     state.currentMonthOffset = 0;
+    state.selectedPlanId = '';
+    state.availabilityLoading = false;
+    state.availabilityError = '';
+    state.activeAvailabilityMonthKey = '';
     elements.form.reset();
     elements.dynamicFields.innerHTML = '';
     elements.formSummary.innerHTML = '';
     renderSelectionSummary();
     updateStep('top');
+  }
+
+  function createStartDate() {
+    const today = new Date();
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
   }
 
   function createLocalDate(dateString) {
@@ -637,15 +761,4 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${date.getFullYear()}年${date.getMonth() + 1}月`;
   }
 
-  function statusLabel(count) {
-    if (count >= MAX_BOOKINGS_PER_DAY) return '×';
-    if (count === MAX_BOOKINGS_PER_DAY - 1) return '△';
-    return '〇';
-  }
-
-  function statusClass(count) {
-    if (count >= MAX_BOOKINGS_PER_DAY) return 'status-badge--full';
-    if (count === MAX_BOOKINGS_PER_DAY - 1) return 'status-badge--few';
-    return 'status-badge--open';
-  }
 });
