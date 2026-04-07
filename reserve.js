@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       extraFields: [
         { type: 'radio', name: 'planId', label: 'コース選択', required: true },
-        { type: 'select', name: 'rainOption', label: '雨天対応', required: true, options: ['日程変更を希望', '雨ならキャンセル希望', '相談して決めたい'] }
+        { type: 'select', name: 'rainOption', label: '雨天対応', required: false, options: ['日程変更を希望', '雨ならキャンセル希望', '相談して決めたい'] }
       ]
     },
     photo: {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       extraFields: [
         { type: 'radio', name: 'planId', label: 'プラン選択', required: true },
         { type: 'text', name: 'shootingPurpose', label: '撮影目的', required: true, placeholder: '例：結婚記念日、旅行記念、家族写真' },
-        { type: 'textarea', name: 'shootingDetails', label: '希望内容', required: true, placeholder: '撮りたい雰囲気や場所、残したい瞬間をご記入ください' },
+        { type: 'textarea', name: 'shootingDetails', label: '希望内容', required: false, placeholder: '撮りたい雰囲気や場所、残したい瞬間をご記入ください' },
         { type: 'select', name: 'rainOption', label: '雨天対応', required: true, options: ['日程変更を希望', '雨ならキャンセル希望', '相談して決めたい'] }
       ]
     },
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       extraFields: [
         { type: 'radio', name: 'planId', label: 'プラン選択', required: true },
         { type: 'text', name: 'videoPurpose', label: '動画用途', required: true, placeholder: '例：記念保存、家族共有、SNS掲載' },
-        { type: 'textarea', name: 'videoImage', label: 'イメージ', required: true, placeholder: 'しっとり、自然体、映画のように など希望する雰囲気' },
+        { type: 'textarea', name: 'videoImage', label: '希望内容', required: false, placeholder: '撮りたい雰囲気や場所、残したい瞬間をご記入ください' },
         { type: 'select', name: 'rainOption', label: '雨天対応', required: true, options: ['日程変更を希望', '雨ならキャンセル希望', '相談して決めたい'] }
       ]
     }
