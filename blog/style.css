@@ -231,6 +231,11 @@ img{ max-width: 100%; }
   object-fit: cover;
 }
 
+.blog-hero__media,
+.article-hero__media{
+  aspect-ratio: 4 / 5;
+}
+
 .blog-hero__media img,
 .article-hero__media img{
   min-height: 420px;
