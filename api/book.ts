@@ -98,6 +98,7 @@ export default async function handler(req: any, res: any) {
     }
 
     return res.status(201).json({
+      ok: true,
       success: true,
       reservationId,
       eventId: calendarEvent.id,

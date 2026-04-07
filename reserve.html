@@ -178,9 +178,10 @@
               <p class="form-note">
                 送信後はLINEでご連絡します。フォト・ムービーは内容確認後に日程確定となります。
               </p>
+              <p class="form-status" id="form-status" aria-live="polite"></p>
               <div class="form-actions">
                 <button class="btn btn-outline" type="button" data-action="back-to-availability">戻る</button>
-                <button class="btn btn-primary btn-lg" type="submit">この内容で送信する</button>
+                <button class="btn btn-primary btn-lg" id="booking-submit" type="submit">この内容で送信する</button>
               </div>
             </form>
           </section>
@@ -192,8 +193,7 @@
               <p class="complete-card__message" id="complete-message"></p>
               <div class="complete-card__summary" id="complete-summary"></div>
               <div class="complete-card__actions">
-                <button class="btn btn-primary" type="button" data-action="restart">別の予約をする</button>
-                <button class="btn btn-outline" type="button" data-action="go-top">トップへ戻る</button>
+                <button class="btn btn-primary" type="button" data-action="go-top">OK</button>
               </div>
             </div>
           </section>
@@ -208,15 +208,6 @@
             </div>
           </div>
 
-          <div class="sidebar-card sidebar-card--muted">
-            <p class="sidebar-card__eyebrow">Local Data</p>
-            <h2>仮保存について</h2>
-            <p>
-              フェーズ1では、予約データをこのブラウザのローカルストレージに保存しています。
-              後から API や管理画面につなぎやすい JSON 形式の構造で持たせています。
-            </p>
-            <button class="mini-link mini-link--danger" type="button" id="clear-storage">この端末の仮予約データを消去</button>
-          </div>
         </aside>
       </div>
     </section>
@@ -224,8 +215,8 @@
 
   <script src="./script.js?v=20260401-1" defer></script>
   <script>
-    window.MAKOTOYA_BOOKING_API_URL = 'https://tonagira0374-spec-makotoya-site.vercel.app/api/booking-notify';
+    window.MAKOTOYA_BOOKING_API_URL = 'https://tonagira0374-spec-makotoya-site.vercel.app/api/book';
   </script>
-  <script src="./reserve.js?v=20260407-1" defer></script>
+  <script src="./reserve.js?v=20260407-2" defer></script>
 </body>
 </html>

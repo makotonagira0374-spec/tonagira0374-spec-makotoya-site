@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const STORAGE_KEY = 'makotoyaBookings';
   const TIME_SLOTS = ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00'];
   const START_DATE = createStartDate();
   const MAX_MONTH_OFFSET = 5;
@@ -101,32 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
     selectionSummary: document.getElementById('selection-summary'),
     formSummary: document.getElementById('form-summary'),
     form: document.getElementById('booking-form'),
+    submitButton: document.getElementById('booking-submit'),
+    formStatus: document.getElementById('form-status'),
     dynamicFields: document.getElementById('dynamic-fields'),
     completeTitle: document.getElementById('complete-title'),
     completeMessage: document.getElementById('complete-message'),
-    completeSummary: document.getElementById('complete-summary'),
-    clearStorage: document.getElementById('clear-storage')
+    completeSummary: document.getElementById('complete-summary')
   };
-
-  const bookings = loadBookings();
 
   renderServices();
   bindCommonActions();
   updateStep('top');
   renderSelectionSummary();
-
-  function loadBookings() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      return Array.isArray(parsed) ? parsed : [];
-    } catch {
-      return [];
-    }
-  }
-
-  function saveBookings() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
-  }
 
   function bindCommonActions() {
     document.querySelectorAll('[data-action="back-to-top"]').forEach((button) => {
@@ -167,15 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     elements.form.addEventListener('submit', handleSubmit);
-
-    elements.clearStorage.addEventListener('click', () => {
-      localStorage.removeItem(STORAGE_KEY);
-      bookings.splice(0, bookings.length);
-      renderCalendar();
-      renderTimeSlots();
-      renderSelectionSummary();
-      window.alert('この端末の仮予約データを削除しました。');
-    });
   }
 
   function renderServices() {
@@ -205,6 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
     state.currentMonthOffset = 0;
     state.selectedPlanId = '';
     elements.form.reset();
+    if (elements.formStatus) {
+      elements.formStatus.textContent = '';
+    }
     renderCalendar();
     renderTimeSlots();
     renderSelectionSummary();
@@ -459,6 +438,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     elements.form.elements.date.value = state.selectedDate;
     elements.form.elements.time.value = state.selectedTime;
+    if (elements.formStatus) {
+      elements.formStatus.textContent = '';
+    }
     renderFormSummary(service);
     renderDynamicFields(service);
     renderSelectionSummary();
@@ -549,10 +531,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const formData = new FormData(elements.form);
     const raw = Object.fromEntries(formData.entries());
     const selectedPlan = serviceCatalog[state.selectedService].plans.find((plan) => plan.id === raw.planId);
+    const bookingPayload = buildBookPayload(raw, selectedPlan);
 
     const booking = {
-      id: `booking-${Date.now()}`,
-      status: state.selectedService === 'rickshaw' ? 'confirmed' : 'requested',
+      id: '',
+      status: 'confirmed',
       serviceType: state.selectedService,
       serviceName: serviceCatalog[state.selectedService].name,
       planId: raw.planId,
@@ -571,64 +554,106 @@ document.addEventListener('DOMContentLoaded', () => {
       createdAt: new Date().toISOString()
     };
 
-    bookings.push(booking);
-    saveBookings();
-    const notificationResult = await notifyBooking(booking);
-    state.lastBooking = booking;
-    renderCompletion();
-    renderSelectionSummary();
-    updateStep('complete');
+    setSubmittingState(true);
+    elements.formStatus.textContent = '送信中です。しばらくお待ちください。';
 
-    if (notificationResult.status === 'failed') {
-      window.alert(`予約は保存されましたが、LINE通知の送信に失敗しました。\n${notificationResult.message}`);
+    try {
+      const payload = await submitBookingRequest(bookingPayload);
+
+      booking.id = payload.reservationId || '';
+      state.lastBooking = booking;
+      await refreshCurrentAvailability();
+      renderCompletion();
+      renderSelectionSummary();
+      updateStep('complete');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : '予約の送信に失敗しました。';
+      elements.formStatus.textContent = message;
+      window.alert(message);
+    } finally {
+      setSubmittingState(false);
     }
   }
 
-  async function notifyBooking(booking) {
+  async function submitBookingRequest(payload) {
     if (!BOOKING_API_URL || BOOKING_API_URL.includes('your-vercel-project')) {
-      console.warn('Booking API URL is not configured.');
-      return { status: 'skipped', message: 'Booking API URL is not configured.' };
+      throw new Error('予約APIの接続先が設定されていません。');
     }
 
+    const response = await fetch(BOOKING_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    let data = null;
     try {
-      const response = await fetch(BOOKING_API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: booking.customer.name,
-          service: booking.serviceName,
-          plan: booking.planName,
-          date: booking.date,
-          time: booking.time,
-          people: booking.guests,
-          phone: booking.customer.phone,
-          email: '',
-          lineId: booking.customer.lineContact,
-          note: [booking.purpose ? `利用目的: ${booking.purpose}` : '', booking.notes].filter(Boolean).join(' / ')
-        })
-      });
+      data = await response.json();
+    } catch {
+      data = null;
+    }
 
-      let payload = null;
-      try {
-        payload = await response.json();
-      } catch {
-        payload = null;
-      }
+    if (!response.ok) {
+      throw new Error(data?.error || '予約の送信に失敗しました。時間をおいて再度お試しください。');
+    }
 
-      if (!response.ok) {
-        const message = payload?.details || payload?.error || `HTTP ${response.status}`;
-        console.warn('LINE notification request was not accepted:', response.status, message);
-        return { status: 'failed', message };
-      }
+    if (!data?.ok && !data?.success) {
+      throw new Error(data?.error || '予約の確定に失敗しました。');
+    }
 
-      return { status: 'sent', message: '' };
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Unknown error';
-      console.warn('LINE notification failed:', message);
-      return { status: 'failed', message };
+    return data;
+  }
+
+  function buildBookPayload(raw, selectedPlan) {
+    return {
+      date: raw.date,
+      time: raw.time,
+      plan: getBookPlanValue(raw.planId),
+      name: raw.name,
+      phone: raw.phone,
+      people: Number(raw.guests),
+      note: buildBookingNote(raw, selectedPlan)
+    };
+  }
+
+  function getBookPlanValue(planId) {
+    if (state.selectedService === 'photo' || state.selectedService === 'movie') {
+      return '前撮り';
+    }
+
+    const bookPlanMap = {
+      'rickshaw-yukkuri': 3000,
+      'rickshaw-river': 4000,
+      'rickshaw-full': 6000,
+      'rickshaw-undecided': 6000
+    };
+
+    return bookPlanMap[planId] || 6000;
+  }
+
+  function buildBookingNote(raw, selectedPlan) {
+    return [
+      selectedPlan ? `プラン: ${selectedPlan.name}` : '',
+      raw.purpose ? `利用目的: ${raw.purpose}` : '',
+      raw.lineContact ? `LINE: ${raw.lineContact}` : '',
+      raw.notes || ''
+    ].filter(Boolean).join(' / ');
+  }
+
+  async function refreshCurrentAvailability() {
+    const monthDate = addMonths(startOfMonth(START_DATE), state.currentMonthOffset);
+    const monthKey = getAvailabilityMonthKey(monthDate);
+    delete state.availabilityByMonth[monthKey];
+    await renderCalendar();
+  }
+
+  function setSubmittingState(isSubmitting) {
+    if (elements.submitButton) {
+      elements.submitButton.disabled = isSubmitting;
+      elements.submitButton.textContent = isSubmitting ? '送信中...' : 'この内容で送信する';
     }
   }
 
@@ -643,9 +668,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderCompletion() {
-    const service = serviceCatalog[state.lastBooking.serviceType];
-    elements.completeTitle.textContent = service.completionTitle;
-    elements.completeMessage.textContent = service.completionMessage;
+    elements.completeTitle.textContent = '予約が確定しました';
+    elements.completeMessage.textContent = '確認のLINEを送信しました';
     elements.completeSummary.innerHTML = `
       <div>
         <strong>${state.lastBooking.serviceName}</strong>
@@ -654,10 +678,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div>
         <strong>${formatDisplayDate(state.lastBooking.date)} / ${state.lastBooking.time}</strong>
         <p>${state.lastBooking.customer.name} 様 / ${state.lastBooking.guests}名 / ${state.lastBooking.customer.lineContact}</p>
-      </div>
-      <div>
-        <strong>保存データ</strong>
-        <p>serviceType, planId, date, time, customer, details, status をローカル保存しています。</p>
       </div>
     `;
   }
@@ -718,6 +738,10 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.form.reset();
     elements.dynamicFields.innerHTML = '';
     elements.formSummary.innerHTML = '';
+    if (elements.formStatus) {
+      elements.formStatus.textContent = '';
+    }
+    setSubmittingState(false);
     renderSelectionSummary();
     updateStep('top');
   }
