@@ -706,7 +706,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <div>
         <strong>${formatDisplayDate(state.lastBooking.date)} / ${state.lastBooking.time}</strong>
-        <p>${state.lastBooking.customer.name} 様 / ${state.lastBooking.guests}名 / ${state.lastBooking.customer.lineContact}</p>
+        <p>${state.lastBooking.customer.name} 様 / ${state.lastBooking.guests}名${state.lastBooking.customer.lineContact ? ` / ${state.lastBooking.customer.lineContact}` : ''}</p>
       </div>
       ${state.lastBooking.notes ? `
       <div>
