@@ -110,9 +110,7 @@ export function isJapaneseHoliday(dateString: string) {
 }
 
 export function isBusinessDay(dateString: string) {
-  const date = createLocalDate(dateString);
-  const day = date.getDay();
-  return day === 3 || day === 4 || day === 5 || day === 6 || day === 0 || isJapaneseHoliday(dateString);
+  return true;
 }
 
 export function isSupportedPlan(plan: string) {
