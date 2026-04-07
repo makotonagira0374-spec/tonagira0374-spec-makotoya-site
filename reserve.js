@@ -292,6 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getSelectedAvailabilityPlan() {
+    if (state.selectedService === 'photo' || state.selectedService === 'movie') {
+      return '前撮り';
+    }
+
     if (!state.selectedPlanId) {
       return '6000';
     }
@@ -637,12 +641,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function buildBookingNote(raw, selectedPlan) {
+    const categoryNotes = buildCategorySpecificNote(raw);
+
     return [
+      `カテゴリ: ${serviceCatalog[state.selectedService].name}`,
       selectedPlan ? `プラン: ${selectedPlan.name}` : '',
       raw.purpose ? `利用目的: ${raw.purpose}` : '',
+      categoryNotes,
+      raw.rainOption ? `雨天対応: ${raw.rainOption}` : '',
       raw.lineContact ? `LINE: ${raw.lineContact}` : '',
       raw.notes || ''
     ].filter(Boolean).join(' / ');
+  }
+
+  function buildCategorySpecificNote(raw) {
+    if (state.selectedService === 'photo') {
+      return [
+        raw.shootingPurpose ? `撮影目的: ${raw.shootingPurpose}` : '',
+        raw.shootingDetails ? `希望内容: ${raw.shootingDetails}` : ''
+      ].filter(Boolean).join(' / ');
+    }
+
+    if (state.selectedService === 'movie') {
+      return [
+        raw.videoPurpose ? `動画用途: ${raw.videoPurpose}` : '',
+        raw.videoImage ? `イメージ: ${raw.videoImage}` : ''
+      ].filter(Boolean).join(' / ');
+    }
+
+    return '';
   }
 
   async function refreshCurrentAvailability() {
@@ -681,6 +708,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <strong>${formatDisplayDate(state.lastBooking.date)} / ${state.lastBooking.time}</strong>
         <p>${state.lastBooking.customer.name} 様 / ${state.lastBooking.guests}名 / ${state.lastBooking.customer.lineContact}</p>
       </div>
+      ${state.lastBooking.notes ? `
+      <div>
+        <strong>備考</strong>
+        <p>${state.lastBooking.notes}</p>
+      </div>
+      ` : ''}
     `;
   }
 
