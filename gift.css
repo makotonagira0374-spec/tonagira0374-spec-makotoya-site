@@ -1,0 +1,286 @@
+.gift-page {
+  --gift-paper: rgba(255,255,255,.88);
+  --gift-line: rgba(17,17,17,.08);
+  --gift-accent: #87aeb9;
+  --gift-accent-dark: #6b95a1;
+  --gift-muted: rgba(24,24,24,.7);
+  background:
+    radial-gradient(circle at top left, rgba(135,174,185,.16), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(205,182,162,.16), transparent 22%),
+    linear-gradient(180deg, #fcfbf9 0%, #ffffff 42%, #f8f5f1 100%);
+  color: #181818;
+}
+
+.gift-page .site-header {
+  background: rgba(255,255,255,.92);
+}
+
+.gift-page .btn-primary {
+  background: var(--gift-accent);
+}
+
+.gift-page .btn-primary:hover {
+  background: var(--gift-accent-dark);
+}
+
+.gift-page .btn-outline {
+  border-color: rgba(24,24,24,.7);
+}
+
+.gift-hero,
+.gift-about,
+.gift-flow,
+.gift-content,
+.gift-price,
+.gift-scene,
+.gift-faq,
+.gift-cta {
+  padding: 92px 0;
+}
+
+.gift-hero {
+  padding-top: 100px;
+}
+
+.gift-hero__inner,
+.gift-price-card,
+.gift-copy-box,
+.gift-faq-item,
+.gift-cta__inner {
+  background: var(--gift-paper);
+  border: 1px solid var(--gift-line);
+  border-radius: 30px;
+  box-shadow: 0 22px 56px rgba(0,0,0,.08);
+}
+
+.gift-hero__inner,
+.gift-price-card,
+.gift-cta__inner {
+  text-align: center;
+  padding: 56px 32px;
+}
+
+.gift-narrow {
+  max-width: 860px;
+}
+
+.gift-eyebrow,
+.gift-section-heading__eyebrow {
+  margin: 0 0 16px;
+  font-size: 12px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gift-accent-dark);
+}
+
+.gift-hero h1,
+.gift-section-heading h2,
+.gift-price-card h2,
+.gift-faq-item h3,
+.gift-cta__inner h2,
+.gift-order__inner h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: .05em;
+}
+
+.gift-hero h1 {
+  font-size: clamp(34px, 5vw, 60px);
+}
+
+.gift-hero p,
+.gift-copy-box p,
+.gift-flow-list,
+.gift-grid-list,
+.gift-price-card p,
+.gift-faq-item p,
+.gift-order__inner p {
+  color: var(--gift-muted);
+  line-height: 2;
+}
+
+.gift-hero p {
+  margin: 22px auto 0;
+  max-width: 34em;
+  font-size: clamp(16px, 1.9vw, 20px);
+}
+
+.gift-hero .btn {
+  margin-top: 34px;
+}
+
+.gift-section-heading {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.gift-section-heading h2,
+.gift-price-card h2,
+.gift-cta__inner h2,
+.gift-order__inner h1 {
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.gift-copy-box {
+  padding: 36px 30px;
+  display: grid;
+  gap: 10px;
+}
+
+.gift-flow-list,
+.gift-grid-list {
+  margin: 0;
+  padding: 0;
+}
+
+.gift-flow-list {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  counter-reset: gift-flow;
+}
+
+.gift-flow-list li,
+.gift-grid-list li {
+  background: rgba(255,255,255,.84);
+  border: 1px solid var(--gift-line);
+  border-radius: 22px;
+  box-shadow: 0 16px 38px rgba(0,0,0,.04);
+}
+
+.gift-flow-list li {
+  position: relative;
+  padding: 22px 24px 22px 72px;
+  list-style: none;
+}
+
+.gift-flow-list li::before {
+  counter-increment: gift-flow;
+  content: counter(gift-flow);
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(135,174,185,.18);
+  color: #2c4b55;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.gift-grid-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gift-grid-list li {
+  padding: 24px 22px;
+  text-align: center;
+}
+
+.gift-price-card .price {
+  margin: 22px 0 8px;
+  font-size: clamp(28px, 4vw, 42px);
+  color: #2c4b55;
+  font-weight: 700;
+}
+
+.gift-faq-list {
+  display: grid;
+  gap: 16px;
+}
+
+.gift-faq-item {
+  padding: 28px 26px;
+}
+
+.gift-faq-item h3 {
+  margin-bottom: 10px;
+  font-size: clamp(20px, 2.2vw, 26px);
+}
+
+.gift-cta__inner .btn {
+  margin-top: 24px;
+}
+
+.gift-order {
+  padding: 100px 0 120px;
+}
+
+.gift-order__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 32px;
+  text-align: center;
+  background: var(--gift-paper);
+  border: 1px solid var(--gift-line);
+  border-radius: 30px;
+  box-shadow: 0 22px 56px rgba(0,0,0,.08);
+}
+
+.gift-order__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+@media (max-width: 768px) {
+  .gift-page .header-actions {
+    gap: 10px;
+  }
+
+  .gift-page .header-actions .btn {
+    width: auto;
+    min-width: 92px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .gift-hero,
+  .gift-about,
+  .gift-flow,
+  .gift-content,
+  .gift-price,
+  .gift-scene,
+  .gift-faq,
+  .gift-cta,
+  .gift-order {
+    padding: 72px 0;
+  }
+
+  .gift-hero {
+    padding-top: 76px;
+  }
+
+  .gift-hero__inner,
+  .gift-price-card,
+  .gift-copy-box,
+  .gift-faq-item,
+  .gift-cta__inner,
+  .gift-order__inner {
+    padding: 34px 22px;
+    border-radius: 24px;
+  }
+
+  .gift-grid-list {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-flow-list li {
+    padding: 22px 20px 22px 64px;
+  }
+
+  .gift-order__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
