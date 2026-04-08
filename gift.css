@@ -343,7 +343,7 @@
   display: block;
   flex: 0 0 auto;
   width: auto;
-  height: clamp(112px, 14vw, 164px);
+  height: clamp(168px, 21vw, 246px);
 }
 
 @keyframes gift-band-scroll {
@@ -370,6 +370,6 @@
   }
 
   .gift-content-band__track img {
-    height: clamp(92px, 26vw, 120px);
+    height: clamp(138px, 39vw, 180px);
   }
 }
