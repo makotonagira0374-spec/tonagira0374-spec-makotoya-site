@@ -1265,6 +1265,13 @@ body{
   opacity: .85;
 }
 
+.contact-section-tab.reserve{
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow);
+}
+
 .contact-section-tab.phone{
   background: #f0f0f0;
   color: #111;
