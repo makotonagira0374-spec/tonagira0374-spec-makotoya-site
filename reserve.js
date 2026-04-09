@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${service.description ? `<p class="service-card__description">${service.description}</p>` : ''}
         <div class="service-card__meta">${service.meta.map((item) => `<p>${item}</p>`).join('')}</div>
         <div class="service-card__actions">
-          <button class="btn btn-primary btn-lg" type="button" data-select-service="${service.id}">空き状況を見る</button>
+          <button class="btn btn-primary btn-lg" type="button" data-select-service="${service.id}">このプランで予約</button>
         </div>
       </article>
     `).join('');
