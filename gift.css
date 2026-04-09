@@ -242,15 +242,25 @@
 }
 
 @media (max-width: 768px) {
+  .gift-page .header-inner {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    padding: 18px 0 12px;
+  }
+
   .gift-page .header-actions {
+    margin-left: auto;
     gap: 10px;
   }
 
   .gift-page .header-actions .btn {
-    width: auto;
-    min-width: 92px;
-    padding: 10px 14px;
+    width: 112px;
+    min-width: 112px;
+    min-height: 54px;
+    padding: 8px 12px;
     font-size: 13px;
+    line-height: 1.2;
+    justify-content: center;
   }
 
   .gift-hero,
