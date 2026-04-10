@@ -355,6 +355,9 @@
 .gift-content-band__track {
   display: flex;
   width: max-content;
+  gap: 0;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
   animation: gift-band-scroll 30s linear infinite;
 }
 
@@ -362,6 +365,7 @@
   display: block;
   flex: 0 0 auto;
   width: auto;
+  max-width: none;
   height: clamp(220px, 26vw, 320px);
 }
 
@@ -388,7 +392,12 @@
     border-radius: 18px;
   }
 
+  .gift-content-band__track {
+    animation-duration: 18s;
+  }
+
   .gift-content-band__track img {
     height: clamp(156px, 44vw, 220px);
+    max-width: none;
   }
 }
