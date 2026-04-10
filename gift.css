@@ -683,3 +683,150 @@
     letter-spacing: .05em;
   }
 }
+.gift-order-form {
+  margin-top: 26px;
+  text-align: left;
+}
+
+.gift-order-form__intro {
+  margin-bottom: 22px;
+  padding: 22px 24px;
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(126,110,85,.1);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(40,33,27,.04);
+}
+
+.gift-order-form__intro p {
+  margin: 0;
+}
+
+.gift-order-form__intro p + p {
+  margin-top: 6px;
+}
+
+.gift-form-block {
+  margin-top: 20px;
+  padding: 28px 28px 30px;
+  background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(248,244,238,.92) 100%);
+  border: 1px solid rgba(126,110,85,.12);
+  border-radius: 24px;
+  box-shadow: 0 16px 38px rgba(40,33,27,.05);
+}
+
+.gift-form-block__eyebrow {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gift-gold);
+}
+
+.gift-form-block h2 {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.8vw, 28px);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.gift-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+}
+
+.gift-field {
+  display: grid;
+  gap: 8px;
+}
+
+.gift-field--full {
+  grid-column: 1 / -1;
+}
+
+.gift-field span {
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: rgba(35,30,26,.78);
+}
+
+.gift-field input,
+.gift-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(126,110,85,.18);
+  border-radius: 16px;
+  background: rgba(255,255,255,.94);
+  color: #181818;
+  font: inherit;
+  line-height: 1.7;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.gift-field textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.gift-field input:focus,
+.gift-field textarea:focus {
+  outline: none;
+  border-color: rgba(126,110,85,.34);
+  box-shadow: 0 0 0 4px rgba(135,174,185,.14);
+  background: #fff;
+}
+
+.gift-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(126,110,85,.12);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(40,33,27,.04);
+}
+
+.gift-check input {
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.gift-check span {
+  flex: 1;
+  color: rgba(35,30,26,.78);
+  line-height: 1.8;
+}
+
+.gift-form-note,
+.gift-form-status {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(35,30,26,.66);
+}
+
+.gift-form-status {
+  min-height: 1.8em;
+  color: #34545f;
+}
+
+@media (max-width: 768px) {
+  .gift-order-form__intro,
+  .gift-form-block,
+  .gift-check {
+    border-radius: 20px;
+  }
+
+  .gift-order-form__intro,
+  .gift-form-block {
+    padding: 22px 20px;
+  }
+
+  .gift-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
