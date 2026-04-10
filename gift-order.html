@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="記念日フォトギフトの申込み案内ページです。Airペイのオンライン決済、お相手の方へのLINE送付フロー、返金条件についてご案内します。" />
+  <meta name="description" content="記念日フォトギフトの申し込み案内ページです。贈り主様がLINEで必要情報を送り、内容確認後に誠屋からAirペイ決済URLをお届けする流れをご案内します。" />
   <meta name="ga4-measurement-id" content="G-V1L4QYSHG1" />
   <title>記念日フォトギフトのお申し込み | 誠屋</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
       </a>
       <nav class="header-actions" aria-label="ギフト申込み メニュー">
         <a class="btn btn-outline" href="./gift-product.html">戻る</a>
-        <a class="btn btn-outline" href="./index.html#contact">予約・問合せ</a>
+        <a class="btn btn-outline" href="https://line.me/ti/p/q2EaCJh6wA" target="_blank" rel="noopener">LINEで相談</a>
       </nav>
     </div>
   </header>
@@ -32,89 +32,53 @@
       <div class="gift-order__inner">
         <p class="gift-section-heading__eyebrow">Gift Order</p>
         <h1>記念日フォトギフトの<br>お申し込みについて</h1>
-        <div class="gift-note-box gift-note-box--order">
-          <h2>お申し込み時にご確認いただきたいこと</h2>
-          <ul class="gift-info-list">
-            <li>お申し込み後、お相手の方のLINE情報をご共有いただきます。</li>
-            <li>決済完了後は、誠屋からお相手の方へ直接LINEでギフト案内をお送りします。</li>
-            <li>送付後は、贈り主様へ送付完了のスクリーンショットを共有します。</li>
-            <li>その後、贈り主様からお相手の方へ「誠屋から届いているギフトを受け取ってね」と一言お伝えいただくと、受け取りがよりスムーズです。</li>
-          </ul>
-        </div>
 
-        <div class="gift-note-box gift-note-box--order">
-          <h2>返金について</h2>
-          <ul class="gift-info-list">
-            <li>お相手の方のご都合で未使用となった場合は、未使用かつ有効期限内に限り全額返金いたします。</li>
-            <li>予約確定後は返金不可となります。日程調整については個別にご相談ください。</li>
-          </ul>
-        </div>
-
-        <form class="gift-order-form" id="gift-order-form" novalidate>
-          <div class="gift-order-form__intro">
-            <p>決済の前に、贈り主様とお相手の方の情報をご入力ください。</p>
-            <p>内容をご確認のうえ、そのまま決済画面へ進めます。</p>
+        <div class="gift-order-flow">
+          <div class="gift-note-box gift-note-box--order">
+            <h2>まずはLINEからお申し込みください</h2>
+            <p>贈り主様が誠屋LINEを追加し、必要情報をお送りいただくところから始まります。</p>
+            <p>内容確認後に、誠屋よりAirペイの決済URLを個別にお送りします。</p>
           </div>
 
-          <section class="gift-form-block" aria-labelledby="gift-giver-heading">
-            <p class="gift-form-block__eyebrow">For Giver</p>
-            <h2 id="gift-giver-heading">贈り主様の情報</h2>
-            <div class="gift-form-grid">
-              <label class="gift-field">
-                <span>お名前</span>
-                <input name="giverName" type="text" autocomplete="name" required />
-              </label>
-              <label class="gift-field">
-                <span>電話番号</span>
-                <input name="giverPhone" type="tel" autocomplete="tel" inputmode="tel" required />
-              </label>
-              <label class="gift-field gift-field--full">
-                <span>LINE表示名またはLINE ID</span>
-                <input name="giverLine" type="text" placeholder="誠屋からご連絡できる情報をご記入ください" required />
-              </label>
-            </div>
-          </section>
+          <ol class="gift-flow-list">
+            <li>贈り主様が誠屋LINEを追加する</li>
+            <li>贈り主様が必要情報をLINEで送信する</li>
+            <li>誠屋が内容を確認する</li>
+            <li>誠屋がAirペイの決済URLを送付する</li>
+            <li>贈り主様がクレジットカードで決済する</li>
+            <li>誠屋が決済を確認する</li>
+            <li>誠屋からお相手の方へLINEでギフトを送付する</li>
+            <li>誠屋から贈り主様へ送付スクリーンショットを送信する</li>
+            <li>贈り主様からお相手の方へ「受け取ってね」と連絡する</li>
+          </ol>
 
-          <section class="gift-form-block" aria-labelledby="gift-recipient-heading">
-            <p class="gift-form-block__eyebrow">For Recipient</p>
-            <h2 id="gift-recipient-heading">お相手の方の情報</h2>
-            <div class="gift-form-grid">
-              <label class="gift-field">
-                <span>お名前</span>
-                <input name="recipientName" type="text" autocomplete="name" required />
-              </label>
-              <label class="gift-field">
-                <span>LINE表示名またはLINE ID</span>
-                <input name="recipientLine" type="text" placeholder="誠屋から直接ご案内するために必要です" required />
-              </label>
-              <label class="gift-field">
-                <span>ご関係</span>
-                <input name="relationship" type="text" placeholder="例：ご夫婦、ご友人、ご両親" />
-              </label>
-              <label class="gift-field">
-                <span>記念日の内容</span>
-                <input name="occasion" type="text" placeholder="例：結婚祝い、誕生日、記念日" />
-              </label>
-              <label class="gift-field gift-field--full">
-                <span>贈り主様からのひとこと</span>
-                <textarea name="giftMessage" rows="4" placeholder="ご希望があればご記入ください"></textarea>
-              </label>
-            </div>
-          </section>
+          <div class="gift-note-box gift-note-box--order">
+            <h2>LINEで送っていただきたい内容</h2>
+            <ul class="gift-info-list">
+              <li>贈り主様のお名前</li>
+              <li>贈り主様のお電話番号</li>
+              <li>贈り主様のLINE表示名またはLINE ID</li>
+              <li>お相手の方のお名前</li>
+              <li>お相手の方のLINE表示名またはLINE ID</li>
+              <li>ご関係</li>
+              <li>記念日の内容</li>
+              <li>贈り主様からのひとこと（ご希望があれば）</li>
+            </ul>
+          </div>
 
-          <label class="gift-check">
-            <input name="policyAgree" type="checkbox" required />
-            <span>送付フローと返金条件を確認し、内容に同意して決済へ進みます。</span>
-          </label>
-
-          <p class="gift-form-note">未入力の項目がある場合は、決済画面へ進めません。</p>
-          <p class="gift-form-status" id="gift-form-status" aria-live="polite"></p>
+          <div class="gift-note-box gift-note-box--order">
+            <h2>返金について</h2>
+            <ul class="gift-info-list">
+              <li>お相手の方のご都合で未使用となった場合は、未使用かつ有効期限内に限り全額返金いたします。</li>
+              <li>予約確定後は返金不可となります。日程調整については個別にご相談ください。</li>
+            </ul>
+          </div>
 
           <div class="gift-order__actions">
             <a href="./gift-product.html" class="btn btn-outline">戻る</a>
-            <button class="btn btn-primary" type="submit">申し込む</button>
+            <a href="https://line.me/ti/p/q2EaCJh6wA" class="btn btn-primary" target="_blank" rel="noopener">誠屋LINEを追加する</a>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </main>
@@ -126,60 +90,5 @@
   </footer>
 
   <script src="./script.js?v=20260311-1"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const STORAGE_KEY = 'makotoyaGiftOrderDraft';
-      const form = document.getElementById('gift-order-form');
-      const status = document.getElementById('gift-form-status');
-      if (!form || !status) return;
-
-      try {
-        const saved = sessionStorage.getItem(STORAGE_KEY);
-        if (saved) {
-          const values = JSON.parse(saved);
-          Object.entries(values).forEach(([key, value]) => {
-            const field = form.elements.namedItem(key);
-            if (!field) return;
-            if (field.type === 'checkbox') {
-              field.checked = value === 'checked';
-              return;
-            }
-            if (typeof value === 'string') {
-              field.value = value;
-            }
-          });
-        }
-      } catch (error) {
-        console.warn('gift form restore failed', error);
-      }
-
-      form.addEventListener('input', () => {
-        const data = {};
-        Array.from(form.elements).forEach((field) => {
-          if (!field.name) return;
-          if (field.type === 'checkbox') {
-            data[field.name] = field.checked ? 'checked' : '';
-            return;
-          }
-          data[field.name] = field.value || '';
-        });
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      });
-
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        status.textContent = '';
-
-        if (!form.reportValidity()) {
-          status.textContent = '未入力の項目をご確認ください。';
-          return;
-        }
-
-        status.textContent = '決済画面へ移動します。';
-        sessionStorage.setItem('makotoyaGiftOrderSubmittedAt', new Date().toISOString());
-        window.location.href = 'https://web.online.airpayment.jp/payment?planId=PLO9m26HfxenyV0Ye7';
-      });
-    });
-  </script>
 </body>
 </html>

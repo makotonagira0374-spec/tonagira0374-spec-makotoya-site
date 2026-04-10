@@ -830,3 +830,21 @@
     grid-template-columns: 1fr;
   }
 }
+.gift-order-flow {
+  display: grid;
+  gap: 24px;
+  margin-top: 28px;
+  text-align: left;
+}
+
+.gift-order-flow .gift-flow-list {
+  margin: 0;
+}
+
+.gift-order-flow .gift-note-box p {
+  margin: 0;
+}
+
+.gift-order-flow .gift-note-box p + p {
+  margin-top: 8px;
+}
