@@ -263,6 +263,24 @@
     justify-content: center;
   }
 
+  .gift-page .brand {
+    min-width: 0;
+    max-width: calc(100% - 234px);
+  }
+
+  .gift-page .brand-title {
+    font-size: 18px;
+  }
+
+  .gift-page .brand-sub {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
   .gift-hero,
   .gift-about,
   .gift-flow,
