@@ -1103,3 +1103,10 @@
     line-height: 1.55;
   }
 }
+@media (max-width: 390px) {
+  .gift-eyebrow {
+    font-size: 10px;
+    letter-spacing: .18em;
+    white-space: nowrap;
+  }
+}
