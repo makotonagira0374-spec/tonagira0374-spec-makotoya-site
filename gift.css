@@ -1209,21 +1209,21 @@
 }
 @media (max-width: 768px) {
   .gift-about-title {
-    font-size: clamp(16.5px, 4.7vw, 20px) !important;
+    font-size: clamp(18.5px, 5.1vw, 22px) !important;
   }
 
   .gift-flow-title {
-    font-size: clamp(18px, 5vw, 20px) !important;
+    font-size: clamp(20px, 5.4vw, 22px) !important;
   }
 }
 
 @media (max-width: 390px) {
   .gift-about-title {
-    font-size: 16.5px !important;
+    font-size: 18.5px !important;
   }
 
   .gift-flow-title {
-    font-size: 18px !important;
+    font-size: 20px !important;
   }
 }
 @-webkit-keyframes gift-band-scroll-mobile {
