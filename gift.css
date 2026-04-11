@@ -1207,3 +1207,22 @@
     letter-spacing: -.03em;
   }
 }
+@media (max-width: 768px) {
+  .gift-about-title {
+    font-size: clamp(16.5px, 4.7vw, 20px) !important;
+  }
+
+  .gift-flow-title {
+    font-size: clamp(18px, 5vw, 20px) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .gift-about-title {
+    font-size: 16.5px !important;
+  }
+
+  .gift-flow-title {
+    font-size: 18px !important;
+  }
+}
