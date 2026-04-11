@@ -1090,3 +1090,9 @@
     line-height: 1.42;
   }
 }
+@media (max-width: 390px) {
+  .gift-hero p {
+    font-size: 15px;
+    line-height: 2.05;
+  }
+}
