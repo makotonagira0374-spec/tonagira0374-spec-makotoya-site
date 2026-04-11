@@ -1083,3 +1083,10 @@
     display: block;
   }
 }
+@media (max-width: 390px) {
+  .gift-hero h1 {
+    font-size: clamp(29px, 8.2vw, 32px);
+    letter-spacing: .02em;
+    line-height: 1.42;
+  }
+}
