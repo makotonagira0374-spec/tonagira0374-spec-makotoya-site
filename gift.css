@@ -1173,3 +1173,14 @@
     letter-spacing: .01em;
   }
 }
+@media (max-width: 768px) {
+  .gift-about-title {
+    font-size: clamp(20px, 5.7vw, 24px);
+  }
+}
+
+@media (max-width: 390px) {
+  .gift-about-title {
+    font-size: 20px;
+  }
+}
