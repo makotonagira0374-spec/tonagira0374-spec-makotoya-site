@@ -1184,3 +1184,26 @@
     font-size: 20px;
   }
 }
+@media (max-width: 768px) {
+  .gift-about-title {
+    font-size: clamp(18.5px, 5.1vw, 22px);
+    letter-spacing: -.03em;
+  }
+
+  .gift-flow-title {
+    font-size: clamp(20px, 5.4vw, 22px);
+    letter-spacing: -.02em;
+  }
+}
+
+@media (max-width: 390px) {
+  .gift-about-title {
+    font-size: 18.5px;
+    letter-spacing: -.04em;
+  }
+
+  .gift-flow-title {
+    font-size: 20px;
+    letter-spacing: -.03em;
+  }
+}
