@@ -1359,3 +1359,48 @@
     line-height: 2;
   }
 }
+@media (max-width: 768px) {
+  .gift-page .gift-flow-list {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .gift-page .gift-flow-list li {
+    min-height: 68px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 18px 16px 18px 60px !important;
+    border-radius: 20px !important;
+    font-family: var(--serif) !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    letter-spacing: .01em !important;
+    color: #2a241e !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(248,244,238,.92) 100%) !important;
+    box-shadow: 0 18px 46px rgba(40,33,27,.07), inset 0 1px 0 rgba(255,255,255,.8) !important;
+  }
+
+  .gift-page .gift-flow-list li::before {
+    left: 18px !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: linear-gradient(135deg, rgba(180,155,112,.24), rgba(135,174,185,.18)) !important;
+    color: #7c6041 !important;
+    border: 1px solid rgba(180,155,112,.18) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 8px 18px rgba(126,110,85,.12) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .gift-page .gift-flow-list li {
+    min-height: 64px !important;
+    padding: 16px 14px 16px 56px !important;
+    font-size: 14px !important;
+  }
+
+  .gift-page .gift-flow-list li::before {
+    left: 16px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
