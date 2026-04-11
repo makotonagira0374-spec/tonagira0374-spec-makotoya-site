@@ -1313,3 +1313,25 @@
     margin-top: 12px;
   }
 }
+.gift-price-line {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .45em;
+}
+
+@media (max-width: 768px) {
+  .gift-price-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 390px) {
+  .gift-price-line {
+    font-size: clamp(24px, 7vw, 28px);
+  }
+}
