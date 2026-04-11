@@ -1074,3 +1074,12 @@
     min-width: 0;
   }
 }
+.gift-page .sp-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .gift-page .sp-only {
+    display: block;
+  }
+}
