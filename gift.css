@@ -1110,3 +1110,23 @@
     white-space: nowrap;
   }
 }
+@media (max-width: 768px) {
+  .gift-about-title {
+    font-size: clamp(22px, 6.2vw, 27px);
+    letter-spacing: .01em;
+    line-height: 1.65;
+  }
+
+  .gift-about-title span {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 390px) {
+  .gift-about-title {
+    font-size: 22px;
+    letter-spacing: 0;
+    line-height: 1.7;
+  }
+}
