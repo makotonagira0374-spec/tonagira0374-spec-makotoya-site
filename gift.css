@@ -909,3 +909,168 @@
     font-size: 14px;
   }
 }
+/* Gift order luxe upgrade */
+.gift-order {
+  padding: 126px 0 142px;
+  background:
+    radial-gradient(circle at 18% 6%, rgba(180,155,112,.14), transparent 26%),
+    radial-gradient(circle at 82% 16%, rgba(135,174,185,.13), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,.64) 0%, rgba(246,242,235,.76) 100%);
+}
+
+.gift-order .container {
+  max-width: 980px;
+}
+
+.gift-order__inner {
+  max-width: 900px;
+  padding: 72px 68px 66px;
+  border-radius: 38px;
+  border: 1px solid rgba(180,155,112,.22);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.98) 0%, rgba(250,247,241,.95) 56%, rgba(255,255,255,.94) 100%);
+  box-shadow: 0 44px 120px rgba(39,32,25,.14), inset 0 1px 0 rgba(255,255,255,.86);
+}
+
+.gift-order__inner::after {
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  width: min(240px, 42vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(180,155,112,0), rgba(180,155,112,.72), rgba(180,155,112,0));
+  pointer-events: none;
+}
+
+.gift-order__inner > .gift-section-heading__eyebrow {
+  margin-bottom: 18px;
+  color: #a78659;
+}
+
+.gift-order__inner h1 {
+  font-size: clamp(34px, 4.2vw, 52px);
+  letter-spacing: .09em;
+  color: #201c18;
+}
+
+.gift-order-flow {
+  gap: 28px;
+  margin-top: 42px;
+}
+
+.gift-order-flow .gift-note-box--order:first-child {
+  text-align: center;
+  padding: 34px 38px;
+  border-color: rgba(180,155,112,.18);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98), rgba(249,246,239,.94));
+}
+
+.gift-order-flow .gift-note-box--order:first-child h2 {
+  margin-bottom: 18px;
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: .08em;
+}
+
+.gift-order .gift-flow-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gift-order .gift-flow-list li {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  padding: 22px 24px 22px 76px;
+  border-radius: 24px;
+  border-color: rgba(180,155,112,.17);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(248,244,237,.93));
+  box-shadow: 0 18px 46px rgba(40,33,27,.07), inset 0 1px 0 rgba(255,255,255,.8);
+  font-family: var(--serif);
+  letter-spacing: .05em;
+  color: #2a241e;
+}
+
+.gift-order .gift-flow-list li::before {
+  left: 24px;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(145deg, rgba(180,155,112,.32), rgba(255,255,255,.84));
+  color: #856542;
+  border-color: rgba(180,155,112,.32);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 8px 18px rgba(126,110,85,.12);
+}
+
+.gift-order .gift-copy-template,
+.gift-order .gift-note-box--order:not(:first-child),
+.gift-order .gift-pc-line-note {
+  border-color: rgba(180,155,112,.18);
+  background: linear-gradient(180deg, rgba(255,255,255,.97), rgba(250,247,242,.94));
+  box-shadow: 0 20px 54px rgba(40,33,27,.08), inset 0 1px 0 rgba(255,255,255,.82);
+}
+
+.gift-order .gift-copy-template__box {
+  border-color: rgba(180,155,112,.2);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98), rgba(246,242,235,.9));
+  font-family: var(--serif);
+  color: rgba(35,30,26,.84);
+}
+
+.gift-order__actions {
+  margin-top: 34px;
+}
+
+.gift-order__actions .btn {
+  min-width: 220px;
+}
+
+@media (max-width: 768px) {
+  .gift-order {
+    padding: 84px 0 92px;
+  }
+
+  .gift-order__inner {
+    padding: 48px 22px 42px;
+    border-radius: 28px;
+  }
+
+  .gift-order__inner h1 {
+    font-size: clamp(28px, 8.2vw, 38px);
+    letter-spacing: .06em;
+  }
+
+  .gift-order-flow {
+    gap: 22px;
+    margin-top: 32px;
+  }
+
+  .gift-order-flow .gift-note-box--order:first-child {
+    padding: 28px 20px;
+  }
+
+  .gift-order .gift-flow-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gift-order .gift-flow-list li {
+    min-height: 70px;
+    padding: 18px 18px 18px 66px;
+    border-radius: 20px;
+  }
+
+  .gift-order .gift-flow-list li::before {
+    left: 20px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .gift-order__actions .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
