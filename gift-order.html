@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://makotoyarickshaw.jp/gift-order.html" />
   <link rel="stylesheet" href="./styles.css?v=20260311-1" />
-  <link rel="stylesheet" href="./gift.css?v=20260410-6" />
+  <link rel="stylesheet" href="./gift.css?v=20260411-1" />
 </head>
 <body class="gift-page">
   <header class="site-header" id="site-header">
@@ -52,15 +52,18 @@
             <li>贈り主様からお相手の方へ「受け取ってね」と連絡する</li>
           </ol>
 
-          <div class="gift-note-box gift-note-box--order">
+          <div class="gift-note-box gift-note-box--order gift-copy-template">
             <h2>LINEで送っていただきたい内容</h2>
-            <ul class="gift-info-list">
-              <li>贈り主様のお名前</li>
-              <li>贈り主様のお電話番号</li>
-              <li>お相手の方のお名前</li>
-              <li>記念日の内容</li>
-              <li>贈り主様からのひとこと（ご希望があれば）</li>
-            </ul>
+            <p>下の内容をコピーして、必要事項を入力してから誠屋LINEへお送りください。</p>
+            <div class="gift-copy-template__box" id="gift-line-template" tabindex="0">記念日フォトギフトの申し込みです。
+
+贈り主様のお名前：
+贈り主様のお電話番号：
+お相手の方のお名前：
+記念日の内容：
+贈り主様からのひとこと（ご希望があれば）：</div>
+            <button class="btn btn-outline gift-copy-template__button" type="button" data-copy-target="gift-line-template">この内容をコピーする</button>
+            <p class="gift-copy-template__status" id="gift-copy-status" aria-live="polite"></p>
           </div>
 
           <div class="gift-note-box gift-note-box--order">
@@ -87,5 +90,28 @@
   </footer>
 
   <script src="./script.js?v=20260311-1"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const copyButton = document.querySelector('[data-copy-target="gift-line-template"]');
+      const copySource = document.getElementById('gift-line-template');
+      const copyStatus = document.getElementById('gift-copy-status');
+      if (!copyButton || !copySource || !copyStatus) return;
+
+      copyButton.addEventListener('click', async () => {
+        const text = copySource.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          copyStatus.textContent = 'コピーしました。LINEに貼り付けてご利用ください。';
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(copySource);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          copyStatus.textContent = '選択しました。コピーしてLINEに貼り付けてください。';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
