@@ -1139,3 +1139,27 @@
     display: block;
   }
 }
+.gift-about-title__pc-line {
+  display: block;
+}
+
+.gift-about-title__mobile-line {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .gift-about-title__pc-line {
+    display: none !important;
+  }
+
+  .gift-about-title__mobile-line {
+    display: block !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 390px) {
+  .gift-about-title {
+    font-size: 21px;
+  }
+}
