@@ -1349,3 +1349,13 @@
     letter-spacing: .04em !important;
   }
 }
+.gift-order-line-copy {
+  line-height: 2.05;
+}
+
+@media (max-width: 390px) {
+  .gift-order-line-copy {
+    font-size: 14px;
+    line-height: 2;
+  }
+}
