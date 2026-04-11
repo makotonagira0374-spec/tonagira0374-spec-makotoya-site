@@ -1404,3 +1404,8 @@
     height: 30px !important;
   }
 }
+@media (max-width: 768px) {
+  .gift-pc-line-note {
+    display: none;
+  }
+}
