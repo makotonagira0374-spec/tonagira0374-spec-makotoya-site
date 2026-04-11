@@ -872,9 +872,40 @@
   text-align: center;
 }
 
+.gift-pc-line-note {
+  max-width: 680px;
+  margin: 4px auto 0;
+  padding: 18px 22px;
+  text-align: center;
+  color: rgba(35,30,26,.74);
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(248,244,236,.88));
+  border: 1px solid rgba(126,110,85,.14);
+  border-radius: 20px;
+  box-shadow: 0 18px 42px rgba(40,33,27,.06);
+}
+
+.gift-pc-line-note p {
+  margin: 0;
+  line-height: 1.9;
+}
+
+.gift-pc-line-note__title {
+  margin-bottom: 8px !important;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: #2b2925;
+}
+
 @media (max-width: 768px) {
   .gift-copy-template__box {
     padding: 18px 16px;
+    font-size: 14px;
+  }
+
+  .gift-pc-line-note {
+    padding: 16px 18px;
+    text-align: left;
     font-size: 14px;
   }
 }
