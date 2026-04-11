@@ -1342,3 +1342,10 @@
     line-height: 1.55;
   }
 }
+@media (max-width: 390px) {
+  .gift-order-line-title {
+    font-size: 23px !important;
+    line-height: 1.55 !important;
+    letter-spacing: .04em !important;
+  }
+}
