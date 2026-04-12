@@ -294,6 +294,9 @@ body{
 .different-reel-link{
   margin-top: 18px;
   text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
 }
 
 .different-reel-link .plans-cta{
