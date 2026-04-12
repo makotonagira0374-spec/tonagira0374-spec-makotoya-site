@@ -306,6 +306,10 @@ body{
   color: #fff;
 }
 
+.different-reel-link .plans-cta--reserve{
+  background: var(--accent);
+}
+
 
 /* =========================
    MAKOTOYA STORY
