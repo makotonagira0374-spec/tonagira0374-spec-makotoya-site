@@ -275,6 +275,10 @@ img{ max-width: 100%; }
   grid-template-columns: minmax(280px, .92fr) minmax(0, 1.08fr);
 }
 
+.blog-card[hidden]{
+  display: none;
+}
+
 .blog-card--featured{
   min-height: 340px;
 }
