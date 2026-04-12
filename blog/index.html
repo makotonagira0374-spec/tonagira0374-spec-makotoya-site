@@ -110,7 +110,7 @@
           <p>水間門前町や貝塚で、<br>ゆっくり過ごせる場所を探している人へ。</p>
         </div>
 
-        <div class="blog-grid">
+        <div class="blog-grid" data-blog-post-grid data-blog-page-size="5">
           <article class="blog-card blog-card--featured">
             <a class="blog-card__media" href="./mizuma-guide.html">
               <img src="../photo/10.png" alt="貝塚の水間門前町で過ごす落ち着いた時間のイメージ" loading="lazy" decoding="async" />
@@ -239,6 +239,12 @@
           </article>
         </div>
 
+        <nav class="blog-pagination" aria-label="記事一覧のページ送り" data-blog-pagination hidden>
+          <button class="blog-pagination__button" type="button" data-blog-prev>前へ</button>
+          <div class="blog-pagination__pages" data-blog-pages></div>
+          <p class="blog-pagination__status" aria-live="polite" data-blog-page-status>1 / 1ページ</p>
+          <button class="blog-pagination__button" type="button" data-blog-next>次へ</button>
+        </nav>
 
       </div>
     </section>
