@@ -419,6 +419,11 @@
 
 .movie-plans-dots { display: none; }
 
+.movie-plans__cta {
+  margin-top: 34px;
+  text-align: center;
+}
+
 .movie-benefits__list {
   display: grid;
   gap: 18px;
