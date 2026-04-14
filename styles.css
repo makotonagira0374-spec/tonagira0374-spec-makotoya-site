@@ -1605,3 +1605,57 @@ body{
 .album-title{
   font-size: 22px;
 }
+.photo-gift-link {
+  box-sizing: border-box;
+  width: min(560px, 100%);
+  margin: 34px auto 0;
+  padding: 28px 26px;
+  border: 1px solid rgba(31, 31, 31, .14);
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(248, 246, 240, .92));
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .06);
+  text-align: center;
+}
+
+.photo-gift-label {
+  margin: 0 0 8px !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  letter-spacing: .22em;
+  color: #7b8f95;
+  text-transform: uppercase;
+}
+
+.photo-gift-text {
+  margin: 0 !important;
+  color: rgba(17, 17, 17, .68);
+  font-size: 15px !important;
+  line-height: 1.9 !important;
+  letter-spacing: .05em;
+}
+
+.plans-cta--gift {
+  border-color: #7b8f95;
+  color: #2f515c;
+  background: rgba(123, 143, 149, .08);
+}
+
+.sp-break {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .photo-gift-link {
+    margin-top: 28px;
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+
+  .photo-gift-text {
+    font-size: 14px !important;
+  }
+
+  .sp-break {
+    display: block;
+  }
+}

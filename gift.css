@@ -1409,3 +1409,16 @@
     display: none;
   }
 }
+.gift-line-content-title__mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .gift-line-content-title__pc {
+    display: none;
+  }
+
+  .gift-line-content-title__mobile {
+    display: inline;
+  }
+}
