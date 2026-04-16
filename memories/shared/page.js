@@ -362,6 +362,9 @@
       document.body.classList.remove("is-loading");
       if (loading) {
         loading.setAttribute("hidden", "");
+        if (loading.style) {
+          loading.style.display = "none";
+        }
       }
     }, 240);
   }

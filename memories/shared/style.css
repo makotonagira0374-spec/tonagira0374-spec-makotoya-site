@@ -60,6 +60,10 @@ a {
   transition: opacity 240ms ease;
 }
 
+.memory-loading[hidden] {
+  display: none;
+}
+
 .memory-loading__mark {
   display: grid;
   gap: 10px;
