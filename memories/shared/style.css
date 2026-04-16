@@ -1,0 +1,557 @@
+:root {
+  /* 誠屋らしい白背景を軸に、墨色・深い緑・紅を少量だけ使います。 */
+  --memory-ink: #1f1c19;
+  --memory-muted: #67635e;
+  --memory-soft: #f6f7f4;
+  --memory-line: #dfe4dc;
+  --memory-green: #536b55;
+  --memory-green-dark: #2f4938;
+  --memory-red: #9a4050;
+  --memory-white: #ffffff;
+  --memory-shadow: 0 18px 60px rgba(31, 28, 25, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.memory-body {
+  margin: 0;
+  background: var(--memory-white);
+  color: var(--memory-ink);
+  font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body.is-loading {
+  overflow: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+.memory-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: var(--memory-white);
+  color: var(--memory-green-dark);
+  transition: opacity 240ms ease;
+}
+
+.memory-loading__mark {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.05rem;
+}
+
+.memory-loading__mark::before {
+  width: 30px;
+  height: 30px;
+  content: "";
+  border: 1px solid var(--memory-line);
+  border-top-color: var(--memory-red);
+  border-radius: 50%;
+  animation: memory-spin 900ms linear infinite;
+}
+
+@keyframes memory-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.memory-container {
+  width: min(100% - 32px, 1040px);
+  margin-inline: auto;
+}
+
+.memory-hero {
+  position: relative;
+  min-height: 86svh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background: var(--memory-ink);
+  color: var(--memory-white);
+}
+
+.memory-hero__image,
+.memory-hero .memory-image-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-hero .memory-image-fallback {
+  display: grid;
+  place-items: center;
+  background: var(--memory-green-dark);
+  color: var(--memory-white);
+}
+
+.memory-hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(31, 28, 25, 0.16) 0%, rgba(31, 28, 25, 0.44) 48%, rgba(31, 28, 25, 0.82) 100%),
+    linear-gradient(90deg, rgba(31, 28, 25, 0.68) 0%, rgba(31, 28, 25, 0.1) 72%);
+}
+
+.memory-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 32px, 920px);
+  margin: 0 auto;
+  padding: 96px 0 56px;
+}
+
+.memory-brand,
+.memory-eyebrow,
+.memory-section__label {
+  margin: 0;
+  color: var(--memory-green-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.memory-hero .memory-brand,
+.memory-hero .memory-eyebrow {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.memory-brand {
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.96rem;
+  text-transform: none;
+}
+
+.memory-eyebrow {
+  margin-top: 14px;
+}
+
+.memory-hero h1 {
+  max-width: 11em;
+  margin: 18px 0 0;
+  font-family: "Noto Serif JP", serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.memory-hero__title {
+  margin: 22px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.memory-hero__meta {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+}
+
+.memory-hero__button,
+.memory-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid var(--memory-line);
+  border-radius: 8px;
+  background: var(--memory-white);
+  color: var(--memory-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.memory-hero__button {
+  margin-top: 28px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.memory-button--primary {
+  border-color: var(--memory-green-dark);
+  background: var(--memory-green-dark);
+  color: var(--memory-white);
+}
+
+.memory-hero__button:active,
+.memory-button:active {
+  transform: translateY(1px);
+}
+
+.memory-section {
+  padding: 76px 0;
+}
+
+.memory-intro {
+  background: var(--memory-soft);
+}
+
+.memory-intro__grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.memory-intro h2,
+.memory-section__heading h2,
+.memory-message h2,
+.memory-missing h1 {
+  margin: 10px 0 0;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.memory-intro p,
+.memory-section__heading p,
+.memory-message p,
+.memory-save__item p,
+.memory-missing p {
+  margin: 16px 0 0;
+  color: var(--memory-muted);
+  font-size: 1rem;
+}
+
+.memory-section__heading {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.memory-movie__frame {
+  overflow: hidden;
+  border: 1px solid var(--memory-line);
+  border-radius: 8px;
+  background: var(--memory-ink);
+  box-shadow: var(--memory-shadow);
+}
+
+.memory-movie__frame video,
+.memory-empty {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.memory-empty {
+  display: grid;
+  place-items: center;
+  color: var(--memory-white);
+}
+
+.memory-actions,
+.memory-gallery__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.memory-gallery {
+  background: var(--memory-soft);
+}
+
+.memory-gallery__actions {
+  margin-bottom: 22px;
+}
+
+.memory-gallery__actions p {
+  margin: 0;
+  color: var(--memory-muted);
+  font-size: 0.9rem;
+}
+
+.memory-gallery__actions code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.86rem;
+}
+
+.memory-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.memory-photo {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--memory-line);
+  border-radius: 8px;
+  background: var(--memory-white);
+}
+
+.memory-photo__image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.memory-photo img,
+.memory-photo .memory-image-fallback {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.memory-image-fallback {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  padding: 18px;
+  background: #eef2ec;
+  color: var(--memory-muted);
+  text-align: center;
+}
+
+.memory-photo figcaption {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  color: var(--memory-muted);
+  font-size: 0.9rem;
+}
+
+.memory-photo figcaption span {
+  overflow-wrap: anywhere;
+}
+
+.memory-photo figcaption a {
+  flex: 0 0 auto;
+  color: var(--memory-green-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.memory-message__inner {
+  max-width: 780px;
+}
+
+.memory-message {
+  background:
+    linear-gradient(90deg, var(--memory-white), #f3f6f1);
+}
+
+.memory-message p {
+  color: var(--memory-ink);
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.08rem;
+}
+
+.memory-save__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.memory-save__item {
+  min-height: 210px;
+  padding: 22px;
+  border: 1px solid var(--memory-line);
+  border-radius: 8px;
+  background: var(--memory-white);
+}
+
+.memory-save__item h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.memory-footer {
+  padding: 36px 0;
+  border-top: 1px solid var(--memory-line);
+  background: var(--memory-green-dark);
+  color: var(--memory-white);
+}
+
+.memory-footer p,
+.memory-footer small {
+  margin: 0;
+}
+
+.memory-footer small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.memory-lightbox {
+  width: min(100% - 24px, 920px);
+  max-height: calc(100svh - 24px);
+  padding: 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--memory-white);
+  color: var(--memory-ink);
+}
+
+.memory-lightbox::backdrop {
+  background: rgba(31, 28, 25, 0.78);
+}
+
+.memory-lightbox img {
+  width: 100%;
+  max-height: 72svh;
+  object-fit: contain;
+  background: var(--memory-soft);
+}
+
+.memory-lightbox p {
+  margin: 10px 0;
+  color: var(--memory-muted);
+}
+
+.memory-lightbox__close {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding: 8px 14px;
+  border: 1px solid var(--memory-line);
+  border-radius: 8px;
+  background: var(--memory-white);
+  color: var(--memory-ink);
+  font-weight: 700;
+}
+
+.memory-missing {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: 64px 0;
+  background: var(--memory-soft);
+}
+
+.memory-missing .memory-container {
+  max-width: 680px;
+}
+
+.memory-missing .memory-button {
+  margin-top: 24px;
+}
+
+@media (hover: hover) {
+  .memory-hero__button:hover,
+  .memory-button:hover {
+    border-color: var(--memory-green);
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 760px) {
+  .memory-container {
+    width: min(100% - 28px, 1040px);
+  }
+
+  .memory-hero {
+    min-height: 86svh;
+  }
+
+  .memory-hero__inner {
+    width: min(100% - 28px, 920px);
+    padding: 84px 0 44px;
+  }
+
+  .memory-hero h1 {
+    font-size: 2rem;
+  }
+
+  .memory-section {
+    padding: 58px 0;
+  }
+
+  .memory-intro__grid,
+  .memory-save__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .memory-intro h2,
+  .memory-section__heading h2,
+  .memory-message h2,
+  .memory-missing h1 {
+    font-size: 1.55rem;
+  }
+
+  .memory-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .memory-photo figcaption {
+    min-height: 64px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.84rem;
+  }
+
+  .memory-actions,
+  .memory-gallery__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .memory-button,
+  .memory-hero__button {
+    width: 100%;
+  }
+
+  .memory-save__item {
+    min-height: 0;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .memory-hero h1 {
+    font-size: 1.78rem;
+  }
+
+  .memory-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+}
