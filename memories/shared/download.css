@@ -1,0 +1,149 @@
+:root {
+  --ink: #1f1c19;
+  --muted: #6b6760;
+  --line: #e5e1d8;
+  --paper: #fffdf9;
+  --green: #304939;
+  --green-soft: #eef3ed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.delivery-page {
+  min-height: 100svh;
+}
+
+.delivery {
+  width: min(100% - 32px, 520px);
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.delivery-brand,
+.delivery-date,
+.delivery-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.delivery-brand {
+  color: var(--green);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.delivery-visual {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--green-soft);
+}
+
+.delivery-visual img {
+  width: 100%;
+  height: clamp(320px, 52svh, 560px);
+  object-fit: cover;
+}
+
+.delivery-content {
+  display: grid;
+  gap: 12px;
+}
+
+.delivery-content h1 {
+  margin: 0;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(1.55rem, 7vw, 2.12rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.delivery-button {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 15px 18px;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.delivery-line {
+  justify-self: center;
+  padding: 4px 2px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.delivery-note {
+  padding-top: 2px;
+  text-align: center;
+}
+
+@media (min-width: 760px) {
+  .delivery {
+    width: min(100% - 64px, 980px);
+    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-areas:
+      "brand brand"
+      "visual content";
+    column-gap: 42px;
+  }
+
+  .delivery-brand {
+    grid-area: brand;
+  }
+
+  .delivery-visual {
+    grid-area: visual;
+  }
+
+  .delivery-content {
+    grid-area: content;
+    align-self: center;
+  }
+}

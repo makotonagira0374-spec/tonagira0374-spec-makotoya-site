@@ -114,3 +114,15 @@ QRコードに入れるURLは、必ずslugまで含めます。
 - `memories/{slug}/index.html` の `window.MAKOTOYA_MEMORY_SLUG`
 
 見た目を変えたいときだけ `memories/shared/style.css` を触ってください。
+
+## ZIP受け取り特化ページ
+
+現在のテストページ `/memories/2026-03-22-test/` は、スマホで迷わずZIPを受け取るための静的ページです。
+
+編集する場所:
+
+- ベストショット: `memories/{slug}/index.html` の `<img src="...">`
+- ZIPファイル: `memories/{slug}/index.html` の `href="/memories/assets/{slug}/photos.zip"`
+- 保存時のファイル名: `download="makotoya-日付-photos.zip"`
+- LINE導線: 不要なら `delivery-line` の1行を削除
+- 見た目: `memories/shared/download.css`
