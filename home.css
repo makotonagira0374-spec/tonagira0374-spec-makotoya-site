@@ -510,6 +510,11 @@
     white-space: nowrap;
   }
 
+
+  /* Hide course image on mobile only */
+  .home-story__media {
+    display: none;
+  }
   .home-hero__actions {
     flex-direction: column;
   }
