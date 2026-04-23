@@ -1,13 +1,14 @@
 :root {
   --ink: #1a1816;
-  --muted: #686560;
-  --line: #dedfd8;
-  --paper: #fbfbfa;
+  --muted: #60615d;
+  --line: #d9dcd5;
+  --paper: #f7f8f6;
   --surface: #ffffff;
   --green: #263e31;
-  --green-soft: #eef4ef;
+  --green-soft: #eef3ee;
   --accent: #8b3547;
-  --shadow: 0 24px 70px rgba(26, 24, 22, 0.12);
+  --gallery-rail: #c8cdc4;
+  --shadow: 0 28px 80px rgba(26, 24, 22, 0.13);
 }
 
 * {
@@ -24,7 +25,8 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background: linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
+  background:
+    linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
   color: var(--ink);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: 0;
@@ -42,9 +44,21 @@ a {
 }
 
 .delivery-page {
+  position: relative;
   min-height: 100svh;
   background:
-    linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), rgba(38, 62, 49, 0.05) calc(50% - 1px), rgba(38, 62, 49, 0.05) calc(50% + 1px), transparent calc(50% + 1px));
+    linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), rgba(38, 62, 49, 0.04) calc(50% - 1px), rgba(38, 62, 49, 0.04) calc(50% + 1px), transparent calc(50% + 1px));
+}
+
+.delivery-page::before {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--gallery-rail), transparent);
+  pointer-events: none;
 }
 
 .delivery {
@@ -76,28 +90,67 @@ a {
 }
 
 .delivery-brand::after {
-  width: 42px;
+  width: 56px;
   height: 1px;
   content: "";
   background: var(--accent);
 }
 
 .delivery-visual {
+  position: relative;
   margin: 0;
-  overflow: hidden;
-  padding: 8px;
-  border: 1px solid var(--line);
+  padding: 15px 15px 12px;
+  border: 1px solid #cfd4cb;
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
 }
 
+.delivery-visual::before {
+  position: absolute;
+  inset: 8px;
+  content: "";
+  border: 1px solid rgba(26, 24, 22, 0.13);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
 .delivery-visual img {
   width: 100%;
-  height: min(44svh, 500px);
+  height: min(43svh, 500px);
   min-height: 280px;
   object-fit: cover;
+  border: 12px solid #ffffff;
   border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px rgba(26, 24, 22, 0.12),
+    0 10px 32px rgba(26, 24, 22, 0.12);
+}
+
+.art-label {
+  display: grid;
+  gap: 2px;
+  margin: 12px 6px 2px;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.art-label span {
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.art-label strong {
+  color: var(--ink);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 0.86rem;
+  font-weight: 700;
 }
 
 .delivery-content {
@@ -123,7 +176,7 @@ a {
   padding: 15px 18px;
   border-radius: 8px;
   border: 1px solid var(--green);
-  background: linear-gradient(180deg, #345843 0%, var(--green) 100%);
+  background: linear-gradient(180deg, #355d46 0%, var(--green) 100%);
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
@@ -140,7 +193,7 @@ a {
   padding: 11px 16px;
   border: 1px solid rgba(48, 73, 57, 0.28);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.92);
   color: var(--green);
   font-size: 0.92rem;
   font-weight: 700;
@@ -153,7 +206,7 @@ a {
   padding: 15px 15px 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.94);
   color: var(--muted);
   font-size: 0.84rem;
   line-height: 1.75;
@@ -191,7 +244,7 @@ a {
 @media (min-width: 760px) {
   .delivery {
     width: min(100% - 64px, 980px);
-    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-columns: minmax(0, 1fr) 370px;
     grid-template-areas:
       "brand brand"
       "visual content";
@@ -211,6 +264,7 @@ a {
     grid-area: content;
     align-self: center;
     gap: 14px;
+    padding-left: 2px;
   }
 
   .delivery-content h1 {
