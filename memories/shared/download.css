@@ -110,13 +110,19 @@ a {
 }
 
 .delivery-line {
-  justify-self: center;
-  padding: 4px 2px;
-  color: var(--muted);
-  font-size: 0.88rem;
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  border: 1px solid rgba(48, 73, 57, 0.28);
+  border-radius: 8px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 0.92rem;
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .stamp-guide {
