@@ -1,10 +1,13 @@
 :root {
-  --ink: #1f1c19;
-  --muted: #6b6760;
-  --line: #e5e1d8;
-  --paper: #fffdf9;
-  --green: #304939;
-  --green-soft: #eef3ed;
+  --ink: #1a1816;
+  --muted: #686560;
+  --line: #dedfd8;
+  --paper: #fbfbfa;
+  --surface: #ffffff;
+  --green: #263e31;
+  --green-soft: #eef4ef;
+  --accent: #8b3547;
+  --shadow: 0 24px 70px rgba(26, 24, 22, 0.12);
 }
 
 * {
@@ -21,7 +24,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background: var(--paper);
+  background: linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
   color: var(--ink);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: 0;
@@ -40,6 +43,8 @@ a {
 
 .delivery-page {
   min-height: 100svh;
+  background:
+    linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), rgba(38, 62, 49, 0.05) calc(50% - 1px), rgba(38, 62, 49, 0.05) calc(50% + 1px), transparent calc(50% + 1px));
 }
 
 .delivery {
@@ -47,9 +52,9 @@ a {
   min-height: 100svh;
   display: grid;
   align-content: center;
-  gap: 18px;
+  gap: 16px;
   margin: 0 auto;
-  padding: 24px 0;
+  padding: 28px 0;
 }
 
 .delivery-brand,
@@ -61,36 +66,52 @@ a {
 }
 
 .delivery-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   color: var(--green);
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+
+.delivery-brand::after {
+  width: 42px;
+  height: 1px;
+  content: "";
+  background: var(--accent);
 }
 
 .delivery-visual {
   margin: 0;
   overflow: hidden;
+  padding: 8px;
+  border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--green-soft);
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .delivery-visual img {
   width: 100%;
-  height: clamp(320px, 52svh, 560px);
+  height: min(44svh, 500px);
+  min-height: 280px;
   object-fit: cover;
+  border-radius: 4px;
 }
 
 .delivery-content {
   display: grid;
-  gap: 12px;
+  gap: 13px;
+  padding-top: 4px;
 }
 
 .delivery-content h1 {
   margin: 0;
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: clamp(1.55rem, 7vw, 2.12rem);
+  font-size: 1.82rem;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.42;
 }
 
 .delivery-button {
@@ -98,15 +119,17 @@ a {
   min-height: 58px;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
   padding: 15px 18px;
   border-radius: 8px;
-  background: var(--green);
+  border: 1px solid var(--green);
+  background: linear-gradient(180deg, #345843 0%, var(--green) 100%);
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  box-shadow: 0 12px 28px rgba(38, 62, 49, 0.2);
 }
 
 .delivery-line {
@@ -117,7 +140,7 @@ a {
   padding: 11px 16px;
   border: 1px solid rgba(48, 73, 57, 0.28);
   border-radius: 8px;
-  background: var(--green-soft);
+  background: rgba(255, 255, 255, 0.86);
   color: var(--green);
   font-size: 0.92rem;
   font-weight: 700;
@@ -126,14 +149,15 @@ a {
 }
 
 .stamp-guide {
-  margin-top: 2px;
-  padding: 14px 14px 13px;
+  margin-top: 0;
+  padding: 15px 15px 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(247, 247, 244, 0.92);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--muted);
   font-size: 0.84rem;
   line-height: 1.75;
+  box-shadow: 0 10px 34px rgba(26, 24, 22, 0.06);
 }
 
 .stamp-guide p {
@@ -147,9 +171,10 @@ a {
 .stamp-code {
   display: inline-block;
   margin: 3px 4px 3px 0;
-  padding: 3px 8px;
+  padding: 4px 9px;
+  border: 1px solid rgba(38, 62, 49, 0.16);
   border-radius: 6px;
-  background: #fff;
+  background: #f8faf7;
   color: var(--green);
   font-size: 0.9rem;
   font-weight: 700;
@@ -159,7 +184,7 @@ a {
 }
 
 .delivery-note {
-  padding-top: 2px;
+  padding-top: 0;
   text-align: center;
 }
 
@@ -170,7 +195,8 @@ a {
     grid-template-areas:
       "brand brand"
       "visual content";
-    column-gap: 42px;
+    column-gap: 48px;
+    padding: 46px 0;
   }
 
   .delivery-brand {
@@ -184,5 +210,10 @@ a {
   .delivery-content {
     grid-area: content;
     align-self: center;
+    gap: 14px;
+  }
+
+  .delivery-content h1 {
+    font-size: 2.08rem;
   }
 }
