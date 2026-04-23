@@ -7,6 +7,7 @@
   --green: #263e31;
   --green-soft: #eef3ee;
   --accent: #8b3547;
+  --gold: #d6b25e;
   --gallery-rail: #c8cdc4;
   --shadow: 0 28px 80px rgba(26, 24, 22, 0.13);
 }
@@ -176,14 +177,14 @@ a {
   margin-top: 8px;
   padding: 15px 18px;
   border-radius: 8px;
-  border: 1px solid var(--green);
-  background: linear-gradient(180deg, #355d46 0%, var(--green) 100%);
-  color: #fff;
+  border: 1px solid #1a1816;
+  background: linear-gradient(180deg, #2a2825 0%, #0f0e0d 100%);
+  color: var(--gold);
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 12px 28px rgba(38, 62, 49, 0.2);
+  box-shadow: 0 12px 30px rgba(26, 24, 22, 0.24);
 }
 
 .delivery-line {
