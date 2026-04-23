@@ -119,6 +119,39 @@ a {
   text-underline-offset: 4px;
 }
 
+.stamp-guide {
+  margin-top: 2px;
+  padding: 14px 14px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(247, 247, 244, 0.92);
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.stamp-guide p {
+  margin: 0;
+}
+
+.stamp-guide p + p {
+  margin-top: 8px;
+}
+
+.stamp-code {
+  display: inline-block;
+  margin: 3px 4px 3px 0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--green);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  user-select: all;
+  -webkit-user-select: all;
+}
+
 .delivery-note {
   padding-top: 2px;
   text-align: center;
