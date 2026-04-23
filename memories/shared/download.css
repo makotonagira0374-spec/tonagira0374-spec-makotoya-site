@@ -162,9 +162,10 @@ a {
 .delivery-content h1 {
   margin: 0;
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: 1.82rem;
+  font-size: 1.54rem;
   font-weight: 700;
   line-height: 1.42;
+  white-space: nowrap;
 }
 
 .delivery-button {
@@ -269,5 +270,11 @@ a {
 
   .delivery-content h1 {
     font-size: 2.08rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .delivery-content h1 {
+    font-size: 1.42rem;
   }
 }
