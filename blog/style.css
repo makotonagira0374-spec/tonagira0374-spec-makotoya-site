@@ -148,6 +148,14 @@ img{ max-width: 100%; }
   align-items: center;
 }
 
+.blog-hero--text-only .blog-hero__grid{
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.blog-hero--text-only .blog-hero__lead{
+  max-width: 52em;
+}
+
 .blog-hero__title,
 .article h1,
 .blog-section__heading h2,
