@@ -148,14 +148,6 @@ img{ max-width: 100%; }
   align-items: center;
 }
 
-.blog-hero--text-only .blog-hero__grid{
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.blog-hero--text-only .blog-hero__lead{
-  max-width: 52em;
-}
-
 .blog-hero__title,
 .article h1,
 .blog-section__heading h2,
@@ -610,6 +602,10 @@ img{ max-width: 100%; }
   .article-hero__grid,
   .article-side{
     grid-template-columns: 1fr;
+  }
+
+  .blog-hero__media--desktop-only{
+    display: none;
   }
 
   .blog-hero__media img,
