@@ -270,6 +270,64 @@
   margin-bottom: 8px;
 }
 
+.home-collab {
+  padding: 0 0 100px;
+}
+
+.home-collab__card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: 28px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.05);
+}
+
+.home-collab__media {
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+.home-collab__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.home-collab__copy {
+  text-align: left;
+}
+
+.home-collab__copy p {
+  margin: 0;
+  color: rgba(17, 17, 17, 0.72);
+  line-height: 1.95;
+}
+
+.home-collab__copy p + p {
+  margin-top: 16px;
+}
+
+.home-collab__note {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(17, 17, 17, 0.58);
+}
+
+.home-collab__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
 .home-story__link {
   display: inline-flex;
   margin-top: 28px;
@@ -405,6 +463,10 @@
     grid-template-columns: 1fr;
   }
 
+  .home-collab__card {
+    grid-template-columns: 1fr;
+  }
+
   .home-hero__media img,
   .home-story__media img {
     min-height: 360px;
@@ -468,6 +530,7 @@
   .home-experience,
   .home-gallery,
   .home-flow,
+  .home-collab,
   .home-story {
     padding-bottom: 72px;
   }
@@ -482,6 +545,19 @@
   .gallery-card,
   .gallery-card--large {
     min-height: 240px;
+  }
+
+  .home-collab__card {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .home-collab__media img {
+    min-height: 260px;
+  }
+
+  .home-collab__actions {
+    flex-direction: column;
   }
 
   .home-nav {
@@ -510,11 +586,11 @@
     white-space: nowrap;
   }
 
-
   /* Hide course image on mobile only */
   .home-story__media {
     display: none;
   }
+
   .home-hero__actions {
     flex-direction: column;
   }
@@ -531,7 +607,8 @@
   }
 
   .home-hero__media,
-  .home-story__media {
+  .home-story__media,
+  .home-collab__media {
     border-radius: 18px;
   }
 
