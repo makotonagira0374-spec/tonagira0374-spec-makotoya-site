@@ -14,6 +14,7 @@ function initBlogPagination() {
   if (!postGrid || !pagination) return;
 
   const pageSize = Number.parseInt(postGrid.dataset.blogPageSize || '5', 10);
+  const maxVisiblePages = 5;
   const posts = Array.from(postGrid.children).filter((child) => child.classList.contains('blog-card'));
   const totalPages = Math.ceil(posts.length / pageSize);
 
@@ -49,6 +50,43 @@ function initBlogPagination() {
     window.scrollTo({ top, behavior: 'smooth' });
   }
 
+  function getVisiblePageRange() {
+    if (totalPages <= maxVisiblePages) {
+      return { start: 1, end: totalPages };
+    }
+
+    const start = Math.min(
+      Math.max(1, currentPage - (maxVisiblePages - 1)),
+      totalPages - maxVisiblePages + 1
+    );
+
+    return {
+      start,
+      end: start + maxVisiblePages - 1
+    };
+  }
+
+  function renderPageButtons() {
+    if (!pagesContainer) return;
+
+    const { start, end } = getVisiblePageRange();
+    pagesContainer.innerHTML = '';
+
+    for (let page = start; page <= end; page += 1) {
+      const button = document.createElement('button');
+      const isActive = page === currentPage;
+
+      button.className = 'blog-pagination__page';
+      button.type = 'button';
+      button.textContent = String(page);
+      button.setAttribute('aria-label', `${page}ページを表示`);
+      button.setAttribute('aria-current', isActive ? 'page' : 'false');
+      button.classList.toggle('is-active', isActive);
+      button.addEventListener('click', () => setPage(page));
+      pagesContainer.appendChild(button);
+    }
+  }
+
   function render() {
     const firstPost = (currentPage - 1) * pageSize;
     const lastPost = firstPost + pageSize;
@@ -61,14 +99,7 @@ function initBlogPagination() {
     if (nextButton) nextButton.disabled = currentPage === totalPages;
     if (status) status.textContent = `${currentPage} / ${totalPages}ページ`;
 
-    if (pagesContainer) {
-      Array.from(pagesContainer.children).forEach((button, index) => {
-        const page = index + 1;
-        const isActive = page === currentPage;
-        button.classList.toggle('is-active', isActive);
-        button.setAttribute('aria-current', isActive ? 'page' : 'false');
-      });
-    }
+    renderPageButtons();
   }
 
   function setPage(page, shouldScroll = true) {
@@ -76,19 +107,6 @@ function initBlogPagination() {
     render();
     syncUrl();
     if (shouldScroll) scrollToArticles();
-  }
-
-  if (pagesContainer) {
-    pagesContainer.innerHTML = '';
-    for (let page = 1; page <= totalPages; page += 1) {
-      const button = document.createElement('button');
-      button.className = 'blog-pagination__page';
-      button.type = 'button';
-      button.textContent = String(page);
-      button.setAttribute('aria-label', `${page}ページ目を表示`);
-      button.addEventListener('click', () => setPage(page));
-      pagesContainer.appendChild(button);
-    }
   }
 
   if (prevButton) {

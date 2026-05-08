@@ -349,8 +349,10 @@ img{ max-width: 100%; }
 .blog-pagination__pages{
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  width: 100%;
+  overflow: hidden;
 }
 
 .blog-pagination__button,
