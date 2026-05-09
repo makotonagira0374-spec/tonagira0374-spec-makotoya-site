@@ -55,9 +55,11 @@ function initBlogPagination() {
       return { start: 1, end: totalPages };
     }
 
+    const halfWindow = Math.floor(maxVisiblePages / 2);
+    const maxStart = totalPages - maxVisiblePages + 1;
     const start = Math.min(
-      Math.max(1, currentPage - (maxVisiblePages - 1)),
-      totalPages - maxVisiblePages + 1
+      Math.max(1, currentPage - halfWindow),
+      maxStart
     );
 
     return {
