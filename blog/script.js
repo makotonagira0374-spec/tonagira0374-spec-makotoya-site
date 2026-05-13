@@ -1,21 +1,76 @@
 const header = document.querySelector('.blog-header');
 const postGrid = document.querySelector('[data-blog-post-grid]');
 const pagination = document.querySelector('[data-blog-pagination]');
+const blogPostsData = Array.isArray(window.BLOG_POSTS) ? window.BLOG_POSTS : null;
 
 function syncHeaderState() {
   if (!header) return;
   header.classList.toggle('is-scrolled', window.scrollY > 8);
 }
 
-syncHeaderState();
-window.addEventListener('scroll', syncHeaderState, { passive: true });
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function formatDisplayDate(dateValue) {
+  if (typeof dateValue !== 'string') return '';
+  return dateValue.replaceAll('-', '.');
+}
+
+function createPostCard(post) {
+  const article = document.createElement('article');
+  article.className = 'blog-card blog-card--featured';
+
+  article.innerHTML = `
+    <a class="blog-card__media" href="${escapeHtml(post.href)}">
+      <img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.alt)}" loading="lazy" decoding="async" />
+    </a>
+    <div class="blog-card__body">
+      <div class="blog-card__meta">
+        <span>${escapeHtml(post.category)}</span>
+        <span>${escapeHtml(post.tag)}</span>
+        <time datetime="${escapeHtml(post.date)}">${escapeHtml(formatDisplayDate(post.date))}</time>
+      </div>
+      <h3><a href="${escapeHtml(post.href)}">${escapeHtml(post.title)}</a></h3>
+      <p>${escapeHtml(post.excerpt)}</p>
+      <div class="blog-card__actions">
+        <a class="blog-btn blog-btn--ghost" href="${escapeHtml(post.href)}">記事を読む</a>
+      </div>
+    </div>
+  `;
+
+  return article;
+}
+
+function syncUrl(page) {
+  const url = new URL(window.location.href);
+  if (page === 1) {
+    url.searchParams.delete('page');
+  } else {
+    url.searchParams.set('page', String(page));
+  }
+  window.history.replaceState({}, '', url);
+}
+
+function scrollToArticles() {
+  const articlesSection = document.querySelector('#articles');
+  if (!articlesSection) return;
+  const top = articlesSection.getBoundingClientRect().top + window.scrollY - 18;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
 
 function initBlogPagination() {
   if (!postGrid || !pagination) return;
 
   const pageSize = Number.parseInt(postGrid.dataset.blogPageSize || '5', 10);
   const maxVisiblePages = 5;
-  const posts = Array.from(postGrid.children).filter((child) => child.classList.contains('blog-card'));
+  const staticPosts = Array.from(postGrid.children).filter((child) => child.classList.contains('blog-card'));
+  const posts = blogPostsData && blogPostsData.length ? blogPostsData : staticPosts;
   const totalPages = Math.ceil(posts.length / pageSize);
 
   if (!Number.isFinite(pageSize) || pageSize < 1 || totalPages <= 1) {
@@ -33,23 +88,6 @@ function initBlogPagination() {
   if (!Number.isFinite(currentPage)) currentPage = 1;
   currentPage = Math.min(Math.max(currentPage, 1), totalPages);
 
-  function syncUrl() {
-    const url = new URL(window.location.href);
-    if (currentPage === 1) {
-      url.searchParams.delete('page');
-    } else {
-      url.searchParams.set('page', String(currentPage));
-    }
-    window.history.replaceState({}, '', url);
-  }
-
-  function scrollToArticles() {
-    const articlesSection = document.querySelector('#articles');
-    if (!articlesSection) return;
-    const top = articlesSection.getBoundingClientRect().top + window.scrollY - 18;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }
-
   function getVisiblePageRange() {
     if (totalPages <= maxVisiblePages) {
       return { start: 1, end: totalPages };
@@ -57,10 +95,7 @@ function initBlogPagination() {
 
     const halfWindow = Math.floor(maxVisiblePages / 2);
     const maxStart = totalPages - maxVisiblePages + 1;
-    const start = Math.min(
-      Math.max(1, currentPage - halfWindow),
-      maxStart
-    );
+    const start = Math.min(Math.max(1, currentPage - halfWindow), maxStart);
 
     return {
       start,
@@ -89,13 +124,33 @@ function initBlogPagination() {
     }
   }
 
-  function render() {
+  function renderPostsFromData() {
+    const firstPost = (currentPage - 1) * pageSize;
+    const currentPosts = posts.slice(firstPost, firstPost + pageSize);
+    const fragment = document.createDocumentFragment();
+
+    currentPosts.forEach((post) => {
+      fragment.appendChild(createPostCard(post));
+    });
+
+    postGrid.replaceChildren(fragment);
+  }
+
+  function renderStaticPosts() {
     const firstPost = (currentPage - 1) * pageSize;
     const lastPost = firstPost + pageSize;
 
-    posts.forEach((post, index) => {
+    staticPosts.forEach((post, index) => {
       post.hidden = index < firstPost || index >= lastPost;
     });
+  }
+
+  function render() {
+    if (blogPostsData && blogPostsData.length) {
+      renderPostsFromData();
+    } else {
+      renderStaticPosts();
+    }
 
     if (prevButton) prevButton.disabled = currentPage === 1;
     if (nextButton) nextButton.disabled = currentPage === totalPages;
@@ -107,7 +162,7 @@ function initBlogPagination() {
   function setPage(page, shouldScroll = true) {
     currentPage = Math.min(Math.max(page, 1), totalPages);
     render();
-    syncUrl();
+    syncUrl(currentPage);
     if (shouldScroll) scrollToArticles();
   }
 
@@ -121,7 +176,9 @@ function initBlogPagination() {
 
   pagination.hidden = false;
   render();
-  syncUrl();
+  syncUrl(currentPage);
 }
 
+syncHeaderState();
+window.addEventListener('scroll', syncHeaderState, { passive: true });
 initBlogPagination();
