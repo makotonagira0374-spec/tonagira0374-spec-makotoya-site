@@ -70,7 +70,18 @@ function initBlogPagination() {
   const pageSize = Number.parseInt(postGrid.dataset.blogPageSize || '5', 10);
   const maxVisiblePages = 5;
   const staticPosts = Array.from(postGrid.children).filter((child) => child.classList.contains('blog-card'));
-  const posts = blogPostsData && blogPostsData.length ? blogPostsData : staticPosts;
+  const posts = blogPostsData && blogPostsData.length
+    ? blogPostsData
+        .map((post, index) => ({ ...post, __index: index }))
+        .sort((a, b) => {
+          if (a.date === b.date) {
+            return a.__index - b.__index;
+          }
+
+          return b.date.localeCompare(a.date);
+        })
+        .map(({ __index, ...post }) => post)
+    : staticPosts;
   const totalPages = Math.ceil(posts.length / pageSize);
 
   if (!Number.isFinite(pageSize) || pageSize < 1 || totalPages <= 1) {
