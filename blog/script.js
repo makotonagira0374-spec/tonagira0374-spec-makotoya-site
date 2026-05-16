@@ -25,6 +25,9 @@ function formatDisplayDate(dateValue) {
 function createPostCard(post) {
   const article = document.createElement('article');
   article.className = 'blog-card blog-card--featured';
+  article.dataset.postSlug = String(post.href || '')
+    .replace(/^\.\/+/, '')
+    .replace(/\.html$/, '');
 
   article.innerHTML = `
     <a class="blog-card__media" href="${escapeHtml(post.href)}">
