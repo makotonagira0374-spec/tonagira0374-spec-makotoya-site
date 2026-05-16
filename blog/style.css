@@ -743,6 +743,11 @@ img{ max-width: 100%; }
     font-size: 15px;
   }
 
+  .article-body .blog-text-link{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
   .article--youtube-start h1{
     font-size: clamp(22px, 5.7vw, 27px);
     line-height: 1.55;
