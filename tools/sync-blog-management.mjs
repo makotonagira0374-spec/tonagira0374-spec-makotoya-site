@@ -53,7 +53,7 @@ function extractTitle(html) {
 }
 
 function extractHeroMeta(html, label) {
-  const metaBlock = html.match(/<div[^>]+class=["'][^"']*article-hero__meta[^"']*["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
+  const metaBlock = html.match(/<div[^>]+class=["'][^"']*(?:article-hero__meta|article-meta)[^"']*["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
   const spans = [...metaBlock.matchAll(/<span[^>]*>([\s\S]*?)<\/span>/gi)].map((match) => stripTags(match[1]));
   const value = spans.find((span) => span.startsWith(label));
   return value ? value.replace(label, '').trim() : '';
@@ -96,6 +96,8 @@ function collectPost(fileName, existingPosts) {
   const existing = existingPosts.get(href) || {};
   const date = extractJsonLdValue(html, 'datePublished') || extractHeroMeta(html, '公開日').replaceAll('.', '-');
   const category = extractHeroMeta(html, 'カテゴリ') || existing.category || '誠屋ブログ';
+  const tag = extractHeroMeta(html, 'タグ');
+  const existingTag = existing.tag === '誠屋ブログ' ? '' : existing.tag;
   const description = extractMeta(html, 'description') || extractMeta(html, 'og:description') || existing.excerpt || '';
 
   return {
@@ -103,7 +105,7 @@ function collectPost(fileName, existingPosts) {
     image: normalizeImageForBlog(extractMeta(html, 'og:image') || existing.image),
     alt: existing.alt || `${extractTitle(html)}のイメージ`,
     category,
-    tag: existing.tag || category,
+    tag: tag || existingTag || category,
     date,
     title: extractTitle(html) || existing.title || fileName.replace(/\.html$/u, ''),
     excerpt: description
