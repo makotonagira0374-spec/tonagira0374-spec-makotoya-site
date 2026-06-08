@@ -84,6 +84,11 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
+.ftf-section[id],
+.ftf-hero[id] {
+  scroll-margin-top: 88px;
+}
+
 .ftf-button:hover {
   transform: translateY(-1px);
 }
@@ -712,6 +717,10 @@
   margin-top: 20px;
 }
 
+.ftf-mobile-dock {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .ftf-section {
     padding: 104px 0;
@@ -781,13 +790,13 @@
 
   .movie-page .header-actions .btn {
     width: auto;
-    min-width: 92px;
-    padding: 10px 14px;
-    font-size: 13px;
+    min-width: 84px;
+    padding: 9px 12px;
+    font-size: 12px;
   }
 
   .ftf-section {
-    padding: 68px 0;
+    padding: 60px 0;
   }
 
   .ftf-hero {
@@ -802,38 +811,80 @@
   }
 
   .ftf-hero__inner {
-    padding: 88px 0 36px;
+    padding: 88px 0 28px;
   }
 
   .ftf-hero__copy {
     max-width: 100%;
+    padding: 22px 18px;
+    border-radius: 26px;
+    background: linear-gradient(180deg, rgba(17, 13, 13, 0.12), rgba(17, 13, 13, 0.42));
+    backdrop-filter: blur(6px);
   }
 
   .ftf-hero__title {
-    font-size: 39px;
+    font-size: 36px;
     line-height: 1.42;
   }
 
   .ftf-hero__plan {
-    font-size: 20px;
+    margin-top: 22px;
+    font-size: 19px;
   }
 
   .ftf-hero__benefit {
     font-size: 16px;
+    line-height: 1.8;
   }
 
   .ftf-hero__actions,
   .ftf-contact__actions {
     max-width: 100%;
+    margin-top: 24px;
   }
 
   .ftf-button {
     width: 100%;
+    min-height: 58px;
+    font-size: 16px;
   }
 
   .ftf-section__title {
-    font-size: 30px;
-    line-height: 1.55;
+    font-size: 28px;
+    line-height: 1.6;
+  }
+
+  .ftf-heading {
+    margin-bottom: 24px;
+  }
+
+  .ftf-concept__visual {
+    min-height: 280px;
+    border-radius: 24px;
+  }
+
+  .ftf-concept__visual img {
+    min-height: 280px;
+  }
+
+  .ftf-scenes__grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding: 4px 6px 8px 0;
+    margin-right: -20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ftf-scenes__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ftf-scene-card {
+    min-width: 84%;
+    flex: 0 0 84%;
+    scroll-snap-align: start;
   }
 
   .ftf-prose p,
@@ -848,6 +899,115 @@
     min-height: 220px;
   }
 
+  .ftf-value__grid {
+    gap: 14px;
+  }
+
+  .ftf-value-card {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 8px 14px;
+    text-align: left;
+    align-items: start;
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+
+  .ftf-value-card__icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  .ftf-value-card h3 {
+    grid-column: 2;
+    margin: 0;
+    font-size: 21px;
+  }
+
+  .ftf-value-card p {
+    grid-column: 2;
+  }
+
+  .ftf-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .ftf-icon--people::before,
+  .ftf-icon--people::after {
+    width: 14px;
+    height: 14px;
+    top: 7px;
+  }
+
+  .ftf-icon--people::before {
+    left: 10px;
+  }
+
+  .ftf-icon--people::after {
+    right: 10px;
+  }
+
+  .ftf-icon--people {
+    background:
+      radial-gradient(circle at 18px 34px, transparent 11px, currentColor 12px, currentColor 13px, transparent 14px),
+      radial-gradient(circle at 36px 34px, transparent 11px, currentColor 12px, currentColor 13px, transparent 14px);
+  }
+
+  .ftf-icon--talk::before,
+  .ftf-icon--talk::after {
+    width: 22px;
+    height: 18px;
+    border-width: 1.8px;
+  }
+
+  .ftf-icon--talk::before {
+    left: 4px;
+    top: 12px;
+  }
+
+  .ftf-icon--talk::after {
+    right: 4px;
+    top: 21px;
+  }
+
+  .ftf-icon--air::before {
+    left: 6px;
+    right: 6px;
+    bottom: 10px;
+    height: 16px;
+  }
+
+  .ftf-icon--air::after {
+    width: 14px;
+    height: 14px;
+    right: 4px;
+    top: 4px;
+    box-shadow:
+      -22px 10px 0 -12px currentColor,
+      -12px 8px 0 -12px currentColor;
+  }
+
+  .ftf-plans__grid {
+    gap: 16px;
+  }
+
+  .ftf-plan-card {
+    padding: 28px 18px 18px;
+    border-radius: 24px;
+  }
+
+  .ftf-plan-card--featured {
+    order: -1;
+    transform: none;
+  }
+
+  .ftf-plan-card__badge {
+    top: -10px;
+    right: 14px;
+  }
+
   .ftf-plan-card__name {
     font-size: 26px;
   }
@@ -856,16 +1016,109 @@
     font-size: 46px;
   }
 
-  .ftf-plan-card--featured {
-    transform: none;
+  .ftf-flow__grid {
+    gap: 14px;
+  }
+
+  .ftf-step-card {
+    text-align: left;
+    padding: 20px 18px 18px 74px;
+    border-radius: 20px;
+  }
+
+  .ftf-step-card__number {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    margin: 0;
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .ftf-step-card__icon {
+    position: absolute;
+    top: 60px;
+    left: 12px;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    transform: scale(0.7);
+    transform-origin: top left;
+  }
+
+  .ftf-step-card h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.55;
   }
 
   .ftf-contact {
-    padding-bottom: 92px;
+    padding-bottom: 138px;
   }
 
   .ftf-contact__card {
     border-radius: 26px;
     background-position: 64% center;
+    padding: 30px 18px;
+  }
+
+  .ftf-faq-item {
+    border-radius: 16px;
+  }
+
+  .ftf-faq-item summary {
+    padding: 18px 48px 18px 18px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .ftf-faq-item summary::after {
+    right: 18px;
+  }
+
+  .ftf-mobile-dock {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    z-index: 55;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid rgba(83, 60, 53, 0.14);
+    border-radius: 22px;
+    background: rgba(255, 251, 246, 0.92);
+    box-shadow: 0 18px 40px rgba(48, 39, 38, 0.16);
+    backdrop-filter: blur(14px);
+  }
+
+  .ftf-mobile-dock__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .ftf-mobile-dock__button--primary {
+    color: #fff;
+    background: linear-gradient(135deg, var(--ftf-accent), #c96d5c);
+  }
+
+  .ftf-mobile-dock__button--secondary {
+    color: var(--ftf-ink);
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(83, 60, 53, 0.12);
+  }
+
+  .movie-page .contact-tabs {
+    display: none;
   }
 }
