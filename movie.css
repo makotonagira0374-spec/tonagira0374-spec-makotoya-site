@@ -148,22 +148,28 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 94px 0 52px;
+  padding: 94px 0 60px;
+  text-align: center;
 }
 
 .ftf-hero__copy {
-  max-width: 520px;
+  max-width: 640px;
+  margin: 0 auto;
   color: #fffaf5;
 }
 
 .ftf-hero__title {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(34px, 7vw, 64px);
+  font-size: clamp(36px, 8vw, 72px);
   font-weight: 500;
-  line-height: 1.38;
+  line-height: 1.4;
   letter-spacing: 0.05em;
-  text-wrap: balance;
+}
+
+.ftf-hero__title-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .ftf-hero__plan,
@@ -172,14 +178,14 @@
 }
 
 .ftf-hero__plan {
-  margin-top: 26px;
+  margin-top: 30px;
   font-family: var(--serif);
   font-size: clamp(20px, 3vw, 28px);
   letter-spacing: 0.08em;
 }
 
 .ftf-hero__benefit {
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 18px;
   line-height: 1.9;
   color: rgba(255, 248, 242, 0.9);
@@ -188,8 +194,10 @@
 .ftf-hero__actions {
   display: grid;
   gap: 14px;
-  margin-top: 34px;
+  margin-top: 38px;
   max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ftf-concept__grid {
@@ -775,7 +783,7 @@
 
 @media (min-width: 1024px) {
   .ftf-hero__title {
-    font-size: 58px;
+    font-size: 64px;
   }
 
   .ftf-contact__card {
