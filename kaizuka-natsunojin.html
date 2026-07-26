@@ -46,26 +46,6 @@
   }
   .brush{ font-family: 'Shippori Mincho', serif; }
 
-  /* ---------- HOME LINK ---------- */
-  .home-link{
-    position: fixed;
-    top: 18px;
-    left: 20px;
-    z-index: 20;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    color: var(--paper-dim);
-    text-decoration: none;
-    opacity: 0.75;
-    border: 1px solid rgba(243,236,216,0.3);
-    border-radius: 999px;
-    padding: 7px 16px;
-    background: rgba(10,20,36,0.4);
-    backdrop-filter: blur(4px);
-    transition: opacity 0.2s ease;
-  }
-  .home-link:hover{ opacity: 1; }
-
   /* ---------- HERO ---------- */
   .hero{
     position: relative;
@@ -175,6 +155,8 @@
     cursor: pointer;
   }
   .cta-btn:hover{ transform: translateY(-3px); box-shadow: 0 12px 34px rgba(179,64,42,0.6); }
+  .cta-btn.is-dummy{ cursor: default; }
+  .cta-btn.is-dummy:hover{ transform: none; box-shadow: 0 8px 28px rgba(179,64,42,0.45); }
   .scroll-cue{
     position: absolute;
     bottom: 28px;
@@ -441,8 +423,6 @@
 </head>
 <body>
 
-<a class="home-link" href="./index.html">← 誠屋HPへ</a>
-
 <section class="hero" id="hero">
   <div class="jin-watermark brush">陣</div>
   <div id="sparks"></div>
@@ -455,7 +435,7 @@
     子どもの頃、本気でやった遊びは、<strong>大人になっても本気で楽しい。</strong><br>
     今年の夏、いい大人が50人集まって、本気の水鉄砲合戦をやります。
   </p>
-  <a href="#info" class="cta-btn">参戦する（申し込む）</a>
+  <a class="cta-btn is-dummy" role="button" aria-disabled="true" title="準備中">参戦する（申し込む）</a>
   <div class="scroll-cue">SCROLL ▾</div>
 </section>
 
@@ -607,8 +587,8 @@
 <section class="final-cta">
   <h2 class="brush">今年の夏、本気を取り戻しに来ませんか。</h2>
   <p>定員50名。浜手軍・山手軍、あなたはどちらで戦いますか。</p>
-  <a href="#hero" class="cta-btn">参戦を申し込む</a>
-  <div class="footer-note">貝塚夏の陣 実行委員会　主催協力：<a href="./index.html">誠屋（水間門前町 人力車）</a></div>
+  <a class="cta-btn is-dummy" role="button" aria-disabled="true" title="準備中">参戦を申し込む</a>
+  <div class="footer-note">貝塚夏の陣 実行委員会　主催協力：誠屋（水間門前町 人力車）</div>
 </section>
 
 <script src="./script.js?v=20260311-1"></script>
