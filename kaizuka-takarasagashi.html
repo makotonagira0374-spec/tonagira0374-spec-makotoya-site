@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="貝塚宝探し。自宅に届く招待状から始まり、七日間の手がかりを経て、水間鉄道沿線を巡る宝探しイベント。2026年夏、貝塚発。定員50名。">
+<meta name="ga4-measurement-id" content="G-V1L4QYSHG1" />
+<title>貝塚宝探し 〜招待状が届いた者たちへ〜 | 誠屋</title>
+<link rel="canonical" href="https://makotoyarickshaw.jp/kaizuka-takarasagashi.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600&display=swap" rel="stylesheet">
+
+<meta property="og:title" content="貝塚宝探し 〜招待状が届いた者たちへ〜">
+<meta property="og:description" content="ある日、見覚えのない手紙が家に届く。差出人はない。七日間の手がかりの先に、水間鉄道沿線を巡る宝探し本編が待っている。">
+<meta property="og:image" content="https://makotoyarickshaw.jp/ogp.jpg">
+<meta property="og:url" content="https://makotoyarickshaw.jp/kaizuka-takarasagashi.html">
+<meta property="og:type" content="website">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="貝塚宝探し 〜招待状が届いた者たちへ〜">
+<meta name="twitter:description" content="自宅に届く招待状から始まる七日間。水間鉄道沿線を巡る、貝塚発の宝探しイベントです。">
+<meta name="twitter:image" content="https://makotoyarickshaw.jp/ogp.jpg">
+
+<style>
+  :root{
+    --paper: #EDE4D2;
+    --paper-dark: #E1D5B8;
+    --ink: #2A241C;
+    --indigo: #1C3A44;
+    --indigo-deep: #122731;
+    --brass: #A9812C;
+    --brass-light: #C9A24E;
+    --stamp: #9B3B2E;
+    --line: rgba(42,36,28,0.22);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Zen Kaku Gothic New", sans-serif;
+    line-height:1.85;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(255,255,255,0.35), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(0,0,0,0.05), transparent 45%);
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:"Shippori Mincho", serif;margin:0;}
+
+  /* ===== Ticket punch-hole border ===== */
+  .punch-border{
+    position:relative;
+  }
+  .punch-border::before, .punch-border::after{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    width:26px;
+    background-image: radial-gradient(circle, var(--paper) 6px, transparent 7px);
+    background-size: 26px 26px;
+    background-repeat: repeat-y;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:
+      linear-gradient(180deg, var(--indigo-deep), var(--indigo) 60%, var(--indigo));
+    color:var(--paper);
+    padding:64px 0 90px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:6px double var(--brass-light);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 34px);
+    pointer-events:none;
+  }
+  .eyebrow-row{
+    display:flex; align-items:center; gap:14px;
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-size:13px; letter-spacing:0.18em; color:var(--brass-light);
+    margin-bottom:26px;
+  }
+  .eyebrow-row .rule{flex:1;height:1px;background:rgba(201,162,78,0.5);}
+  .hero h1{
+    font-size:clamp(40px, 8vw, 68px);
+    font-weight:700;
+    letter-spacing:0.06em;
+    line-height:1.25;
+  }
+  .hero .sub{
+    margin-top:18px;
+    font-family:"Zen Old Mincho", serif;
+    font-size:clamp(16px,3vw,20px);
+    color:var(--brass-light);
+    letter-spacing:0.04em;
+  }
+  .hero .lede{
+    margin-top:34px;
+    max-width:560px;
+    font-size:15.5px;
+    color:rgba(237,228,210,0.88);
+  }
+  .hero .lede strong{color:#fff; font-weight:700;}
+
+  /* ticket stub floating on hero */
+  .ticket{
+    margin-top:44px;
+    display:inline-flex;
+    align-items:center;
+    gap:18px;
+    background:var(--paper);
+    color:var(--ink);
+    padding:16px 26px;
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+    position:relative;
+  }
+  .ticket .stamp{
+    width:52px;height:52px;border-radius:50%;
+    border:2.5px solid var(--stamp);
+    color:var(--stamp);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Shippori Mincho",serif;
+    font-size:12px; font-weight:700; letter-spacing:0.05em;
+    transform:rotate(-8deg);
+    flex-shrink:0;
+    line-height:1.1;
+    text-align:center;
+  }
+  .ticket .tinfo{font-size:13px;}
+  .ticket .tinfo .big{font-size:16px;font-weight:700;letter-spacing:0.05em;}
+
+  /* ===== SECTION shell ===== */
+  section{padding:74px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:36px;
+  }
+  .section-head .no{
+    font-family:"Zen Old Mincho",serif;
+    font-size:14px;color:var(--brass);
+    border:1px solid var(--brass);
+    padding:2px 10px;
+    letter-spacing:0.05em;
+  }
+  .section-head h2{font-size:clamp(24px,4vw,32px); color:var(--indigo);}
+  .section-head .line{flex:1;height:1px;background:var(--line);}
+
+  p{font-size:15.5px; color:#3a3226;}
+  .lead-text{font-size:16.5px; max-width:680px;}
+
+  /* ===== Envelope / concept block ===== */
+  .concept-card{
+    background:var(--paper-dark);
+    border:1px solid var(--line);
+    padding:36px 40px;
+    position:relative;
+  }
+  .concept-card::before{
+    content:"投函 済";
+    position:absolute; top:18px; right:24px;
+    font-family:"Zen Old Mincho",serif;
+    font-size:11px; color:var(--stamp);
+    border:2px solid var(--stamp);
+    padding:3px 8px;
+    transform:rotate(6deg);
+    letter-spacing:0.15em;
+  }
+  .concept-card p{margin:0 0 14px;}
+  .concept-card p:last-child{margin-bottom:0;}
+  .concept-card .flavor{
+    font-family:"Zen Old Mincho",serif;
+    color:var(--indigo);
+    font-style:normal;
+    border-left:3px solid var(--brass);
+    padding-left:16px;
+    margin-top:22px;
+  }
+
+  /* ===== 7-day stamp rail ===== */
+  .rail{
+    position:relative;
+    padding:20px 0 8px;
+  }
+  .rail-line{
+    position:absolute; left:0; right:0; top:64px;
+    height:2px; background:repeating-linear-gradient(90deg, var(--brass) 0 8px, transparent 8px 16px);
+  }
+  .rail-track{
+    display:grid; grid-template-columns:repeat(8,1fr); gap:6px;
+    position:relative; z-index:1;
+  }
+  .stop{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .stop .day{
+    font-family:"Shippori Mincho",serif; font-weight:700; font-size:13px; color:var(--indigo);
+    margin-bottom:10px;
+  }
+  .stop .dot{
+    width:22px;height:22px;border-radius:50%;
+    background:var(--paper); border:2.5px solid var(--brass);
+    margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:10px;
+  }
+  .stop.final .dot{background:var(--stamp); border-color:var(--stamp);}
+  .stop .via{
+    font-size:10px; letter-spacing:0.08em; color:var(--brass);
+    background:rgba(169,129,44,0.12);
+    padding:2px 6px; border-radius:2px;
+    margin-bottom:8px;
+  }
+  .stop .desc{font-size:12px; color:#4a4030; line-height:1.6;}
+
+  /* ===== Invitation mock (envelope + letter) ===== */
+  .invite-block{display:flex; flex-direction:column; gap:36px; align-items:center;}
+  .envelope{
+    max-width:520px; width:100%;
+    background:#F4EDDD;
+    border:1px solid var(--line);
+    box-shadow:0 18px 40px rgba(0,0,0,0.22);
+    position:relative;
+    padding:36px 20px;
+    aspect-ratio:16/10;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .envelope::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(135deg, transparent 49.3%, rgba(0,0,0,0.06) 49.3% 50.7%, transparent 50.7%),
+      linear-gradient(45deg, transparent 49.3%, rgba(0,0,0,0.06) 49.3% 50.7%, transparent 50.7%);
+  }
+  .envelope .addr{position:relative; z-index:1; font-family:"Zen Old Mincho",serif; text-align:center;}
+  .envelope .addr .to{font-size:19px; color:var(--ink); letter-spacing:0.06em;}
+  .envelope .addr .to .blank{border-bottom:1.5px solid var(--ink); padding:0 28px;}
+  .envelope .addr .from{font-size:12px; color:#6b6252; margin-top:14px; letter-spacing:0.1em;}
+  .wax{
+    position:absolute; top:-16px; right:44px; z-index:2;
+    width:50px;height:50px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #b8492f, var(--stamp) 70%);
+    box-shadow:0 4px 10px rgba(0,0,0,0.35);
+    display:flex;align-items:center;justify-content:center;
+    color:#f4e9d8; font-family:"Shippori Mincho",serif; font-size:10px; font-weight:700;
+    letter-spacing:0.08em; text-align:center; transform:rotate(-6deg);
+  }
+  .letter{
+    max-width:520px; width:100%;
+    background:#F4EDDD;
+    box-shadow:0 18px 40px rgba(0,0,0,0.22);
+    padding:48px 40px 40px;
+    position:relative;
+    background-image: repeating-linear-gradient(180deg, transparent 0 38px, rgba(42,36,28,0.05) 38px 39px);
+  }
+  .letter::before{content:""; position:absolute; inset:9px; border:1px solid rgba(169,129,44,0.35); pointer-events:none;}
+  .letter .postmark{
+    position:absolute; top:20px; right:24px;
+    width:68px; height:68px; border-radius:50%;
+    border:2px solid var(--indigo); color:var(--indigo);
+    display:flex; align-items:center; justify-content:center; flex-direction:column;
+    font-family:"Zen Old Mincho",serif; font-size:9.5px; letter-spacing:0.05em;
+    transform:rotate(8deg); text-align:center; line-height:1.3;
+  }
+  .letter .postmark b{font-size:12px;}
+  .letter .kigou{font-size:11.5px; color:var(--brass); letter-spacing:0.15em; margin-bottom:6px;}
+  .letter h3.title{font-size:23px; color:var(--indigo-deep); letter-spacing:0.05em; margin-bottom:26px; line-height:1.5; font-family:"Shippori Mincho",serif;}
+  .letter .to-name{font-size:15px; margin-bottom:22px; font-family:"Zen Old Mincho",serif;}
+  .letter .to-name .fill{border-bottom:1px solid var(--ink); padding:0 6px;}
+  .letter p{font-size:14.5px; margin:0 0 18px; color:#3a3226;}
+  .letter p.indent{text-indent:1em;}
+  .cipher-block{background:var(--indigo-deep); color:var(--paper); padding:24px 22px; margin:24px 0 26px; text-align:center;}
+  .cipher-block .label{font-size:10.5px; letter-spacing:0.18em; color:var(--brass-light); margin-bottom:12px;}
+  .cipher-block .code{font-family:"Zen Old Mincho",serif; font-size:27px; letter-spacing:0.35em; color:#fff;}
+  .cipher-block .hint{font-size:11px; color:rgba(237,228,210,0.65); margin-top:12px; letter-spacing:0.05em;}
+  .letter .signoff{margin-top:30px; text-align:right; font-family:"Zen Old Mincho",serif; font-size:14px; color:var(--indigo);}
+  .torn-map{margin-top:30px; padding-top:22px; border-top:1px dashed rgba(42,36,28,0.35); display:flex; align-items:center; gap:16px;}
+  .torn-map .frag{
+    width:88px; height:64px; flex-shrink:0;
+    background:
+      repeating-linear-gradient(0deg, rgba(169,129,44,0.18) 0 1px, transparent 1px 10px),
+      repeating-linear-gradient(90deg, rgba(169,129,44,0.18) 0 1px, transparent 1px 10px),
+      #E8DEC6;
+    border:1px solid rgba(42,36,28,0.3);
+    clip-path: polygon(0 6%, 88% 0, 100% 82%, 14% 100%);
+    position:relative;
+  }
+  .torn-map .frag::after{content:"水間 →"; position:absolute; bottom:7px; left:10px; font-family:"Shippori Mincho",serif; font-size:11px; color:var(--indigo);}
+  .torn-map .note{font-size:12px; color:#5c5344; line-height:1.7;}
+  .devnote{max-width:520px; width:100%; border:1px dashed var(--brass); background:rgba(169,129,44,0.06); padding:20px 24px;}
+  .devnote .dtitle{font-weight:700; font-size:12.5px; color:var(--brass); letter-spacing:0.1em; margin-bottom:10px;}
+  .devnote ul{margin:0; padding-left:18px; font-size:12.5px; color:#4a4030;}
+  .devnote li{margin-bottom:7px;}
+  .devnote li:last-child{margin-bottom:0;}
+
+  /* ===== Timetable ===== */
+  .timetable{width:100%; border-collapse:collapse; font-size:14px;}
+  .timetable caption{
+    text-align:left; font-family:"Shippori Mincho",serif; color:var(--indigo);
+    font-size:16px; margin-bottom:12px; caption-side:top;
+  }
+  .timetable th{
+    background:var(--indigo); color:var(--paper);
+    text-align:left; padding:12px 16px; font-weight:500;
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-size:12.5px; letter-spacing:0.05em;
+  }
+  .timetable td{
+    padding:14px 16px; border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  .timetable tr:nth-child(even) td{background:rgba(169,129,44,0.06);}
+  .timetable .time{
+    font-family:"Zen Old Mincho",serif; font-weight:700; color:var(--stamp);
+    white-space:nowrap; font-size:15px;
+  }
+  .timetable .tag{
+    display:inline-block; font-weight:700; color:var(--indigo);
+    margin-bottom:2px;
+  }
+
+  /* ===== Teams ===== */
+  .team-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .team-card{
+    background:#fff; border:1px solid var(--line);
+    padding:26px 24px;
+  }
+  .team-card h3{font-size:18px; color:var(--indigo); margin-bottom:8px;}
+  .team-card .badge{
+    font-size:11px; letter-spacing:0.1em; color:var(--brass);
+    text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .team-card p{font-size:13.5px; margin:0;}
+
+  /* ===== Overview table (ticket stub style) ===== */
+  .overview{
+    background:#fff; border:1px solid var(--line);
+  }
+  .overview dl{
+    display:grid; grid-template-columns:150px 1fr;
+    margin:0;
+  }
+  .overview dt, .overview dd{
+    padding:16px 22px; margin:0; font-size:14.5px;
+    border-bottom:1px solid var(--line);
+  }
+  .overview dt{
+    background:var(--paper-dark); font-weight:700; color:var(--indigo);
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-size:13px; letter-spacing:0.04em;
+  }
+  .overview dd{color:#3a3226;}
+  .overview dl > *:nth-last-child(-n+2){border-bottom:none;}
+
+  footer{
+    text-align:center; padding:56px 0 70px;
+    color:var(--paper-dark);
+    background:var(--indigo-deep);
+  }
+  footer .fname{font-family:"Shippori Mincho",serif; font-size:18px; letter-spacing:0.06em; color:var(--paper);}
+  footer .fsub{font-size:12px; margin-top:8px; color:rgba(237,228,210,0.6);}
+
+  @media (max-width:720px){
+    .rail-track{grid-template-columns:repeat(4,1fr); row-gap:24px;}
+    .rail-line{display:none;}
+    .team-grid{grid-template-columns:1fr;}
+    .overview dl{grid-template-columns:120px 1fr;}
+    .ticket{flex-direction:row; padding:14px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow-row">2026年 夏・貝塚 発 <span class="rule"></span> 定員50名</div>
+    <h1>貝塚宝探し</h1>
+    <div class="sub">〜 招待状が届いた者たちへ 〜</div>
+    <p class="lede">ある日、見覚えのない手紙が家に届く。差出人はない。ただ、暗号のような文字と、小さな地図の切れ端だけが入っている。<br><br>
+    それから七日間、手紙とLINEのメッセージが、少しずつ真実を告げていく。<strong>到着はゴールではない。そこが、宝探し本編のスタートラインだ。</strong></p>
+    <div class="ticket">
+      <div class="stamp">貝塚<br>発</div>
+      <div class="tinfo">
+        <div class="big">水間鉄道 一日乗車券 付</div>
+        貝塚駅 → 水間観音駅 全長5.5km
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="no">01</span><h2>企画趣旨</h2><span class="line"></span></div>
+    <div class="concept-card">
+      <p>「自宅に届く招待状」「一週間かけて解き明かす手がかり」「当日は実際の街を歩いて完結させる」という三つの要素を組み合わせた、貝塚発の宝探しイベントです。</p>
+      <p>水間鉄道という実在の路線・実在の駅を舞台にすることで、イベントが終わったあとも「あの駅、実は行ったことがある」という記憶として残ることを狙います。</p>
+      <p class="flavor">「たどり着けたなら、あなたは選ばれた者だ。次は、水間の線路が示す道を進め。」</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="no">02</span><h2>開幕前 — 七日間の招待状</h2><span class="line"></span></div>
+    <p class="lead-text">参加者の自宅とLINEに、開催日の七日前から少しずつ手がかりが届きます。すべてを組み合わせると、当日の集合場所と最初のミッションが明らかになります。</p>
+
+    <div class="rail">
+      <div class="rail-line"></div>
+      <div class="rail-track">
+        <div class="stop">
+          <div class="day">Day -7</div>
+          <div class="dot"></div>
+          <div class="via">郵送</div>
+          <div class="desc">招待状が自宅に届く。物語の導入と最初の暗号</div>
+        </div>
+        <div class="stop">
+          <div class="day">Day -6</div>
+          <div class="dot"></div>
+          <div class="via">LINE</div>
+          <div class="desc">世界観を補強する短いメッセージ</div>
+        </div>
+        <div class="stop">
+          <div class="day">Day -5</div>
+          <div class="dot"></div>
+          <div class="via">LINE</div>
+          <div class="desc">第二の手がかり（画像・音声つき）</div>
+        </div>
+        <div class="stop">
+          <div class="day">Day -4</div>
+          <div class="dot"></div>
+          <div class="via">郵送</div>
+          <div class="desc">物理的な小道具（地図の断片など）</div>
+        </div>
+        <div class="stop">
+          <div class="day">Day -3</div>
+          <div class="dot"></div>
+          <div class="via">LINE</div>
+          <div class="desc">第三の手がかり。ここから難度上昇</div>
+        </div>
+        <div class="stop">
+          <div class="day">Day -2</div>
+          <div class="dot"></div>
+          <div class="via">LINE</div>
+          <div class="desc">集合場所の一部が見えてくる手がかり</div>
+        </div>
+        <div class="stop">
+          <div class="day">Day -1</div>
+          <div class="dot"></div>
+          <div class="via">LINE＋郵送</div>
+          <div class="desc">最終手がかりセット。集合場所が確定</div>
+        </div>
+        <div class="stop final">
+          <div class="day">Day 0</div>
+          <div class="dot"></div>
+          <div class="via">集合</div>
+          <div class="desc">貝塚駅に到着。ここが本編のスタート</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="no">03</span><h2>招待状サンプル（Day -7）</h2><span class="line"></span></div>
+    <p class="lead-text">最初に自宅へ届く「招待状」のイメージです。物語の導入と、最初の暗号を封筒・便箋の形で再現しています。</p>
+
+    <div class="invite-block">
+      <div class="envelope">
+        <div class="wax">貝塚<br>宝探し</div>
+        <div class="addr">
+          <div class="to"><span class="blank">◯◯　◯◯　様</span></div>
+          <div class="from">差出人の記載なし</div>
+        </div>
+      </div>
+
+      <div class="letter">
+        <div class="postmark">貝塚<br><b>局</b><br>私書箱</div>
+        <div class="kigou">— 貝塚宝探し実行委員会より —</div>
+        <h3 class="title">この手紙は、<br>悪戯ではありません。</h3>
+
+        <div class="to-name"><span class="fill">◯◯　◯◯</span>　様</div>
+
+        <p class="indent">かつて水間の地に、ひとつの伝説がありました。線路の彼方、まだ誰も辿り着いていない場所に、宝が眠っている——と。</p>
+        <p class="indent">貝塚市役所前、名越、森、三ケ山口。いくつもの駅が、その伝説の欠片を抱えています。すべてを集めた者だけが、終着の地で真実にたどり着けるのです。</p>
+        <p class="indent">これから七日間、あなたのもとに手がかりが届きます。同封したのは、その第一の欠片。まずは、この暗号を解いてください。</p>
+
+        <div class="cipher-block">
+          <div class="label">第一の暗号　— 五十音表の位置番号 —</div>
+          <div class="code">32 ・ 13 ・ 31</div>
+          <div class="hint">解けたなら、その地名をLINEで実行委員会へ告げよ</div>
+        </div>
+
+        <p>刻限までに応えぬ者には、この招待は二度と訪れません。参加を望むなら、同封のQRコードから、実行委員会の公式LINEへお進みください。</p>
+
+        <div class="torn-map">
+          <div class="frag"></div>
+          <div class="note">同封物：地図の切れ端（第一の欠片）<br>参加登録用QRコード　※本サンプルでは省略</div>
+        </div>
+
+        <div class="signoff">貝塚宝探し実行委員会</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="no">04</span><h2>宝探し絵巻 — 当日の流れ</h2><span class="line"></span></div>
+    <table class="timetable">
+      <tr><th style="width:90px;">時刻</th><th style="width:150px;">内容</th><th>詳細</th></tr>
+      <tr>
+        <td class="time">10:00</td>
+        <td><span class="tag">集合・受付</span></td>
+        <td>貝塚駅（南海本線接続、アクセス良好）に集合。水間鉄道一日乗り放題パスと参加証を配布</td>
+      </tr>
+      <tr>
+        <td class="time">10:20</td>
+        <td><span class="tag">グループ分け</span></td>
+        <td>事前の手がかりの解き方に応じて、または抽選で数名ずつのチームを編成</td>
+      </tr>
+      <tr>
+        <td class="time">10:40</td>
+        <td><span class="tag">出発の儀</span></td>
+        <td>各チーム、時間差で貝塚駅を出発。最初の謎解きシートを受け取る</td>
+      </tr>
+      <tr>
+        <td class="time">11:00<br>〜14:30</td>
+        <td><span class="tag">沿線謎解き</span></td>
+        <td>貝塚市役所前駅・名越駅・森駅など沿線の数駅で途中下車しながら謎を解く。一日乗車券だからこそ気軽に途中下車できる設計</td>
+      </tr>
+      <tr>
+        <td class="time">15:00</td>
+        <td><span class="tag">終着駅到着</span></td>
+        <td>水間観音駅（国登録有形文化財の駅舎）に到着。ここでクライマックスの謎が待つ</td>
+      </tr>
+      <tr>
+        <td class="time">15:30</td>
+        <td><span class="tag">最終ミッション</span></td>
+        <td>水間寺周辺で最後の謎を解き、「宝」を発見する</td>
+      </tr>
+      <tr>
+        <td class="time">16:00</td>
+        <td><span class="tag">表彰式</span></td>
+        <td>到着順・正答数などに応じて表彰。全チームに参加記念品</td>
+      </tr>
+      <tr>
+        <td class="time">16:30</td>
+        <td><span class="tag">涼みタイム</span></td>
+        <td>境内や周辺で一息。参加者同士で感想を語り合う時間</td>
+      </tr>
+      <tr>
+        <td class="time">17:00</td>
+        <td><span class="tag">解散</span></td>
+        <td>水間観音駅から貝塚方面へ、一日乗車券でそのまま帰路へ</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="no">05</span><h2>チーム編成について</h2><span class="line"></span></div>
+    <p class="lead-text">50名の参加者を、以下のいずれか（または組み合わせ）でチーム分けします。</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <span class="badge">方式 A</span>
+        <h3>ルート分岐方式</h3>
+        <p>事前の七日間の手がかりに複数のルート（A/B/C）を仕込み、解いたルートに応じて自動的にチームが決まる。準備期間をそのまま本編の伏線にできる。</p>
+      </div>
+      <div class="team-card">
+        <span class="badge">方式 B</span>
+        <h3>当日抽選方式</h3>
+        <p>会場到着順にくじを引き、その場でランダムにチーム編成する。初対面同士の一体感づくりに向く。</p>
+      </div>
+      <div class="team-card">
+        <span class="badge">方式 C</span>
+        <h3>希望合流方式</h3>
+        <p>ソロ参加者はチームに合流、知人同士の参加は同チームを希望制にする。柔軟性重視。</p>
+      </div>
+      <div class="team-card">
+        <span class="badge">推奨</span>
+        <h3>方式Aをベースに</h3>
+        <p>一週間の準備期間を本編の伏線として活かせるため、体験としての一貫性が最も高い。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="no">06</span><h2>参加概要</h2><span class="line"></span></div>
+    <div class="overview">
+      <dl>
+        <dt>日程</dt><dd>2026年◯月◯日（土・予定）10:00〜17:00頃　※荒天の場合は日程調整、または屋内謎解きに一部振替</dd>
+        <dt>集合場所</dt><dd>貝塚駅（南海本線・水間鉄道 乗換駅）</dd>
+        <dt>巡回エリア</dt><dd>水間鉄道沿線（貝塚駅〜水間観音駅）および水間寺周辺</dd>
+        <dt>参加費</dt><dd>◯,◯◯◯円（一日乗車券・謎解きキット・参加記念品込み）</dd>
+        <dt>定員</dt><dd>50名（先着または抽選）</dd>
+        <dt>事前準備</dt><dd>開催7日前より、自宅・LINEにて段階的に手がかりを配信</dd>
+        <dt>持ち物</dt><dd>歩きやすい靴、飲み物、モバイルバッテリー（LINE利用のため）</dd>
+        <dt>注意事項</dt><dd>沿線を実際に移動するため、天候・熱中症対策を各自でお願いします。開催中の緊急連絡はLINE公式アカウントにて行います</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fname">貝塚宝探し 実行委員会</div>
+  <div class="fsub">協力：水間鉄道株式会社（調整中）・誠屋（水間門前町 人力車）</div>
+</footer>
+
+<script src="./script.js?v=20260311-1"></script>
+</body>
+</html>
