@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="水引巡礼 — 近木川一万人プロジェクト。和泉葛城山の源流から大阪湾まで18キロを歩く、貝塚市シンボルイベント企画書。">
+<meta name="robots" content="noindex, nofollow" />
+<meta name="ga4-measurement-id" content="G-V1L4QYSHG1" />
+<title>水引巡礼 — 近木川一万人プロジェクト</title>
+<link rel="canonical" href="https://makotoyarickshaw.jp/kaizuka-mizuhikijunrei.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night-deep:#050d16;
+    --night:#0b1c2c;
+    --night-soft:#132b40;
+    --mist:#a9bccb;
+    --mist-dim:#6f8494;
+    --paper:#f2ecdd;
+    --paper-dim:#d9cfb4;
+    --gold:#c9a15a;
+    --gold-bright:#eecf8e;
+    --water:#5fa8c4;
+    --water-bright:#8ed4ea;
+    --vermillion:#a6432d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--night-deep);
+    color:var(--mist);
+    font-family:"Noto Sans JP",sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+    position:relative;
+  }
+  ::selection{background:var(--gold);color:var(--night-deep);}
+
+  /* ---------- ambient background : moving water body ---------- */
+  body{
+    background:
+      radial-gradient(ellipse 140% 60% at 50% 0%, rgba(95,168,196,.10), transparent 55%),
+      linear-gradient(180deg, var(--night-deep) 0%, var(--night) 30%, var(--night-soft) 55%, var(--night) 78%, var(--night-deep) 100%);
+    background-attachment:fixed;
+  }
+  .water-caustics{
+    position:fixed;inset:-10% -10%;pointer-events:none;z-index:0;opacity:.5;
+    background-image:
+      radial-gradient(ellipse 60% 30% at 20% 10%, rgba(95,168,196,.16), transparent 60%),
+      radial-gradient(ellipse 50% 25% at 80% 30%, rgba(142,212,234,.10), transparent 60%),
+      radial-gradient(ellipse 55% 28% at 30% 55%, rgba(95,168,196,.13), transparent 60%),
+      radial-gradient(ellipse 45% 22% at 75% 75%, rgba(142,212,234,.09), transparent 60%),
+      radial-gradient(ellipse 60% 30% at 25% 95%, rgba(95,168,196,.14), transparent 60%);
+    background-size:200% 200%;
+    animation:causticsDrift 34s ease-in-out infinite alternate;
+    filter:blur(6px);
+  }
+  @keyframes causticsDrift{
+    0%{background-position:0% 0%, 100% 0%, 0% 50%, 100% 60%, 0% 100%;}
+    100%{background-position:6% 10%, 92% 14%, 10% 58%, 90% 66%, 8% 92%;}
+  }
+  .ripple-lines{
+    position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+    background-image:repeating-linear-gradient(
+      100deg,
+      transparent 0px,
+      transparent 46px,
+      rgba(142,212,234,.05) 47px,
+      rgba(142,212,234,.05) 48px,
+      transparent 49px
+    );
+    animation:rippleShift 22s linear infinite;
+    mix-blend-mode:screen;
+  }
+  @keyframes rippleShift{
+    0%{background-position:0 0;}
+    100%{background-position:0 900px;}
+  }
+  .stars{
+    position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(238,207,142,.5), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(238,207,142,.35), transparent),
+      radial-gradient(1.5px 1.5px at 60% 35%, rgba(238,207,142,.4), transparent),
+      radial-gradient(1px 1px at 30% 60%, rgba(238,207,142,.3), transparent),
+      radial-gradient(1px 1px at 90% 70%, rgba(238,207,142,.35), transparent),
+      radial-gradient(1.5px 1.5px at 45% 85%, rgba(238,207,142,.3), transparent),
+      radial-gradient(1px 1px at 15% 92%, rgba(238,207,142,.25), transparent);
+    opacity:.8;
+  }
+
+  /* ---------- river spine : meandering flow ---------- */
+  .river-track{
+    position:absolute; left:50%; top:0; width:64px; height:100%;
+    transform:translateX(-50%);
+    z-index:1; pointer-events:none;
+    filter:drop-shadow(0 0 10px rgba(95,168,196,.35));
+  }
+  .river-track svg{position:absolute;top:0;left:0;}
+  #river-glow{filter:blur(3px);opacity:.6;}
+  #river-progress{
+    stroke-dasharray:14 10;
+    animation:riverDash 5s linear infinite;
+  }
+  @keyframes riverDash{
+    to{stroke-dashoffset:-240;}
+  }
+  #river-gradient{animation:gradientDrift 6s ease-in-out infinite alternate;}
+  @keyframes gradientDrift{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(60px);}
+  }
+
+  section{position:relative;z-index:2;}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 32px;}
+
+  .eyebrow{
+    font-family:"Noto Sans JP",sans-serif;
+    font-size:12px; letter-spacing:.32em; text-transform:uppercase;
+    color:var(--gold); font-weight:500; margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--gold);display:inline-block;}
+
+  h1,h2,h3{font-family:"Shippori Mincho",serif; color:var(--paper); font-weight:600; letter-spacing:.02em;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:120px 24px 80px; position:relative;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 30%, rgba(95,168,196,.14), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-label{
+    font-size:12px;letter-spacing:.4em;color:var(--mist-dim);text-transform:uppercase;margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(48px,9vw,104px); line-height:1.05; letter-spacing:.06em;
+    background:linear-gradient(180deg,var(--gold-bright) 0%, var(--gold) 55%, var(--paper-dim) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 60px rgba(201,161,90,.25);
+  }
+  .hero h1 small{display:block;font-size:.28em;letter-spacing:.5em;color:var(--water-bright);font-weight:400;margin-top:18px;-webkit-text-fill-color:var(--water-bright);}
+  .hero-tag{
+    margin-top:36px;font-family:"Noto Serif JP",serif;font-size:clamp(15px,2vw,19px);
+    color:var(--mist);line-height:2;max-width:520px;font-weight:300;
+  }
+  .hero-tag em{color:var(--gold-bright);font-style:normal;}
+  .hero-meta{
+    margin-top:56px;display:flex;gap:40px;flex-wrap:wrap;justify-content:center;
+  }
+  .hero-meta div{text-align:center;}
+  .hero-meta .num{font-family:"Shippori Mincho",serif;font-size:30px;color:var(--paper);display:block;}
+  .hero-meta .lbl{font-size:11px;letter-spacing:.15em;color:var(--mist-dim);margin-top:4px;display:block;}
+  .scroll-cue{
+    position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+    font-size:11px; letter-spacing:.3em; color:var(--mist-dim); display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .scroll-cue span.line{width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:flow 2s ease-in-out infinite;}
+  @keyframes flow{0%{opacity:.2}50%{opacity:1}100%{opacity:.2}}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity 1s ease, transform 1s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- section spacing ---------- */
+  .sec{padding:150px 0;}
+  .sec-tight{padding:90px 0;}
+
+  /* ---------- philosophy ---------- */
+  .philosophy{text-align:center;}
+  .philosophy h2{font-size:clamp(28px,4vw,42px);line-height:1.6;max-width:720px;margin:0 auto 40px;}
+  .philosophy p{font-family:"Noto Serif JP",serif;font-weight:300;font-size:16px;line-height:2.1;color:var(--mist);max-width:600px;margin:0 auto;}
+  .philosophy .knot{margin:48px auto;width:34px;height:34px;opacity:.7;}
+
+  .contrast-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:80px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08);
+  }
+  .contrast-card{background:var(--night); padding:44px 36px;}
+  .contrast-card.fire{border-right:1px solid rgba(255,255,255,.06);}
+  .contrast-card .tag{font-size:11px;letter-spacing:.25em;color:var(--mist-dim);text-transform:uppercase;}
+  .contrast-card.fire .tag{color:var(--vermillion);}
+  .contrast-card.water .tag{color:var(--water-bright);}
+  .contrast-card h3{font-size:24px;margin:14px 0 16px;}
+  .contrast-card p{font-size:14px;line-height:1.9;color:var(--mist-dim);font-weight:300;}
+
+  /* ---------- route ---------- */
+  .route-head{text-align:center;margin-bottom:90px;}
+  .route-head h2{font-size:clamp(30px,4.2vw,46px);}
+  .route-head .distance{
+    font-family:"Shippori Mincho",serif;font-size:120px;line-height:1;color:transparent;
+    -webkit-text-stroke:1px var(--gold);margin-top:6px;letter-spacing:.02em;
+  }
+  .route-head .distance span{font-size:.28em;-webkit-text-stroke:0;color:var(--mist-dim);vertical-align:middle;}
+
+  .stops{display:flex;flex-direction:column;gap:0;}
+  .stop{
+    display:grid;grid-template-columns:52px 1fr; gap:28px;
+    position:relative; padding-bottom:70px;
+  }
+  .stop:last-child{padding-bottom:0;}
+  .stop-marker{position:relative;display:flex;justify-content:center;}
+  .stop-dot{
+    width:14px;height:14px;border-radius:50%;background:var(--night-deep);
+    border:2px solid var(--gold); z-index:2; margin-top:4px;
+    box-shadow:0 0 16px rgba(201,161,90,.5);
+  }
+  .stop-line{position:absolute;top:22px;bottom:-70px;left:50%;width:1px;background:linear-gradient(var(--gold),rgba(201,161,90,.15));transform:translateX(-50%);}
+  .stop:last-child .stop-line{display:none;}
+  .stop-content{padding-top:0;}
+  .stop-km{font-size:11px;letter-spacing:.2em;color:var(--water-bright);text-transform:uppercase;margin-bottom:6px;}
+  .stop-content h3{font-size:22px;margin-bottom:10px;}
+  .stop-content p{font-size:14px;line-height:1.9;color:var(--mist-dim);font-weight:300;max-width:520px;}
+  .stop-badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;}
+  .badge{
+    font-size:11px;padding:5px 12px;border:1px solid rgba(201,161,90,.35);
+    border-radius:100px;color:var(--gold-bright);letter-spacing:.05em;
+  }
+
+  /* ---------- ritual ---------- */
+  .ritual{
+    background:linear-gradient(180deg, rgba(95,168,196,.06), transparent 40%);
+  }
+  .ritual-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:70px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);}
+  .ritual-step{background:var(--night);padding:40px 30px;text-align:center;}
+  .ritual-step .mark{font-family:"Shippori Mincho",serif;font-size:15px;color:var(--gold);letter-spacing:.15em;margin-bottom:20px;}
+  .ritual-step h3{font-size:19px;margin-bottom:14px;}
+  .ritual-step p{font-size:13.5px;line-height:1.85;color:var(--mist-dim);font-weight:300;}
+
+  /* ---------- goal scene ---------- */
+  .goal{text-align:center;}
+  .goal-quote{
+    font-family:"Noto Serif JP",serif;font-size:clamp(20px,3vw,28px);line-height:2;color:var(--paper);
+    max-width:680px;margin:0 auto 70px;font-weight:300;
+  }
+  .goal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;text-align:left;}
+  .goal-item .icon-line{width:28px;height:1px;background:var(--gold);margin-bottom:18px;}
+  .goal-item h4{font-family:"Shippori Mincho",serif;color:var(--paper);font-size:18px;margin-bottom:10px;font-weight:500;}
+  .goal-item p{font-size:13.5px;line-height:1.85;color:var(--mist-dim);}
+
+  /* ---------- roadmap ---------- */
+  .roadmap-table{width:100%;border-collapse:collapse;margin-top:60px;}
+  .roadmap-table th,.roadmap-table td{
+    text-align:left;padding:22px 20px;border-bottom:1px solid rgba(255,255,255,.08);
+    font-size:14px;font-weight:300;color:var(--mist);
+  }
+  .roadmap-table th{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist-dim);font-weight:500;
+    border-bottom:1px solid rgba(255,255,255,.18);
+  }
+  .roadmap-table td.phase{font-family:"Shippori Mincho",serif;color:var(--gold-bright);font-size:16px;}
+  .roadmap-table td.people{font-family:"Shippori Mincho",serif;color:var(--paper);font-size:20px;}
+  .roadmap-table tr:last-child td{border-bottom:none;}
+
+  /* ---------- partners ---------- */
+  .partners{text-align:center;}
+  .partner-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:14px;margin-top:60px;text-align:left;
+  }
+  .partner-card{
+    border:1px solid rgba(255,255,255,.1); padding:22px 20px; background:rgba(255,255,255,.02);
+  }
+  .partner-card .cat{font-size:10px;letter-spacing:.18em;color:var(--water-bright);text-transform:uppercase;margin-bottom:8px;}
+  .partner-card .name{font-family:"Shippori Mincho",serif;font-size:16px;color:var(--paper);line-height:1.5;}
+  .partner-card .status{font-size:11.5px;color:var(--mist-dim);margin-top:8px;}
+
+  /* ---------- closing ---------- */
+  .closing{text-align:center;padding-bottom:220px;}
+  .closing h2{font-size:clamp(26px,4vw,40px);line-height:1.7;max-width:640px;margin:0 auto 24px;}
+  .closing p{font-family:"Noto Serif JP",serif;font-size:15px;color:var(--mist-dim);max-width:480px;margin:0 auto 50px;line-height:2;}
+  .closing-mark{
+    font-size:11px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;
+  }
+
+  footer{
+    text-align:center;padding:50px 24px 60px;font-size:11px;color:var(--mist-dim);letter-spacing:.1em;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+
+  @media(max-width:720px){
+    .contrast-grid{grid-template-columns:1fr;}
+    .contrast-card.fire{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);}
+    .ritual-steps{grid-template-columns:1fr;}
+    .goal-row{grid-template-columns:1fr;gap:44px;}
+    .stop{grid-template-columns:32px 1fr;gap:16px;}
+    .route-head .distance{font-size:72px;}
+    .sec{padding:100px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="water-caustics"></div>
+<div class="ripple-lines"></div>
+<div class="stars"></div>
+<div class="river-track">
+  <svg width="64" height="100%" viewBox="0 0 64 1000" preserveAspectRatio="none" style="height:100%;">
+    <defs>
+      <linearGradient id="river-gradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8ed4ea" stop-opacity=".55"/>
+        <stop offset="35%" stop-color="#5fa8c4" stop-opacity=".75"/>
+        <stop offset="65%" stop-color="#c9a15a" stop-opacity=".55"/>
+        <stop offset="100%" stop-color="#8ed4ea" stop-opacity=".55"/>
+      </linearGradient>
+    </defs>
+    <path id="river-glow" d="M32,0 C10,60 54,120 32,180 C10,240 54,300 32,360 C10,420 54,480 32,540 C10,600 54,660 32,720 C10,780 54,840 32,900 C10,940 54,970 32,1000"
+          fill="none" stroke="#5fa8c4" stroke-width="10" vector-effect="non-scaling-stroke"/>
+    <path id="river-progress" d="M32,0 C10,60 54,120 32,180 C10,240 54,300 32,360 C10,420 54,480 32,540 C10,600 54,660 32,720 C10,780 54,840 32,900 C10,940 54,970 32,1000"
+          fill="none" stroke="url(#river-gradient)" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
+  </svg>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">貝塚市 シンボルイベント企画書</div>
+  <h1>水 引 巡 礼<small>MIZUHIKI JUNREI — THE KOGI RIVER PILGRIMAGE</small></h1>
+  <p class="hero-tag">和泉葛城山の一滴を、<em>この手で</em>大阪湾まで運ぶ。<br>十八キロを歩き、苦しみの果てで、<em>日常の幸せ</em>に気づき直す一日。</p>
+  <div class="hero-meta">
+    <div><span class="num">18km</span><span class="lbl">源流 → 二色の浜</span></div>
+    <div><span class="num">500人</span><span class="lbl">初年度・実証開催</span></div>
+    <div><span class="num">10,000人</span><span class="lbl">将来ビジョン</span></div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span>SCROLL</div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="sec philosophy">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center;">趣旨</div>
+    <h2>幸せとは、得るものではない。<br>すでにある幸せに、<span style="color:var(--gold-bright)">気づき直す</span>ことである。</h2>
+    <p>不便のない日常では、電気のありがたさも、屋根の下で眠れる幸福も、温かい白米の尊さも、私たちは忘れてしまう。<br>
+    長い距離を歩き、空腹を経て、風雨にさらされた夜を過ごした人間だけが、当たり前だったものの価値を、身体でもう一度知る。<br>
+    貝塚市には、その"気づきの装置"を成立させるための地理と物語が、すでにすべて揃っている。</p>
+
+    <div class="contrast-grid">
+      <div class="contrast-card fire">
+        <div class="tag">貝塚の表 — 火と力</div>
+        <h3>だんじり祭</h3>
+        <p>年に一度、貝塚の"力と誇り"を爆発させる、熱狂の祭り。地域の結束と勇壮さを町ごとに競い合う。</p>
+      </div>
+      <div class="contrast-card water">
+        <div class="tag">貝塚の裏 — 水と静</div>
+        <h3>水引巡礼</h3>
+        <p>年に一度、貝塚の"気づきと縁"を確かめる、静かな祭り。だんじりと対立せず、もう一つの貝塚の顔として並び立つ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="route-head reveal">
+      <div class="eyebrow" style="justify-content:center;">巡礼路</div>
+      <h2>源流から、海へ。</h2>
+      <div class="distance">18<span>km</span></div>
+    </div>
+
+    <div class="stops">
+      <div class="stop reveal">
+        <div class="stop-marker"><div class="stop-dot"></div><div class="stop-line"></div></div>
+        <div class="stop-content">
+          <div class="stop-km">START — 0km</div>
+          <h3>蕎原渓流公園（和泉葛城山 源流域）</h3>
+          <p>貝塚駅よりチャーターバスで移動。近木川の一滴を、参加者each自らの手で汲み上げる「採水式」からすべては始まる。</p>
+          <div class="stop-badges"><span class="badge">採水式</span><span class="badge">バス集合輸送</span></div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-marker"><div class="stop-dot"></div><div class="stop-line"></div></div>
+        <div class="stop-content">
+          <div class="stop-km">奥水間温泉 周辺</div>
+          <h3>奥水間渓谷</h3>
+          <p>清流とブナ林に抱かれた一軒宿。前半の疲労をいやす、任意の日帰り入浴ポイント。</p>
+          <div class="stop-badges"><span class="badge">温泉</span><span class="badge">前半エスケープ</span></div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-marker"><div class="stop-dot"></div><div class="stop-line"></div></div>
+        <div class="stop-content">
+          <div class="stop-km">約9km — 中間地点</div>
+          <h3>水間寺 ／ 水間門前町</h3>
+          <p>運んできた水に、道中の安全と大阪湾へ還る願いを込め祈祷を受ける。門前町の民泊での一泊、そして歩き通した空腹の果てにいただく白米・味噌汁・出し巻き。</p>
+          <div class="stop-badges"><span class="badge">祈祷</span><span class="badge">民泊宿泊</span><span class="badge">水間鉄道エスケープ</span><span class="badge">郷土食</span></div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-marker"><div class="stop-dot"></div><div class="stop-line"></div></div>
+        <div class="stop-content">
+          <div class="stop-km">後半区間</div>
+          <h3>清児の湯 ／ 積善温泉 美笹のゆ</h3>
+          <p>美笹のゆの立つ地は、かつて一万人近くが立て籠った積善寺城跡。同じ土地に、将来一万人が集うという物語が重なる。</p>
+          <div class="stop-badges"><span class="badge">温泉</span><span class="badge">深夜営業</span><span class="badge">歴史的地</span></div>
+        </div>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-marker"><div class="stop-dot" style="background:var(--gold);box-shadow:0 0 22px rgba(201,161,90,.9);"></div></div>
+        <div class="stop-content">
+          <div class="stop-km">GOAL — 18km</div>
+          <h3>二色の浜</h3>
+          <p>合流させた"貝塚全員の水"を、大阪湾へ還す還水の儀。地元店舗の飲食ブース、夕景の下でのひととき、そして虹の湯での湯上がりが、旅の終わりを締めくくる。</p>
+          <div class="stop-badges"><span class="badge">還水式</span><span class="badge">飲食ブース</span><span class="badge">虹の湯</span><span class="badge">完歩の証</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RITUAL -->
+<section class="sec ritual">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center;">儀式 — 水引の思想を、水そのものの動きで体現する</div>
+    <h2 style="text-align:center;font-size:clamp(26px,3.6vw,38px);">採水 → 祈祷 → 還水</h2>
+    <div class="ritual-steps">
+      <div class="ritual-step">
+        <div class="mark">壱</div>
+        <h3>採水</h3>
+        <p>蕎原渓流公園にて、参加者各自が小さな器に源流の水を汲む。この一滴が、十八キロの旅の同行者となる。</p>
+      </div>
+      <div class="ritual-step">
+        <div class="mark">弐</div>
+        <h3>祈祷</h3>
+        <p>水間寺にて、運んできた水に道中の安全と大阪湾へ還る願いを込め、僧侶による祈祷を受ける。</p>
+      </div>
+      <div class="ritual-step">
+        <div class="mark">参</div>
+        <h3>還水</h3>
+        <p>二色の浜にて、参加者全員の水を一つの器に合流させ、代表者が大阪湾へ還す。個人の旅が、貝塚の物語に結ばれる瞬間。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOAL SCENE -->
+<section class="sec goal">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center;">終着の情景</div>
+    <p class="goal-quote">壁も屋根もない夜を越えた者だけが知る、<br>家の中で眠れることのありがたさ。<br>歩き切った者だけが味わう、<br>一杯の白米と、一杯の酒の重さ。</p>
+    <div class="goal-row">
+      <div class="goal-item">
+        <div class="icon-line"></div>
+        <h4>飲食ブース</h4>
+        <p>貝塚市内の店舗が二色の浜に出店。523BREWINGの一杯が、十八キロの労をねぎらう。</p>
+      </div>
+      <div class="goal-item">
+        <div class="icon-line"></div>
+        <h4>湯上がりの余韻</h4>
+        <p>虹の湯・美笹のゆで旅の疲れを流す。歩いた者だけが知る、湯の心地よさ。</p>
+      </div>
+      <div class="goal-item">
+        <div class="icon-line"></div>
+        <h4>完歩の証</h4>
+        <p>還水の儀に立ち会えるのは、完歩した者だけ。写真と体験がSNSを通じ、翌年への熱を運ぶ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="sec-tight">
+  <div class="wrap reveal">
+    <div class="eyebrow">ロードマップ</div>
+    <h2 style="font-size:clamp(26px,3.6vw,38px);">500人から、一万人へ。</h2>
+    <table class="roadmap-table">
+      <thead>
+        <tr><th>フェーズ</th><th>規模</th><th>特徴</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="phase">初年度</td>
+          <td class="people">500人</td>
+          <td>事前選考制。共感した参加者と、メディア・関係者を中心に招待。運営の型を固める実証開催。</td>
+        </tr>
+        <tr>
+          <td class="phase">3年目目安</td>
+          <td class="people">2,000〜3,000人</td>
+          <td>一般公募を開始。市の正式後援イベント化。宿泊は民泊・いぶきヴィレッジ・市外ホテルへ拡張。</td>
+        </tr>
+        <tr>
+          <td class="phase">5〜7年目目安</td>
+          <td class="people">5,000人前後</td>
+          <td>フルコースに加え、ハーフ・ファミリー向け短縮コースを新設。関西圏からの集客を本格化。</td>
+        </tr>
+        <tr>
+          <td class="phase">最終形</td>
+          <td class="people">10,000人</td>
+          <td>だんじりと並ぶ貝塚の年中行事として定着。市外からの経済効果・関係人口創出の柱となる。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="sec partners">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center;">連携候補</div>
+    <h2 style="font-size:clamp(26px,3.6vw,38px);">貝塚市全体を、巻き込む。</h2>
+    <div class="partner-grid">
+      <div class="partner-card"><div class="cat">寺社・儀式</div><div class="name">水間寺</div><div class="status">祈祷連携・接点あり</div></div>
+      <div class="partner-card"><div class="cat">交通</div><div class="name">水間鉄道</div><div class="status">エスケープ輸送・貸切実績あり</div></div>
+      <div class="partner-card"><div class="cat">宿泊</div><div class="name">水間門前町 民泊各所</div><div class="status">接点あり</div></div>
+      <div class="partner-card"><div class="cat">宿泊</div><div class="name">かいづか いぶきヴィレッジ</div><div class="status">これから接点構築</div></div>
+      <div class="partner-card"><div class="cat">温泉</div><div class="name">奥水間温泉 ／ 清児の湯 ／ 美笹のゆ ／ 虹の湯 ほか</div><div class="status">交渉候補</div></div>
+      <div class="partner-card"><div class="cat">飲食</div><div class="name">523BREWING</div><div class="status">ゴール地点 出店候補</div></div>
+      <div class="partner-card"><div class="cat">企業連携</div><div class="name">We Car CORE</div><div class="status">業務委託・関係構築済</div></div>
+      <div class="partner-card"><div class="cat">公園管理</div><div class="name">二色の浜（指定管理：延生建設）</div><div class="status">接点あり</div></div>
+      <div class="partner-card"><div class="cat">行政</div><div class="name">貝塚市 魅力づくり推進課</div><div class="status">連携開始</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center;">結び</div>
+    <h2>この巡礼は、一人の足では完成しない。<br>貝塚市民一人ひとりの手で、水は結ばれていく。</h2>
+    <p>初年度500人という小さな一滴から。<br>いつか一万人が近木川に沿って歩く日まで。</p>
+    <div class="closing-mark">水 引 巡 礼 — MIZUHIKI JUNREI</div>
+  </div>
+</section>
+
+<footer>貝塚市シンボルイベント企画書 ／ 水引巡礼プロジェクト ／ 本資料は構想段階のたたき台です</footer>
+
+<script>
+  // scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.12});
+  els.forEach(el=>io.observe(el));
+
+
+</script>
+
+</body>
+</html>
