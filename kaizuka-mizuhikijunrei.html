@@ -90,6 +90,16 @@
     opacity:.8;
   }
 
+  .dragon-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    display:flex; align-items:center; justify-content:center;
+    opacity:.14; mix-blend-mode:screen;
+  }
+  .dragon-bg svg{
+    width:min(120vw,1100px); height:auto;
+    filter:drop-shadow(0 0 18px rgba(201,161,90,.25));
+  }
+
   /* ---------- river spine : meandering flow ---------- */
   .river-track{
     position:absolute; left:50%; top:0; width:64px; height:100%;
@@ -311,6 +321,50 @@
 <div class="water-caustics"></div>
 <div class="ripple-lines"></div>
 <div class="stars"></div>
+<div class="dragon-bg" aria-hidden="true">
+  <svg viewBox="0 0 600 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="dragon-gradient" x1="0" y1="0" x2="600" y2="380" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#eecf8e"/>
+        <stop offset="45%" stop-color="#c9a15a"/>
+        <stop offset="100%" stop-color="#8ed4ea"/>
+      </linearGradient>
+    </defs>
+
+    <!-- body -->
+    <path d="M520,70 C470,25 400,20 365,60 C325,105 360,160 415,168 C480,178 515,230 470,275 C425,318 350,305 320,260 C288,210 215,218 190,268 C165,318 210,352 258,340 C300,330 330,355 300,375"
+          stroke="url(#dragon-gradient)" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- tail flourish -->
+    <path d="M300,375 C282,368 275,352 288,344 C298,338 308,344 306,354"
+          stroke="url(#dragon-gradient)" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- dorsal spikes -->
+    <g fill="url(#dragon-gradient)" opacity="0.85">
+      <polygon points="418,44 428,20 434,48"/>
+      <polygon points="460,140 474,120 470,150"/>
+      <polygon points="432,238 450,222 442,254"/>
+      <polygon points="340,230 356,210 350,244"/>
+      <polygon points="228,238 244,220 236,254"/>
+      <polygon points="195,318 208,300 205,332"/>
+    </g>
+
+    <!-- horns -->
+    <path d="M513,53 C518,34 528,20 540,12" stroke="url(#dragon-gradient)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M523,58 C532,44 548,34 562,30" stroke="url(#dragon-gradient)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- whiskers -->
+    <path d="M500,80 C522,74 546,58 566,42" stroke="url(#dragon-gradient)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+    <path d="M497,90 C520,94 546,90 568,76" stroke="url(#dragon-gradient)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+
+    <!-- snout / jaw -->
+    <path d="M506,76 C494,86 489,98 500,104 C511,109 522,98 517,87 C513,80 511,77 506,76 Z"
+          stroke="url(#dragon-gradient)" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- eye -->
+    <circle cx="528" cy="66" r="3.2" fill="url(#dragon-gradient)"/>
+  </svg>
+</div>
 <div class="river-track">
   <svg width="64" height="100%" viewBox="0 0 64 1000" preserveAspectRatio="none" style="height:100%;">
     <defs>
