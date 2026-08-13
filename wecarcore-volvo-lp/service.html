@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カーコーティング | We Car CORE</title>
+  <meta name="description" content="We Car COREの高級輸入車向けカーコーティング専用ページ。美しい艶、汚れにくさ、紫外線や雨からの保護で、愛車の輝きを長く守ります。">
+  <style>
+    :root {
+      --black: #050505;
+      --ink: #101010;
+      --muted: #6d6d6d;
+      --white: #ffffff;
+      --soft: #f6f4f0;
+      --line: rgba(255, 255, 255, 0.16);
+      --gold: #c7a461;
+      --gold-soft: #ead8ad;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: "Noto Serif JP", "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "MS PMincho", serif;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 5, 5, 0.72);
+      backdrop-filter: blur(18px);
+      color: var(--white);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 32px), 1240px);
+      height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: grid;
+      line-height: 1.15;
+      font-weight: 600;
+    }
+
+    .brand span:first-child {
+      font-size: 18px;
+      letter-spacing: 0.08em;
+    }
+
+    .brand span:last-child {
+      margin-top: 4px;
+      color: var(--gold-soft);
+      font-size: 10px;
+      letter-spacing: 0.24em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 13px;
+    }
+
+    .nav a {
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--gold-soft);
+    }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, 0.94) 0%, rgba(5, 5, 5, 0.68) 42%, rgba(5, 5, 5, 0.18) 100%),
+        linear-gradient(180deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.88) 100%);
+      z-index: 1;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.04);
+      animation: heroZoom 16s ease-out forwards;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 160px 0 92px;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--gold-soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 38px;
+      font-size: clamp(42px, 7vw, 92px);
+      line-height: 1.05;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-sub {
+      display: inline-block;
+      margin: 14px 0 30px;
+      color: var(--gold);
+      font-family: "Snell Roundhand", "Bickham Script Pro 3", "Segoe Script", "Brush Script MT", cursive;
+      font-size: clamp(26px, 3.5vw, 48px);
+      font-style: italic;
+      font-weight: 200;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      transform: rotate(-7deg) translateY(6px);
+      transform-origin: left center;
+      text-shadow: 0 12px 30px rgba(199, 164, 97, 0.34);
+    }
+
+    .hero-lead {
+      max-width: 620px;
+      margin-bottom: 34px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 28px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .btn-dark {
+      border-color: var(--black);
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .section {
+      padding: clamp(78px, 10vw, 140px) 0;
+    }
+
+    .section-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .section-soft {
+      background: var(--soft);
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 52px;
+    }
+
+    .section-head.center {
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+    }
+
+    #price .section-head {
+      max-width: none;
+    }
+
+    .price-includes {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: -22px 0 28px;
+      padding: 10px 16px;
+      border-left: 3px solid var(--gold);
+      background: rgba(199, 164, 97, 0.12);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .price-includes::before {
+      content: "✓";
+      color: var(--gold);
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(30px, 4vw, 56px);
+      line-height: 1.18;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .section-dark .lead,
+    .section-dark .muted {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: clamp(32px, 6vw, 88px);
+      align-items: center;
+    }
+
+    .about-layout {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto auto;
+      align-items: start;
+    }
+
+    .about-layout .section-head {
+      display: grid;
+      grid-row: 1 / span 2;
+      grid-template-rows: subgrid;
+      max-width: none;
+      margin-bottom: 0;
+    }
+
+    .about-copy {
+      grid-row: 1;
+    }
+
+    .about-title-image {
+      width: auto;
+      height: 42px;
+      margin: 0 0 18px;
+      object-fit: contain;
+    }
+
+    .about-copy .about-title-image {
+      width: 9em;
+      height: auto;
+    }
+
+    .feature-photo {
+      min-height: 520px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #111, #2c2414);
+    }
+
+    .feature-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.05) saturate(0.94);
+    }
+
+    .about-points {
+      display: grid;
+      grid-row: 2;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      margin-top: 34px;
+      transform: translateY(-64px);
+      background: rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .about-point {
+      display: grid;
+      justify-items: center;
+      gap: 16px;
+      min-height: 178px;
+      padding: 24px 18px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .about-point img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .about-point p {
+      margin: 0;
+      font-size: clamp(13px, 1vw, 15px);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0.05em;
+    }
+
+    .about-recommend {
+      display: grid;
+      grid-row: 1 / span 2;
+      grid-template-rows: subgrid;
+      padding-top: 0;
+    }
+
+    .about-recommend h2 {
+      padding-top: 32px;
+      margin-bottom: 28px;
+    }
+
+    .check-list {
+      display: grid;
+      grid-row: 2;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      transform: translateY(-40px);
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--ink);
+      font-size: clamp(15px, 1.4vw, 18px);
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .check-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      color: var(--gold);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .about-bottom-image {
+      grid-column: 1 / -1;
+      margin: 0;
+    }
+
+    .about-bottom-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .grid-4,
+    .grid-3 {
+      display: grid;
+      gap: 1px;
+      background: rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      min-height: 240px;
+      padding: 34px;
+      background: var(--white);
+      transition: transform 0.28s ease, background 0.28s ease;
+    }
+
+    .section-dark .card {
+      background: #0d0d0d;
+      border-color: var(--line);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background: #fbfaf7;
+    }
+
+    .num {
+      display: inline-block;
+      margin-bottom: 38px;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .recommend {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .recommend li {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+      font-size: clamp(18px, 2vw, 26px);
+    }
+
+    .coating-types {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .type-card {
+      display: grid;
+      grid-template-rows: auto auto auto auto 1fr auto;
+      min-height: 430px;
+      padding: 34px;
+      background: var(--white);
+    }
+
+    .type-label {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .type-desc {
+      min-height: 150px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .type-features {
+      display: grid;
+      gap: 0;
+      margin-top: 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .type-feature {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 12px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .type-feature-icon {
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .type-feature h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .type-feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .type-recommend {
+      margin-top: 30px;
+      padding: 24px;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .type-recommend h4 {
+      margin: 0 0 14px;
+      color: var(--gold-soft);
+      font-size: 16px;
+    }
+
+    .type-recommend ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .type-recommend li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+    }
+
+    .type-recommend li::before {
+      content: "✓";
+      color: var(--gold);
+    }
+
+    .glass-option {
+      background: var(--white);
+    }
+
+    .glass-option-title {
+      margin: 28px 0 12px;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 600;
+    }
+
+    .glass-compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 44px;
+    }
+
+    .glass-photo {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--black);
+    }
+
+    .glass-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .glass-photo figcaption {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 7px 14px;
+      background: rgba(5, 5, 5, 0.82);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .glass-option-info {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .glass-info-card {
+      padding: 30px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--soft);
+    }
+
+    .glass-info-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 14px;
+      font-size: 19px;
+      line-height: 1.5;
+    }
+
+    .glass-icon {
+      display: inline-grid;
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--black);
+      color: var(--gold-soft);
+      overflow: hidden;
+    }
+
+    .glass-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .glass-info-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .glass-recommend-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .glass-recommend-list li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 14px;
+    }
+
+    .glass-recommend-list img {
+      flex: 0 0 24px;
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .glass-recommend-list span {
+      flex: 0 0 24px;
+      color: #8f681f;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .plastic-option {
+      margin-top: 76px;
+      padding-top: 62px;
+      border-top: 1px solid rgba(0, 0, 0, 0.14);
+    }
+
+    .plastic-option-head {
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .plastic-option-head h3 {
+      margin-bottom: 14px;
+      font-size: clamp(22px, 3vw, 34px);
+    }
+
+    .plastic-compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .plastic-photo {
+      margin: 0;
+      padding: 22px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--soft);
+    }
+
+    .plastic-photo h4 {
+      margin: 0 0 14px;
+      color: #8f681f;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+    }
+
+    .plastic-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .plastic-photo figcaption {
+      margin-top: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .type-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      margin-bottom: 28px;
+      object-fit: cover;
+    }
+
+    .spec-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .spec-row {
+      display: grid;
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .spec-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .spec-value {
+      color: var(--ink);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .rating {
+      display: flex;
+      gap: 7px;
+    }
+
+    .rating span {
+      width: 100%;
+      height: 5px;
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .rating span.is-active {
+      background: var(--gold);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .flow-step {
+      min-height: 210px;
+      padding: 28px 22px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .flow-step.has-photo .num {
+      margin-bottom: 18px;
+    }
+
+    .flow-photo {
+      margin: 0 0 18px;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .flow-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+
+    .ba-panel {
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .ba-panel img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .ba-panel.before img {
+      filter: saturate(0.45) brightness(0.72) contrast(0.88);
+    }
+
+    .ba-panel.after img {
+      filter: saturate(1.08) brightness(1.05) contrast(1.08);
+    }
+
+    .ba-label {
+      position: absolute;
+      left: 22px;
+      bottom: 20px;
+      padding: 8px 14px;
+      background: rgba(5, 5, 5, 0.78);
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0.12em;
+    }
+
+    .price-tables {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .price-card {
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--white);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.06);
+    }
+
+    .price-card-head {
+      padding: 28px 30px 24px;
+      border-bottom: 3px solid var(--gold);
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .price-card-head span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold-soft);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .price-card-head h3 {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 30px);
+    }
+
+    .price-card-head small {
+      font-size: 0.6em;
+      font-weight: 500;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 15px;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 22px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      text-align: left;
+    }
+
+    .price-table th {
+      background: #ece8df;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .price-table th:last-child,
+    .price-table td:last-child {
+      text-align: right;
+    }
+
+    .size-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .vehicle-example {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .price {
+      color: #8f681f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      white-space: nowrap;
+    }
+
+    .option-prices {
+      margin-top: 72px;
+      padding-top: 56px;
+      border-top: 1px solid rgba(0, 0, 0, 0.14);
+    }
+
+    .option-prices-head {
+      margin-bottom: 30px;
+    }
+
+    .option-prices-head h3 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 38px);
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .option-card-wide {
+      grid-column: 1 / -1;
+      width: min(100%, 880px);
+      justify-self: center;
+    }
+
+    .option-card .price-card-head {
+      padding: 22px 26px 18px;
+    }
+
+    .option-card .price-card-head h3 {
+      font-size: clamp(19px, 2.4vw, 25px);
+    }
+
+    .option-table td:first-child {
+      font-weight: 700;
+    }
+
+    .option-table .price {
+      font-size: 20px;
+    }
+
+    .reason {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 64px;
+      align-items: start;
+    }
+
+    .reason-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .reason-intro {
+      font-size: clamp(17px, 1.5vw, 20px);
+      line-height: 2;
+      letter-spacing: 0.035em;
+    }
+
+    .reason-item {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .reason-icon {
+      width: 80px;
+      height: 80px;
+      transform: translateX(8px);
+    }
+
+    .reason-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .reason-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .reason-copy {
+      min-width: 0;
+      text-align: left;
+    }
+
+    .reason-copy h3 {
+      margin-top: 0;
+    }
+
+    @media (min-width: 981px) {
+      .reason-copy {
+        text-align: center;
+      }
+    }
+
+    details {
+      border-top: 1px solid rgba(0, 0, 0, 0.14);
+    }
+
+    details:last-child {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 24px 0;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      max-width: 760px;
+      padding-bottom: 24px;
+      color: var(--muted);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-box {
+      padding: clamp(42px, 7vw, 86px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(199, 164, 97, 0.18), transparent 34%),
+        #090909;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      max-width: 760px;
+      margin: 34px auto 0;
+      text-align: left;
+    }
+
+    .contact-form label {
+      display: grid;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+    }
+
+    .contact-form label:last-of-type {
+      grid-column: 1 / -1;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      font: inherit;
+      padding: 15px 16px;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .contact-form textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      grid-column: 1 / -1;
+      justify-self: center;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+
+    .footer {
+      padding: 28px 0;
+      background: var(--black);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.08); }
+      to { transform: scale(1); }
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        display: none;
+      }
+
+      .split,
+      .about-layout,
+      .reason {
+        grid-template-columns: 1fr;
+      }
+
+      .about-layout {
+        grid-template-rows: auto;
+      }
+
+      .about-layout .section-head,
+      .about-recommend {
+        grid-row: auto;
+        grid-template-rows: none;
+      }
+
+      .about-recommend {
+        padding-top: 32px;
+      }
+
+      .about-recommend h2 {
+        padding-top: 0;
+      }
+
+      .about-copy,
+      .about-points,
+      .check-list {
+        grid-row: auto;
+      }
+
+      .check-list {
+        transform: none;
+      }
+
+      .about-points {
+        transform: none;
+      }
+
+      .grid-4,
+      .grid-3,
+      .coating-types {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .price-tables {
+        grid-template-columns: 1fr;
+      }
+
+      .glass-option-info {
+        grid-template-columns: 1fr;
+      }
+
+      .option-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .option-card-wide {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .header-inner {
+        height: 64px;
+      }
+
+      .hero-content {
+        padding: 128px 0 58px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(5, 5, 5, 0.42) 0%, rgba(5, 5, 5, 0.95) 72%),
+          linear-gradient(90deg, rgba(5, 5, 5, 0.58), rgba(5, 5, 5, 0.16));
+      }
+
+      .reason-item {
+        grid-template-columns: 68px minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .reason-icon {
+        width: 68px;
+        height: 68px;
+        transform: translateX(5px);
+      }
+
+      .grid-4,
+      .grid-3,
+      .about-points,
+      .coating-types,
+      .recommend,
+      .before-after,
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .type-card,
+      .type-desc {
+        min-height: auto;
+      }
+
+      .glass-compare,
+      .plastic-compare,
+      .glass-recommend-list {
+        grid-template-columns: 1fr;
+      }
+
+      .glass-info-card {
+        padding: 24px 20px;
+      }
+
+      .about-recommend {
+        padding-top: 10px;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-photo {
+        min-height: 320px;
+      }
+
+      .ba-panel {
+        min-height: 420px;
+      }
+
+      .price-card-head {
+        padding: 24px 20px 20px;
+      }
+
+      .price-table th,
+      .price-table td {
+        padding: 17px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="We Car CORE コーティングページトップへ">
+        <span>We Car CORE</span>
+        <span>PREMIUM CAR COATING</span>
+      </a>
+      <nav class="nav" aria-label="ページ内ナビゲーション">
+        <a href="#about">コーティングとは</a>
+        <a href="#types">種類</a>
+        <a href="#flow">施工の流れ</a>
+        <a href="#price">料金</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="We Car COREのカーコーティング">
+      <div class="hero-media">
+        <img src="images/coating/top.png" alt="高級輸入車のコーティング施工後の美しい艶">
+      </div>
+      <div class="container hero-content reveal">
+        <p class="kicker">We Car CORE Coating Studio</p>
+        <h1>愛車の輝きを、<br>いつまでも。</h1>
+        <p class="hero-sub">Premium Car Coating</p>
+        <p class="hero-lead">輸入車の塗装を深い艶で包み、雨や紫外線から美しく守ります。<br>日々の洗車を楽にし、所有する歓びを長く保ちます。</p>
+        <a class="btn btn-gold" href="#contact">施工相談をする</a>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container split about-layout">
+        <div class="section-head reveal">
+          <div class="about-copy">
+            <p class="kicker">About Coating</p>
+            <h2>コーティングとは</h2>
+            <p class="lead">コーティングとは、車のボディに保護被膜を形成し、紫外線や雨、汚れから愛車を守る施工です。美しいツヤを保ち、汚れが付きにくくなるため、お手入れも簡単になります。</p>
+          </div>
+          <div class="about-points">
+            <article class="about-point">
+              <img src="images/coating/about-gloss.png" alt="">
+              <p>艶・光沢が<br>長持ち</p>
+            </article>
+            <article class="about-point">
+              <img src="images/coating/about-protect.png" alt="">
+              <p>紫外線や<br>酸性雨から保護</p>
+            </article>
+            <article class="about-point">
+              <img src="images/coating/about-wash.png" alt="">
+              <p>汚れが付きにくく<br>洗車が楽に</p>
+            </article>
+            <article class="about-point">
+              <img src="images/coating/about-value.png" alt="">
+              <p>大切な愛車の<br>価値を維持</p>
+            </article>
+          </div>
+        </div>
+        <div class="about-recommend reveal">
+          <h2>こんな方におすすめ</h2>
+          <ul class="check-list">
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>新車の輝きを長く保ちたい方</span></li>
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>洗車の手間を減らしたい方</span></li>
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>ボディの汚れや劣化を防ぎたい方</span></li>
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>美しい艶で愛車をもっと魅力的に見せたい方</span></li>
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>売却時査定を良くしたい方</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="types">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="kicker">Coating Types</p>
+          <h2>コーティングの種類</h2>
+          <p class="lead">求める仕上がりやご予算に合わせて、2つの高品質なガラス系コーティングからお選びいただけます。</p>
+        </div>
+        <div class="coating-types">
+          <article class="type-card reveal">
+            <span class="type-label">Premium Double-Layer Coating</span>
+            <img class="type-image" src="images/coating/himo-coat-gloss.png" alt="深い艶をまとったハイモースコート施工イメージ">
+            <h3>ハイモースコート</h3>
+            <p class="type-desc"><strong>最高クラスのツヤと保護性能。</strong><br>高硬度のガラス系被膜を2層で形成するプレミアムコーティングです。深いツヤと優れた撥水性能で、紫外線や汚れ、雨ジミなどから愛車を長期間守ります。</p>
+            <div class="type-features">
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">✦</span><div><h4>深みのある美しいツヤ</h4><p>塗装本来の色味や質感を引き立て、高級感のある輝きを実現します。</p></div></div>
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">◈</span><div><h4>驚きの撥水性能</h4><p>水滴が滑らかに流れ落ち、汚れが付きにくくなるため、洗車も楽になります。</p></div></div>
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">◇</span><div><h4>強固な保護性能</h4><p>高硬度の2層被膜が、紫外線や酸性雨、汚れなどからボディをしっかり保護します。</p></div></div>
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">◆</span><div><h4>長く美しさをキープ</h4><p>優れた耐久性により、美しいツヤと撥水性能が長期間持続します。</p></div></div>
+            </div>
+            <div class="type-recommend"><h4>こんな方におすすめ</h4><ul><li>とにかくツヤを重視したい方</li><li>愛車を長くきれいに保ちたい方</li><li>洗車の手間を減らしたい方</li><li>最高クラスのコーティングを選びたい方</li></ul></div>
+          </article>
+          <article class="type-card reveal">
+            <span class="type-label">Professional Glass Coating</span>
+            <img class="type-image" src="images/coating/gzox-balance.png" alt="艶と撥水性能を備えたG'ZOX施工イメージ">
+            <h3>G'ZOX <small>（ジーゾックス）</small></h3>
+            <p class="type-desc"><strong>ツヤ・耐久性・価格の優れたバランス。</strong><br>ガラス系被膜でボディをしっかり保護する、プロ仕様のカーコーティングブランドです。美しいツヤと高い耐久性を兼ね備え、愛車を長く美しい状態に保ちます。</p>
+            <div class="type-features">
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">✦</span><div><h4>美しいガラスのようなツヤ</h4><p>透明感のある被膜が塗装本来の色や深みを引き出し、高級感のある輝きを演出します。</p></div></div>
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">◈</span><div><h4>優れた撥水性能</h4><p>雨や水滴を弾きやすく、汚れが付きにくいため、普段のお手入れも楽になります。</p></div></div>
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">◇</span><div><h4>ボディをしっかり保護</h4><p>紫外線や酸性雨、汚れなどから塗装面を保護し、美しい状態を維持します。</p></div></div>
+              <div class="type-feature"><span class="type-feature-icon" aria-hidden="true">◆</span><div><h4>長期間きれいが続く</h4><p>高い耐久性を備え、適切なメンテナンスを続けることで長く美しさを楽しめます。</p></div></div>
+            </div>
+            <div class="type-recommend"><h4>こんな方におすすめ</h4><ul><li>愛車を長くきれいに保ちたい方</li><li>ツヤと撥水性能の両方を重視したい方</li><li>洗車の手間を減らしたい方</li><li>コストと性能のバランスを重視したい方</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section glass-option" id="glass-option">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Options</p>
+          <h2>オプション</h2>
+          <h3 class="glass-option-title">ガラスコーティング</h3>
+          <p class="lead">雨の日の視界をクリアに。悪天候でも安心・快適なドライブをサポートします。</p>
+        </div>
+
+        <div class="glass-compare">
+          <figure class="glass-photo reveal">
+            <img src="images/coating/glass-before.png" alt="ガラスコーティング施工前の、水が広がり視界がぼやけたフロントガラス">
+            <figcaption>施工前</figcaption>
+          </figure>
+          <figure class="glass-photo reveal">
+            <img src="images/coating/glass-after.png" alt="ガラスコーティング施工後の、水滴を弾きクリアになったフロントガラス">
+            <figcaption>施工後</figcaption>
+          </figure>
+        </div>
+
+        <div class="glass-option-info">
+          <article class="glass-info-card reveal">
+            <h3 class="glass-info-title"><span class="glass-icon" aria-hidden="true"><img src="images/coating/option-water-repellent.png" alt=""></span>強力な撥水効果で</h3>
+            <p>雨粒をはじき、視界を確保。<br>ワイパーの負担も軽減し、安全運転をサポートします。</p>
+          </article>
+
+          <article class="glass-info-card reveal">
+            <h3 class="glass-info-title"><span class="glass-icon" aria-hidden="true"><img src="images/coating/option-recommend.png" alt=""></span>こんな方におすすめ</h3>
+            <ul class="glass-recommend-list">
+              <li><img src="images/coating/option-rain.png" alt="" aria-hidden="true">雨の日によく運転する方</li>
+              <li><img src="images/coating/option-highway.png" alt="" aria-hidden="true">高速道路をよく利用する方</li>
+              <li><img src="images/coating/option-night.png" alt="" aria-hidden="true">夜間の運転が多い方</li>
+              <li><img src="images/coating/option-easy-care.png" alt="" aria-hidden="true">窓のお手入れをラクにしたい方</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="plastic-option">
+          <div class="plastic-option-head reveal">
+            <h3>樹脂コーティング</h3>
+            <p class="lead">無塗装樹脂パーツの黒さをよみがえらせ、上質で清潔感のあるプレミアムな印象をキープ。</p>
+          </div>
+
+          <div class="plastic-compare">
+            <figure class="plastic-photo reveal">
+              <h4>施工前</h4>
+              <img src="images/coating/plastic-before.png" alt="樹脂コーティング施工前の、色あせて白っぽくなった未塗装樹脂パーツ">
+              <figcaption>色あせて白っぽく見える状態</figcaption>
+            </figure>
+            <figure class="plastic-photo reveal">
+              <h4>施工後</h4>
+              <img src="images/coating/plastic-after.png" alt="樹脂コーティング施工後の、黒く深みが戻った未塗装樹脂パーツ">
+              <figcaption>黒く深みのある美しい状態へ</figcaption>
+            </figure>
+          </div>
+
+          <div class="glass-option-info">
+            <article class="glass-info-card reveal">
+              <h3 class="glass-info-title"><span class="glass-icon" aria-hidden="true"><img src="images/coating/option-plastic-protection.png" alt=""></span>黒さと質感を長期間キープ</h3>
+              <p>紫外線や雨による白化・色あせを抑え、<br>未塗装樹脂本来の深みある黒さを保ちます。</p>
+            </article>
+
+            <article class="glass-info-card reveal">
+              <h3 class="glass-info-title"><span class="glass-icon" aria-hidden="true"><img src="images/coating/option-recommend.png" alt=""></span>こんな方におすすめ</h3>
+              <ul class="glass-recommend-list">
+                <li><img src="images/coating/option-plastic-fading.png" alt="" aria-hidden="true">樹脂の白あせが気になる方</li>
+                <li><img src="images/coating/option-plastic-restore.png" alt="" aria-hidden="true">黒さ・質感を取り戻したい方</li>
+                <li><img src="images/coating/option-plastic-durability.png" alt="" aria-hidden="true">樹脂を長く保護したい方</li>
+                <li><img src="images/coating/option-car-beauty.png" alt="" aria-hidden="true">愛車をもっと美しくしたい方</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="flow">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Process</p>
+          <h2>施工の流れ</h2>
+          <p class="lead">仕上がりを左右するのは、コーティング剤だけではありません。洗車から下地磨き、最終確認まで、ひとつずつ丁寧に積み重ねます。</p>
+        </div>
+        <div class="flow">
+          <article class="flow-step has-photo reveal"><span class="num">01</span><figure class="flow-photo"><img src="images/coating/flow-wash.jpg" alt="洗車作業の様子"></figure><h3>洗車</h3><p class="muted">砂や埃を丁寧に落とし、塗装面の状態を確認します。</p></article>
+          <article class="flow-step has-photo reveal"><span class="num">02</span><figure class="flow-photo"><img src="images/coating/flow-iron-removal.jpg" alt="鉄粉除去作業の様子"></figure><h3>鉄粉除去</h3><p class="muted">目に見えにくい付着物を除去し、滑らかな面へ整えます。</p></article>
+          <article class="flow-step has-photo reveal"><span class="num">03</span><figure class="flow-photo"><img src="images/coating/flow-polish.jpg" alt="下地磨き作業の様子"></figure><h3>下地磨き</h3><p class="muted">小傷やくすみを抑え、艶の土台を作ります。</p></article>
+          <article class="flow-step has-photo reveal"><span class="num">04</span><figure class="flow-photo"><img src="images/coating/flow-degrease.jpg" alt="脱脂作業の様子"></figure><h3>脱脂</h3><p class="muted">余分な油分を取り除き、定着しやすい状態にします。</p></article>
+          <article class="flow-step has-photo reveal"><span class="num">05</span><figure class="flow-photo"><img src="images/coating/flow-apply.jpg" alt="コーティング施工の様子"></figure><h3>施工</h3><p class="muted">ボディ形状に合わせて均一にコーティングを施工します。</p></article>
+          <article class="flow-step has-photo reveal"><span class="num">06</span><figure class="flow-photo"><img src="images/coating/flow-final-check.jpg" alt="最終確認作業の様子"></figure><h3>最終確認</h3><p class="muted">光の角度を変えながら、仕上がりを細部まで確認します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="before-after">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="kicker">Before / After</p>
+          <h2>印象は、艶で変わる。</h2>
+          <p class="lead">くすみを抑え、塗装面の表情を整えることで、輸入車らしい端正な佇まいが際立ちます。</p>
+        </div>
+        <div class="before-after">
+          <figure class="ba-panel reveal">
+            <img src="images/coating/before-after.jpg" alt="コーティング施工前後の比較写真">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="price">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Price</p>
+          <h2>料金表</h2>
+          <p class="lead">車両サイズや塗装状態により最適な施工内容が異なります。現車確認後、正式なお見積りをご案内します。</p>
+        </div>
+        <p class="price-includes reveal">下地処理・磨き込み・工程含む</p>
+        <div class="price-tables">
+          <article class="price-card reveal">
+            <div class="price-card-head">
+              <span>Premium Double-Layer Coating</span>
+              <h3>ハイモースコート</h3>
+            </div>
+            <table class="price-table">
+              <thead><tr><th scope="col">車両サイズ</th><th scope="col">車種</th><th scope="col">施工料金（税込）</th></tr></thead>
+              <tbody>
+                <tr><td class="size-name">SS</td><td class="vehicle-example">（ミライース・デイズ等）</td><td class="price">¥145,200〜</td></tr>
+                <tr><td class="size-name">S</td><td class="vehicle-example">（軽・ヤリス等）</td><td class="price">¥171,600〜</td></tr>
+                <tr><td class="size-name">M</td><td class="vehicle-example">（プリウス等）</td><td class="price">¥198,000〜</td></tr>
+                <tr><td class="size-name">L</td><td class="vehicle-example">（XC40等）</td><td class="price">¥224,000〜</td></tr>
+                <tr><td class="size-name">LL</td><td class="vehicle-example">（XC90等）</td><td class="price">¥250,800〜</td></tr>
+                <tr><td class="size-name">XL</td><td class="vehicle-example">（ハイエース等）</td><td class="price">¥265,400〜</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="price-card reveal">
+            <div class="price-card-head">
+              <span>Professional Glass Coating</span>
+              <h3>G'ZOX <small>（ジーゾックス）</small></h3>
+            </div>
+            <table class="price-table">
+              <thead><tr><th scope="col">車両サイズ</th><th scope="col">車種</th><th scope="col">施工料金（税込）</th></tr></thead>
+              <tbody>
+                <tr><td class="size-name">SS</td><td class="vehicle-example">（ミライース・デイズ等）</td><td class="price">¥86,400〜</td></tr>
+                <tr><td class="size-name">S</td><td class="vehicle-example">（軽・ヤリス等）</td><td class="price">¥102,400〜</td></tr>
+                <tr><td class="size-name">M</td><td class="vehicle-example">（プリウス等）</td><td class="price">¥144,000〜</td></tr>
+                <tr><td class="size-name">L</td><td class="vehicle-example">（XC40等）</td><td class="price">¥160,000〜</td></tr>
+                <tr><td class="size-name">LL</td><td class="vehicle-example">（XC90等）</td><td class="price">¥184,000〜</td></tr>
+                <tr><td class="size-name">XL</td><td class="vehicle-example">（ハイエース等）</td><td class="price">¥195,000〜</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="option-prices">
+          <div class="option-prices-head reveal">
+            <p class="kicker">Options</p>
+            <h3>オプション料金</h3>
+          </div>
+          <div class="option-grid">
+            <article class="price-card option-card option-card-wide reveal">
+              <div class="price-card-head">
+                <h3>窓ガラスコーティング</h3>
+              </div>
+              <table class="price-table option-table">
+                <thead><tr><th scope="col">施工内容</th><th scope="col">対象サイズ</th><th scope="col">施工料金（税込）</th></tr></thead>
+                <tbody>
+                  <tr><td>フロントガラスのみ</td><td>SS〜M</td><td class="price">¥6,000〜</td></tr>
+                  <tr><td>フロントガラスのみ</td><td>L〜LL</td><td class="price">¥8,000〜</td></tr>
+                  <tr><td>フロントガラスのみ</td><td>XL</td><td class="price">¥10,000〜</td></tr>
+                  <tr><td>3面セット<br><small>（フロント＋運転席＋助手席）</small></td><td>SS〜M</td><td class="price">¥10,000〜</td></tr>
+                  <tr><td>3面セット<br><small>（フロント＋運転席＋助手席）</small></td><td>L〜LL</td><td class="price">¥12,000〜</td></tr>
+                  <tr><td>3面セット<br><small>（フロント＋運転席＋助手席）</small></td><td>XL</td><td class="price">¥14,000〜</td></tr>
+                  <tr><td>追加ガラス</td><td>全サイズ</td><td class="price">1枚 ¥2,000</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="price-card option-card reveal">
+              <div class="price-card-head">
+                <h3>未塗装樹脂コーティング</h3>
+              </div>
+              <table class="price-table option-table">
+                <thead><tr><th scope="col">施工範囲</th><th scope="col">施工料金（税込）</th></tr></thead>
+                <tbody>
+                  <tr><td>スモール</td><td class="price">¥6,000〜</td></tr>
+                  <tr><td>ミドル</td><td class="price">¥13,000〜</td></tr>
+                  <tr><td>マックス</td><td class="price">¥22,000〜</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="price-card option-card reveal">
+              <div class="price-card-head">
+                <h3>ヘッドライトプロテクションフィルム</h3>
+              </div>
+              <table class="price-table option-table">
+                <thead><tr><th scope="col">対象サイズ</th><th scope="col">施工料金（税込）</th></tr></thead>
+                <tbody>
+                  <tr><td>全サイズ</td><td class="price">¥30,000〜</td></tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="reason">
+      <div class="container reason">
+        <div class="section-head reveal">
+          <p class="kicker">Why We Car CORE</p>
+          <h2>We Car COREが<br>選ばれる3つの<br>理由</h2>
+          <p class="lead reason-intro">高級輸入車を扱う店舗だからこそ、<br>車両の価値と美しさを大切にした<br>丁寧な仕上がりをご提案します。</p>
+        </div>
+        <div class="reason-list">
+          <article class="reason-item reveal">
+            <span class="reason-icon" aria-hidden="true">
+              <img src="images/coating/reason-car.png" alt="">
+            </span>
+            <div class="reason-copy"><h3>01　車種に合わせた下地処理</h3><p class="muted">輸入車ごとの塗装特性や状態を見極め、<br>艶を引き出す最適な下地処理を行います。</p></div>
+          </article>
+          <article class="reason-item reveal">
+            <span class="reason-icon" aria-hidden="true">
+              <img src="images/coating/reason-detail.png" alt="">
+            </span>
+            <div class="reason-copy"><h3>02　細部まで美しく仕上げ</h3><p class="muted">目につきやすい部分はもちろん、<br>細かな部分まで丁寧に整えます。</p></div>
+          </article>
+          <article class="reason-item reveal">
+            <span class="reason-icon" aria-hidden="true">
+              <img src="images/coating/reason-consultation.png" alt="">
+            </span>
+            <div class="reason-copy"><h3>03　無理のない最適なご提案</h3><p class="muted">保管環境や洗車頻度、ご予算に合わせて、<br>最適なプランをご案内します。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">FAQ</p>
+          <h2>よくある質問</h2>
+        </div>
+        <div class="reveal">
+          <details>
+            <summary>新車にもコーティングは必要ですか？</summary>
+            <p>新車時のきれいな塗装を守る目的でおすすめです。早い段階で保護被膜を作ることで、汚れや紫外線の影響を抑えやすくなります。</p>
+          </details>
+          <details>
+            <summary>施工時間はどれくらいですか？</summary>
+            <p>車両状態とプランにより異なりますが、目安は半日から数日です。現車確認後に詳しくご案内します。</p>
+          </details>
+          <details>
+            <summary>施工後の洗車はどうすればよいですか？</summary>
+            <p>基本はやさしい手洗い洗車がおすすめです。強い洗剤や研磨剤入りの用品は避けてください。</p>
+          </details>
+          <details>
+            <summary>中古車でも施工できますか？</summary>
+            <p>可能です。塗装のくすみや小傷を確認し、必要に応じて下地磨きを行うことで印象を整えます。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark contact" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <p class="kicker">Contact</p>
+          <h2>愛車にふさわしい艶を。</h2>
+          <p class="lead">施工内容・料金・納期のご相談はお気軽にお問い合わせください。車両の状態に合わせて最適なプランをご提案します。</p>
+          <form class="contact-form" action="#" method="post">
+            <label>お名前
+              <input type="text" name="name" autocomplete="name" placeholder="山田 太郎">
+            </label>
+            <label>メールアドレス
+              <input type="email" name="email" autocomplete="email" placeholder="example@email.com">
+            </label>
+            <label>ご相談内容
+              <textarea name="message" placeholder="車種、施工希望時期、気になる点などをご記入ください。"></textarea>
+            </label>
+            <button class="btn btn-gold" type="submit">お問い合わせする</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>&copy; We Car CORE. Premium Car Coating.</small>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+    document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      alert("お問い合わせありがとうございます。実際の送信先を設定すると、このフォームから受付できます。");
+    });
+  </script>
+</body>
+</html>
