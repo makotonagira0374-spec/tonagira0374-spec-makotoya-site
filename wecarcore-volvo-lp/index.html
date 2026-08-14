@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボルボ登録済未使用車・中古車 在庫紹介 | ボルボ専門店 We Car CORE</title>
+  <meta name="description" content="大阪でボルボ XC40や輸入車SUVをお探しなら、ボルボ専門店 We Car COREへ。ボルボ登録済未使用車・高品質中古車の在庫確認、見積り依頼、LINE相談、来店予約を承ります。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="We Car CORE トップへ">
+        <span class="brand-name">We Car CORE</span>
+        <span class="brand-sub">VOLVO SPECIALTY SHOP</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-controls="global-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">メニューを開閉</span>
+      </button>
+
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <a href="#stock">在庫一覧</a>
+        <a href="#unused">登録済未使用車とは</a>
+        <a href="#strength">We Car COREの強み</a>
+        <a href="#support">保証・整備</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-main">
+          <div class="hero-text">
+            <p class="eyebrow">大阪のボルボ専門店 / 登録済未使用車・高品質中古車</p>
+            <h1>新車に近いボルボを賢く・安心して<br>手に入れる。</h1>
+            <p class="hero-lead">ボルボ専門店 We Car COREの登録済未使用車・高品質中古車。<br>ボルボ XC40 大阪、ボルボ 中古車 大阪、輸入車 SUV 大阪でお探しの方へ<br>専門知識と整備体制で購入前から納車後まで支えます。</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#stock">在庫を確認する</a>
+              <a class="btn btn-outline-light" href="#contact">見積りを依頼する</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/wecar-hero-car.jpg" alt="ボルボ XC40 - We Car CORE">
+      </div>
+    </section>
+
+    <section class="quick-cta" aria-label="お問い合わせ導線">
+      <p class="quick-cta-title">在庫確認・ご相談はお気軽に</p>
+      <div class="container quick-cta-grid">
+        <a class="cta-card" href="#stock">
+          <span class="cta-icon cta-icon-search" aria-hidden="true">
+            <svg viewBox="0 0 32 32" focusable="false">
+              <circle cx="13.5" cy="13.5" r="8.5"></circle>
+              <line x1="20" y1="20" x2="28" y2="28"></line>
+            </svg>
+          </span>
+          <span>在庫を確認する</span>
+          <small>気になる車両をすぐ確認</small>
+        </a>
+        <a class="cta-card line" href="#contact">
+          <span class="cta-icon cta-icon-line" aria-hidden="true">
+            <svg viewBox="0 0 36 36" focusable="false">
+              <path d="M18 5.2c-7.3 0-13.2 4.8-13.2 10.8 0 5.3 4.7 9.8 11 10.6.4.1.9.3 1 .7.1.4.1.9 0 1.3l-.2 1.2c-.1.4-.3 1.5 1.2.8 1.5-.6 8.1-4.7 11.1-8.1 1.6-1.8 2.3-4 2.3-6.4C31.2 10 25.3 5.2 18 5.2z"></path>
+              <text x="18" y="19.7" text-anchor="middle">LINE</text>
+            </svg>
+          </span>
+          <span>LINEで相談する</span>
+          <small>写真や条件だけでもOK</small>
+        </a>
+        <a class="cta-card" href="#contact">
+          <span class="cta-icon cta-icon-calendar" aria-hidden="true">
+            <svg viewBox="0 0 32 32" focusable="false">
+              <rect x="6" y="8" width="20" height="18" rx="2"></rect>
+              <line x1="6" y1="14" x2="26" y2="14"></line>
+              <line x1="11" y1="5" x2="11" y2="10"></line>
+              <line x1="21" y1="5" x2="21" y2="10"></line>
+              <line x1="11" y1="19" x2="14" y2="19"></line>
+              <line x1="18" y1="19" x2="21" y2="19"></line>
+            </svg>
+          </span>
+          <span>来店予約をする</span>
+          <small>現車確認・試乗相談へ</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="stock">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">STOCK LIST</p>
+          <h2>在庫一覧</h2>
+          <p>リアルタイムで更新中。気になる車両はお早めにお問い合わせください。</p>
+        </div>
+        <div class="stock-grid" id="stock-list" aria-live="polite"></div>
+        <div class="empty-stock" id="empty-stock" hidden>
+          <h3>現在、掲載できる在庫がありません。</h3>
+          <p>未掲載の入庫予定車両をご案内できる場合があります。ご希望の車種や予算をお知らせください。</p>
+          <a class="btn btn-primary" href="#contact">入庫予定を相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-bg" id="unused">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">REGISTERED UNUSED CAR</p>
+          <h2>登録済未使用車とは？</h2>
+          <p>登録済未使用車とは、一度ナンバー登録されているものの、一般のお客様にはまだ使用されていない車です。書類上は中古車扱いですが、実際には新車に近い状態で購入できる車として選ばれています。</p>
+        </div>
+        <div class="compare-grid">
+          <article class="info-card">
+            <img class="info-card-image" src="images/new-car-illustration.png" alt="新車のイラスト">
+            <div class="info-card-copy">
+              <h3>新車との違い</h3>
+              <ul>
+                <li>車検期間は登録日から進みます。</li>
+                <li>メーカーオプションは選べません。</li>
+                <li>現車で状態や装備を確認できます。</li>
+              </ul>
+            </div>
+          </article>
+          <article class="info-card highlight">
+            <img class="info-card-image info-card-image-large" src="images/registered-unused-benefit.png" alt="登録済未使用車のイメージ">
+            <div class="info-card-copy">
+              <h3>登録済未使用車のメリット</h3>
+              <ul>
+                <li>新車より価格を抑えやすいです。</li>
+                <li>早めの納車にも対応しやすいです。</li>
+                <li>低走行で新車に近い車両を選べます。</li>
+              </ul>
+            </div>
+          </article>
+          <article class="info-card">
+            <img class="info-card-image" src="images/used-car-illustration.png" alt="中古車のイラスト">
+            <div class="info-card-copy">
+              <h3>中古車との違い</h3>
+              <ul>
+                <li>一般使用がなく、消耗が少なめです。</li>
+                <li>保証や整備履歴を確認しやすいです。</li>
+                <li>装備や色は在庫車から選びます。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="strength">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">WHY WE CAR CORE</p>
+          <h2>We Car COREで購入するメリット</h2>
+          <p>安さだけで選ぶのではなく、輸入車購入で気になる整備、保証、購入後の相談まで一つの窓口で支えます。</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <img class="benefit-card-image" src="images/benefit-1.png" alt="商談風景">
+            <span class="card-number">01</span>
+            <h3>ボルボ専門の知識と経験</h3>
+            <p>XC40、XC60、V60など、ボルボの特徴やグレード差を踏まえて、使い方に合う1台をご提案します。</p>
+          </article>
+          <article class="benefit-card">
+            <img class="benefit-card-image" src="images/benefit-2.png" alt="整備作業の様子">
+            <span class="card-number">02</span>
+            <h3>自社整備工場完備</h3>
+            <p>納車前点検から日常整備まで、専門店ならではの視点でコンディションを確認します。</p>
+          </article>
+          <article class="benefit-card">
+            <img class="benefit-card-image" src="images/benefit-3.png" alt="点検作業の様子">
+            <span class="card-number">03</span>
+            <h3>保証付きで安心</h3>
+            <p>車両状態に応じた保証や保証継承の相談が可能。輸入車が初めての方にも丁寧にご案内します。</p>
+          </article>
+          <article class="benefit-card">
+            <img class="benefit-card-image" src="images/benefit-4.png" alt="店内の様子">
+            <span class="card-number">04</span>
+            <h3 class="benefit-title-nowrap">下取り・買取も一括相談</h3>
+            <p>購入予算、ローン、下取りまで一括で相談でき、乗り換え全体の負担を抑えられます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="support-band" id="support">
+      <div class="container">
+        <div class="support-heading">
+          <p class="section-kicker">AFTER SUPPORT</p>
+          <h2>購入後も安心のアフターサポート</h2>
+        </div>
+        <img class="support-image" src="images/after-support.png" alt="アフターサポートのイメージ">
+        <div class="support-list">
+          <div><span>点</span><p>法定点検・車検</p><small>法定点検や車検もお任せください。<br>安心・安全をサポートします。</small></div>
+          <div><span>整</span><p>一般整備・修理</p><small>日常のメンテナンスから<br>急なトラブルまで<br>迅速に対応します。</small></div>
+          <div><span>純</span><p>純正部品取扱い</p><small>VOLVO純正パーツを使用し、<br>品質と安全性を<br>しっかりと確保します。</small></div>
+          <div><span>道</span><p>ロードサービス対応</p><small>万が一のトラブル時も<br>24時間体制で<br>しっかりサポートします。</small></div>
+          <div><span>相</span><p>メンテナンス相談</p><small>お車の状態やお悩みに合わせて<br>最適なメンテナンスを<br>ご提案します。</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">CUSTOMER VOICE</p>
+          <h2>お客様の声</h2>
+        </div>
+        <div class="voice-grid">
+          <article class="voice-card">
+            <div class="avatar-frame"></div>
+            <p class="stars">5.0 ★★★★★</p>
+            <p>登録済未使用車という選択肢を教えていただき、予算を抑えて安心できる1台に出会えました。</p>
+            <span>大阪府 / XC40 ご購入</span>
+          </article>
+          <article class="voice-card">
+            <div class="avatar-frame"></div>
+            <p class="stars">5.0 ★★★★★</p>
+            <p>ボルボの装備や保証について丁寧に説明してもらえたので、輸入車が初めてでも不安なく決められました。</p>
+            <span>堺市 / V60 ご購入</span>
+          </article>
+          <article class="voice-card">
+            <div class="avatar-frame"></div>
+            <p class="stars">5.0 ★★★★★</p>
+            <p>在庫確認から来店予約までスムーズでした。納車後の整備も相談できる点が決め手でした。</p>
+            <span>岸和田市 / XC60 ご購入</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-bg" id="faq">
+      <div class="container narrow">
+        <div class="section-heading">
+          <p class="section-kicker">FAQ</p>
+          <h2>よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button">登録済未使用車は本当に安心ですか？</button>
+            <div class="faq-answer"><p>一般のお客様が使用していない車両で、走行距離が少ないものが中心です。We Car COREでは状態確認と納車前点検を行い、車両ごとの注意点も正直にご案内します。</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">メーカー保証は残っていますか？</button>
+            <div class="faq-answer"><p>車両によって保証残の有無や期間が異なります。保証継承が可能な場合は手続きも含めてご相談いただけます。</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">ローンは利用できますか？</button>
+            <div class="faq-answer"><p>はい、各種オートローンのご相談が可能です。月々の支払いイメージや頭金の有無などもお気軽にお問い合わせください。</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">遠方でも購入できますか？</button>
+            <div class="faq-answer"><p>遠方のお客様にも車両写真や詳細情報をご案内できます。納車方法や必要書類についても個別にご説明します。</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">現車確認は可能ですか？</button>
+            <div class="faq-answer"><p>可能です。在庫状況は変動するため、ご来店前に在庫確認または来店予約をおすすめしています。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">CONTACT</p>
+          <h2>ご相談・お問い合わせ</h2>
+          <p>在庫確認、見積り依頼、LINE相談、来店予約まで、まずは希望に近い内容を選んでください。</p>
+        </div>
+        <div class="purpose-buttons" aria-label="問い合わせ目的">
+          <button type="button" data-purpose="在庫を確認したい">在庫を確認したい</button>
+          <button type="button" data-purpose="見積りを依頼したい">見積りを依頼したい</button>
+          <button type="button" data-purpose="LINEで気軽に相談したい">LINEで気軽に相談したい</button>
+          <button type="button" data-purpose="来店予約をしたい">来店予約をしたい</button>
+          <button type="button" data-purpose="下取りについて相談したい">下取りについて相談したい</button>
+          <button type="button" data-purpose="ローンについて相談したい">ローンについて相談したい</button>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-grid">
+            <label>お名前<input type="text" name="name" autocomplete="name" required></label>
+            <label>電話番号<input type="tel" name="tel" autocomplete="tel"></label>
+            <label>メールアドレス<input type="email" name="email" autocomplete="email" required></label>
+            <label>ご希望の内容<input type="text" name="purpose" id="purpose-input" placeholder="ボタンから選択、または直接入力"></label>
+          </div>
+          <label>ご相談内容<textarea name="message" rows="6" placeholder="気になる車両、予算、ご希望の納期などをご記入ください。"></textarea></label>
+          <button class="btn btn-primary submit-btn" type="submit">送信する</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section shop-section">
+      <div class="container shop-grid">
+        <div>
+          <p class="section-kicker">SHOP INFORMATION</p>
+          <h2>店舗情報</h2>
+          <dl class="shop-info">
+            <div><dt>会社名</dt><dd>We Car CORE（ウィーカーコア）</dd></div>
+            <div><dt>住所</dt><dd>大阪府貝塚市澤1234</dd></div>
+            <div><dt>電話番号</dt><dd>0120-065-220</dd></div>
+            <div><dt>営業時間</dt><dd>10:00-19:00 / 水曜定休</dd></div>
+          </dl>
+          <div class="shop-actions">
+            <a class="btn btn-primary" href="#contact">来店予約をする</a>
+            <a class="btn btn-outline-dark" href="#" aria-label="Googleマップを開く">Googleマップを見る</a>
+          </div>
+        </div>
+        <div class="shop-photo" role="img" aria-label="店舗画像を入れる枠"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-name">We Car CORE</span>
+          <span class="brand-sub">VOLVO SPECIALTY SHOP</span>
+        </a>
+        <p>大阪でボルボ 登録済未使用車・高品質中古車を探す方のための、在庫確認と購入相談に特化したボルボ専門店です。</p>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="#stock">在庫一覧</a>
+        <a href="#unused">登録済未使用車とは</a>
+        <a href="#strength">We Car COREの強み</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <div class="sns-area" aria-label="SNSリンク枠">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="LINE">LINE</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+    <p class="copyright">© We Car CORE. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
