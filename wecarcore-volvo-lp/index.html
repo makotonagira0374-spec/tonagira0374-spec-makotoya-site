@@ -15,6 +15,11 @@
         <span class="brand-sub">VOLVO SPECIALTY SHOP</span>
       </a>
 
+      <div class="mobile-header-actions" hidden>
+        <a class="mobile-header-action mobile-header-line" href="#contact" aria-label="LINEで相談する"><svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M18 5.2c-7.3 0-13.2 4.8-13.2 10.8 0 5.3 4.7 9.8 11 10.6.4.1.9.3 1 .7.1.4.1.9 0 1.3l-.2 1.2c-.1.4-.3 1.5 1.2.8 1.5-.6 8.1-4.7 11.1-8.1 1.6-1.8 2.3-4 2.3-6.4C31.2 10 25.3 5.2 18 5.2z"></path><text x="18" y="19.7" text-anchor="middle">LINE</text></svg></a>
+        <a class="mobile-header-action mobile-header-calendar" href="#contact" aria-label="来店予約をする"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="6" y="8" width="20" height="18" rx="2"></rect><line x1="6" y1="14" x2="26" y2="14"></line><line x1="11" y1="5" x2="11" y2="10"></line><line x1="21" y1="5" x2="21" y2="10"></line><path d="m10 20 4 4 8-8"></path></svg></a>
+      </div>
+
       <button class="menu-toggle" type="button" aria-controls="global-nav" aria-expanded="false">
         <span></span>
         <span></span>
@@ -40,7 +45,16 @@
           <div class="hero-text">
             <p class="eyebrow">大阪のボルボ専門店 / 登録済未使用車・高品質中古車</p>
             <h1>新車に近いボルボを賢く・安心して<br>手に入れる。</h1>
-            <p class="hero-lead">ボルボ専門店 We Car COREの登録済未使用車・高品質中古車。<br>ボルボ XC40 大阪、ボルボ 中古車 大阪、輸入車 SUV 大阪でお探しの方へ<br>専門知識と整備体制で購入前から納車後まで支えます。</p>
+            <p class="hero-lead hero-lead-desktop">ボルボ専門店 We Car COREの登録済未使用車・高品質中古車。<br>ボルボ XC40 大阪、ボルボ 中古車 大阪、輸入車 SUV 大阪でお探しの方へ<br>専門知識と整備体制で購入前から納車後まで支えます。</p>
+            <p class="hero-lead hero-lead-mobile">大阪のボルボ専門店 We Car CORE。<br>登録済未使用車・高品質中古車を、購入前から納車後まで安心してサポートします。</p>
+            <div class="hero-mobile-copy" hidden>
+              <p class="hero-mobile-title-small">新車に近いボルボを、</p>
+              <p class="hero-mobile-title-large">賢く、安心して<br>手に入れる。</p>
+              <div class="hero-mobile-points">
+                <p><span class="hero-mobile-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M6 19h20l-2-7H8l-2 7Z"></path><path d="M4 19v6h3v-2h18v2h3v-6"></path><circle cx="9" cy="19" r="1.5"></circle><circle cx="23" cy="19" r="1.5"></circle><path d="m10 12 2-3h8l2 3"></path></svg></span><span>登録済未使用車</span></p>
+                <p><span class="hero-mobile-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M16 4 26 8v7c0 6-4 10-10 13C10 25 6 21 6 15V8l10-4Z"></path><path d="m11 16 3 3 7-7"></path></svg></span><span>高品質中古車</span></p>
+              </div>
+            </div>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#stock">在庫を確認する</a>
               <a class="btn btn-outline-light" href="#contact">見積りを依頼する</a>
@@ -49,7 +63,11 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="images/wecar-hero-car.jpg" alt="ボルボ XC40 - We Car CORE">
+        <picture>
+          <source media="(max-width: 640px)" srcset="images/hero-mobile.webp" type="image/webp">
+          <img src="images/wecar-hero-car.jpg" alt="ボルボ XC40 - We Car CORE">
+        </picture>
+        <span class="hero-shop-plate" aria-hidden="true" hidden><img src="images/hero-shop-plate.png" alt=""></span>
       </div>
     </section>
 
@@ -83,8 +101,7 @@
               <line x1="6" y1="14" x2="26" y2="14"></line>
               <line x1="11" y1="5" x2="11" y2="10"></line>
               <line x1="21" y1="5" x2="21" y2="10"></line>
-              <line x1="11" y1="19" x2="14" y2="19"></line>
-              <line x1="18" y1="19" x2="21" y2="19"></line>
+              <path d="m10 20 4 4 8-8"></path>
             </svg>
           </span>
           <span>来店予約をする</span>
