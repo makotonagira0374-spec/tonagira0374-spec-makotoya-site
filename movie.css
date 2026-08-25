@@ -948,6 +948,7 @@
 
   .ftf-value-card--photo {
     display: flex;
+    align-items: flex-end;
     grid-template-columns: none;
     min-height: 420px;
     padding: 0;
