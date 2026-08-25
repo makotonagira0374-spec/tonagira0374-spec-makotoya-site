@@ -873,7 +873,7 @@
   }
 
   .ftf-contact .ftf-section__title {
-    font-size: clamp(14px, calc((100vw - 78px) / 12.5), 30px);
+    font-size: clamp(14px, calc((100vw - 98px) / 12.5), 30px);
   }
 
   .ftf-heading {
