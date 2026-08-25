@@ -242,7 +242,8 @@
   margin-inline: auto;
 }
 
-.ftf-concept__visual img {
+.ftf-concept__visual img,
+.ftf-concept__visual video {
   display: block;
   width: 100%;
   height: 100%;
