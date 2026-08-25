@@ -626,60 +626,10 @@
   color: rgba(124, 85, 70, 0.86);
 }
 
-.ftf-step-card__icon--calendar::before,
-.ftf-step-card__icon--calendar::after,
-.ftf-step-card__icon--pin::before,
-.ftf-step-card__icon--trip::before,
-.ftf-step-card__icon--film::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.ftf-step-card__icon--calendar::before {
-  inset: 12px 10px 10px;
-  border: 2px solid currentColor;
-  border-radius: 14px;
-}
-
-.ftf-step-card__icon--calendar::after {
-  inset: 20px 16px 34px;
-  border-top: 2px solid currentColor;
-  box-shadow:
-    0 12px 0 0 currentColor,
-    18px 0 0 0 currentColor,
-    18px 12px 0 0 currentColor,
-    36px 0 0 0 currentColor,
-    36px 12px 0 0 currentColor;
-}
-
-.ftf-step-card__icon--pin::before {
-  inset: 10px 18px 14px;
-  border: 2px solid currentColor;
-  border-radius: 50% 50% 50% 50% / 42% 42% 58% 58%;
-  clip-path: polygon(50% 0%, 88% 18%, 94% 50%, 50% 100%, 6% 50%, 12% 18%);
-}
-
-.ftf-step-card__icon--trip::before {
-  inset: 18px 4px 18px;
-  background:
-    radial-gradient(circle at 12px 18px, currentColor 0 11px, transparent 12px),
-    radial-gradient(circle at 58px 18px, currentColor 0 11px, transparent 12px),
-    linear-gradient(currentColor, currentColor) 25px 17px / 20px 2px no-repeat,
-    linear-gradient(currentColor, currentColor) 35px 24px / 18px 2px no-repeat,
-    linear-gradient(currentColor, currentColor) 6px 44px / 58px 2px no-repeat;
-  opacity: 0.95;
-}
-
-.ftf-step-card__icon--film::before {
-  inset: 14px 8px;
-  border: 2px solid currentColor;
-  border-radius: 12px;
-  background:
-    linear-gradient(currentColor, currentColor) 10px 10px / 6px 10px no-repeat,
-    linear-gradient(currentColor, currentColor) 10px 26px / 6px 10px no-repeat,
-    linear-gradient(currentColor, currentColor) calc(100% - 10px) 10px / 6px 10px no-repeat,
-    linear-gradient(currentColor, currentColor) calc(100% - 10px) 26px / 6px 10px no-repeat;
+.ftf-step-card__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .ftf-step-card h3 {
