@@ -53,6 +53,10 @@
   font-size: clamp(20px, 3.5vw, 32px);
 }
 
+.ftf-br-mobile {
+  display: none;
+}
+
 .ftf-heading {
   margin-bottom: 34px;
 }
@@ -858,6 +862,10 @@
   .ftf-section__title {
     font-size: 28px;
     line-height: 1.6;
+  }
+
+  .ftf-br-mobile {
+    display: inline;
   }
 
   .ftf-concept__copy .ftf-section__title {
