@@ -496,18 +496,6 @@
   position: relative;
 }
 
-.ftf-plans::before {
-  content: "";
-  position: absolute;
-  inset: 44px auto auto 50%;
-  width: 132px;
-  height: 34px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: rgba(255, 247, 239, 0.9);
-  border: 1px solid rgba(184, 92, 79, 0.14);
-}
-
 .ftf-plans .ftf-heading {
   position: relative;
   z-index: 1;
