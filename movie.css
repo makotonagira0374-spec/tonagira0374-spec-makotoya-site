@@ -123,6 +123,17 @@
   background: #0089b3;
 }
 
+.ftf-access-btn--accent {
+  color: #fff;
+  background: #00a0d2;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 14px 26px rgba(0, 160, 210, 0.32);
+}
+
+.ftf-access-btn--accent:hover {
+  background: #0089b3;
+}
+
 .ftf-button--ghost {
   color: var(--ftf-ink);
   background: transparent;
