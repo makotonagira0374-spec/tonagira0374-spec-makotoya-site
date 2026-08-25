@@ -716,13 +716,6 @@
   margin-top: 16px;
 }
 
-.ftf-contact__actions {
-  display: grid;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 26px;
-}
-
 .ftf-contact .contact-section-tabs {
   margin-top: 20px;
 }
@@ -851,8 +844,7 @@
     line-height: 1.8;
   }
 
-  .ftf-hero__actions,
-  .ftf-contact__actions {
+  .ftf-hero__actions {
     max-width: 100%;
     margin-top: 24px;
   }
