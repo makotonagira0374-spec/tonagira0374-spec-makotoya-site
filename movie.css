@@ -383,13 +383,6 @@
   object-position: center;
 }
 
-.ftf-value-card__scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(20, 14, 14, 0) 42%, rgba(20, 14, 14, 0.74) 100%);
-}
-
 .ftf-value-card__text {
   position: relative;
   z-index: 2;
