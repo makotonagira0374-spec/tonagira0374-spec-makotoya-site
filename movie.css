@@ -203,8 +203,8 @@
 }
 
 .ftf-hero__benefit {
-  margin-top: 14px;
-  font-size: 18px;
+  margin-top: 7px;
+  font-size: clamp(17px, 3.84vw, 34px);
   line-height: 1.9;
   white-space: nowrap;
   color: rgba(255, 248, 242, 0.9);
@@ -802,6 +802,10 @@
     font-size: 77px;
   }
 
+  .ftf-hero__benefit {
+    font-size: 31px;
+  }
+
   .ftf-contact__card {
     padding: 56px 48px;
   }
@@ -860,7 +864,7 @@
   }
 
   .ftf-hero__benefit {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.8;
   }
 
