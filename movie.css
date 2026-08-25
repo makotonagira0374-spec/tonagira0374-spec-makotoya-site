@@ -191,6 +191,7 @@
 
 .ftf-hero__actions {
   display: grid;
+  justify-content: center;
   gap: 14px;
   margin-top: 38px;
   max-width: 520px;
@@ -715,6 +716,7 @@
 
 .ftf-contact__actions {
   display: grid;
+  justify-content: center;
   gap: 14px;
   margin-top: 26px;
 }
@@ -734,11 +736,6 @@
 
   .ftf-hero__inner {
     padding: 110px 0 68px;
-  }
-
-  .ftf-hero__actions,
-  .ftf-contact__actions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .ftf-concept__grid {
