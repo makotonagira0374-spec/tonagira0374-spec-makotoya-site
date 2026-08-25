@@ -872,6 +872,10 @@
     font-size: 20px;
   }
 
+  .ftf-contact .ftf-section__title {
+    font-size: clamp(14px, calc((100vw - 78px) / 12.5), 30px);
+  }
+
   .ftf-heading {
     margin-bottom: 24px;
   }
@@ -907,6 +911,10 @@
   .ftf-value-card p,
   .ftf-faq-item p {
     font-size: 14px;
+  }
+
+  .ftf-prose p {
+    font-size: clamp(10px, calc((100vw - 40px) / 28), 15px);
   }
 
   .ftf-scene-card__thumb {
