@@ -176,7 +176,7 @@
 
 .ftf-hero__plan {
   display: inline-block;
-  padding: 16px 0;
+  padding: 16px 28px;
   font-family: var(--serif);
   font-size: clamp(43px, 9.6vw, 86px);
   font-weight: 600;
@@ -184,10 +184,11 @@
   white-space: nowrap;
   background-image:
     radial-gradient(circle, rgba(255, 250, 245, 0.85) 34%, transparent 36%),
-    radial-gradient(circle, rgba(255, 250, 245, 0.85) 34%, transparent 36%);
-  background-size: 14px 14px, 14px 14px;
-  background-position: top left, bottom left;
-  background-repeat: repeat-x, repeat-x;
+    radial-gradient(circle, rgba(255, 250, 245, 0.85) 34%, transparent 36%),
+    linear-gradient(90deg, transparent 0%, rgba(15, 10, 9, 0.55) 14%, rgba(15, 10, 9, 0.55) 86%, transparent 100%);
+  background-size: 14px 14px, 14px 14px, 100% 100%;
+  background-position: top left, bottom left, center;
+  background-repeat: repeat-x, repeat-x, no-repeat;
 }
 
 .ftf-hero__benefit {
@@ -838,9 +839,9 @@
   }
 
   .ftf-hero__plan {
-    padding: 10px 0;
+    padding: 10px 18px;
     font-size: 43px;
-    background-size: 9px 9px, 9px 9px;
+    background-size: 9px 9px, 9px 9px, 100% 100%;
   }
 
   .ftf-hero__benefit {
