@@ -177,7 +177,7 @@
 .ftf-hero__plan {
   display: inline-block;
   font-family: var(--serif);
-  font-size: clamp(36px, 8vw, 72px);
+  font-size: clamp(43px, 9.6vw, 86px);
   font-weight: 600;
   letter-spacing: 0.16em;
 }
@@ -778,7 +778,7 @@
 
 @media (min-width: 1024px) {
   .ftf-hero__plan {
-    font-size: 64px;
+    font-size: 77px;
   }
 
   .ftf-contact__card {
@@ -830,7 +830,7 @@
   }
 
   .ftf-hero__plan {
-    font-size: 36px;
+    font-size: 43px;
   }
 
   .ftf-hero__benefit {
