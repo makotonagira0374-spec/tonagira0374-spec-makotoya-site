@@ -944,7 +944,7 @@
   .ftf-value-card--photo {
     display: flex;
     grid-template-columns: none;
-    min-height: 300px;
+    min-height: 420px;
     padding: 0;
     text-align: center;
     border-radius: 22px;
