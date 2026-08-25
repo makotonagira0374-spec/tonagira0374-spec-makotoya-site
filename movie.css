@@ -174,17 +174,13 @@
   margin: 0;
 }
 
-.ftf-hero__plan {
+.ftf-hero__plan-frame {
   display: inline-block;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   padding: 16px 28px;
-  font-family: var(--serif);
-  font-size: clamp(43px, 9.6vw, 86px);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  white-space: nowrap;
+  text-align: center;
   background-image:
     radial-gradient(circle, rgba(255, 250, 245, 0.85) 34%, transparent 36%),
     radial-gradient(circle, rgba(255, 250, 245, 0.85) 34%, transparent 36%),
@@ -194,10 +190,19 @@
   background-repeat: repeat-x, repeat-x, no-repeat;
 }
 
+.ftf-hero__plan {
+  font-family: var(--serif);
+  font-size: clamp(43px, 9.6vw, 86px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+
 .ftf-hero__benefit {
   margin-top: 14px;
   font-size: 18px;
   line-height: 1.9;
+  white-space: nowrap;
   color: rgba(255, 248, 242, 0.9);
 }
 
@@ -841,10 +846,13 @@
     line-height: 1.42;
   }
 
-  .ftf-hero__plan {
+  .ftf-hero__plan-frame {
     padding: 10px 18px;
-    font-size: 43px;
     background-size: 9px 9px, 9px 9px, 100% 100%;
+  }
+
+  .ftf-hero__plan {
+    font-size: 43px;
   }
 
   .ftf-hero__benefit {
