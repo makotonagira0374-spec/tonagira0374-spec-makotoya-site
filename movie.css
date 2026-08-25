@@ -847,7 +847,7 @@
   }
 
   .ftf-hero__plan {
-    font-size: 43px;
+    font-size: clamp(22px, 8vw, 43px);
   }
 
   .ftf-hero__benefit {
