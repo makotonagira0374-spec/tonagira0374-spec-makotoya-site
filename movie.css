@@ -180,6 +180,7 @@
   font-size: clamp(43px, 9.6vw, 86px);
   font-weight: 600;
   letter-spacing: 0.16em;
+  white-space: nowrap;
 }
 
 .ftf-hero__benefit {
