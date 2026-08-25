@@ -352,6 +352,7 @@
 }
 
 .ftf-value-card {
+  overflow: hidden;
   border-radius: 28px;
   padding: 28px 24px;
 }
@@ -361,12 +362,11 @@
 }
 
 .ftf-value-card__icon--photo {
-  display: inline-block;
-  width: 100px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: var(--ftf-shadow-soft);
+  display: block;
+  width: calc(100% + 48px);
+  height: 240px;
+  margin: -28px -24px 18px;
+  border-radius: 0;
 }
 
 .ftf-value-card__icon--photo img {
@@ -980,6 +980,13 @@
     grid-column: 1;
     grid-row: 1 / span 2;
     margin: 0;
+  }
+
+  .ftf-value-card__icon--photo {
+    width: 58px;
+    height: 78px;
+    border-radius: 12px;
+    overflow: hidden;
   }
 
   .ftf-value-card h3 {
