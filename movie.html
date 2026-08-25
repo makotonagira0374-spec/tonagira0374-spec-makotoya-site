@@ -92,26 +92,19 @@
         </div>
 
         <div class="ftf-scenes__grid">
-          <article class="ftf-scene-card">
-            <div class="ftf-scene-card__thumb ftf-scene-card__thumb--ride">
+          <button type="button" class="ftf-scene-card" data-video-id="_ejrnosNJrk" data-aspect="16:9" aria-label="動画を再生：ふたりで楽しむ本編">
+            <div class="ftf-scene-card__thumb" style="background-image: linear-gradient(180deg, rgba(20, 14, 14, 0.08), rgba(20, 14, 14, 0.34)), url('https://img.youtube.com/vi/_ejrnosNJrk/hqdefault.jpg');">
               <span class="ftf-play-icon" aria-hidden="true"></span>
             </div>
-            <h3>人力車に乗って笑う時間</h3>
-          </article>
+            <h3>ふたりで楽しむ<small>本編（3〜5分）</small></h3>
+          </button>
 
-          <article class="ftf-scene-card">
-            <div class="ftf-scene-card__thumb ftf-scene-card__thumb--pottery">
+          <button type="button" class="ftf-scene-card" data-video-id="MhmgPOnMEtc" data-aspect="9:16" aria-label="動画を再生：SNSに投稿するショート版">
+            <div class="ftf-scene-card__thumb" style="background-image: linear-gradient(180deg, rgba(20, 14, 14, 0.08), rgba(20, 14, 14, 0.34)), url('https://img.youtube.com/vi/MhmgPOnMEtc/hqdefault.jpg');">
               <span class="ftf-play-icon" aria-hidden="true"></span>
             </div>
-            <h3>陶芸に夢中になる表情</h3>
-          </article>
-
-          <article class="ftf-scene-card">
-            <div class="ftf-scene-card__thumb ftf-scene-card__thumb--walk">
-              <span class="ftf-play-icon" aria-hidden="true"></span>
-            </div>
-            <h3>水間門前町を歩くふたり</h3>
-          </article>
+            <h3>SNSに投稿する<small>ショート版（約1分）</small></h3>
+          </button>
         </div>
       </div>
     </section>
@@ -312,6 +305,48 @@
     </a>
   </div>
 
+  <div class="ftf-video-modal" id="video-modal" aria-hidden="true">
+    <div class="ftf-video-modal__inner" data-aspect="16:9">
+      <button type="button" class="ftf-video-modal__close" aria-label="動画を閉じる">×</button>
+      <iframe class="ftf-video-modal__iframe" src="" title="動画プレイヤー" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <script src="./script.js?v=20260311-1"></script>
+  <script>
+    (function () {
+      const modal = document.getElementById('video-modal');
+      const inner = modal.querySelector('.ftf-video-modal__inner');
+      const iframe = modal.querySelector('.ftf-video-modal__iframe');
+      const closeBtn = modal.querySelector('.ftf-video-modal__close');
+
+      function openModal(videoId, aspect) {
+        inner.dataset.aspect = aspect;
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        iframe.src = '';
+      }
+
+      document.querySelectorAll('.ftf-scene-card[data-video-id]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          openModal(card.dataset.videoId, card.dataset.aspect);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeModal();
+      });
+    })();
+  </script>
 </body>
 </html>

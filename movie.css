@@ -289,30 +289,24 @@
 }
 
 .ftf-scene-card {
+  display: block;
+  width: 100%;
   overflow: hidden;
   border-radius: 24px;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: center;
+  cursor: pointer;
 }
 
 .ftf-scene-card__thumb {
   position: relative;
   min-height: 240px;
-  background-image:
-    linear-gradient(180deg, rgba(20, 14, 14, 0.08), rgba(20, 14, 14, 0.34)),
-    url("./photo/91.png");
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.ftf-scene-card__thumb--ride {
   background-position: center center;
-}
-
-.ftf-scene-card__thumb--pottery {
-  background-position: 64% center;
-}
-
-.ftf-scene-card__thumb--walk {
-  background-position: 78% center;
 }
 
 .ftf-scene-card h3 {
@@ -322,6 +316,14 @@
   font-weight: 500;
   text-align: center;
   line-height: 1.7;
+}
+
+.ftf-scene-card h3 small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ftf-muted);
 }
 
 .ftf-play-icon {
@@ -777,6 +779,12 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .ftf-scenes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
   .ftf-plans__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
@@ -1159,4 +1167,56 @@
   .movie-page .contact-tabs {
     display: none;
   }
+}
+
+.ftf-video-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  padding: 24px;
+  background: rgba(15, 11, 10, 0.86);
+}
+
+.ftf-video-modal.is-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ftf-video-modal__inner {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+}
+
+.ftf-video-modal__inner[data-aspect="9:16"] {
+  max-width: 380px;
+  max-height: 88vh;
+  aspect-ratio: 9 / 16;
+}
+
+.ftf-video-modal__iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  background: #000;
+}
+
+.ftf-video-modal__close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
 }
