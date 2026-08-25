@@ -236,14 +236,15 @@
   overflow: hidden;
   border-radius: 28px;
   box-shadow: var(--ftf-shadow);
-  min-height: 320px;
+  aspect-ratio: 4 / 5;
+  max-width: 420px;
+  margin-inline: auto;
 }
 
 .ftf-concept__visual img {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 320px;
   object-fit: cover;
   object-position: center;
 }
@@ -894,12 +895,8 @@
   }
 
   .ftf-concept__visual {
-    min-height: 280px;
+    max-width: 320px;
     border-radius: 24px;
-  }
-
-  .ftf-concept__visual img {
-    min-height: 280px;
   }
 
   .ftf-scenes__grid {
