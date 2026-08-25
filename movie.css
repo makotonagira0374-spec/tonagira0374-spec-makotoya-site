@@ -138,10 +138,7 @@
 .ftf-hero__backdrop {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, rgba(17, 14, 14, 0.66) 0%, rgba(17, 14, 14, 0.36) 40%, rgba(17, 14, 14, 0.18) 100%),
-    linear-gradient(180deg, rgba(10, 10, 10, 0.14), rgba(10, 10, 10, 0.36)),
-    url("./photo/91.png") center center / cover no-repeat;
+  background: url("./photo/91.png") center center / cover no-repeat;
 }
 
 .ftf-hero__inner {
@@ -814,9 +811,7 @@
   }
 
   .ftf-hero__backdrop {
-    background:
-      linear-gradient(180deg, rgba(19, 14, 14, 0.26) 0%, rgba(19, 14, 14, 0.34) 38%, rgba(19, 14, 14, 0.72) 100%),
-      url("./photo/91.png") 64% center / cover no-repeat;
+    background: url("./photo/91.png") 64% center / cover no-repeat;
   }
 
   .ftf-hero__inner {
