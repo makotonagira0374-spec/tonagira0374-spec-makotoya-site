@@ -48,6 +48,10 @@
   letter-spacing: 0.04em;
 }
 
+.ftf-concept__copy .ftf-section__title {
+  white-space: nowrap;
+}
+
 .ftf-heading {
   margin-bottom: 34px;
 }
