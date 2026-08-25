@@ -914,7 +914,17 @@
   }
 
   .ftf-value__grid {
+    display: flex;
     gap: 14px;
+    overflow-x: auto;
+    padding: 4px 6px 8px 0;
+    margin-right: -20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ftf-value__grid::-webkit-scrollbar {
+    display: none;
   }
 
   .ftf-value-card {
@@ -925,6 +935,9 @@
     align-items: start;
     padding: 22px 18px;
     border-radius: 22px;
+    min-width: 84%;
+    flex: 0 0 84%;
+    scroll-snap-align: start;
   }
 
   .ftf-value-card__icon {
