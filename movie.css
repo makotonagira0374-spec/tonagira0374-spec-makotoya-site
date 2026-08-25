@@ -161,7 +161,7 @@
 .ftf-hero__title {
   margin: 30px 0 0;
   font-family: var(--serif);
-  font-size: clamp(36px, 8vw, 72px);
+  font-size: clamp(17px, 2.4vw, 22px);
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.05em;
@@ -185,7 +185,7 @@
   background: rgba(255, 250, 245, 0.14);
   backdrop-filter: blur(6px);
   font-family: var(--serif);
-  font-size: clamp(17px, 2.4vw, 22px);
+  font-size: clamp(36px, 8vw, 72px);
   font-weight: 600;
   letter-spacing: 0.16em;
 }
@@ -788,7 +788,7 @@
 }
 
 @media (min-width: 1024px) {
-  .ftf-hero__title {
+  .ftf-hero__plan {
     font-size: 64px;
   }
 
@@ -838,12 +838,12 @@
 
   .ftf-hero__title {
     margin-top: 22px;
-    font-size: 36px;
+    font-size: 19px;
     line-height: 1.42;
   }
 
   .ftf-hero__plan {
-    font-size: 19px;
+    font-size: 36px;
   }
 
   .ftf-hero__benefit {
