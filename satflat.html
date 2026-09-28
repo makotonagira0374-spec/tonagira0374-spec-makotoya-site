@@ -227,7 +227,20 @@
   .tally-total .pre, .tally-total .unit { font-size: 1.05rem; color: var(--brass); }
   .tally-total .num { font-size: clamp(3.2rem, 15vw, 4.2rem); color: var(--ink); font-variant-numeric: tabular-nums; }
 
-  footer { margin-top: 3.5rem; text-align: center; color: var(--muted); font-size: 0.78rem; opacity: .8; }
+  .sns { margin: 3.5rem 0 0; text-align: center; }
+  .sns a {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    padding: 0.6rem 1.4rem; border-radius: 999px; text-decoration: none;
+    color: var(--green); background: var(--card); border: 1px solid var(--green-soft);
+    transition: background-color .2s, color .2s;
+  }
+  .sns a:hover, .sns a:active { background: var(--green); color: #fff; }
+  .sns a:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+  .sns svg { width: 22px; height: 22px; flex: none; }
+  .sns span { display: flex; flex-direction: column; text-align: left; line-height: 1.3; font-size: 0.9rem; letter-spacing: 0.08em; }
+  .sns small { font-size: 0.75rem; opacity: .8; letter-spacing: 0.02em; }
+
+  footer { margin-top: 2rem; text-align: center; color: var(--muted); font-size: 0.78rem; opacity: .8; }
 
   @media (prefers-reduced-motion: reduce) { .card { animation: none; } }
 </style>
@@ -324,6 +337,16 @@
       <li data-n="4"><span>第2回</span><b>4</b>人</li>
     </ol>
   </section>
+
+  <p class="sns">
+    <a href="https://www.instagram.com/sat_flat_mizuma/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      <span>Instagram<small>@sat_flat_mizuma</small></span>
+    </a>
+  </p>
 
   <footer>日程・場所は回ごとに変わることがあります。<br>最新情報はこのページで。</footer>
 </main>
