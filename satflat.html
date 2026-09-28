@@ -135,7 +135,13 @@
   .date .dow { font-size: 1.3rem; color: var(--brass); }
   .time { margin: 0.9rem 0 0; font-size: 1.25rem; letter-spacing: 0.08em; }
   .rule { width: 3rem; height: 1px; background: var(--brass); margin: 1.4rem auto; border: 0; }
-  .place { margin: 0 0 1.5rem; font-size: 1.1rem; font-weight: 500; }
+  .place { margin: 0; font-size: 1.1rem; font-weight: 500; }
+  .access {
+    list-style: none; margin: 0.7rem 0 1.5rem; padding: 0;
+    font-size: 0.85rem; color: var(--muted); line-height: 1.7;
+  }
+  .access b { color: var(--ink); font-weight: 500; }
+  .access small { display: block; font-size: 0.75rem; color: var(--brass); }
   .map {
     display: inline-block; text-decoration: none;
     color: #fff; background: var(--green); border: 1px solid var(--green);
@@ -233,6 +239,10 @@
     <p class="time">19:00 – 22:00</p>
     <hr class="rule">
     <p class="place">喫茶図書室　2階</p>
+    <ul class="access">
+      <li><b>無料駐車場あり</b>（徒歩1分）</li>
+      <li><b>水間観音駅</b>（徒歩5分）<small>※終電 23:15</small></li>
+    </ul>
     <a class="map" href="https://maps.app.goo.gl/5snpF8UEBLRLwhJc9" target="_blank" rel="noopener">地図をひらく</a>
   </section>
 
