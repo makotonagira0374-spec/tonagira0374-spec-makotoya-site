@@ -217,6 +217,26 @@
   }
   .game-body p:last-child { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
 
+  /* 参加人数（累積）：合計を大きく、回ごとの内訳を小さく */
+  .tally { text-align: center; }
+  .tally-total {
+    margin: 0; line-height: 1;
+    display: flex; justify-content: center; align-items: baseline; gap: 0.45rem;
+    font-family: "Shippori Mincho", serif; font-weight: 700;
+  }
+  .tally-total .pre, .tally-total .unit { font-size: 1.05rem; color: var(--brass); }
+  .tally-total .num { font-size: clamp(3.2rem, 15vw, 4.2rem); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .tally-rounds {
+    list-style: none; margin: 1.3rem 0 0; padding: 0;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+  }
+  .tally-rounds li {
+    display: flex; align-items: baseline; gap: 0.45rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 0.25rem 0.8rem; font-size: 0.88rem;
+  }
+  .tally-rounds li span { color: var(--muted); font-size: 0.75rem; }
+
   footer { margin-top: 3.5rem; text-align: center; color: var(--muted); font-size: 0.78rem; opacity: .8; }
 
   @media (prefers-reduced-motion: reduce) { .card { animation: none; } }
@@ -305,6 +325,16 @@
     </details>
   </section>
 
+  <section class="block tally" aria-label="これまでの参加人数">
+    <h2>これまでの参加人数</h2>
+    <p class="tally-total"><span class="pre">のべ</span><span class="num">10</span><span class="unit">人</span></p>
+    <!-- 開催が終わったら <li data-n="人数">…</li> を1行足す。合計は自動で計算されます -->
+    <ol class="tally-rounds">
+      <li data-n="6"><span>第1回</span><b>6</b>人</li>
+      <li data-n="4"><span>第2回</span><b>4</b>人</li>
+    </ol>
+  </section>
+
   <footer>日程・場所は回ごとに変わることがあります。<br>最新情報はこのページで。</footer>
 </main>
 <script>
@@ -323,6 +353,30 @@
       }
     });
     document.querySelector('.game-count').textContent = document.querySelectorAll('.games > li').length;
+
+    // 参加人数：各回の data-n を合計。画面に入ったら0から数え上げる
+    var total = 0, known = false;
+    document.querySelectorAll('.tally-rounds li').forEach(function (li) {
+      var n = parseInt(li.dataset.n, 10);
+      if (!isNaN(n)) { total += n; known = true; li.querySelector('b').textContent = n; }
+    });
+    var num = document.querySelector('.tally-total .num');
+    if (!known) return;
+    num.textContent = total;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (still || !('IntersectionObserver' in window)) return;
+    num.textContent = 0;
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      var t0 = performance.now(), dur = 1200;
+      (function step(t) {
+        var p = Math.min(1, (t - t0) / dur);
+        num.textContent = Math.round(total * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
+    }, { threshold: 0.6 });
+    io.observe(num);
   })();
 </script>
 </body>
