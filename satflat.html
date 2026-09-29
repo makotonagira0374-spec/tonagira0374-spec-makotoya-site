@@ -142,6 +142,22 @@
   }
   .access b { color: var(--ink); font-weight: 500; }
   .access small { display: block; font-size: 0.75rem; color: var(--brass); }
+  /* 駐車場の地図：会場の地図（緑の大ボタン）と混ざらないよう、行内の小さな枠線リンクに */
+  .pmap {
+    display: inline-flex; align-items: center; gap: 0.3rem; vertical-align: 1px;
+    margin-left: 0.3rem; padding: 0.05rem 0.55rem 0.05rem 0.25rem;
+    border: 1px solid var(--green-soft); border-radius: 999px;
+    color: var(--green); text-decoration: none; font-size: 0.75rem; line-height: 1.6;
+    transition: background-color .2s, color .2s;
+  }
+  .pmap i {
+    font: normal 700 0.65rem/1 "Zen Kaku Gothic New", sans-serif;
+    width: 1.05rem; height: 1.05rem; border-radius: 3px;
+    display: inline-grid; place-items: center;
+    background: var(--green); color: var(--card);
+  }
+  .pmap:hover, .pmap:active { background: var(--green); color: var(--card); }
+  .pmap:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
   .map {
     display: inline-block; text-decoration: none;
     color: #fff; background: var(--green); border: 1px solid var(--green);
@@ -263,10 +279,10 @@
     <hr class="rule">
     <p class="place">喫茶図書室　2階</p>
     <ul class="access">
-      <li><b>無料駐車場あり</b>（徒歩1分）</li>
+      <li><b>無料駐車場あり</b>（徒歩1分）<a class="pmap" href="https://maps.app.goo.gl/XJnBEFdB56snd4Yj7" target="_blank" rel="noopener"><i aria-hidden="true">P</i>駐車場の地図</a></li>
       <li><b>水間観音駅</b>（徒歩5分）<small>※終電 23:15</small></li>
     </ul>
-    <a class="map" href="https://maps.app.goo.gl/5snpF8UEBLRLwhJc9" target="_blank" rel="noopener">地図をひらく</a>
+    <a class="map" href="https://maps.app.goo.gl/5snpF8UEBLRLwhJc9" target="_blank" rel="noopener">会場の地図をひらく</a>
   </section>
 
   <ul class="terms">
