@@ -378,12 +378,12 @@
   <footer>日程・場所は回ごとに変わることがあります。<br>最新情報はこのページで。</footer>
 </main>
 <script>
-  // すごろくは5マス表示。今回が真ん中あたりに来るよう、回を重ねると窓ごと進む
+  // すごろくは5マス表示。コマは左から4マス目（1〜3回目はその回のマス）。回を重ねると窓ごと進む
   (function () {
     var card = document.querySelector('.card');
     var round = parseInt(card.dataset.round, 10) || 1;
     card.querySelector('.round-no').textContent = round;
-    var start = Math.max(1, round - 2);
+    var start = Math.max(1, round - 3);
     card.querySelectorAll('.track').forEach(function (track) {
       for (var n = start; n < start + 5; n++) {
         var cell = document.createElement('i');
