@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空の人物）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>灯 AKARI｜ポートレートフォトグラファー（誠屋のサンプルHP）</title>
+  <meta name="description" content="誠屋HP制作が作成したサンプルHPです。登場する人物・内容はすべて架空です。">
+  <meta name="theme-color" content="#0E0E0E">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@400&family=Shippori+Mincho:wght@400;500&display=swap">
+  <link rel="preload" as="image" href="/images/samples/portrait/top.webp" fetchpriority="high">
+  <script>
+    document.documentElement.classList.add('js');
+    // スクリーンショット撮影用（?shot）：誠屋HPのスマホ枠に入れる画像を撮るときだけ、表示を切り替える
+    if (/[?&]shot\b/.test(location.search)) document.documentElement.classList.add('is-shot');
+  </script>
+  <link rel="stylesheet" href="/samples/portrait/portrait.css">
+  <style>
+    /* =========================================================
+       スクリーンショット撮影用（?shot のときだけ）
+       誠屋HPのスマホ枠に入れる縦長の1枚（390×1040）に、入口・ステートメント・作品1枚・声・Information を縮めてつなぐ。
+       「4つの問い」の答えになる範囲は data-answer の付いたセクション
+       ========================================================= */
+    .is-shot body { overflow: hidden; }
+    .is-shot .credit, .is-shot .makotoya, .is-shot .journey,
+    .is-shot .works-head, .is-shot .work:not(:first-of-type),
+    .is-shot .voices li:nth-child(n+3),
+    .is-shot .info dl > div:not(.info-contact) { display: none; }
+    .is-shot .sample-band { position: static; }
+    .is-shot .entrance { height: 200px; min-height: 0; }
+    .is-shot .entrance-name { bottom: 20px; }
+    .is-shot .statement { min-height: 0; padding: 32px var(--gutter); }
+    .is-shot .statement-text p { font-size: .9375rem; line-height: 2; }
+    .is-shot .work-full { height: 140px; min-height: 0; }
+    .is-shot .voices { padding: 28px var(--gutter) 16px; }
+    .is-shot .voices .label { margin-bottom: 14px; }
+    .is-shot .voices ul { gap: 20px; }
+    .is-shot .voices blockquote { font-size: .875rem; line-height: 1.9; }
+    .is-shot .voices .who { margin-top: 4px; }
+    .is-shot .info { padding: 24px var(--gutter) 20px; }
+    .is-shot .info .label { margin-bottom: 12px; }
+    .is-shot .reveal { opacity: 1; transition: none; }
+  </style>
+</head>
+<body>
+  <!-- サンプルであることを示す帯 -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場する人物・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <main>
+
+    <!-- 1. 入口 -->
+    <section class="entrance" aria-labelledby="name">
+      <header class="header">
+        <a class="logo" href="/samples/portrait/" aria-label="灯 AKARI">灯<span lang="en">AKARI</span></a>
+        <nav class="nav" aria-label="サンプルHPのメニュー">
+          <a class="label" href="#works" lang="en" aria-current="page">Works</a>
+          <a class="label" href="/samples/portrait/exhibition/" lang="en">Exhibition</a>
+          <a class="label" href="#information" lang="en">Contact</a>
+        </nav>
+      </header>
+      <img id="top" src="/images/samples/portrait/top.webp" width="1600" height="1066" fetchpriority="high" alt="黒いレースの服を着て、片手を髪に添えてこちらを見る女性">
+      <div class="entrance-name">
+        <h1 id="name">灯<span lang="en">AKARI</span></h1>
+        <p class="label" lang="en">Portrait Photographer</p>
+      </div>
+    </section>
+
+    <!-- 2. ステートメント（4つの問い：どこへ向かうのか／なぜ向かうのか） -->
+    <section class="statement" data-answer="statement" aria-label="ステートメント">
+      <img src="/images/samples/portrait/statement.webp" width="1333" height="2000" loading="lazy" alt="カメラを構える女性の手元">
+      <div class="statement-text">
+        <div>
+          <p>撮られるのが、苦手だった。</p>
+          <p>だから、その人が<wbr>自分を好きになれる一枚を撮る。</p>
+        </div>
+        <p>いつか、撮ってきた人たちの<wbr>写真展を。</p>
+      </div>
+    </section>
+
+    <!-- 3. 作品（4つの問い：応援すると、どんな景色を一緒に見られるのか）
+         画面いっぱい（work-full）と、余白の中に掛ける（work-hung）を交互に。写真を足すときは figure を1つコピーする -->
+    <section id="works" class="works" aria-labelledby="works-title">
+      <div class="works-head">
+        <h2 id="works-title" class="label" lang="en">Works</h2>
+      </div>
+      <figure class="work work-full reveal">
+        <button class="work-open" type="button" aria-label="写真を大きく表示：01 Kyoto">
+          <img src="/images/samples/portrait/works-01.webp" width="2000" height="1082" loading="lazy" alt="車の窓から、川沿いの桜並木を眺める着物の女性">
+        </button>
+        <figcaption class="caption" lang="en">01 — Kyoto</figcaption>
+      </figure>
+      <figure class="work work-hung reveal">
+        <button class="work-open" type="button" aria-label="写真を大きく表示：02 Kobe">
+          <img src="/images/samples/portrait/works-02.webp" width="800" height="1200" loading="lazy" alt="レンガの壁の前で、長い黒髪をかき上げる女性">
+        </button>
+        <figcaption class="caption" lang="en">02 — Kobe</figcaption>
+      </figure>
+      <figure class="work work-full reveal">
+        <button class="work-open" type="button" aria-label="写真を大きく表示：03 Osaka">
+          <img src="/images/samples/portrait/works-03.webp" width="1500" height="2000" loading="lazy" alt="暗がりの中、眼鏡をかけて目を伏せる男性" style="object-position: 50% 42%">
+        </button>
+        <figcaption class="caption" lang="en">03 — Osaka</figcaption>
+      </figure>
+      <figure class="work work-hung reveal">
+        <button class="work-open" type="button" aria-label="写真を大きく表示：04 Shirahama">
+          <img src="/images/samples/portrait/works-04.webp" width="800" height="1200" loading="lazy" alt="夕暮れの海辺で、帽子に手を添えて踊るように立つ女性のシルエット">
+        </button>
+        <figcaption class="caption" lang="en">04 — Shirahama</figcaption>
+      </figure>
+      <figure class="work work-full reveal">
+        <button class="work-open" type="button" aria-label="写真を大きく表示：05 Nara">
+          <img src="/images/samples/portrait/works-05.webp" width="1333" height="2000" loading="lazy" alt="小さな灯りのコードを腕に巻き、こちらへ手を伸ばす人" style="object-position: 50% 30%">
+        </button>
+        <figcaption class="caption" lang="en">05 — Nara</figcaption>
+      </figure>
+    </section>
+
+    <!-- 4. 歩みと今 -->
+    <section class="journey" aria-labelledby="journey-title">
+      <img src="/images/samples/portrait/journey.webp" width="1333" height="2000" loading="lazy" alt="">
+      <div class="journey-inner">
+        <h2 id="journey-title" class="label" lang="en">Journey</h2>
+        <ol>
+          <li><time datetime="2017">2017</time><span>一枚の写真に救われ、カメラを手にする</span></li>
+          <li><time datetime="2019">2019</time><span>大阪のスタジオで、アシスタントに</span></li>
+          <li><time datetime="2021">2021</time><span>独立。関西で撮りはじめる</span></li>
+          <li><time datetime="2025">2025</time><span>撮らせてもらった人が、300人に</span></li>
+        </ol>
+        <p class="journey-now"><span class="label" lang="en">Now</span>個展に向けて、撮影中<a class="journey-link" href="/samples/portrait/exhibition/">個展について見る</a></p>
+      </div>
+    </section>
+
+    <!-- 5. 声（文字だけ） -->
+    <!-- 4つの問い：応援すると、どんな景色を一緒に見られるのか -->
+    <section class="voices" data-answer="voices" aria-labelledby="voices-title">
+      <h2 id="voices-title" class="label" lang="en">Voices</h2>
+      <ul>
+        <li>
+          <blockquote><p>知らなかった自分の顔に、<wbr>はじめて会えた。</p></blockquote>
+          <p class="who">モデル・Mさん<span class="tag">サンプル</span></p>
+        </li>
+        <li>
+          <blockquote><p>写真が苦手だったのに、<wbr>この一枚は飾っています。</p></blockquote>
+          <p class="who">会社員・Kさん<span class="tag">サンプル</span></p>
+        </li>
+        <li>
+          <blockquote><p>現場の空気が、<wbr>いつもやわらかい。</p></blockquote>
+          <p class="who">ヘアメイク・Yさん<span class="tag">サンプル</span></p>
+        </li>
+        <li>
+          <blockquote><p>撮られる人の緊張を、<wbr>ほどく人。<wbr>誠屋も、灯さんの個展を<wbr>心待ちにしているひとりです。</p></blockquote>
+          <p class="who">誠屋より<span class="tag">サンプル</span></p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 6. Information（4つの問い：どう応援すればいいのか） -->
+    <section id="information" class="info" data-answer="info" aria-labelledby="info-title">
+      <div class="info-inner">
+        <h2 id="info-title" class="label" lang="en">Information</h2>
+        <dl>
+          <div>
+            <dt lang="en">Menu</dt>
+            <dd>
+              <p class="row"><span>作品撮り<small>60分・データ15枚</small></span><span>15,000円〜</span></p>
+              <p class="row"><span>宣材撮影<small>90分・データ30枚</small></span><span>25,000円〜</span></p>
+              <p class="row"><span>はじめてのポートレート<small>60分・データ10枚</small></span><span>12,000円〜</span></p>
+              <p class="small">料金はすべて架空のサンプルです（税込・関西圏は出張費無料）。</p>
+            </dd>
+          </div>
+          <div>
+            <dt lang="en">Flow</dt>
+            <dd>お問い合わせ → 打ち合わせ → 撮影 → <span class="nw">納品（約2週間）</span></dd>
+          </div>
+          <div class="info-contact">
+            <dt lang="en">Contact</dt>
+            <dd class="links">
+              <!-- ダミー：サンプルのため、押してもどこにも移動しない -->
+              <a href="#" data-dummy>撮影を問い合わせる</a>
+              <a href="#" data-dummy lang="en">Instagram</a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. クレジット -->
+  <footer>
+    <p class="credit">
+      Photos: <a href="https://unsplash.com/" rel="noopener">Unsplash</a>（Bruce Shen, H Liu, Negar Nikkhah, Zoe Graham）／<a href="https://www.pakutaso.com/" rel="noopener">ぱくたそ</a><br>
+      人物・地名・内容はすべて架空です。
+    </p>
+    <!-- 誠屋への導線 -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <!-- 写真を大きく表示 -->
+  <dialog class="lightbox" aria-label="写真の拡大表示">
+    <button class="lightbox-close" type="button" lang="en">Close</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption class="caption" lang="en"></figcaption>
+    </figure>
+  </dialog>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/portrait/portrait.js"></script>
+</body>
+</html>

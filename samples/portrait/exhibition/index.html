@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空の人物）。「ページ追加」の例（2ページ目）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>個展「素顔の、一枚。」｜灯 AKARI（誠屋のサンプルHP）</title>
+  <meta name="description" content="誠屋HP制作が作成したサンプルHPの2ページ目（ページ追加の例）です。登場する人物・内容はすべて架空です。">
+  <meta name="theme-color" content="#0E0E0E">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@400&family=Shippori+Mincho:wght@400;500&display=swap">
+  <link rel="preload" as="image" href="/images/samples/portrait/journey.webp" fetchpriority="high">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="/samples/portrait/portrait.css">
+</head>
+<body>
+  <!-- サンプルであることを示す帯 -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場する人物・内容はすべて架空です。このページは「ページ追加」の例です（2ページ目）。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <main>
+
+    <!-- 1. 個展のタイトルと会期・会場 -->
+    <section class="entrance ex-hero" aria-labelledby="ex-title">
+      <header class="header">
+        <a class="logo" href="/samples/portrait/" aria-label="灯 AKARI">灯<span lang="en">AKARI</span></a>
+        <nav class="nav" aria-label="サンプルHPのメニュー">
+          <a class="label" href="/samples/portrait/#works" lang="en">Works</a>
+          <a class="label" href="/samples/portrait/exhibition/" lang="en" aria-current="page">Exhibition</a>
+          <a class="label" href="#contact" lang="en">Contact</a>
+        </nav>
+      </header>
+      <img src="/images/samples/portrait/journey.webp" width="1333" height="2000" fetchpriority="high" alt="夕暮れの路地を、しだれ桜の下へ歩いていく着物の人の後ろ姿" style="object-position: 55% 60%">
+      <div class="entrance-name">
+        <p class="label" lang="en">Exhibition</p>
+        <h1 id="ex-title">素顔の、一枚。</h1>
+        <p class="ex-meta">2027年春 予定<br>関西のギャラリー（架空）</p>
+      </div>
+    </section>
+
+    <!-- 2. 個展に込めた想い -->
+    <section class="ex-words" aria-label="個展に込めた想い">
+      <p>「いつか」と言ってきた写真展が、<wbr>動きはじめました。</p>
+      <p>撮らせてもらった人たちの、<wbr>素顔の一枚を並べます。</p>
+      <p>会場で、あなたにも<wbr>会えますように。</p>
+    </section>
+
+    <!-- 3. 展示作品の一部（1ページ目の写真を使い回す） -->
+    <section class="ex-preview" aria-labelledby="preview-title">
+      <div class="ex-preview-head">
+        <h2 id="preview-title" class="label" lang="en">Preview</h2>
+      </div>
+      <figure class="work work-full reveal">
+        <button class="work-open" type="button" aria-label="写真を大きく表示：01 Kyoto">
+          <img src="/images/samples/portrait/works-01.webp" width="2000" height="1082" loading="lazy" alt="車の窓から、川沿いの桜並木を眺める着物の女性">
+        </button>
+        <figcaption class="caption" lang="en">01 — Kyoto</figcaption>
+      </figure>
+      <div class="ex-wall">
+        <figure class="work reveal">
+          <button class="work-open" type="button" aria-label="写真を大きく表示：02 Kobe">
+            <img src="/images/samples/portrait/works-02.webp" width="800" height="1200" loading="lazy" alt="レンガの壁の前で、長い黒髪をかき上げる女性">
+          </button>
+          <figcaption class="caption" lang="en">02 — Kobe</figcaption>
+        </figure>
+        <figure class="work reveal">
+          <button class="work-open" type="button" aria-label="写真を大きく表示：03 Osaka">
+            <img src="/images/samples/portrait/works-03.webp" width="1500" height="2000" loading="lazy" alt="暗がりの中、眼鏡をかけて目を伏せる男性">
+          </button>
+          <figcaption class="caption" lang="en">03 — Osaka</figcaption>
+        </figure>
+        <figure class="work reveal">
+          <button class="work-open" type="button" aria-label="写真を大きく表示：04 Shirahama">
+            <img src="/images/samples/portrait/works-04.webp" width="800" height="1200" loading="lazy" alt="夕暮れの海辺で、帽子に手を添えて踊るように立つ女性のシルエット">
+          </button>
+          <figcaption class="caption" lang="en">04 — Shirahama</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 4. 概要（写真と「応援のかたち」の間に、文字だけの区切りを置く） -->
+    <section class="ex-text" aria-labelledby="about-title">
+      <div class="ex-inner">
+        <h2 id="about-title" class="label" lang="en">About</h2>
+        <dl>
+          <div><dt>会期</dt><dd>2027年春（予定）</dd></div>
+          <div><dt>会場</dt><dd>関西のギャラリー（架空）</dd></div>
+          <div><dt>展示</dt><dd>撮らせてもらった30人の、素顔の一枚</dd></div>
+          <div><dt>入場</dt><dd>無料（予約制）</dd></div>
+        </dl>
+        <p class="small">会期・会場の詳細は、決まりしだいお知らせします。</p>
+      </div>
+    </section>
+
+    <!-- 5. 応援のかたち（ボタン・リンクはダミー。写真は置かない） -->
+    <section class="ex-text ex-support" aria-labelledby="support-title">
+      <div class="ex-inner">
+        <h2 id="support-title" class="label" lang="en">Support</h2>
+        <ul>
+          <li>
+            <h3>会場に来る</h3>
+            <p>来場予約をすると、混雑の少ない時間をご案内します。</p>
+            <a href="#" data-dummy>来場を予約する</a>
+          </li>
+          <li>
+            <h3>作品を迎える</h3>
+            <p>展示作品の一部は、プリントでお求めいただけます。</p>
+            <a href="#" data-dummy>作品の購入について</a>
+          </li>
+          <li>
+            <h3>広める</h3>
+            <p>SNSでのシェアが、次の一枚につながります。</p>
+            <a href="#" data-dummy>SNSでシェアする</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. 予約・問い合わせ（ダミー） -->
+    <section id="contact" class="ex-text ex-contact" aria-labelledby="contact-title">
+      <div class="ex-inner">
+        <h2 id="contact-title" class="label" lang="en">Contact</h2>
+        <dl>
+          <div><dt>来場予約</dt><dd><a href="#" data-dummy>予約フォーム</a></dd></div>
+          <div>
+            <dt>問い合わせ</dt>
+            <dd class="links">
+              <a href="#" data-dummy>メールで問い合わせる</a>
+              <a href="#" data-dummy lang="en">Instagram</a>
+            </dd>
+          </div>
+        </dl>
+        <p class="small">撮影のご依頼は、<a href="/samples/portrait/#information">1ページ目のInformation</a>からどうぞ。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- クレジット（1ページ目と同じ） -->
+  <footer>
+    <p class="credit">
+      Photos: <a href="https://unsplash.com/" rel="noopener">Unsplash</a>（Bruce Shen, H Liu, Negar Nikkhah, Zoe Graham）／<a href="https://www.pakutaso.com/" rel="noopener">ぱくたそ</a><br>
+      人物・地名・内容はすべて架空です。
+    </p>
+    <!-- 誠屋への導線 -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <!-- 写真を大きく表示 -->
+  <dialog class="lightbox" aria-label="写真の拡大表示">
+    <button class="lightbox-close" type="button" lang="en">Close</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption class="caption" lang="en"></figcaption>
+    </figure>
+  </dialog>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/portrait/portrait.js"></script>
+</body>
+</html>
