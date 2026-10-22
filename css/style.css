@@ -1233,9 +1233,21 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   justify-content: space-between;
   gap: 8px 24px;
 }
-.footer-link {
+/* Instagram：枠線のボタン（アイコン＋名前＋アカウント名）。ホバーで塗りに変わる */
+.footer-insta {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   min-height: 44px;
-  color: var(--text-sub);
+  padding: 8px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: .875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color .2s, color .2s;
 }
+.footer-insta:hover { background: var(--accent); color: #FFFFFF; }
+.footer-insta-icon { flex-shrink: 0; }
+.footer-insta-id { font-weight: 400; }
