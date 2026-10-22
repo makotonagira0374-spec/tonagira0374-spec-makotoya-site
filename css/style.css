@@ -1173,6 +1173,15 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 .about .photo { max-width: 440px; }
 /* 柳楽の写真：角は直角（柳楽の言葉のブロックの写真とそろえる）。切り抜き済みの 4:5 なので、柳楽と人力車が中央に収まる */
 .about-photo { border-radius: 0; object-position: 50% 50%; }
+@media (min-width: 900px) { .about { align-items: start; } } /* 本文が長いので、写真は上にそろえる */
+/* これまでにつくったページ：料金の「ページの違い」と同じスマホ枠を2つ並べる。スマホでも横に2つ */
+.made-pages { margin: 2em 0; }
+.made-pages-title { margin-bottom: 16px !important; color: var(--text-sub); font-size: .875rem; font-weight: 500; }
+.made-pages-list { display: grid; grid-template-columns: repeat(2, minmax(0, 200px)); gap: 20px; }
+.made-pages .page-card { justify-items: start; text-align: left; gap: 12px; }
+.made-pages .page-shot { width: 100%; height: auto; aspect-ratio: 1 / 2; }
+.made-pages .page-name { font-size: .9375rem; line-height: 1.6; }
+.made-pages .page-name span { display: block; }
 .signature {
   margin-top: 32px !important;
   color: var(--text) !important;
