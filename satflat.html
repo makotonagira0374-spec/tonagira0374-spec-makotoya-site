@@ -90,7 +90,7 @@
     margin: 2.75rem 0 0;
     background: var(--card);
     border-radius: 14px;
-    padding: 2.6rem 1.75rem 2.2rem;
+    padding: 2.6rem 1.75rem 3rem;
     text-align: center;
     box-shadow: 0 24px 40px -24px rgba(31,42,38,.35), 0 0 0 1px var(--line);
     animation: deal 0.9s cubic-bezier(.2,.8,.2,1) both;
@@ -407,14 +407,14 @@
   <footer>日程・場所は回ごとに変わることがあります。<br>最新情報はこのページで。</footer>
 </main>
 <script>
-  // すごろくは5マス表示。コマは左から4マス目（1〜3回目はその回のマス）。回を重ねると窓ごと進む
+  // すごろくは10マスで1面（1〜10回、11〜20回…）。コマは毎回1マスずつ右へ進み、11回目で次の面へ
   (function () {
     var card = document.querySelector('.card');
     var round = parseInt(card.dataset.round, 10) || 1;
     card.querySelector('.round-no').textContent = round;
-    var start = Math.max(1, round - 3);
+    var start = Math.floor((round - 1) / 10) * 10 + 1;
     card.querySelectorAll('.track').forEach(function (track) {
-      for (var n = start; n < start + 5; n++) {
+      for (var n = start; n < start + 10; n++) {
         var cell = document.createElement('i');
         if (n < round) cell.className = 'done';
         if (n === round) { cell.className = 'now'; cell.textContent = n; }
