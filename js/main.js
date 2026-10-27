@@ -195,6 +195,34 @@ var SEATS = { total: 5, left: null };
   });
 })();
 
+// アクセス解析：相談ボタン・Instagram・サンプルHPが押された回数をGoogleアナリティクスに送る。
+// 人力車 誠屋のサイトと同じ「contact_click」（channel で区別）。サンプルHPは「sample_open」
+(function () {
+  document.addEventListener('click', function (e) {
+    if (typeof window.gtag !== 'function') return;
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    var text = (a.textContent || '').replace(/\s+/g, ' ').trim();
+    // どこで押されたか（hero・flow など、id のないセクションは「section」以外の最初のクラス名）
+    var section = a.closest('section, header, footer');
+    var where = '';
+    if (section) {
+      var names = Array.prototype.filter.call(section.classList, function (c) { return c !== 'section'; });
+      where = section.id || names[0] || section.tagName.toLowerCase();
+    }
+    if (href.indexOf('line.me') !== -1 || href.indexOf('instagram.com') !== -1) {
+      gtag('event', 'contact_click', {
+        channel: href.indexOf('line.me') !== -1 ? 'line' : 'instagram',
+        link_text: text,
+        section: where
+      });
+    } else if (href.indexOf('/samples/') === 0) {
+      gtag('event', 'sample_open', { link_text: text, section: where });
+    }
+  }, true);
+})();
+
 // ヘッダー：スクロールしたら背景を付ける
 (function () {
   var header = document.querySelector('.site-header');

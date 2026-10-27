@@ -15,6 +15,19 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@400&family=Shippori+Mincho:wght@400;500&display=swap">
   <link rel="preload" as="image" href="/images/samples/portrait/journey.webp" fetchpriority="high">
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+  </script>
   <link rel="stylesheet" href="/samples/portrait/portrait.css">
 </head>
 <body>
