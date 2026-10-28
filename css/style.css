@@ -903,6 +903,56 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .samples-action { align-items: stretch; }
 }
 
+/* サンプルHPの一覧：スマホの画面を2つ並べて、デザインの違いを見せる（スマホ幅でも2列） */
+.samples-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 16px;
+  max-width: 640px;
+  margin: 40px auto 0;
+}
+.samples-card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+}
+.samples-card-phone { display: block; width: 100%; max-width: 240px; margin-bottom: 20px; padding: 6px; border-radius: 28px; transition: transform .25s; }
+.samples-card-phone .phone-screen { display: block; padding-top: 0; border-radius: 22px; }
+.samples-card-phone .phone-screen::before { display: none; }
+.samples-card-phone img { display: block; width: 100%; height: auto; }
+.samples-card a:hover .samples-card-phone { transform: translateY(-4px); }
+@media (prefers-reduced-motion: reduce) { .samples-card-phone { transition: none; } }
+.samples-card-kind { color: var(--text-sub); font-size: .6875rem; line-height: 1.6; letter-spacing: 0; }
+.samples-card-name { margin-top: 2px; font-family: var(--font-mincho); font-size: 1.25rem; font-weight: 500; line-height: 1.5; letter-spacing: .08em; }
+.samples-card-text { margin-top: 8px; font-size: .875rem; line-height: 1.8; word-break: keep-all; }
+.samples-card-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--accent);
+  font-size: .9375rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.samples-card a:hover .btn-arrow { transform: translateX(4px); }
+@media (min-width: 960px) {
+  .samples-list { gap: 48px 64px; margin-top: 56px; }
+  .samples-card-phone { padding: 8px; border-radius: 36px; }
+  .samples-card-phone .phone-screen { border-radius: 28px; }
+  .samples-card-kind { font-size: .8125rem; letter-spacing: .04em; }
+  .samples-card-name { font-size: 1.5rem; }
+  .samples-card-text { font-size: 1rem; }
+}
+.samples-action-after { margin-top: 32px; }
+
 /* ---------- 料金 ---------- */
 /* 名刺HPに含まれるもの：箱や太字にせず、細い線で区切った控えめな一覧 */
 .plan-includes ul { display: grid; }

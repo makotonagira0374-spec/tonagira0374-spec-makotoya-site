@@ -217,8 +217,34 @@
 
         <div class="samples-action">
           <p class="samples-reassure">4つの答えは、<wbr>自分で書かなくて大丈夫です。<br>話しているうちに、<wbr>誠屋が一緒に<wbr>言葉にしていきます。</p>
-          <a class="btn btn-primary btn-large" href="/samples/portrait/">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
-          <p class="samples-note">サンプルに登場する人物・内容は架空です。</p>
+        </div>
+
+        <!-- サンプルHPの一覧（並べて、デザインの違いを見せる）
+             画面の画像は tools/shoot-sample.mjs が各サンプルの最初の画面を撮って作る（--cards でこれだけ撮り直せる）。
+             サンプルを足すときは <li> を1つコピーする -->
+        <ul class="samples-list">
+          <li class="samples-card">
+            <a href="/samples/portrait/">
+              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-portrait.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「灯」のスマホ画面。黒い背景に、女性のポートレート写真が画面いっぱいに広がる"></span></span>
+              <span class="samples-card-kind">ポートレートフォトグラファー</span>
+              <span class="samples-card-name">灯 AKARI</span>
+              <span class="samples-card-text">写真が主役の、<wbr>個展のようなHP</span>
+              <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
+            </a>
+          </li>
+          <li class="samples-card">
+            <a href="/samples/kitchencar/">
+              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-kitchencar.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「こみち」のスマホ画面。画面いっぱいのカレーの写真の上に、店名とひとこと、3つの入口ボタンが並ぶ"></span></span>
+              <span class="samples-card-kind">スパイスカレーのキッチンカー</span>
+              <span class="samples-card-name">こみち</span>
+              <span class="samples-card-text">応援してくれる人が<wbr>3種類いる、<wbr>キッチンカーのHP</span>
+              <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="samples-action samples-action-after">
+          <p class="samples-note">サンプルに登場する人物・店・内容は架空です。</p>
         </div>
       </div>
     </section>

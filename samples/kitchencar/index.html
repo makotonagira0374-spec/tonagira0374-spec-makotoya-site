@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空の店）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>スパイスカレー こみち｜キッチンカー（誠屋のサンプルHP）</title>
+  <meta name="description" content="誠屋HP制作が作成したサンプルHPです。登場する人物・店・場所・内容はすべて架空です。">
+  <meta name="theme-color" content="#FFFBF3">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600&family=Noto+Sans+JP:wght@400;700&family=Zen+Maru+Gothic:wght@500;700&display=swap">
+  <link rel="preload" as="image" href="/samples/kitchencar/images/top.webp" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/samples/kitchencar/images/hero-curry.webp" media="(min-width: 768px)" fetchpriority="high">
+  <script>document.documentElement.classList.add('js');</script>
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+  </script>
+  <link rel="stylesheet" href="/samples/kitchencar/kitchencar.css">
+</head>
+<body>
+  <!-- サンプルであることを示す帯 -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場する人物・店・場所・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <main>
+
+    <!-- 1. トップ（背景の写真が自動で入れ替わる。kitchencar.js）
+         写真を足すときは <div class="hero-slide"> を1つコピーする。最初の1枚だけ loading="lazy" を付けない
+         スマホで写真の見せたい位置を変えるときは、img の style の object-position（横 縦）を直す -->
+    <section class="top" aria-labelledby="shop-name">
+      <div class="hero-slides">
+        <div class="hero-slide is-active">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/samples/kitchencar/images/top.webp" width="819" height="1024">
+            <img src="/samples/kitchencar/images/hero-curry.webp" width="1536" height="1024" fetchpriority="high" alt="キーマのスパイスカレー" style="object-position: 50% 50%">
+          </picture>
+        </div>
+        <div class="hero-slide">
+          <img src="/samples/kitchencar/images/truck.webp" width="1600" height="900" loading="lazy" alt="海辺に出店しているスパイスカレーのキッチンカー『こみち』" style="object-position: 74% 50%">
+        </div>
+        <div class="hero-slide">
+          <img src="/samples/kitchencar/images/where.webp" width="1600" height="1067" loading="lazy" alt="木のテーブルに並べた、色とりどりのスパイス" style="object-position: 40% 50%">
+        </div>
+      </div>
+      <button class="hero-pause" type="button" aria-pressed="false">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg>
+        <span class="visually-hidden">写真の切り替えを止める</span>
+      </button>
+      <div class="top-inner">
+        <div class="top-text">
+          <p class="top-kind">関西で出店中のキッチンカー</p>
+          <h1 id="shop-name"><small>スパイスカレー</small>こみち</h1>
+          <p class="top-lead">いつか、<wbr>帰ってこられる店を。</p>
+        </div>
+        <!-- 3つの入口（ページ内のそれぞれのブロックへ） -->
+        <nav class="doors" aria-label="このページの入口">
+          <a href="#schedule">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            今週の<wbr>出店を見る
+          </a>
+          <a href="#request">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2.5" y="7" width="13" height="9" rx="1.5"/><path d="M15.5 10h3.2l2.8 3v3h-6"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+            出店を<wbr>依頼する
+          </a>
+          <a href="#support">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 21v-7M18 21v-7M5 14h14M7 14V5.5A1.5 1.5 0 0 1 8.5 4h7A1.5 1.5 0 0 1 17 5.5V14"/></svg>
+            店づくりを<wbr>応援する
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 2. 今週の出店スケジュール
+         ▼ 毎週ここを書き換えます ▼
+         ・最終更新日：<time datetime="年-月-日">の両方（datetime と表示）を直す
+         ・1日分は <li>…</li> のかたまり1つ。<summary> の中に曜日・場所・時間を書く
+         ・タップすると開く詳しい情報は <dl class="spot"> の中（場所・出店位置・駐車場・ひとこと）。
+           同じ場所に何度も出るときは、その場所の <li> をまるごとコピーして、曜日と時間だけ直すと楽です
+         ・お休みの日は <li class="off"> の1行（詳しい情報なし）。場所に「お休み」と書き、時間は「—」にする -->
+    <section id="schedule" class="section" aria-labelledby="schedule-title">
+      <div class="container">
+        <p class="eyebrow" lang="en">Schedule</p>
+        <h2 id="schedule-title">今週の出店</h2>
+        <p class="updated">最終更新日：<time datetime="2026-10-26">2026年10月26日</time></p>
+        <p class="schedule-hint">場所をタップすると、詳しい情報が見られます。</p>
+        <ul class="schedule">
+          <li class="off"><span class="day">月</span><span class="place">お休み（仕込みの日）</span><span class="time">—</span></li>
+          <li>
+            <details>
+              <summary><span class="day">火</span><span class="place">結野ビジネスパーク 中庭</span><span class="time">11:00〜14:00</span></summary>
+              <dl class="spot">
+                <div><dt>場所</dt><dd>結野市みなと町2-8</dd></div>
+                <div><dt>出店位置</dt><dd>オフィス棟AとBのあいだの中庭、噴水の横</dd></div>
+                <div><dt>駐車場</dt><dd>なし（近くのコインパーキングをご利用ください）</dd></div>
+                <div><dt>ひとこと</dt><dd>平日のランチ。12時台は混みあうので、11時台がおすすめです。</dd></div>
+              </dl>
+              <a class="spot-map" href="#" data-dummy>地図を見る</a>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="day">水</span><span class="place">汐凪ビーチテラス</span><span class="time">11:00〜15:00</span></summary>
+              <dl class="spot">
+                <div><dt>場所</dt><dd>汐凪町浜通り1丁目</dd></div>
+                <div><dt>出店位置</dt><dd>ビーチハウス前の芝生広場</dd></div>
+                <div><dt>駐車場</dt><dd>あり（有料・約100台）</dd></div>
+                <div><dt>ひとこと</dt><dd>海を見ながら食べられるベンチがあります。</dd></div>
+              </dl>
+              <a class="spot-map" href="#" data-dummy>地図を見る</a>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="day">木</span><span class="place">結野ビジネスパーク 中庭</span><span class="time">11:00〜14:00</span></summary>
+              <dl class="spot">
+                <div><dt>場所</dt><dd>結野市みなと町2-8</dd></div>
+                <div><dt>出店位置</dt><dd>オフィス棟AとBのあいだの中庭、噴水の横</dd></div>
+                <div><dt>駐車場</dt><dd>なし（近くのコインパーキングをご利用ください）</dd></div>
+                <div><dt>ひとこと</dt><dd>平日のランチ。12時台は混みあうので、11時台がおすすめです。</dd></div>
+              </dl>
+              <a class="spot-map" href="#" data-dummy>地図を見る</a>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="day">金</span><span class="place">葉ノ森ブルワリー 前</span><span class="time">17:00〜21:00</span></summary>
+              <dl class="spot">
+                <div><dt>場所</dt><dd>結野市葉ノ森3-14</dd></div>
+                <div><dt>出店位置</dt><dd>ブルワリー入口の右手</dd></div>
+                <div><dt>駐車場</dt><dd>なし（お酒を飲む方は電車・バスで）</dd></div>
+                <div><dt>ひとこと</dt><dd>夜だけの出店。ビールに合う、辛めの限定カレーがあります。</dd></div>
+              </dl>
+              <a class="spot-map" href="#" data-dummy>地図を見る</a>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="day">土</span><span class="place">かざみ台ファーマーズマーケット</span><span class="time">10:00〜15:00</span></summary>
+              <dl class="spot">
+                <div><dt>場所</dt><dd>かざみ台中央公園 北広場</dd></div>
+                <div><dt>出店位置</dt><dd>マーケット会場の東の端</dd></div>
+                <div><dt>駐車場</dt><dd>公園の駐車場（無料・約60台）</dd></div>
+                <div><dt>ひとこと</dt><dd>地元の野菜を使った「季節の野菜」トッピングの日です。</dd></div>
+              </dl>
+              <a class="spot-map" href="#" data-dummy>地図を見る</a>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="day">日</span><span class="place">汐凪ビーチテラス</span><span class="time">11:00〜16:00</span></summary>
+              <dl class="spot">
+                <div><dt>場所</dt><dd>汐凪町浜通り1丁目</dd></div>
+                <div><dt>出店位置</dt><dd>ビーチハウス前の芝生広場</dd></div>
+                <div><dt>駐車場</dt><dd>あり（有料・約100台）</dd></div>
+                <div><dt>ひとこと</dt><dd>海を見ながら食べられるベンチがあります。</dd></div>
+              </dl>
+              <a class="spot-map" href="#" data-dummy>地図を見る</a>
+            </details>
+          </li>
+        </ul>
+        <!-- ▲ ここまで ▲ -->
+        <p class="note">雨の日の営業は<a href="#" data-dummy>Instagram</a>でお知らせします。<br>売り切れ次第、終了します。</p>
+      </div>
+    </section>
+
+    <!-- 3. メニュー（黒板）
+         ▼ 価格や品目を変えるときは、<li> の1行を書き換える（左が品名、右が価格）▼
+         品目を足すときは <li> を1行コピーする。品名の補足は <small> に入れると小さくなる -->
+    <section id="menu" class="section section-menu" aria-labelledby="menu-title">
+      <div class="container">
+        <h2 id="menu-title" class="visually-hidden">メニュー</h2>
+        <div class="board">
+          <h3 lang="en">SPICE CURRY</h3>
+          <ul>
+            <li><span>チキン</span><span>1,000円</span></li>
+            <li><span>キーマ</span><span>1,000円</span></li>
+            <li><span>あいがけ<small>（チキン・キーマ）</small></span><span>1,200円</span></li>
+          </ul>
+          <h3 lang="en">TOPPING</h3>
+          <ul>
+            <li><span>たまご</span><span>100円</span></li>
+            <li><span>パクチー</span><span>100円</span></li>
+            <li><span>季節の野菜</span><span>200円</span></li>
+          </ul>
+        </div>
+        <p class="board-note">価格はすべて税込です</p>
+      </div>
+    </section>
+    <!-- ▲ メニューここまで ▲ -->
+
+    <!-- 4. どこへ向かうのか（背景に写真を薄く敷く） -->
+    <section id="goal" class="section section-goal" aria-labelledby="goal-title">
+      <img class="bg" src="/samples/kitchencar/images/where.webp" width="1600" height="1067" loading="lazy" alt="">
+      <div class="container narrow">
+        <p class="eyebrow">どこへ向かうのか</p>
+        <h2 id="goal-title">3年以内に、<wbr>地元の商店街に<wbr>8席だけの<wbr>カレー屋を。</h2>
+        <p>目指しているのは、生まれ育った町の「ゆいの本通り商店街」に、カウンター8席だけの小さなカレー屋を開くことです。</p>
+        <p>キッチンカーは、そのための大切な時間。いろいろな場所に出かけて、「また来たよ」と言ってくれる常連さんと出会う場所だと思っています。</p>
+      </div>
+    </section>
+
+    <!-- 5. なぜ向かうのか -->
+    <section id="why" class="section section-surface" aria-labelledby="why-title">
+      <div class="container why">
+        <img src="/samples/kitchencar/images/why.webp" width="1067" height="1600" loading="lazy" alt="スパイスを合わせた器">
+        <div>
+          <p class="eyebrow">なぜ向かうのか</p>
+          <h2 id="why-title">「また来てね」に、<wbr>救われたから。</h2>
+          <p>会社員だったころ、疲れた夜に通っていた小さなカレー屋がありました。注文しなくても「いつもの？」と聞いてくれる、カウンターだけのお店です。</p>
+          <p>そのお店が閉まる日、店主は最後に「また来てね」と言ってくれました。もう来られないと分かっていたのに、その一言で、自分にも帰る場所があったんだと気づきました。</p>
+          <p>今度は自分が、誰かの帰る場所をつくりたい。会社を辞めて、スパイスの勉強を始めました。</p>
+          <p class="sign">こみち 店主</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 応援者の声（すべて架空） -->
+    <section id="voices" class="section" aria-labelledby="voices-title">
+      <div class="container">
+        <p class="eyebrow" lang="en">Voices</p>
+        <h2 id="voices-title">応援してくれている人の声</h2>
+        <!-- 一覧はボタンを押すと開く（kitchencar.js）。JSが動かないときは最初から開いている。件数は自動で数える -->
+        <button class="btn btn-line voices-toggle" type="button" aria-expanded="false" aria-controls="voices-list" hidden>
+          <span class="voices-toggle-label">声を見る</span><span class="voices-count"></span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul id="voices-list" class="voices">
+          <li>
+            <blockquote><p>仕事の昼休みの楽しみです。名前を覚えてもらえてから、火曜日がちょっと待ち遠しくなりました。</p></blockquote>
+            <p class="who">常連さん・Hさん<span class="tag">サンプル</span></p>
+          </li>
+          <li>
+            <blockquote><p>子どもが「こみちのたまごのやつ」と呼んでいます。お店ができたら、家族で一番に行きます。</p></blockquote>
+            <p class="who">常連さん・Sさん<span class="tag">サンプル</span></p>
+          </li>
+          <li>
+            <blockquote><p>準備から片付けまで、とても丁寧でした。行列ができても、お客さん一人ひとりに声をかけてくれるのが印象的です。</p></blockquote>
+            <p class="who">マルシェ主催者・Kさん<span class="tag">サンプル</span></p>
+          </li>
+          <li>
+            <blockquote><p>こんなお店が商店街にあればいいな、と思える。そんなお店です。今日もまた食べたくなる、行きたくなる。</p></blockquote>
+            <p class="who">誠屋より<span class="tag">サンプル</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. 出店を依頼したい方へ -->
+    <section id="request" class="section section-surface" aria-labelledby="request-title">
+      <div class="container">
+        <p class="eyebrow">出店を依頼したい方へ</p>
+        <h2 id="request-title">イベント・施設への<wbr>出店を<wbr>承っています。</h2>
+        <img class="truck" src="/samples/kitchencar/images/truck.webp" width="1600" height="900" loading="lazy" alt="海辺に出店しているスパイスカレーのキッチンカー『こみち』">
+
+        <div class="request-grid">
+          <div class="card">
+            <h3>これまでの出店</h3>
+            <ul class="dots">
+              <li>汐凪ビーチフェス 2026</li>
+              <li>かざみ台ファーマーズマーケット（毎月）</li>
+              <li>結野ビジネスパーク ランチ出店（毎週）</li>
+              <li>葉ノ森ブルワリー 秋のビール祭り</li>
+              <li>ゆいの本通り商店街 夏まつり</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>車両と出店の目安</h3>
+            <dl class="spec">
+              <div><dt>車両のサイズ</dt><dd>長さ4.7m × 幅1.9m × 高さ2.6m</dd></div>
+              <div><dt>必要なスペース</dt><dd>幅6m × 奥行き4m（行列のスペースを含む）</dd></div>
+              <div><dt>電源</dt><dd>不要（発電機を持ち込みます。<span class="nw">お借りできると静かです）</span></dd></div>
+              <div><dt>水</dt><dd>不要（給水・排水タンクを積んでいます）</dd></div>
+              <div><dt>提供できる食数</dt><dd>1日 約150食まで</dd></div>
+              <div><dt>営業許可</dt><dd>取得済み（結野市保健所 飲食店営業許可 第R7-0000号）</dd></div>
+            </dl>
+          </div>
+          <div class="card">
+            <h3>出店の条件</h3>
+            <ul class="dots">
+              <li>関西エリア（遠方はご相談ください）</li>
+              <li>平日・休日とも、1日から承ります</li>
+              <li>出店料の形（固定・歩合）はご相談ください</li>
+              <li>雨天時の扱いは、事前に取り決めさせてください</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>依頼の流れ</h3>
+            <ol class="flow">
+              <li><span>1</span>お問い合わせ</li>
+              <li><span>2</span>日程・条件の確認</li>
+              <li><span>3</span>出店</li>
+            </ol>
+            <p class="small">お問い合わせから3日以内にお返事します。</p>
+          </div>
+        </div>
+
+        <p class="center"><a class="btn btn-main" href="#" data-dummy>出店を依頼する</a></p>
+      </div>
+    </section>
+
+    <!-- 8. 開店までの道のり -->
+    <section id="support" class="section" aria-labelledby="support-title">
+      <div class="container">
+        <p class="eyebrow">開店までの道のり</p>
+        <h2 id="support-title">8席の店まで、<wbr>あと少し。</h2>
+
+        <!-- 今どこまで来たか。数字を変えるときは、表示の数字と style="--p: ◯%"（バーの長さ）の両方を直す -->
+        <h3 class="sub">今どこまで来たか</h3>
+        <ul class="progress">
+          <li>
+            <p><span>出店回数</span><span><b>126</b>回／目標 300回</span></p>
+            <span class="bar" style="--p: 42%" aria-hidden="true"></span>
+          </li>
+          <li>
+            <p><span>常連さんの数</span><span><b>84</b>人／目標 200人</span></p>
+            <span class="bar" style="--p: 42%" aria-hidden="true"></span>
+          </li>
+          <li>
+            <p><span>開店資金の準備</span><span><b>55</b>%</span></p>
+            <span class="bar" style="--p: 55%" aria-hidden="true"></span>
+          </li>
+          <li>
+            <p><span>物件探し</span><span>候補を<b>2</b>件見学中</span></p>
+            <span class="bar" style="--p: 30%" aria-hidden="true"></span>
+          </li>
+        </ul>
+        <p class="small">数字はすべて架空のサンプルです（2026年10月時点）。</p>
+
+        <h3 class="sub">応援のかたち</h3>
+        <ol class="ways">
+          <li class="way">
+            <p class="way-num">01</p>
+            <h4>クラウドファンディング<span class="pill">開始予定</span></h4>
+            <p>お店の内装と厨房機器のために、クラウドファンディングを予定しています。お礼は、オリジナルのスパイスセットや、店主のカレー教室などを準備中です。</p>
+            <a class="btn btn-main" href="#" data-dummy>始まったらお知らせを受け取る</a>
+          </li>
+          <li class="way">
+            <p class="way-num">02</p>
+            <h4>8脚の椅子のスポンサー</h4>
+            <p>お店の8脚の椅子それぞれに、スポンサーの方のお名前のプレートを付けます。開店日には、その椅子に座っていただけるようご招待します。</p>
+            <!-- 椅子：スポンサーが決まったら <li> に class="is-taken" を付け、<span class="plate"> に名前を入れる。「残り◯脚」は自動で数える
+                 長い名前（会社名など）は <br> で2行に分ける -->
+            <ul class="chairs" aria-label="8脚の椅子のスポンサー状況">
+              <li class="is-taken"><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">森川 直樹</span></li>
+              <li class="is-taken"><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">株式会社<br>結野青果</span></li>
+              <li class="is-taken"><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">三輪 ひなた</span></li>
+              <li><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">空き</span></li>
+              <li><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">空き</span></li>
+              <li><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">空き</span></li>
+              <li><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">空き</span></li>
+              <li><svg aria-hidden="true"><use href="#chair"/></svg><span class="plate">空き</span></li>
+            </ul>
+            <p class="chairs-left">残り<b data-chairs-left>5</b>脚</p>
+            <p class="chairs-note">スポンサーのお名前は架空のサンプルです。</p>
+            <a class="btn btn-line" href="#" data-dummy>椅子のスポンサーについて聞く</a>
+          </li>
+          <li class="way">
+            <p class="way-num">03</p>
+            <h4>物件の情報</h4>
+            <p>ゆいの本通り商店街やその近くで、8席ほどの小さなお店ができる空き物件を探しています。「ここ空いてるよ」の一言が、何よりの応援です。</p>
+            <a class="btn btn-line" href="#" data-dummy>空き物件の情報を送る</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 9. 連絡先 -->
+    <section id="contact" class="section section-surface" aria-labelledby="contact-title">
+      <div class="container narrow center">
+        <p class="eyebrow" lang="en">Contact</p>
+        <h2 id="contact-title">お気軽に<wbr>声をかけてください。</h2>
+        <p>出店のご依頼、応援のご相談、<wbr>「近くに来て」のリクエストも歓迎です。</p>
+        <div class="contact-links">
+          <!-- ダミー：サンプルのため、押してもどこにも移動しない -->
+          <a class="btn btn-main" href="#" data-dummy>問い合わせる</a>
+          <a class="btn btn-line" href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+            Instagram<span class="handle">@komichi_curry</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 10. クレジット -->
+  <footer>
+    <!-- 撮影者名は、ダウンロード元のページの表記と合わせる（変わっていないか確認用）
+         ・Andy Holmes        https://unsplash.com/photos/mTqGgeYkfaY  （なぜ向かうのか：why.webp）
+         ・Ratul Ghosh        https://unsplash.com/photos/NPrWYa69Mz0  （どこへ向かうのか：where.webp）
+         ・Anju Ravindranath  https://unsplash.com/photos/Nihdo084Yos  （メニューの背景：menu.webp）
+         生成AIの画像：トップの写真（top.webp）・キッチンカーの写真（truck.webp） -->
+    <p class="credit">
+      写真：<a href="https://unsplash.com/" rel="noopener">Unsplash</a>（Andy Holmes、Ratul Ghosh、Anju Ravindranath）／一部の画像は生成AIで作成しています<br>
+      人物・店・場所・内容はすべて架空です。
+    </p>
+    <!-- 誠屋への導線（灯のサンプルと同じ。誠屋の配色） -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <!-- 椅子のイラスト（8脚で使い回す） -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="chair" viewBox="0 0 48 64">
+      <path d="M12 4h24a3 3 0 0 1 3 3v24H9V7a3 3 0 0 1 3-3Z M6 31h36a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2Z"/>
+      <path fill="none" d="M10 39v21M38 39v21M10 52h28"/>
+    </symbol>
+  </svg>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/kitchencar/kitchencar.js"></script>
+</body>
+</html>
