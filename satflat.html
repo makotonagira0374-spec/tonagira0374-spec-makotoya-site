@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>サットフラット｜大人のボードゲームの夜</title>
 <meta name="description" content="大阪府貝塚市水間の喫茶図書室2階で開く、18歳以上の大人のためのボードゲーム会「サットフラット」。予約不要・参加費1,000円。">
+<!-- Googleアナリティクス（誠屋と同じプロパティ「makotoya」）。本番だけで計測し、撮影用の ?shot では送らない -->
+<script>
+  if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-V1L4QYSHG1');
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -447,6 +460,18 @@
     }, { threshold: 0.6 });
     io.observe(num);
   })();
+
+  // アクセス解析：地図・Instagramが押された回数を送る（誠屋のページと同じ「contact_click」。channel で区別）
+  document.addEventListener('click', function (e) {
+    if (typeof window.gtag !== 'function') return;
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    var channel = href.indexOf('instagram.com') !== -1 ? 'instagram'
+      : (href.indexOf('maps.app.goo.gl') !== -1 || href.indexOf('google.') !== -1 && href.indexOf('/maps') !== -1) ? 'map' : '';
+    if (!channel) return;
+    gtag('event', 'contact_click', { channel: channel, link_text: (a.textContent || '').replace(/\s+/g, ' ').trim(), page: 'satflat' });
+  }, true);
 </script>
 </body>
 </html>
