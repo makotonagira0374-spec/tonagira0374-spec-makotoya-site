@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空の人物）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>凪 NAGI｜シンガーソングライター（誠屋のサンプルHP）</title>
+  <meta name="description" content="誠屋HP制作が作成したサンプルHPです。登場する人物・曲・場所・内容はすべて架空です。">
+  <meta name="theme-color" content="#0F1B2D">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap">
+  <link rel="preload" as="image" href="/samples/singer/images/top-sp.webp" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/samples/singer/images/top.webp" media="(min-width: 768px)" fetchpriority="high">
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+  </script>
+  <link rel="stylesheet" href="/samples/singer/singer.css">
+</head>
+<body>
+  <!-- サンプルであることを示す帯 -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場する人物・曲・場所・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <main>
+
+    <!-- 1. トップ（写真の下端は、夜の青 #0F1B2D につながる） -->
+    <section class="top" aria-labelledby="artist-name">
+      <picture class="top-photo">
+        <source media="(max-width: 767px)" srcset="/samples/singer/images/top-sp.webp" width="1200" height="1350">
+        <img src="/samples/singer/images/top.webp" width="1600" height="1067" fetchpriority="high" alt="逆光の中でギターのコードを押さえる手">
+      </picture>
+      <div class="top-inner">
+        <div class="top-text">
+          <p class="top-kind">シンガーソングライター</p>
+          <h1 id="artist-name">凪<span lang="en">NAGI</span></h1>
+          <p class="top-lead">言えなかった気持ちを、<wbr>歌にする。</p>
+        </div>
+        <!-- 3つの入口（ページ内のそれぞれのブロックへ） -->
+        <nav class="doors" aria-label="このページの入口">
+          <a href="#live">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            次のライブを<wbr>見る
+          </a>
+          <a href="#request">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg>
+            出演を<wbr>依頼する
+          </a>
+          <a href="#support">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2"/><path d="M12 3.5A8.5 8.5 0 0 1 20.5 12"/></svg>
+            アルバムづくりを<wbr>応援する
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 2. すぐ聴けるプレーヤー（サンプルのため音は鳴らない。singer.js）
+         曲を足すときは <li> を1つコピーして、data-title（曲名）・曲名・再生時間を直す -->
+    <section id="listen" class="section night" aria-labelledby="listen-title">
+      <div class="container">
+        <p class="eyebrow" lang="en">Listen</p>
+        <h2 id="listen-title">まずは、<wbr>1曲だけでも。</h2>
+        <!-- サンプルであることの注釈（実際のHPでは消す） -->
+        <p class="player-note">サンプルHPのため、<wbr>再生ボタンを押しても音は鳴りません。<br>実際のHPでは、<wbr>ここで曲を聴けるようにできます。</p>
+        <div class="player">
+          <img class="jacket" src="/samples/singer/images/jacket.webp" width="1000" height="1000" loading="lazy" alt="夜明け前の海と空">
+          <div class="player-body">
+            <p class="player-album"><span lang="en">Demo Tracks</span>　<span class="player-album-ja">はじめての3曲</span></p>
+            <!-- 再生中の表示（ボタンを押すと曲名とお知らせが入る） -->
+            <div class="now">
+              <p class="now-title" data-now-title>改札の向こう</p>
+              <div class="now-bar" aria-hidden="true"><span></span></div>
+              <p class="now-time"><span>0:00</span><span data-now-length>4:12</span></p>
+              <p class="now-msg" role="status" aria-live="polite" data-now-msg></p>
+            </div>
+            <ol class="tracks">
+              <li>
+                <button type="button" class="track" data-title="改札の向こう" data-length="4:12">
+                  <span class="track-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                  <span class="track-no" aria-hidden="true">01</span>
+                  <span class="track-title">改札の向こう</span>
+                  <span class="track-len">4:12</span>
+                  <span class="visually-hidden">を再生</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="track" data-title="午前五時の約束" data-length="3:48">
+                  <span class="track-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                  <span class="track-no" aria-hidden="true">02</span>
+                  <span class="track-title">午前五時の約束</span>
+                  <span class="track-len">3:48</span>
+                  <span class="visually-hidden">を再生</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="track" data-title="まだ途中の歌" data-length="5:03">
+                  <span class="track-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                  <span class="track-no" aria-hidden="true">03</span>
+                  <span class="track-title">まだ途中の歌</span>
+                  <span class="track-len">5:03</span>
+                  <span class="visually-hidden">を再生</span>
+                </button>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <!-- ダミー：サンプルのため、押してもどこにも移動しない -->
+        <div class="listen-links">
+          <a class="btn btn-ghost" href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9v6l5-3z" fill="currentColor" stroke="none"/></svg>
+            YouTubeで見る
+          </a>
+          <a class="btn btn-ghost" href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7.5 9.5c3-1 6.5-.7 9 .8M8 12.7c2.5-.7 5.3-.5 7.4.7M8.6 15.6c2-.5 4.2-.3 5.8.5"/></svg>
+            配信サービスで聴く
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. なぜ向かうのか（写真は3:2。上に暗いグラデーションを重ねている） -->
+    <section id="why" class="section night section-why" aria-labelledby="why-title">
+      <div class="container why">
+        <figure class="why-photo">
+          <img src="/samples/singer/images/why.webp" width="1600" height="1067" loading="lazy" alt="夜の街で歌う人の後ろ姿">
+        </figure>
+        <div class="why-text">
+          <p class="eyebrow">なぜ向かうのか</p>
+          <h2 id="why-title">あの夜、<wbr>代わりに<wbr>歌ってくれた人がいた。</h2>
+          <p>仕事を辞めるかどうか、ずっと迷っていた夜のことです。終電近くの駅前で、ギターを抱えて歌っている人の前で、なぜか足が止まりました。</p>
+          <p>決して上手な歌ではありませんでした。それなのに、気づいたら涙が出ていました。誰にも言えずにいた気持ちを、あの人が代わりに歌ってくれた気がしたんです。</p>
+          <p>今度は自分が、誰かの言えない気持ちを歌にしたい。それが、歌いはじめた理由です。</p>
+          <p class="sign">凪</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 夜 → 夜明け前 -->
+    <div class="sky sky-1" aria-hidden="true"></div>
+
+    <!-- 4. どこへ向かうのか（背景に写真を敷き、上に夜明け前の青を重ねる） -->
+    <section id="goal" class="section predawn section-goal" aria-labelledby="goal-title">
+      <img class="bg" src="/samples/singer/images/goal.webp" width="1280" height="1600" loading="lazy" alt="夕日に向かって伸びるギターのネック">
+      <div class="container narrow center">
+        <p class="eyebrow">どこへ向かうのか</p>
+        <h2 id="goal-title">いつか、<wbr>音楽だけで<wbr>暮らしていける<wbr>歌い手に。</h2>
+        <p>それが、ずっと先にある目標です。</p>
+        <p>その最初の一歩として、はじめてのアルバムを完成させること。そして、いつも歌わせてもらっている地元のライブハウスで、「はじめてのワンマン」を開くこと。</p>
+        <p>ひとりで歌いはじめた場所から、少しずつ、聴いてくれる人と一緒に進んでいきます。</p>
+        <ol class="steps" aria-label="これからの歩み">
+          <li><span lang="en">Step 1</span>はじめてのアルバム</li>
+          <li><span lang="en">Step 2</span>はじめてのワンマン</li>
+          <li><span lang="en">Someday</span>音楽で暮らす</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. 次のライブ
+         ▼ ライブが決まるたびに、ここを書き換えます ▼
+         ・最終更新日：<time datetime="年-月-日">の datetime と表示の両方を直す
+         ・1本のライブは <li class="live"> のかたまり1つ。いちばん上に、近い日付のライブがくるように並べる
+           - 日付：<time datetime="年-月-日"> の datetime と、表示（月/日・曜日）の両方を直す
+           - 種類：<span class="type type-street">路上</span>／type-event「イベント」／type-house「ライブハウス」のどれか1つ
+           - 会場・時間・ひとこと（料金や出演順など。不要なら <p class="live-note"> の行ごと消す）
+         ・終わったライブは <li> ごと消す -->
+    <section id="live" class="section predawn" aria-labelledby="live-title">
+      <div class="container">
+        <div class="live-head">
+          <div>
+            <p class="eyebrow" lang="en">Live</p>
+            <h2 id="live-title">次のライブ</h2>
+            <p class="updated">最終更新日：<time datetime="2026-11-01">2026年11月1日</time></p>
+          </div>
+          <img class="live-photo" src="/samples/singer/images/live.webp" width="1600" height="1067" loading="lazy" alt="街角に開いて置かれたギターケース">
+        </div>
+
+        <ul class="lives">
+          <li class="live">
+            <p class="live-date"><time datetime="2026-11-08">11/8</time><span>日</span></p>
+            <div class="live-body">
+              <p><span class="type type-street">路上</span><span class="live-time">17:00〜18:30</span></p>
+              <h3 class="live-place">月結駅 北口ひろば</h3>
+            </div>
+          </li>
+          <li class="live">
+            <p class="live-date"><time datetime="2026-11-15">11/15</time><span>日</span></p>
+            <div class="live-body">
+              <p><span class="type type-event">イベント</span><span class="live-time">13:40ごろ出演（約30分）</span></p>
+              <h3 class="live-place">第3回 しずく川あかり市</h3>
+              <p class="live-note">しずく川河川敷 特設ステージ／入場無料</p>
+            </div>
+          </li>
+          <li class="live">
+            <p class="live-date"><time datetime="2026-11-21">11/21</time><span>土</span></p>
+            <div class="live-body">
+              <p><span class="type type-house">ライブハウス</span><span class="live-time">18:30開場／19:00開演</span></p>
+              <h3 class="live-place">ライブハウス 藍渡（あいわたり）</h3>
+              <p class="live-note">弾き語りナイト（4組出演・凪は2番目）／前売 1,500円＋1ドリンク</p>
+            </div>
+          </li>
+          <li class="live">
+            <p class="live-date"><time datetime="2026-11-29">11/29</time><span>日</span></p>
+            <div class="live-body">
+              <p><span class="type type-event">イベント</span><span class="live-time">14:00〜15:00</span></p>
+              <h3 class="live-place">珈琲と古本 ほしづく カフェライブ</h3>
+              <p class="live-note">投げ銭制／ご注文をお願いします</p>
+            </div>
+          </li>
+          <li class="live">
+            <p class="live-date"><time datetime="2026-12-06">12/6</time><span>日</span></p>
+            <div class="live-body">
+              <p><span class="type type-street">路上</span><span class="live-time">17:00〜18:30</span></p>
+              <h3 class="live-place">月結駅 北口ひろば</h3>
+            </div>
+          </li>
+        </ul>
+        <!-- ▲ ここまで ▲ -->
+
+        <div class="live-line">
+          <p>路上ライブは、<wbr>急に決まることがあります。<br>決まったら、<wbr>LINEでお知らせします。</p>
+          <a class="btn btn-line-app" href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+            LINEで友だち追加
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 夜明け前 → 夜明け -->
+    <div class="sky sky-2" aria-hidden="true"></div>
+
+    <!-- 6. 応援者の声（すべて架空） -->
+    <section id="voices" class="section dawn" aria-labelledby="voices-title">
+      <div class="container">
+        <p class="eyebrow" lang="en">Voices</p>
+        <h2 id="voices-title">聴いてくれた人の声</h2>
+        <ul class="voices">
+          <li>
+            <p class="voice-kind">路上で足を止めた人</p>
+            <blockquote><p>仕事帰り、改札を出たところで歌が聞こえてきました。急いでいたはずなのに、最後の1曲まで動けませんでした。あの日から、帰り道に駅前を通るようにしています。</p></blockquote>
+            <p class="who">会社員・Tさん<span class="tag">サンプル</span></p>
+          </li>
+          <li>
+            <p class="voice-kind">ライブに通っている人</p>
+            <blockquote><p>はじめて見た路上ライブは、お客さんが3人でした。今はライブハウスの前のほうが埋まるようになって、ちょっと寂しくて、すごくうれしいです。ワンマンは絶対に行きます。</p></blockquote>
+            <p class="who">大学生・Mさん<span class="tag">サンプル</span></p>
+          </li>
+          <li>
+            <p class="voice-kind">イベントの主催者</p>
+            <blockquote><p>音響のない河川敷の会場でしたが、小さなスピーカーを持ってきて、準備から片付けまでひとりで手際よくやってくれました。走り回っていた子どもたちが、いつの間にか座って聴いていたのが印象的です。</p></blockquote>
+            <p class="who">しずく川あかり市 実行委員・Oさん<span class="tag">サンプル</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 夜明け → 朝 -->
+    <div class="sky sky-3" aria-hidden="true"></div>
+
+    <!-- 7. 出演を依頼したい方へ -->
+    <section id="request" class="section morning" aria-labelledby="request-title">
+      <div class="container">
+        <p class="eyebrow">出演を依頼したい方へ</p>
+        <h2 id="request-title">イベント・お店での<wbr>演奏を<wbr>承っています。</h2>
+        <img class="wide-photo" src="/samples/singer/images/request.webp" width="1600" height="1067" loading="lazy" alt="温かい光の中でギターを弾く手元">
+
+        <div class="request-grid">
+          <div class="card">
+            <h3>これまでの出演</h3>
+            <ul class="dots">
+              <li>しずく川あかり市（2025年・2026年）</li>
+              <li>ことのは通り商店街 夏の夕涼み会</li>
+              <li>珈琲と古本 ほしづく カフェライブ（毎月）</li>
+              <li>ライブハウス 藍渡 弾き語りナイト（定期出演）</li>
+              <li>月結市立図書館 ひだまりコンサート</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>演奏の形</h3>
+            <dl class="spec">
+              <div><dt>編成</dt><dd>ギター弾き語り（1人）</dd></div>
+              <div><dt>演奏時間の目安</dt><dd>20〜60分（5〜12曲ほど）</dd></div>
+              <div><dt>曲</dt><dd>オリジナル曲が中心です。季節の曲や、よく知られた曲のカバーもご相談ください</dd></div>
+            </dl>
+          </div>
+          <div class="card">
+            <h3>必要な機材</h3>
+            <dl class="spec">
+              <div><dt>音響設備がない会場</dt><dd>小型スピーカーとマイクを持ち込んで演奏できます（バッテリー式のため、電源がなくても大丈夫です）</dd></div>
+              <div><dt>音響設備がある会場</dt><dd>ボーカル用マイク1本と、ギター用の入力1系統をお借りできると助かります</dd></div>
+              <div><dt>演奏のスペース</dt><dd>畳2枚ほど（約2m×2m）あれば演奏できます</dd></div>
+            </dl>
+          </div>
+          <div class="card">
+            <h3>出演の条件</h3>
+            <ul class="dots">
+              <li>関西エリアが中心です（遠方は交通費をご相談させてください）</li>
+              <li>出演料は、イベントの規模や内容に合わせてご相談ください</li>
+              <li>屋外の場合は、雨の日の扱いを事前に決めさせてください</li>
+              <li>地域のお祭りや、チャリティのイベントも歓迎です</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card-flow">
+          <h3>依頼の流れ</h3>
+          <ol class="flow">
+            <li><span>1</span>お問い合わせ</li>
+            <li><span>2</span>日程・条件の確認</li>
+            <li><span>3</span>出演</li>
+          </ol>
+          <p class="small">お問い合わせから3日以内にお返事します。</p>
+        </div>
+
+        <p class="center"><a class="btn btn-main" href="#" data-dummy>出演を依頼する</a></p>
+      </div>
+    </section>
+
+    <!-- 8. アルバムづくりを応援する -->
+    <section id="support" class="section morning section-support" aria-labelledby="support-title">
+      <div class="container">
+        <p class="eyebrow">アルバムづくりを応援する</p>
+        <h2 id="support-title">はじめてのアルバムを、<wbr>一緒につくってください。</h2>
+        <img class="wide-photo" src="/samples/singer/images/support.webp" width="1600" height="1067" loading="lazy" alt="楽譜の前に掛けられたヘッドホン">
+
+        <!-- 今どこまで来たか。数字を変えるときは、表示の文字と style="--p: ◯%"（バーの長さ）の両方を直す -->
+        <h3 class="sub">今どこまで来たか</h3>
+        <ul class="progress">
+          <li>
+            <p><span>曲づくり</span><span><b>7</b>曲完成／収録予定 10曲</span></p>
+            <span class="bar" style="--p: 70%" aria-hidden="true"></span>
+          </li>
+          <li>
+            <p><span>録音</span><span>スタジオを探している段階</span></p>
+            <span class="bar" style="--p: 15%" aria-hidden="true"></span>
+          </li>
+          <li>
+            <p><span>制作資金の準備</span><span>目標の<b>40</b>%</span></p>
+            <span class="bar" style="--p: 40%" aria-hidden="true"></span>
+          </li>
+          <li>
+            <p><span>はじめてのワンマン</span><span>会場の候補を検討中</span></p>
+            <span class="bar" style="--p: 20%" aria-hidden="true"></span>
+          </li>
+        </ul>
+        <p class="small">数字はすべて架空のサンプルです（2026年11月時点）。</p>
+
+        <h3 class="sub">応援のかたち</h3>
+        <ol class="ways">
+          <li class="way">
+            <p class="way-num" lang="en">01</p>
+            <h4>クラウドファンディング<span class="pill">開始予定</span></h4>
+            <p>録音とCDの制作のために、クラウドファンディングを予定しています。お礼には、完成したアルバムや、ライブへのご招待などを準備しています。</p>
+            <p class="way-hint">LINEで友だち追加すると、始まった日にお知らせが届きます。</p>
+            <a class="btn btn-line-app" href="#" data-dummy>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+              LINEで友だち追加
+            </a>
+          </li>
+          <li class="way">
+            <p class="way-num" lang="en">02</p>
+            <h4>アルバムのスペシャルサンクス</h4>
+            <p>応援してくださった方のお名前を、アルバムの歌詞カードに「スペシャルサンクス」として載せます。そして、はじめてのワンマンにご招待します。</p>
+            <a class="btn btn-outline" href="#" data-dummy>くわしく聞く</a>
+          </li>
+          <li class="way">
+            <p class="way-num" lang="en">03</p>
+            <h4>音源の予約</h4>
+            <p>アルバムが完成したら、予約してくださった方に、まっさきにお届けします。</p>
+            <a class="btn btn-outline" href="#" data-dummy>先行予約の窓口へ</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 9. 連絡先 -->
+    <section id="contact" class="section morning section-contact" aria-labelledby="contact-title">
+      <div class="container narrow center">
+        <p class="eyebrow" lang="en">Contact</p>
+        <h2 id="contact-title">ライブの感想も、<wbr>お待ちしています。</h2>
+        <p>出演のご依頼、応援のご相談、<wbr>「この町でも歌って」のリクエストも歓迎です。</p>
+        <!-- ダミー：サンプルのため、押してもどこにも移動しない -->
+        <p class="contact-main"><a class="btn btn-main" href="#" data-dummy>問い合わせる</a></p>
+        <ul class="sns">
+          <li><a href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+            LINE<span class="handle">ライブのお知らせ</span>
+          </a></li>
+          <li><a href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+            Instagram<span class="handle">@nagi_utau</span>
+          </a></li>
+          <li><a href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9v6l5-3z" fill="currentColor" stroke="none"/></svg>
+            YouTube<span class="handle">凪 NAGI</span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 10. クレジット -->
+  <footer>
+    <!-- 撮影者名（どの写真のものか）
+         ・se-chang-jang-bRpcPjGlAok-unsplash.jpg     → Se-chang Jang（Unsplash）     … なぜ向かうのか：why.webp
+         ・photo-1510915361894-db8b60106cb1.avif      → Jefferson Santos（Unsplash）  … 出演を依頼したい方へ：request.webp
+         ・photo-1488376739361-ed24c9beb6d0.avif      → Kelly Sikkema（Unsplash）     … アルバムづくりを応援する：support.webp
+         ・photo-1503671420638-0301955fc0d7__1_.jpg   → 撮影者不明（Unsplash）        … トップ：top.webp・top-sp.webp
+         ・photo-1521260002878-f0a6831b996a__1_.jpg   → 撮影者不明（Unsplash）        … プレーヤーのジャケット：jacket.webp
+         ・andreasaux-guitar-case-485112_1920.jpg     → andreasaux（Pixabay）         … 次のライブ：live.webp
+         ・tehzeebkazmi-sunset-6174137_1920.jpg       → tehzeebkazmi（Pixabay）       … どこへ向かうのか：goal.webp -->
+    <p class="credit">
+      写真：<a href="https://unsplash.com/" rel="noopener">Unsplash</a>（Se-chang Jang、Jefferson Santos、Kelly Sikkema ほか）／<a href="https://pixabay.com/" rel="noopener">Pixabay</a>（andreasaux、tehzeebkazmi）<br>
+      人物・曲・場所・内容はすべて架空です。
+    </p>
+    <!-- 誠屋への導線（灯・こみちのサンプルと同じ。誠屋の配色） -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/singer/singer.js"></script>
+</body>
+</html>

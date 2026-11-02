@@ -903,12 +903,12 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .samples-action { align-items: stretch; }
 }
 
-/* サンプルHPの一覧：スマホの画面を2つ並べて、デザインの違いを見せる（スマホ幅でも2列） */
+/* サンプルHPの一覧：スマホの画面を3つ並べて、デザインの違いを見せる（スマホ幅でも3列） */
 .samples-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px 16px;
-  max-width: 640px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 10px;
+  max-width: 900px;
   margin: 40px auto 0;
 }
 .samples-card a {
@@ -943,8 +943,21 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   text-underline-offset: 5px;
 }
 .samples-card a:hover .btn-arrow { transform: translateX(4px); }
+/* スマホ幅は3列だと1列が狭いので、枠と文字を小さくする */
+@media (max-width: 599px) {
+  .samples-card-phone { margin-bottom: 14px; padding: 4px; border-radius: 18px; }
+  .samples-card-phone .phone-screen { border-radius: 14px; }
+  .samples-card-kind { font-size: .625rem; letter-spacing: 0; word-break: keep-all; }
+  .samples-card-name { font-size: 1rem; letter-spacing: .04em; }
+  .samples-card-text { font-size: .6875rem; line-height: 1.7; letter-spacing: 0; }
+  .samples-card-more { font-size: .6875rem; letter-spacing: 0; text-underline-offset: 4px; white-space: nowrap; }
+  .samples-card-more .btn-arrow { display: none; }
+}
+@media (min-width: 600px) and (max-width: 959px) {
+  .samples-list { gap: 40px 20px; }
+}
 @media (min-width: 960px) {
-  .samples-list { gap: 48px 64px; margin-top: 56px; }
+  .samples-list { gap: 48px 48px; margin-top: 56px; }
   .samples-card-phone { padding: 8px; border-radius: 36px; }
   .samples-card-phone .phone-screen { border-radius: 28px; }
   .samples-card-kind { font-size: .8125rem; letter-spacing: .04em; }
