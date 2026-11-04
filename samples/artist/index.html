@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空の人物）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>栞 SHIORI｜水彩画家（誠屋のサンプルHP）</title>
+  <meta name="description" content="誠屋HP制作が作成したサンプルHPです。登場する人物・作品・お店・内容はすべて架空です。">
+  <meta name="theme-color" content="#F8F6F1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Zen+Kaku+Gothic+New:wght@400;700&family=Zen+Old+Mincho:wght@400;600&display=swap">
+  <link rel="preload" as="image" href="/samples/artist/images/work-madobe.webp" fetchpriority="high">
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+  </script>
+  <link rel="stylesheet" href="/samples/artist/artist.css">
+</head>
+<body>
+  <!-- サンプルであることを示す帯（画面の上に固定。ギャラリーの邪魔にならないよう細く） -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場する人物・作品・お店・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <!-- 今何枚目かの目印（画面の右端。押すとその作品へ。artist.js が今の作品に aria-current を付ける） -->
+  <nav class="dots" aria-label="作品の切り替え">
+    <a href="#madobe" aria-current="true"><span class="visually-hidden">1枚目：窓辺の花</span></a>
+    <a href="#keiryu"><span class="visually-hidden">2枚目：春の渓流</span></a>
+    <a href="#neko"><span class="visually-hidden">3枚目：路地で眠る猫</span></a>
+    <a href="#ajisai"><span class="visually-hidden">4枚目：紫陽花</span></a>
+  </nav>
+
+  <main>
+
+    <!-- ===== 全画面ギャラリー（1スクロールで1作品。CSSの scroll-snap で止める） =====
+         作品を足すときは <section class="work"> を1つコピーし、id・画像・作品名・価格を直す。
+         右端の目印（.dots）にも <a> を1つ足す。
+         作品の画像の位置は style="--pos: 横% 縦%"（PCで画面いっぱいに広げたときに、どこを中心にするか）
+         文字の位置（PC）は cap-tl（左上）・cap-tc（上の真ん中）・cap-tr（右上） -->
+    <div class="gallery">
+
+      <!-- 1枚目：窓辺の花（トップを兼ねる） -->
+      <section id="madobe" class="work work-first cap-tl" style="--pos: 50% 60%" aria-labelledby="artist-name">
+        <div class="work-art">
+          <img src="/samples/artist/images/work-madobe.webp" width="1920" height="1080" fetchpriority="high" alt="水彩画『窓辺の花』。窓辺に並ぶ桃色・紫・白のアネモネと、淡い青のにじみ">
+        </div>
+        <div class="work-hero">
+          <p class="hero-kind">水彩画家</p>
+          <h1 id="artist-name">栞<span lang="en">SHIORI</span></h1>
+          <p class="hero-lead">暮らしの中に、<wbr>一枚の絵を。</p>
+          <!-- 3つの入口（ページ内のそれぞれのブロックへ） -->
+          <nav class="doors" aria-label="このページの入口">
+            <a class="door-main" href="#keiryu">作品を<wbr>見る・買う</a>
+            <a href="#shops">絵を飾ってくれる<wbr>お店を募集</a>
+            <a href="#request">出店・オーダーを<wbr>依頼する</a>
+          </nav>
+        </div>
+        <div class="work-cap">
+          <p class="cap-title">窓辺の花</p>
+          <p class="cap-spec">透明水彩・M8号 45.5×27.3cm</p>
+          <p class="cap-price">原画 ¥48,000<small>（税込・額装つき）</small></p>
+        </div>
+      </section>
+
+      <!-- 2枚目：春の渓流 -->
+      <section id="keiryu" class="work cap-tc" style="--pos: 50% 40%" aria-labelledby="keiryu-title">
+        <div class="work-art">
+          <img src="/samples/artist/images/work-keiryu.webp" width="1600" height="1200" loading="lazy" alt="水彩画『春の渓流』。霧の中、薄紫の花をつけた木と岩のあいだを、飛び石の渓流が流れる">
+        </div>
+        <div class="work-cap">
+          <h2 id="keiryu-title" class="cap-title">春の渓流</h2>
+          <p class="cap-spec">透明水彩・F4号 33.3×24.2cm</p>
+          <p class="cap-price">原画 ¥32,000<small>（税込・額装つき）</small></p>
+          <a class="btn btn-main btn-sm" href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+            この絵について相談する（LINE）
+          </a>
+        </div>
+      </section>
+
+      <!-- 3枚目：路地で眠る猫（売約済みの見せ方の例） -->
+      <section id="neko" class="work cap-tl" style="--pos: 72% 50%" aria-labelledby="neko-title">
+        <div class="work-art">
+          <img src="/samples/artist/images/work-neko.webp" width="1920" height="1080" loading="lazy" alt="水彩画『路地で眠る猫』。草花の茂みのそばで、茶トラと白の猫が丸くなって眠っている">
+        </div>
+        <div class="work-cap">
+          <h2 id="neko-title" class="cap-title">路地で眠る猫</h2>
+          <p class="cap-spec">透明水彩・M6号 41.0×24.2cm</p>
+          <p class="cap-sold"><span lang="en">SOLD</span>ありがとうございます。<wbr>37軒目のお家に届きました。</p>
+          <a class="cap-link" href="#goods">ポストカードはこちら</a>
+        </div>
+      </section>
+
+      <!-- 4枚目：紫陽花（カフェの壁のカードのQRコードは、ここ #ajisai を開く） -->
+      <section id="ajisai" class="work cap-tc" style="--pos: 50% 35%" aria-labelledby="ajisai-title">
+        <div class="work-art">
+          <img src="/samples/artist/images/work-ajisai.webp" width="1600" height="1200" loading="lazy" alt="水彩画『紫陽花』。淡い青と白の紫陽花が、緑の葉のあいだに横いっぱいに咲いている">
+        </div>
+        <div class="work-cap">
+          <h2 id="ajisai-title" class="cap-title">紫陽花</h2>
+          <p class="cap-spec">透明水彩・F6号 41.0×31.8cm</p>
+          <p class="cap-price">原画 ¥42,000<small>（税込・額装つき）</small></p>
+          <p class="cap-where">今月は「喫茶 みずはの庭」に<wbr>飾られています</p>
+          <a class="btn btn-main btn-sm" href="#" data-dummy>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+            この絵について相談する（LINE）
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ===== ここから普通のスクロール（artist.js が、ここまで来たらスクロールスナップを外す） ===== -->
+    <div class="after">
+
+      <!-- 5. どこへ向かうのか
+           数字を変えるときは、表示の「37」と、バーの style="--p: 37%" の両方を直す -->
+      <section id="goal" class="section" aria-labelledby="goal-title">
+        <div class="container narrow center">
+          <p class="eyebrow" lang="en">Where</p>
+          <h2 id="goal-title">自分の絵が<wbr>飾られている家を、<wbr>100軒にする。</h2>
+          <p>今は地元のマルシェやカフェの壁で展示し、<wbr>少しずつ作品を<wbr>手に取ってもらっています。</p>
+          <p>一軒ずつ、<wbr>絵が暮らしの中に<wbr>入っていく様子を、<wbr>ここに記録していきます。</p>
+          <div class="count">
+            <p class="count-num"><b>37</b><span class="count-slash">/</span><span>100</span>軒</p>
+            <span class="bar" style="--p: 37%" aria-hidden="true"></span>
+            <p class="small">今、絵が飾られているお家の数（2026年11月時点・架空のサンプルです）</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. なぜ向かうのか -->
+      <section id="why" class="section" aria-labelledby="why-title">
+        <div class="container why">
+          <figure class="why-photo">
+            <img src="/samples/artist/images/atelier-desk.webp" width="817" height="1281" loading="lazy" alt="机の上に置かれた白い水彩紙と筆、絵の具のパレット、水の入ったグラス">
+          </figure>
+          <div class="why-text">
+            <p class="eyebrow" lang="en">Why</p>
+            <h2 id="why-title">祖母の家の廊下に、<wbr>一枚の絵があった。</h2>
+            <p>祖母の家の廊下には、名前も知らない画家の、小さな風景画がずっと掛かっていました。</p>
+            <p>祖母はその絵の前を通るたびに、少しだけ足を止めていました。何かを話しかけるでもなく、ほんの数秒、眺めてから台所へ戻っていく。その後ろ姿を、今でもよく覚えています。</p>
+            <p>有名な美術館の絵ではなく、毎日の暮らしの中で、誰かをそっと支える絵を描きたい。それが、筆を持ち続けている理由です。</p>
+            <p class="sign">栞</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. 絵を飾ってくれるお店を募集 -->
+      <section id="shops" class="section section-shops" aria-labelledby="shops-title">
+        <div class="container">
+          <p class="eyebrow" lang="en">For Shops</p>
+          <h2 id="shops-title">お店の壁に、<wbr>絵を飾ってくれませんか。</h2>
+          <img class="wide-photo" src="/samples/artist/images/shop-cafe.webp" width="1600" height="1200" loading="lazy" alt="木のテーブルが並ぶカフェの白い壁に、額装された水彩画『紫陽花』が飾られている">
+
+          <h3 class="sub">お店にとってのいいところ</h3>
+          <ol class="merits">
+            <li><span lang="en">01</span><p><b>毎月、絵が変わります。</b>常連さんの「今月はどんな絵かな」という、小さな楽しみの1つになります。</p></li>
+            <li><span lang="en">02</span><p><b>費用はかかりません。</b>レンタル料・手数料などは一切いただきません（無料）。</p></li>
+            <li><span lang="en">03</span><p><b>手間もかかりません。</b>飾る・掛け替える・購入のやりとりは、すべて栞が行います。</p></li>
+            <li><span lang="en">04</span><p><b>お店を紹介します。</b>このHPの「今月、絵に会えるお店」で、お店の名前と場所をご紹介します。</p></li>
+          </ol>
+
+          <!-- 絵の横に置くカードの見本（QRコードは、このページの #ajisai を開く。作り方は README） -->
+          <h3 class="sub">絵の横に置くカード</h3>
+          <div class="card-demo">
+            <div class="label-card" aria-label="カードの見本">
+              <div class="label-text">
+                <p class="label-artist"><span lang="en">SHIORI</span>栞</p>
+                <p class="label-title">紫陽花</p>
+                <p class="label-spec">透明水彩・F6号 41.0×31.8cm</p>
+                <p class="label-price">¥42,000<small>（税込・額装つき）</small></p>
+              </div>
+              <figure class="label-qr">
+                <img src="/samples/artist/images/qr-ajisai.svg" width="41" height="41" loading="lazy" alt="このページの作品『紫陽花』を開くQRコード">
+                <figcaption>購入の相談は<br>こちらから</figcaption>
+              </figure>
+            </div>
+            <p class="card-demo-text">気に入った絵は、<wbr>QRコードから<wbr>その場で購入の相談ができます。<br><span class="small">（このQRコードをスマホで読み取ると、このページの『紫陽花』が開きます）</span></p>
+          </div>
+
+          <!-- 今、絵に会えるお店
+               ▼ 毎月、掛け替えたらここを書き換えます ▼
+               ・1軒は <li> のかたまり1つ。店名・地域・飾っている作品を直す -->
+          <h3 class="sub">今月、絵に会えるお店</h3>
+          <ul class="shops">
+            <li>
+              <p class="shop-name">喫茶 みずはの庭</p>
+              <p class="shop-area">ほたる坂町</p>
+              <p class="shop-work">『紫陽花』</p>
+            </li>
+            <li>
+              <p class="shop-name">パンと珈琲 あさぎ舎</p>
+              <p class="shop-area">ゆうなぎ台</p>
+              <p class="shop-work">『春の渓流』</p>
+            </li>
+            <li>
+              <p class="shop-name">器と花の店 そらまめ</p>
+              <p class="shop-area">みずはら川通り</p>
+              <p class="shop-work">『窓辺の花』</p>
+            </li>
+          </ul>
+          <!-- ▲ ここまで ▲ -->
+
+          <h3 class="sub">飾るまでの流れ</h3>
+          <ol class="flow">
+            <li><span>1</span><p><b>お問い合わせ</b>壁の広さや、お店の雰囲気を教えてください。</p></li>
+            <li><span>2</span><p><b>絵を選ぶ</b>お店に伺って、雰囲気に合う絵を一緒に選びます。</p></li>
+            <li><span>3</span><p><b>月替わりで掛け替え</b>毎月、栞が新しい絵を持って伺います。</p></li>
+          </ol>
+          <p class="center"><a class="btn btn-main" href="#" data-dummy>飾ってくれるお店を相談する</a></p>
+        </div>
+      </section>
+
+      <!-- 8. ポストカードなど（ネットショップは BASE などの外部サービスにつなぐ想定） -->
+      <section id="goods" class="section" aria-labelledby="goods-title">
+        <div class="container">
+          <p class="eyebrow" lang="en">Goods</p>
+          <h2 id="goods-title">もっと気軽に、<wbr>手のひらの一枚を。</h2>
+          <p class="lead">原画のほかに、<wbr>ポストカードやミニ額装もご用意しています。<wbr>贈りものにも。</p>
+          <ul class="goods">
+            <li>
+              <div class="postcard"><img src="/samples/artist/images/work-neko.webp" width="1920" height="1080" loading="lazy" alt="ポストカード『路地で眠る猫』"></div>
+              <h3>ポストカード</h3>
+              <p class="goods-note">全12種類。原画が売れた絵も、ポストカードで残しています。</p>
+              <p class="goods-price">1枚 ¥200<small>（税込）</small></p>
+            </li>
+            <li>
+              <div class="postcard postcard-stack"><img src="/samples/artist/images/work-keiryu.webp" width="1600" height="1200" loading="lazy" alt="ポストカード『春の渓流』"></div>
+              <h3>季節のポストカード 5枚セット</h3>
+              <p class="goods-note">春・夏・秋・冬と、その月の1枚を組み合わせたセットです。</p>
+              <p class="goods-price">5枚 ¥900<small>（税込）</small></p>
+            </li>
+            <li>
+              <div class="postcard postcard-frame"><img src="/samples/artist/images/work-ajisai.webp" width="1600" height="1200" loading="lazy" alt="木の額に入ったミニ額装『紫陽花』"></div>
+              <h3>ミニ額装</h3>
+              <p class="goods-note">ポストカードを木の額に入れたもの。棚や玄関に、そのまま置けます。</p>
+              <p class="goods-price">1点 ¥2,800<small>（税込）</small></p>
+            </li>
+          </ul>
+          <p class="center"><a class="btn btn-outline" href="#" data-dummy>ネットショップで見る</a></p>
+        </div>
+      </section>
+
+      <!-- 9. 出店・オーダーを依頼する -->
+      <section id="request" class="section" aria-labelledby="request-title">
+        <div class="container">
+          <p class="eyebrow" lang="en">Request</p>
+          <h2 id="request-title">出店・オーダーの<wbr>ご依頼を<wbr>承っています。</h2>
+          <img class="wide-photo wide-photo-hand" src="/samples/artist/images/atelier-hand.webp" width="1600" height="1066" loading="lazy" alt="木の机の上で、スケッチブックに水彩を描く手。手前に絵の具のパレットと水入れ">
+
+          <div class="request-grid">
+            <div class="card">
+              <h3>マルシェ・イベントの<wbr>主催者の方へ</h3>
+              <p class="card-lead">原画の展示と、ポストカード・ミニ額装の販売で出店します。</p>
+              <h4>これまでの出店</h4>
+              <ul class="dots-list">
+                <li>ほたる坂 てしごと市（毎月第2日曜）</li>
+                <li>ゆうなぎ台 日曜マルシェ</li>
+                <li>みずはら川 あかりの手づくり市</li>
+                <li>つむぎ公園 秋のクラフトフェア</li>
+                <li>本と雑貨の小さな市 しおさい</li>
+              </ul>
+              <h4>必要なスペースの目安</h4>
+              <dl class="spec">
+                <div><dt>広さ</dt><dd>約2m×2m（長机1台と、絵を立てるイーゼル2台）</dd></div>
+                <div><dt>電源</dt><dd>不要です</dd></div>
+                <div><dt>屋外の場合</dt><dd>テントをお借りできると助かります（雨の日は、絵を守るため原画の展示を控えます）</dd></div>
+              </dl>
+              <p class="card-btn"><a class="btn btn-main" href="#" data-dummy>出店を依頼する</a></p>
+            </div>
+
+            <div class="card">
+              <h3>オーダーの絵</h3>
+              <p class="card-lead">お家や家族、ペットなど、<wbr>あなたの大切な風景を一枚の水彩画にします。<wbr>新築や結婚、長寿のお祝いにも。</p>
+              <h4>サイズと価格の目安</h4>
+              <dl class="spec spec-price">
+                <div><dt>ハガキ（14.8×10cm）</dt><dd>¥12,000〜</dd></div>
+                <div><dt>F4号（33.3×24.2cm）</dt><dd>¥30,000〜</dd></div>
+                <div><dt>F6号（41.0×31.8cm）</dt><dd>¥45,000〜</dd></div>
+              </dl>
+              <p class="small">税込・額装つき。描くものの数や細かさによって変わります。</p>
+              <h4>完成までの期間</h4>
+              <p>ご依頼から、約1〜2か月です。</p>
+              <h4>依頼の流れ</h4>
+              <ol class="steps">
+                <li>ご相談</li>
+                <li>写真とお話を伺う</li>
+                <li>下絵でご確認</li>
+                <li>制作・お届け</li>
+              </ol>
+              <p class="card-btn"><a class="btn btn-main" href="#" data-dummy>オーダーを相談する</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. 応援者の声（すべて架空） -->
+      <section id="voices" class="section" aria-labelledby="voices-title">
+        <div class="container">
+          <p class="eyebrow" lang="en">Voices</p>
+          <h2 id="voices-title">絵を迎えてくれた人の声</h2>
+          <ul class="voices">
+            <li>
+              <p class="voice-kind">絵を買ってくれた人</p>
+              <blockquote><p>玄関に『路地で眠る猫』を飾っています。仕事から帰って扉を開けると、まず猫と目が合う……のではなく、猫はいつも眠っています。それを見ると、なんだか肩の力が抜けるんです。</p></blockquote>
+              <p class="who">会社員・Kさん<span class="tag">サンプル</span></p>
+            </li>
+            <li>
+              <p class="voice-kind">絵を飾っているお店</p>
+              <blockquote><p>月の初めになると、常連さんが「今月の絵、もう変わった？」と聞いてくれるようになりました。壁の絵の話から、お客さん同士の会話が始まることもあります。</p></blockquote>
+              <p class="who">喫茶 みずはの庭 店主・Sさん<span class="tag">サンプル</span></p>
+            </li>
+            <li>
+              <p class="voice-kind">マルシェで出会った人</p>
+              <blockquote><p>子どもが「この絵、おばあちゃんちの近くの川に似てる」と言って、ポストカードを選びました。今は祖母への手紙に、毎回1枚ずつ使っています。</p></blockquote>
+              <p class="who">ほたる坂 てしごと市で・Yさん<span class="tag">サンプル</span></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 11. 連絡先 -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+        <div class="container narrow center">
+          <p class="eyebrow" lang="en">Contact</p>
+          <h2 id="contact-title">絵のこと、<wbr>なんでも<wbr>お気軽に。</h2>
+          <p>作品の購入、お店での展示、<wbr>出店やオーダーのご相談をお待ちしています。</p>
+          <!-- ダミー：サンプルのため、押してもどこにも移動しない -->
+          <p class="contact-main"><a class="btn btn-main" href="#" data-dummy>問い合わせる</a></p>
+          <ul class="sns">
+            <li><a href="#" data-dummy>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+              LINE<span class="handle">新作・出店のお知らせ</span>
+            </a></li>
+            <li><a href="#" data-dummy>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+              Instagram<span class="handle">@shiori_suisai</span>
+            </a></li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 12. クレジット -->
+  <footer>
+    <!-- 画像の出どころ（どの画像がどこから来たものか）
+         ・こみち (3).png                              → 生成AI     … 1枚目「窓辺の花」：work-madobe.webp
+         ・名称未設定のデザイン (14).png               → 生成AI     … 2枚目「春の渓流」：work-keiryu.webp（ポストカード5枚セットの写真にも使用）
+         ・こみち (6).png                              → 生成AI     … 3枚目「路地で眠る猫」：work-neko.webp（ポストカードの写真にも使用）
+         ・名称未設定のデザイン (15).png               → 生成AI     … 4枚目「紫陽花」：work-ajisai.webp（ミニ額装の写真にも使用）
+         ・名称未設定のデザイン (16).png               → 生成AI     … 7. お店の募集「カフェの壁」：shop-cafe.webp
+         ・photo-1616169201999-0d80789e41c3.avif       → Unsplash   … 6. なぜ向かうのか：atelier-desk.webp（左端の画材の袋のロゴが入らないよう、右側を切り抜き）
+         ・photo-1581560550192-5635c4e033c7.avif       → Unsplash   … 9. 出店・オーダー：atelier-hand.webp（筆を持つ手・パレット・スケッチブック。切り抜きなし）
+         ・qr-ajisai.svg → https://makotoyarickshaw.jp/samples/artist/#ajisai を開くQRコード（README参照） -->
+    <p class="credit">
+      作品画像・お店の画像は、架空の画家のサンプルとして生成AIで作成しています。／写真：<a href="https://unsplash.com/" rel="noopener">Unsplash</a><br>
+      人物・作品・お店・地名・イベント・内容はすべて架空です。
+    </p>
+    <!-- 誠屋への導線（灯・こみち・凪のサンプルと同じ。誠屋の配色） -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/artist/artist.js"></script>
+</body>
+</html>
