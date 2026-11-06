@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空の団体）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>協力農家さんの紹介｜ひだまり食堂（誠屋のサンプルHP）</title>
+  <meta name="description" content="誠屋HP制作が作成したサンプルHPです。登場する団体・人物・場所・内容はすべて架空です。">
+  <meta name="theme-color" content="#FFF6DC">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+  </script>
+  <link rel="stylesheet" href="/samples/kodomo-shokudo/kodomo-shokudo.css">
+</head>
+<body class="page-farmers">
+  <!-- サンプルであることを示す帯（画面の上に固定） -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場する団体・人物・場所・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <!-- 飾りの形（1ページ目と同じ） -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="deco-sun" viewBox="0 0 32 32"><circle cx="16" cy="16" r="7" fill="currentColor"/><g stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M16 2.5v4M16 25.5v4M2.5 16h4M25.5 16h4M6.5 6.5l2.8 2.8M22.7 22.7l2.8 2.8M6.5 25.5l2.8-2.8M22.7 9.3l2.8-2.8"/></g></symbol>
+    <symbol id="deco-star" viewBox="0 0 32 32"><path fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M16 3.5l3.7 7.8 8.5 1.1-6.2 5.9 1.6 8.4L16 22.6l-7.6 4.1 1.6-8.4-6.2-5.9 8.5-1.1z"/></symbol>
+    <symbol id="deco-cloud" viewBox="0 0 48 32"><path fill="currentColor" d="M13 27h23a8 8 0 0 0 .6-16A11 11 0 0 0 15.7 9.5 8.8 8.8 0 0 0 13 27z"/></symbol>
+    <symbol id="deco-note" viewBox="0 0 32 32"><path fill="currentColor" d="M13 5.5 27 2v18.2a4.3 4.3 0 1 1-2.6-4V8.6L15.6 11v12.6a4.3 4.3 0 1 1-2.6-4z"/></symbol>
+    <symbol id="deco-heart" viewBox="0 0 32 32"><path fill="currentColor" d="M16 28S3 20.4 3 11.6A6.6 6.6 0 0 1 16 9a6.6 6.6 0 0 1 13 2.6C29 20.4 16 28 16 28z"/></symbol>
+  </svg>
+
+  <main>
+    <!-- トップ -->
+    <header class="farm-hero" aria-labelledby="farm-title">
+      <svg class="deco d-sun-big" aria-hidden="true"><use href="#deco-sun"/></svg>
+      <svg class="deco d-cloud1" aria-hidden="true"><use href="#deco-cloud"/></svg>
+      <svg class="deco d-star1" aria-hidden="true"><use href="#deco-star"/></svg>
+      <svg class="deco d-heart1" aria-hidden="true"><use href="#deco-heart"/></svg>
+      <div class="farm-hero-inner">
+        <p class="back"><a href="/samples/kodomo-shokudo/"><span aria-hidden="true">←</span>ひだまり食堂の トップへ もどる</a></p>
+        <h1 id="farm-title" class="farm-title">ひだまり食堂の<wbr> ごはんを<wbr> つくって くれる<wbr> <ruby>農家<rp>（</rp><rt>のうか</rt><rp>）</rp></ruby>さん</h1>
+        <p class="farm-lead">ひだまり食堂のごはんは、泉州の農家さんが届けてくださる食材で作っています。どの料理に、どこの野菜が使われているのか、ご紹介します。直売所にも、ぜひ足を運んでみてください。</p>
+        <nav class="farm-jumps" aria-label="農家さんの一覧">
+          <a href="#rice"><img src="/samples/kodomo-shokudo/images/farm-rice.webp" width="500" height="500" alt="">おこめ</a>
+          <a href="#mizunasu"><img src="/samples/kodomo-shokudo/images/farm-mizunasu.webp" width="500" height="500" alt="">みずなす</a>
+          <a href="#onion"><img src="/samples/kodomo-shokudo/images/farm-onion.webp" width="500" height="500" alt="">たまねぎ</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="scallop scallop-to-white" aria-hidden="true"></div>
+
+    <!-- 農家さんのカード（すべて架空）
+         ▼ 農家さんを足すときは <article class="farm"> を1つコピーし、id・イラスト・文を直す ▼
+         ・上の一覧（.farm-jumps）と、1ページ目の「協力してくれている農家さん」にも1つ足す -->
+    <div class="farms bg-white">
+      <div class="container">
+
+        <!-- 1. お米 -->
+        <article id="rice" class="farm c-green" aria-labelledby="rice-name">
+          <figure class="farm-art food food-1">
+            <img src="/samples/kodomo-shokudo/images/farm-rice.webp" width="500" height="500" alt="稲穂とお椀に入ったお米のイラスト">
+          </figure>
+          <div class="farm-body">
+            <p class="farm-area">泉州・ささなみ町</p>
+            <h2 id="rice-name" class="farm-name">あぜみち農園</h2>
+            <dl class="farm-info">
+              <div><dt>届けてくれている食材</dt><dd>お米（毎月30kg）</dd></div>
+              <div><dt>時期</dt><dd>1年中。10月からは新米に変わります</dd></div>
+            </dl>
+            <p class="farm-kid"><svg aria-hidden="true"><use href="#deco-star"/></svg>この おこめで、<wbr>おにぎりが ふっくら <wbr>つやつやに なるよ！</p>
+            <blockquote class="farm-voice">
+              <p>炊きたての湯気を見たら、田んぼの苦労なんか忘れてまうわ。おかわり、なんぼでもしてや。</p>
+              <footer>あぜみち農園・にしおさん</footer>
+            </blockquote>
+            <div class="farm-dishes">
+              <h3>ひだまり食堂では</h3>
+              <ul><li>ごはん</li><li>おにぎり ていしょく</li><li>カレーライス</li></ul>
+            </div>
+            <div class="farm-shop">
+              <h3>直売所</h3>
+              <p><b>あぜみち農園 直売小屋</b>ささなみ町2丁目（田んぼの横の小屋）</p>
+              <p>土・日　9:00〜12:00</p>
+              <a class="farm-sns" href="#" data-dummy><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram @azemichi_farm</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. 泉州の水なす -->
+        <article id="mizunasu" class="farm c-berry" aria-labelledby="mizunasu-name">
+          <figure class="farm-art food food-2">
+            <img src="/samples/kodomo-shokudo/images/farm-mizunasu.webp" width="500" height="500" loading="lazy" alt="泉州の水なすのイラスト">
+          </figure>
+          <div class="farm-body">
+            <p class="farm-area">泉州・うみかぜ町</p>
+            <h2 id="mizunasu-name" class="farm-name">しずく畑</h2>
+            <dl class="farm-info">
+              <div><dt>届けてくれている食材</dt><dd>水なす</dd></div>
+              <div><dt>時期</dt><dd>夏（6月〜8月）</dd></div>
+            </dl>
+            <p class="farm-note">水なすは泉州の特産。皮がうすく水分がたっぷりで、生でも食べられる、みずみずしいなすです。</p>
+            <p class="farm-kid"><svg aria-hidden="true"><use href="#deco-star"/></svg>みずなすは、<wbr>なまでも たべられるんだよ。<wbr>かじると じゅわっ！</p>
+            <blockquote class="farm-voice">
+              <p>形がふぞろいでも、味は一緒やで。子どもらが「じゅわっとした！」言うてくれるのが、いちばんうれしいねん。</p>
+              <footer>しずく畑・おかださん</footer>
+            </blockquote>
+            <div class="farm-dishes">
+              <h3>ひだまり食堂では</h3>
+              <ul><li>なつの おつけもの</li><li>なすの おみそしる</li></ul>
+            </div>
+            <div class="farm-shop">
+              <h3>直売所</h3>
+              <p><b>しずく畑の 無人販売所</b>うみかぜ町1丁目（うみかぜ公園の向かい）</p>
+              <p>6月〜8月の毎日　8:00〜売り切れまで</p>
+              <a class="farm-sns" href="#" data-dummy><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram @shizuku_batake</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. 玉ねぎ（1ページ目のカレーの一言は、ここ #onion にリンクしている） -->
+        <article id="onion" class="farm c-orange" aria-labelledby="onion-name">
+          <figure class="farm-art food food-3">
+            <img src="/samples/kodomo-shokudo/images/farm-onion.webp" width="500" height="500" loading="lazy" alt="玉ねぎのイラスト">
+          </figure>
+          <div class="farm-body">
+            <p class="farm-area">泉州・ゆずの木町</p>
+            <h2 id="onion-name" class="farm-name">ころころ農園</h2>
+            <dl class="farm-info">
+              <div><dt>届けてくれている食材</dt><dd>玉ねぎ</dd></div>
+              <div><dt>時期</dt><dd>5月〜翌年2月（夏からは、つるして保存した玉ねぎ）</dd></div>
+            </dl>
+            <p class="farm-kid"><svg aria-hidden="true"><use href="#deco-star"/></svg>この たまねぎで、<wbr>カレーが あまく なるよ！</p>
+            <blockquote class="farm-voice">
+              <p>じっくり炒めたら、びっくりするほど甘なるで。玉ねぎ嫌いの子が、ここのカレーはおかわりする言うて聞いたわ。</p>
+              <footer>ころころ農園・はやしさん</footer>
+            </blockquote>
+            <div class="farm-dishes">
+              <h3>ひだまり食堂では</h3>
+              <ul><li>カレーライス</li><li>おみそしる</li><li>ポテトサラダ</li></ul>
+            </div>
+            <div class="farm-shop">
+              <h3>直売所</h3>
+              <p><b>ころころ農園 直売所</b>ゆずの木町5丁目（農園の入口）</p>
+              <p>水・土　10:00〜15:00</p>
+              <a class="farm-sns" href="#" data-dummy><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram @korokoro_noen</a>
+            </div>
+          </div>
+        </article>
+        <!-- ▲ ここまで ▲ -->
+
+      </div>
+    </div>
+
+    <div class="wave wave-white-to-yellow" aria-hidden="true"><svg viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0 22c240 30 480 36 720 14S1200 0 1440 26V64H0Z"/></svg></div>
+
+    <!-- 募集 -->
+    <section id="boshu" class="section farm-boshu" aria-labelledby="boshu-title">
+      <div class="container narrow center">
+        <svg class="deco d-sun-mini" aria-hidden="true"><use href="#deco-sun"/></svg>
+        <h2 id="boshu-title" class="adult-title">食材で応援してくださる<wbr>農家さん・お店を<wbr>募集しています</h2>
+        <p>形がふぞろいな野菜や、少しだけ余ったお米も大歓迎です。届ける量や回数は、できる範囲で大丈夫です。このページで、農園やお店のこともご紹介します。</p>
+        <p class="contact-main"><a class="btn btn-main btn-wide" href="#" data-dummy>食材について相談する</a></p>
+        <p class="back back-bottom"><a href="/samples/kodomo-shokudo/"><span aria-hidden="true">←</span>ひだまり食堂の トップへ もどる</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ページの一番下（1ページ目と同じ） -->
+  <footer>
+    <div class="wave-move" aria-hidden="true"><svg viewBox="0 0 2880 64" preserveAspectRatio="none"><path d="M0 32Q180 6 360 32T720 32T1080 32T1440 32T1800 32T2160 32T2520 32T2880 32V64H0Z"/></svg></div>
+    <div class="foot">
+      <p class="foot-name">ひだまり食堂</p>
+      <p class="foot-sub">まるめろ台公民館で、<wbr>月2回ひらいています。</p>
+      <p class="credit">
+        イラストは、架空の食堂のサンプルとして生成AIで作成しています。<br>
+        団体・人物・場所・内容はすべて架空です。
+      </p>
+    </div>
+    <!-- 誠屋への導線（灯・こみち・凪・栞のサンプルと同じ。誠屋の配色） -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/kodomo-shokudo/kodomo-shokudo.js"></script>
+</body>
+</html>

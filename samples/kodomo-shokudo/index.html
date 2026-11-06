@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空の団体）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>ひだまり食堂｜まるめろ台のみんなの食堂（誠屋のサンプルHP）</title>
+  <meta name="description" content="誠屋HP制作が作成したサンプルHPです。登場する団体・人物・場所・内容はすべて架空です。">
+  <meta name="theme-color" content="#FFF6DC">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+  </script>
+  <link rel="stylesheet" href="/samples/kodomo-shokudo/kodomo-shokudo.css">
+</head>
+<body>
+  <!-- サンプルであることを示す帯（画面の上に固定） -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場する団体・人物・場所・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <!-- 飾りの形（おひさま・星・雲・音符・ハート）。下の <svg class="deco"><use href="#deco-…"></svg> で使う -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="deco-sun" viewBox="0 0 32 32"><circle cx="16" cy="16" r="7" fill="currentColor"/><g stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M16 2.5v4M16 25.5v4M2.5 16h4M25.5 16h4M6.5 6.5l2.8 2.8M22.7 22.7l2.8 2.8M6.5 25.5l2.8-2.8M22.7 9.3l2.8-2.8"/></g></symbol>
+    <symbol id="deco-star" viewBox="0 0 32 32"><path fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M16 3.5l3.7 7.8 8.5 1.1-6.2 5.9 1.6 8.4L16 22.6l-7.6 4.1 1.6-8.4-6.2-5.9 8.5-1.1z"/></symbol>
+    <symbol id="deco-cloud" viewBox="0 0 48 32"><path fill="currentColor" d="M13 27h23a8 8 0 0 0 .6-16A11 11 0 0 0 15.7 9.5 8.8 8.8 0 0 0 13 27z"/></symbol>
+    <symbol id="deco-note" viewBox="0 0 32 32"><path fill="currentColor" d="M13 5.5 27 2v18.2a4.3 4.3 0 1 1-2.6-4V8.6L15.6 11v12.6a4.3 4.3 0 1 1-2.6-4z"/></symbol>
+    <symbol id="deco-heart" viewBox="0 0 32 32"><path fill="currentColor" d="M16 28S3 20.4 3 11.6A6.6 6.6 0 0 1 16 9a6.6 6.6 0 0 1 13 2.6C29 20.4 16 28 16 28z"/></symbol>
+  </svg>
+
+  <main>
+
+    <!-- ================================================================
+         ここから前半：子ども向けのブロック（ひらがな多め・文字は18px以上）
+         ================================================================ -->
+    <div class="kids">
+
+      <!-- 1. トップ -->
+      <header class="hero" aria-labelledby="site-title">
+        <svg class="deco d-sun-big" aria-hidden="true"><use href="#deco-sun"/></svg>
+        <svg class="deco d-cloud1" aria-hidden="true"><use href="#deco-cloud"/></svg>
+        <svg class="deco d-cloud2" aria-hidden="true"><use href="#deco-cloud"/></svg>
+        <svg class="deco d-star1" aria-hidden="true"><use href="#deco-star"/></svg>
+        <svg class="deco d-note1" aria-hidden="true"><use href="#deco-note"/></svg>
+        <svg class="deco d-heart1" aria-hidden="true"><use href="#deco-heart"/></svg>
+
+        <!-- 背景：原っぱの風景イラスト（PCでもスマホでも背景いっぱい。スマホは中央を中心に切り抜く）。上にうすい黄色〜オレンジの光を重ねる（.hero::after）
+             上の空：名前とひとこと → カウントダウン → 入口ボタン。下の原っぱ：ごはんのイラスト -->
+        <img class="hero-bg" src="/samples/kodomo-shokudo/images/hidamari-field.webp" width="1920" height="1080" fetchpriority="high" alt="おひさまが照らす丘の原っぱと雲のイラスト">
+
+        <div class="hero-inner">
+          <p class="hero-place">まるめろ台の みんなの しょくどう</p>
+          <h1 id="site-title" class="hero-title">
+            <span class="t1">ひだまり</span><span class="t2"><ruby>食堂<rp>（</rp><rt>しょくどう</rt><rp>）</rp></ruby></span>
+          </h1>
+          <p class="hero-lead">みんなで たべると、<wbr>おいしいね！</p>
+
+          <!-- カウントダウン：下の「ひだまりの日」の一覧（#days）から、今日以降でいちばん近い日までの日数を
+               kodomo-shokudo.js が計算して書き換える。ここの文字は、JSが動かないときの表示 -->
+          <div class="countdown" data-countdown aria-live="polite">
+            <p class="cd-label">つぎの ひだまりの日まで</p>
+            <p class="cd-main">あと<b class="cd-num">?</b>にち！</p>
+            <p class="cd-date">したの「ひだまりの日」を みてね</p>
+          </div>
+
+          <!-- 子どもが押しやすい大きな入口 -->
+          <nav class="jumps" aria-label="このページの なかみ">
+            <a class="jump jump-food" href="#gohan"><svg aria-hidden="true"><use href="#deco-heart"/></svg>ごはん</a>
+            <a class="jump jump-play" href="#asobi"><svg aria-hidden="true"><use href="#deco-star"/></svg>あそび</a>
+            <a class="jump jump-day" href="#hidamari-day"><svg aria-hidden="true"><use href="#deco-sun"/></svg>いつ？どこ？</a>
+          </nav>
+          <p class="to-adults"><a href="#adults">おうちの方・地域のみなさまへ</a></p>
+        </div>
+
+        <!-- ごはんのイラスト（原っぱの上で遊んでいるように、大きさと高さを少しずつずらす。ふわふわ揺れる） -->
+        <ul class="hero-foods">
+          <li class="food food-1"><img src="/samples/kodomo-shokudo/images/food-onigiri.webp" width="500" height="500" fetchpriority="high" alt="にっこり笑うおにぎりのイラスト"></li>
+          <li class="food food-2"><img src="/samples/kodomo-shokudo/images/food-curry.webp" width="500" height="500" fetchpriority="high" alt="具だくさんのカレーライスのイラスト"></li>
+          <li class="food food-3"><img src="/samples/kodomo-shokudo/images/food-karaage.webp" width="500" height="500" fetchpriority="high" alt="にっこり笑う3つのからあげのイラスト"></li>
+        </ul>
+
+        <!-- トップの下の端の波（下の黄色い背景につなげる） -->
+        <svg class="hero-wave" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C160 6 320 6 480 30s320 24 480 0 320-24 480 0V64H0Z"/></svg>
+      </header>
+
+      <div class="scallop scallop-to-white" aria-hidden="true"></div>
+
+      <!-- 2. こんどの ごはん
+           ▼ メニューはここを書き換えます ▼
+           ・大きく出す「こんどの ごはん」は .next-menu の中（料理名・ひとこと・イラスト）
+           ・カードは <li class="menu-card"> 1つが1回分。日付は <time datetime="…"> の datetime と表示の両方を直す
+           ・イラストがない料理は <img> を消すと、星の飾りになります -->
+      <section id="gohan" class="section bg-gingham" aria-labelledby="gohan-title">
+        <svg class="deco d-star2" aria-hidden="true"><use href="#deco-star"/></svg>
+        <svg class="deco d-note2" aria-hidden="true"><use href="#deco-note"/></svg>
+        <div class="container">
+          <div class="next-menu">
+            <div class="next-menu-text">
+              <h2 id="gohan-title" class="kids-title"><span class="kt-small">こんどの ごはんは</span><span class="kt-big">カレーライス！</span></h2>
+              <p class="next-menu-note">やさいが たっぷりの、<wbr>からくない カレーだよ。<br>おかわりも できるよ！</p>
+              <!-- このカレーの材料の農家さん（2ページ目の #onion・#rice へ）。献立を変えたら、ここも合わせて直す -->
+              <div class="next-menu-from">
+                <p class="from-lead">この カレーの ざいりょうは…</p>
+                <ul class="from-list">
+                  <li><a href="/samples/kodomo-shokudo/farmers/#onion"><img src="/samples/kodomo-shokudo/images/farm-onion.webp" width="500" height="500" loading="lazy" alt=""><span><b>たまねぎは、</b>ころころ農園さんから！</span></a></li>
+                  <li><a href="/samples/kodomo-shokudo/farmers/#rice"><img src="/samples/kodomo-shokudo/images/farm-rice.webp" width="500" height="500" loading="lazy" alt=""><span><b>おこめは、</b>あぜみち農園さんから！</span></a></li>
+                </ul>
+              </div>
+            </div>
+            <figure class="next-menu-art food food-2">
+              <img src="/samples/kodomo-shokudo/images/food-curry.webp" width="500" height="500" loading="lazy" alt="具だくさんのカレーライスのイラスト">
+            </figure>
+          </div>
+
+          <h3 class="kids-sub">これからの ごはん</h3>
+          <ul class="menu-list">
+            <li class="menu-card c-orange">
+              <p class="menu-date"><time datetime="2026-11-14">11がつ14にち</time><span class="menu-badge">こんど！</span></p>
+              <img src="/samples/kodomo-shokudo/images/food-curry.webp" width="500" height="500" loading="lazy" alt="具だくさんのカレーライスのイラスト">
+              <p class="menu-name">カレーライス</p>
+              <p class="menu-side">サラダ・ヨーグルト</p>
+            </li>
+            <li class="menu-card c-berry">
+              <p class="menu-date"><time datetime="2026-11-28">11がつ28にち</time></p>
+              <img src="/samples/kodomo-shokudo/images/food-karaage.webp" width="500" height="500" loading="lazy" alt="にっこり笑う3つのからあげのイラスト">
+              <p class="menu-name">からあげ</p>
+              <p class="menu-side">ごはん・おみそしる・ポテトサラダ</p>
+            </li>
+            <li class="menu-card c-green">
+              <p class="menu-date"><time datetime="2026-12-12">12がつ12にち</time></p>
+              <img src="/samples/kodomo-shokudo/images/food-onigiri.webp" width="500" height="500" loading="lazy" alt="にっこり笑うおにぎりのイラスト">
+              <p class="menu-name">おにぎり ていしょく</p>
+              <p class="menu-side">とんじる・たまごやき・みかん</p>
+            </li>
+          </ul>
+          <!-- ▲ ここまで ▲ -->
+        </div>
+        <!-- 下の端の波（テーブルクロスの柄が波の手前まで続くよう、セクションの中に置く） -->
+        <div class="wave wave-in" aria-hidden="true"><svg viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0 32C180 4 360 4 540 32s360 28 540 0 270-28 360-14V64H0Z"/></svg></div>
+      </section>
+
+
+      <!-- 3. ごはんの まえと あと（遊びのカード。指やマウスを近づけると、くるっと傾く） -->
+      <section id="asobi" class="section bg-yellow" aria-labelledby="asobi-title">
+        <svg class="deco d-sun2" aria-hidden="true"><use href="#deco-sun"/></svg>
+        <svg class="deco d-cloud3" aria-hidden="true"><use href="#deco-cloud"/></svg>
+        <svg class="deco d-heart2" aria-hidden="true"><use href="#deco-heart"/></svg>
+        <div class="container">
+          <h2 id="asobi-title" class="kids-title center"><span class="kt-big">ごはんの まえと あと</span></h2>
+          <p class="kids-lead center">ごはんの まえは しゅくだい。<wbr>たべた あとは、<wbr>みんなで あそぼう！</p>
+          <ul class="play-list">
+            <li class="play-card c-sky">
+              <img src="/samples/kodomo-shokudo/images/play-homework.webp" width="500" height="500" loading="lazy" alt="えんぴつと水玉のノートのイラスト">
+              <h3>しゅくだい タイム</h3>
+              <p>わからない ところは、<wbr>いっしょに かんがえよう。</p>
+            </li>
+            <li class="play-card c-berry">
+              <img src="/samples/kodomo-shokudo/images/play-craft.webp" width="500" height="500" loading="lazy" alt="青いはさみと色紙のイラスト">
+              <h3>こうさく</h3>
+              <p>いろがみや はさみで、<wbr>すきな ものを つくろう。</p>
+            </li>
+            <li class="play-card c-green">
+              <img src="/samples/kodomo-shokudo/images/play-game.webp" width="500" height="500" loading="lazy" alt="トランプとけんだまのイラスト">
+              <h3>みんなで ゲーム</h3>
+              <p>トランプや けんだまで、<wbr>はじめての 子とも <wbr>なかよく なれるよ。</p>
+            </li>
+            <li class="play-card c-orange">
+              <img src="/samples/kodomo-shokudo/images/play-seasons.webp" width="500" height="500" loading="lazy" alt="桜、ちょうちんと花火、紅葉とお月さま、雪の結晶がならぶ四季のイラスト">
+              <h3>きせつの イベント</h3>
+              <p>なつは ながしそうめん、<wbr>あきは おつきみだんご、<wbr>ふゆは クリスマスかい！</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="scallop scallop-to-white" aria-hidden="true"></div>
+
+      <!-- 4. ひだまりの日
+           ▼ 開催日はここを書き換えます（カウントダウンも、ここを見て計算します） ▼
+           ・<li> 1つが1回分。<time datetime="年-月-日"> の datetime と、表示の日付・曜日の両方を直す
+           ・datetime は「2026-11-14」のように、月と日を2けたで書く
+           ・過ぎた日は、そのまま残しても自動で「おわったよ」になる（消してもよい）
+           ・特別な回は <span class="day-note">…</span> でひとこと添えられる -->
+      <section id="hidamari-day" class="section bg-white" aria-labelledby="day-title">
+        <svg class="deco d-star3" aria-hidden="true"><use href="#deco-star"/></svg>
+        <svg class="deco d-note3" aria-hidden="true"><use href="#deco-note"/></svg>
+        <div class="container">
+          <h2 id="day-title" class="kids-title center"><span class="kt-big">ひだまりの日</span></h2>
+          <p class="kids-lead center">まいつき 2かい、<wbr>どようびに ひらいているよ。</p>
+
+          <div class="day-grid">
+            <div class="day-box c-orange">
+              <h3 class="day-h"><svg aria-hidden="true"><use href="#deco-sun"/></svg>いつ？</h3>
+              <ul id="days" class="days">
+                <li><time datetime="2026-11-14">11がつ14にち（ど）</time></li>
+                <li><time datetime="2026-11-28">11がつ28にち（ど）</time></li>
+                <li><time datetime="2026-12-12">12がつ12にち（ど）</time></li>
+                <li><time datetime="2026-12-26">12がつ26にち（ど）</time><span class="day-note">クリスマスかい！</span></li>
+              </ul>
+              <!-- ▲ ここまで ▲ -->
+              <p class="day-time">じかん：<b>10:30〜14:00</b></p>
+              <ol class="timeline">
+                <li><span>10:30</span>しゅくだい・あそび</li>
+                <li><span>12:00</span>いただきます！</li>
+                <li><span>13:00</span>みんなで あそぶ</li>
+                <li><span>14:00</span>またね！</li>
+              </ol>
+            </div>
+
+            <div class="day-box c-sky">
+              <h3 class="day-h"><svg aria-hidden="true"><use href="#deco-cloud"/></svg>どこ？</h3>
+              <p class="day-big">まるめろ台 <ruby>公民館<rp>（</rp><rt>こうみんかん</rt><rp>）</rp></ruby></p>
+              <p>2かいの ちょうりしつと わしつ</p>
+              <p class="day-small">まるめろ台 3ちょうめ・<wbr>まるめろ台しょうがっこうの となり</p>
+            </div>
+
+            <div class="day-box c-green">
+              <h3 class="day-h"><svg aria-hidden="true"><use href="#deco-star"/></svg>いくら？</h3>
+              <dl class="price">
+                <div><dt>こども</dt><dd>むりょう</dd></div>
+                <div><dt>おとな</dt><dd>300えん</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <p class="welcome"><svg aria-hidden="true"><use href="#deco-heart"/></svg>よやくは いらないよ。<br>ひとりでも、<wbr>おうちの人とでも、<wbr>だれでも きてね！</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================================================================
+         ここから後半：大人向けのブロック（普通の文章。色は同じまま、文章を中心に）
+         ================================================================ -->
+    <div class="wave wave-white-to-yellow" aria-hidden="true"><svg viewBox="0 0 1440 64" preserveAspectRatio="none"><path d="M0 22c240 30 480 36 720 14S1200 0 1440 26V64H0Z"/></svg></div>
+
+    <div id="adults" class="adults">
+      <!-- 見出しの帯：夕方の原っぱのイラスト（hidamari-evening.webp。紙の余白とふちは切り抜き済み）。
+           上下はページの黄色へぼかしてつなげる。夕焼けの空に、おひさまと見出しを置く -->
+      <div class="adults-band">
+        <img class="adults-band-bg" src="/samples/kodomo-shokudo/images/hidamari-evening.webp" width="1780" height="830" loading="lazy" alt="夕日が沈む丘の原っぱとひまわりのイラスト">
+        <div class="adults-band-inner">
+          <svg class="deco d-sun-mini" aria-hidden="true"><use href="#deco-sun"/></svg>
+          <h2 class="adults-heading">おうちの方・<wbr>地域のみなさまへ</h2>
+        </div>
+      </div>
+      <!-- 説明文は、帯の下の無地の背景に置く -->
+      <div class="adults-intro">
+        <p>ひだまり食堂は、まるめろ台公民館をお借りして、月に2回ひらいている「みんなの食堂」です。子どもも大人も、どなたでも来ていただけます。ここからは、食堂のこれからと、関わり方についてご紹介します。</p>
+      </div>
+
+      <!-- 5. どこへ向かうのか
+           数字を変えるときは、表示の数字と、バーの style="--p: ◯%" の両方を直す -->
+      <section id="goal" class="section" aria-labelledby="goal-title">
+        <div class="container narrow">
+          <p class="eyebrow">どこへ向かうのか</p>
+          <h2 id="goal-title" class="adult-title">月2回の食堂を、<wbr>毎週ひらける食堂に。</h2>
+          <p>今は月に2回、公民館をお借りしてひらいています。これを毎週にして、子どもたちが「今日はひだまりの日やな」と、毎週の楽しみにできる場所にしたいと考えています。</p>
+          <p>毎週ひらくために、足りないものは3つです。</p>
+          <ul class="needs">
+            <li>
+              <div class="need-head"><h3>ボランティアの仲間</h3><p class="need-num"><b>12</b>／20人</p></div>
+              <span class="bar" style="--p: 60%; --c: var(--sky)" aria-hidden="true"></span>
+              <p class="need-text">調理・配膳・宿題の見守りを、交代で無理なく続けられる人数です。</p>
+            </li>
+            <li>
+              <div class="need-head"><h3>食材を届けてくれる協力先</h3><p class="need-num"><b>3</b>／8軒</p></div>
+              <span class="bar" style="--p: 38%; --c: var(--green)" aria-hidden="true"></span>
+              <p class="need-text">お米と野菜を、毎週安定して用意できる軒数です。</p>
+            </li>
+            <li>
+              <div class="need-head"><h3>会場の費用（1年分）</h3><p class="need-num"><b>5.2</b>／13万円</p></div>
+              <span class="bar" style="--p: 40%; --c: var(--berry)" aria-hidden="true"></span>
+              <p class="need-text">公民館を毎週お借りするための費用です（1回 約2,500円）。</p>
+            </li>
+          </ul>
+          <p class="small">2026年11月時点の数字です（架空のサンプルです）。</p>
+        </div>
+      </section>
+
+      <!-- 6. なぜ向かうのか -->
+      <section id="why" class="section" aria-labelledby="why-title">
+        <div class="container narrow">
+          <div class="letter">
+            <svg class="deco d-heart-letter" aria-hidden="true"><use href="#deco-heart"/></svg>
+            <p class="eyebrow">なぜ向かうのか</p>
+            <h2 id="why-title" class="adult-title">「うちで食べていき」と、<wbr>言ってもらった日のこと。</h2>
+            <p>子どもの頃、両親は共働きで、夕飯はいつも一人でした。テーブルにラップをかけたおかずが置いてあって、テレビをつけたまま、黙って食べる。それが当たり前だと思っていました。</p>
+            <p>ある日、家の前でぼんやりしていたわたしに、近所のおばちゃんが「うちで食べていき」と声をかけてくれました。湯気の立つお味噌汁と、少し焦げた卵焼き。みんなで囲んだあの日の温かいごはんの味を、今もはっきり覚えています。</p>
+            <p>それから長いあいだ、小学校の給食室で働いてきました。子どもたちが「おかわり！」と並ぶ姿を見るたびに、あのおばちゃんのことを思い出していました。</p>
+            <p>今度は、わたしが誰かの「おばちゃん」になりたい。それが、ひだまり食堂をはじめた理由です。</p>
+            <p class="sign">ひだまり食堂 代表　はるこ<span>（元給食調理員）</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. 応援のかたち -->
+      <section id="support" class="section" aria-labelledby="support-title">
+        <div class="container">
+          <p class="eyebrow center">応援のかたち</p>
+          <h2 id="support-title" class="adult-title center">関わり方は、<wbr>ひとつじゃなくていい。</h2>
+          <p class="center adult-lead">食べに来ることも、立派な応援です。<wbr>できることから、<wbr>気軽に関わってください。</p>
+
+          <ul class="support-list">
+            <li class="support-card c-orange">
+              <img src="/samples/kodomo-shokudo/images/support-eat.webp" width="500" height="500" loading="lazy" alt="ちゃぶ台に4人分のごはんとみそ汁が並んだイラスト">
+              <h3>食べに来る</h3>
+              <p>子どもも大人も、どなたでも。ひとりでも、親子でも、おじいちゃん・おばあちゃんとでも大歓迎です。予約はいりません。</p>
+              <p class="support-btn"><a class="btn btn-outline" href="#hidamari-day">開催日を見る</a></p>
+            </li>
+            <li class="support-card c-sky">
+              <img src="/samples/kodomo-shokudo/images/support-volunteer.webp" width="500" height="500" loading="lazy" alt="エプロンとおたまのイラスト">
+              <h3>ボランティアとして手伝う</h3>
+              <p>調理、配膳、宿題の見守り、遊び相手など。得意なことで大丈夫です。1回だけの参加も歓迎しています。</p>
+              <p class="support-btn"><a class="btn btn-main" href="#" data-dummy>ボランティアについて聞く</a></p>
+            </li>
+            <li class="support-card c-green">
+              <img src="/samples/kodomo-shokudo/images/support-food.webp" width="500" height="500" loading="lazy" alt="野菜のかごとお米の袋のイラスト">
+              <h3>食材を届ける</h3>
+              <p>お米、野菜、果物、調味料など（未開封で、賞味期限まで1か月以上あるもの）。開催日の朝9:30〜10:30に公民館へ。量が多いときは、取りに伺います。</p>
+              <p class="support-btn"><a class="btn btn-main" href="#" data-dummy>食材について相談する</a></p>
+            </li>
+            <li class="support-card c-berry">
+              <img src="/samples/kodomo-shokudo/images/support-donation.webp" width="500" height="500" loading="lazy" alt="ハートのついた募金箱のイラスト">
+              <h3>寄付で支える</h3>
+              <ul class="uses">
+                <li><b>1,000円</b>で、子ども4人分の食事</li>
+                <li><b>3,000円</b>で、子ども12人分の食事</li>
+                <li><b>5,000円</b>で、子ども20人分の食事</li>
+              </ul>
+              <p class="uses-note">いただいたご寄付は、食材のほか、調味料や会場費など、食堂の運営に大切に使わせていただきます。</p>
+              <p class="support-btn"><a class="btn btn-main" href="#" data-dummy>寄付について聞く</a></p>
+            </li>
+            <li class="support-card c-orange">
+              <img src="/samples/kodomo-shokudo/images/support-share.webp" width="500" height="500" loading="lazy" alt="音符とハートが飛ぶ糸電話のイラスト">
+              <h3>周りに伝える</h3>
+              <p>「こんな食堂があるよ」と、ご家族や友だち、ご近所の方に伝えていただけると、とても心強いです。</p>
+              <p class="support-btn"><button class="btn btn-main" type="button" data-share>このページをシェアする</button></p>
+            </li>
+          </ul>
+
+          <!-- 協力してくれている農家さん（5枚のカードの下の帯。2ページ目の各カードへ。農家さんを足したら、ここにも1つ足す） -->
+          <div class="partners">
+            <h3 class="partners-title">協力してくれている農家さん</h3>
+            <ul class="partners-list">
+              <li><a href="/samples/kodomo-shokudo/farmers/#rice"><img src="/samples/kodomo-shokudo/images/farm-rice.webp" width="500" height="500" loading="lazy" alt=""><span><b>あぜみち農園</b><small>お米</small></span></a></li>
+              <li><a href="/samples/kodomo-shokudo/farmers/#mizunasu"><img src="/samples/kodomo-shokudo/images/farm-mizunasu.webp" width="500" height="500" loading="lazy" alt=""><span><b>しずく畑</b><small>泉州の水なす</small></span></a></li>
+              <li><a href="/samples/kodomo-shokudo/farmers/#onion"><img src="/samples/kodomo-shokudo/images/farm-onion.webp" width="500" height="500" loading="lazy" alt=""><span><b>ころころ農園</b><small>玉ねぎ</small></span></a></li>
+            </ul>
+            <p class="partners-more"><a class="btn btn-outline" href="/samples/kodomo-shokudo/farmers/">農家さんを もっと見る</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. 安心して来てもらうために -->
+      <section id="anshin" class="section" aria-labelledby="anshin-title">
+        <div class="container narrow">
+          <p class="eyebrow">安心して来てもらうために</p>
+          <h2 id="anshin-title" class="adult-title">保護者の方へ</h2>
+          <ul class="anshin">
+            <li><span class="anshin-mark c-berry" aria-hidden="true">1</span><div><h3>アレルギーへの対応</h3><p>献立は前の月にこのページでお知らせします。食物アレルギーのあるお子さんは、事前にご相談ください。食材を確認し、できる範囲で別メニューをご用意します。</p></div></li>
+            <li><span class="anshin-mark c-green" aria-hidden="true">2</span><div><h3>衛生管理</h3><p>調理は、食品衛生責任者の資格を持つ代表が中心になって行います。手洗い・消毒・調理器具の管理は、給食室と同じ考え方で徹底しています。</p></div></li>
+            <li><span class="anshin-mark c-sky" aria-hidden="true">3</span><div><h3>ボランティア保険</h3><p>スタッフとボランティアは全員、ボランティア活動保険に加入しています（架空のサンプルです）。</p></div></li>
+            <li><span class="anshin-mark c-orange" aria-hidden="true">4</span><div><h3>写真の扱い</h3><p>子どもの写真は、SNSやこのページなどに載せません。活動の様子は、料理やイラストでお伝えしています。</p></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 9. 応援者の声（すべて架空） -->
+      <section id="voices" class="section" aria-labelledby="voices-title">
+        <div class="container">
+          <p class="eyebrow center">応援者の声</p>
+          <h2 id="voices-title" class="adult-title center">ひだまり食堂に関わる人の声</h2>
+          <ul class="voices">
+            <li class="voice c-orange">
+              <p class="voice-kind">保護者</p>
+              <blockquote><p>仕事で遅くなる土曜日、娘が「ひだまり行ってくる！」と自分で出かけていくようになりました。帰ってくると、今日食べたものと、誰と遊んだかを全部話してくれます。</p></blockquote>
+              <p class="who">小学2年生の母・Aさん<span class="tag">サンプル</span></p>
+            </li>
+            <li class="voice c-sky">
+              <p class="voice-kind">ボランティアの大学生</p>
+              <blockquote><p>最初は宿題の見守りだけのつもりでした。今では子どもたちに名前で呼ばれて、けん玉の勝負を挑まれます。僕のほうが、毎回元気をもらっています。</p></blockquote>
+              <p class="who">大学3年生・Tさん<span class="tag">サンプル</span></p>
+            </li>
+            <li class="voice c-green">
+              <p class="voice-kind">野菜を届けている農家さん</p>
+              <blockquote><p>形がふぞろいで出荷できない野菜を届けています。「このにんじん、甘い！」と子どもが言っていたと聞いて、畑仕事の励みになっています。</p></blockquote>
+              <p class="who">まるめろ台の農家・Mさん<span class="tag">サンプル</span></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 10. 連絡先 -->
+      <section id="contact" class="section" aria-labelledby="contact-title">
+        <div class="container narrow center">
+          <p class="eyebrow">連絡先</p>
+          <h2 id="contact-title" class="adult-title">お気軽に、<wbr>声をかけてください。</h2>
+          <p>参加のこと、ボランティアや食材・寄付のこと、<wbr>なんでもお問い合わせください。</p>
+          <!-- ダミー：サンプルのため、押してもどこにも移動しない -->
+          <p class="contact-main"><a class="btn btn-main btn-wide" href="#" data-dummy>問い合わせる</a></p>
+          <ul class="sns">
+            <li><a href="#" data-dummy>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+              LINE<span class="handle">開催日・献立のお知らせ</span>
+            </a></li>
+            <li><a href="#" data-dummy>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+              Instagram<span class="handle">@hidamari_shokudo</span>
+            </a></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- 11. ページの一番下（ゆっくり動く波の上に、クレジットと誠屋への導線） -->
+  <footer>
+    <div class="wave-move" aria-hidden="true"><svg viewBox="0 0 2880 64" preserveAspectRatio="none"><path d="M0 32Q180 6 360 32T720 32T1080 32T1440 32T1800 32T2160 32T2520 32T2880 32V64H0Z"/></svg></div>
+    <div class="foot">
+      <p class="foot-name">ひだまり食堂</p>
+      <p class="foot-sub">まるめろ台公民館で、<wbr>月2回ひらいています。</p>
+      <!-- 画像の出どころ
+           ・food-*.png / play-*.png / support-*.png / farm-*.png → 生成AI（tools/convert-kodomo-images.mjs で WebP に変換）
+           ・hidamari-field.png → 生成AI … トップの背景（原っぱ）：hidamari-field.webp（1920px） -->
+      <p class="credit">
+        イラストは、架空の食堂のサンプルとして生成AIで作成しています。<br>
+        団体・人物・場所・内容はすべて架空です。
+      </p>
+    </div>
+    <!-- 誠屋への導線（灯・こみち・凪・栞のサンプルと同じ。誠屋の配色） -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/kodomo-shokudo/kodomo-shokudo.js"></script>
+</body>
+</html>
