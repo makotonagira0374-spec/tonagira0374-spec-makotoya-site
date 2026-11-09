@@ -16,6 +16,13 @@
   var FADE = 1500; // 入れ替えにかける時間（ミリ秒。bakery.css の .hero-slide の transition と合わせる）
   var slides = document.querySelectorAll('[data-slide]');
   if (slides.length < 2) return;
+  // 撮影用（?shot 付き。誠屋HPの一覧に出すスマホ画面）：入れ替えずに3枚目（パンを置く写真）を出す
+  if (/[?&]shot\b/.test(location.search)) {
+    slides.forEach(function (s) { s.classList.remove('is-active'); s.style.transition = 'none'; });
+    slides[slides.length - 1].querySelector('img').loading = 'eager';
+    slides[slides.length - 1].classList.add('is-active');
+    return;
+  }
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var i = 0;
   // 2枚目以降は、最初の入れ替えまでに読み込んでおく（白く抜けないように）
