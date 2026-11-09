@@ -903,21 +903,52 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .samples-action { align-items: stretch; }
 }
 
-/* サンプルHPの一覧：スマホの画面を5つ並べて、デザインの違いを見せる
-   （スマホ幅は2列、600px以上は3列、960px以上は5列。端数の段は中央に寄せる） */
+/* サンプルHPの一覧：スマホの画面を横一列に並べたスライダー（横にスクロール。止まる位置は1枚ずつ）
+   カードの幅は固定で、画面の端で次のカードが少し見えるようにして「まだ続く」ことを伝える */
+.samples-slider { position: relative; margin-top: 40px; }
 .samples-list {
-  --cols: 2;
+  --card-w: 150px;
   --gap-x: 16px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 36px var(--gap-x);
-  max-width: 1120px;
-  margin: 40px auto 0;
+  gap: var(--gap-x);
+  /* コンテナの左右の余白の外まで広げ、画面の端までスクロールできるようにする */
+  margin: 0 calc(var(--gutter) * -1);
+  padding: 8px var(--gutter) 4px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
 }
-.samples-card { flex: 0 0 calc((100% - var(--gap-x) * (var(--cols) - 1)) / var(--cols)); min-width: 0; }
-@media (min-width: 600px) { .samples-list { --cols: 3; } }
-@media (min-width: 960px) { .samples-list { --cols: 6; } }
+.samples-list::-webkit-scrollbar { display: none; }
+.samples-list:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.samples-card { flex: 0 0 var(--card-w); min-width: 0; scroll-snap-align: start; }
+@media (min-width: 600px) { .samples-list { --card-w: 190px; --gap-x: 24px; } }
+@media (min-width: 960px) { .samples-list { --card-w: 210px; --gap-x: 32px; } }
+@media (min-width: 1184px) {
+  /* 広い画面では、コンテナの幅の中で並べる（はみ出しは左右の端で薄く消す） */
+  .samples-list { margin: 0; padding-inline: 0; scroll-padding-inline: 0; -webkit-mask-image: linear-gradient(90deg, #000 92%, transparent); mask-image: linear-gradient(90deg, #000 92%, transparent); }
+  .samples-list.is-end { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%); mask-image: linear-gradient(90deg, transparent, #000 8%); }
+  .samples-list.is-mid { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+}
+@media (prefers-reduced-motion: no-preference) { .samples-list { scroll-behavior: smooth; } }
+/* 矢印ボタン（JSが動くときだけ出す） */
+.samples-nav { display: flex; justify-content: center; gap: 16px; margin-top: 20px; }
+.samples-nav[hidden] { display: none; }
+.samples-nav-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color .2s, opacity .2s;
+}
+.samples-nav-btn:hover:not(:disabled) { background: rgba(0, 0, 0, .04); }
+.samples-nav-btn:disabled { opacity: .3; cursor: default; }
 .samples-card a {
   display: flex;
   flex-direction: column;
@@ -950,7 +981,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   text-underline-offset: 5px;
 }
 .samples-card a:hover .btn-arrow { transform: translateX(4px); }
-/* スマホ幅（2列）と、タブレット幅（3列）は、枠と文字を少し小さくする */
+/* スマホ幅・タブレット幅は、枠と文字を少し小さくする */
 @media (max-width: 959px) {
   .samples-card-phone { margin-bottom: 14px; padding: 5px; border-radius: 22px; }
   .samples-card-phone .phone-screen { border-radius: 17px; }
@@ -959,16 +990,11 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .samples-card-text { font-size: .75rem; line-height: 1.7; letter-spacing: 0; }
   .samples-card-more { font-size: .75rem; letter-spacing: 0; text-underline-offset: 4px; white-space: nowrap; }
 }
-@media (max-width: 599px) {
-  .samples-card-phone { max-width: 180px; }
-}
 @media (min-width: 600px) and (max-width: 959px) {
-  .samples-list { row-gap: 40px; }
   .samples-card-more .btn-arrow { display: none; }
 }
 @media (min-width: 960px) {
-  /* 6列並ぶので、1列はおよそ160px。枠と文字はそれに合わせる */
-  .samples-list { --gap-x: 20px; gap: 48px var(--gap-x); margin-top: 56px; }
+  .samples-slider { margin-top: 56px; }
   .samples-card-phone { padding: 7px; border-radius: 32px; }
   .samples-card-phone .phone-screen { border-radius: 25px; }
   .samples-card-kind { font-size: .75rem; letter-spacing: .02em; }

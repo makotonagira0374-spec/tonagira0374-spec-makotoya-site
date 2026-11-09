@@ -223,6 +223,51 @@ var SEATS = { total: 5, left: null };
   }, true);
 })();
 
+// サンプルHPの一覧（横一列のスライダー）：矢印ボタンで1枚ずつ動かし、端では押せないようにする
+(function () {
+  var list = document.getElementById('samples-list');
+  if (!list) return;
+  var nav = list.parentNode.querySelector('.samples-nav');
+  var prev = nav.querySelector('[data-dir="-1"]');
+  var next = nav.querySelector('[data-dir="1"]');
+  var target = 0, moving = false, timer;
+  function step() {
+    var cards = list.children;
+    if (cards.length < 2) return list.clientWidth;
+    return cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left;
+  }
+  function update() {
+    var max = list.scrollWidth - list.clientWidth;
+    var atStart = list.scrollLeft <= 2;
+    var atEnd = list.scrollLeft >= max - 2;
+    prev.disabled = atStart;
+    next.disabled = atEnd;
+    // 全部が収まっているときは矢印を出さない
+    nav.hidden = max <= 2;
+    list.classList.toggle('is-end', !atStart && atEnd);
+    list.classList.toggle('is-mid', !atStart && !atEnd);
+  }
+  nav.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-dir]');
+    if (!btn) return;
+    var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // 動いている途中で続けて押しても1枚ずつ進むよう、今の位置から何枚目かを数えて行き先を決める
+    var s = step();
+    var last = Math.round((list.scrollWidth - list.clientWidth) / s + .49);
+    var base = moving ? target : Math.round(list.scrollLeft / s);
+    target = Math.min(last, Math.max(0, base + Number(btn.getAttribute('data-dir'))));
+    moving = true;
+    clearTimeout(timer);
+    // 動き終わったら（scrollend。使えないブラウザは時間で）次の押下を今の位置から数える
+    timer = setTimeout(function () { moving = false; }, 1500);
+    list.scrollTo({ left: target * s, behavior: smooth ? 'smooth' : 'auto' });
+  });
+  list.addEventListener('scroll', update, { passive: true });
+  list.addEventListener('scrollend', function () { moving = false; clearTimeout(timer); update(); });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 // ヘッダー：スクロールしたら背景を付ける
 (function () {
   var header = document.querySelector('.site-header');

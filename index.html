@@ -221,8 +221,10 @@
 
         <!-- サンプルHPの一覧（並べて、デザインの違いを見せる）
              画面の画像は tools/shoot-sample.mjs が各サンプルの最初の画面を撮って作る（--cards でこれだけ撮り直せる）。
-             サンプルを足すときは <li> を1つコピーする -->
-        <ul class="samples-list">
+             サンプルを足すときは <li> を1つコピーする
+             横一列のスライダー。指やトラックパッドで横にずらせるほか、下の矢印ボタンで1枚ずつ動かせる（js/main.js） -->
+        <div class="samples-slider">
+        <ul class="samples-list" id="samples-list" tabindex="0" aria-label="サンプルHPの一覧（横にスクロールできます）">
           <li class="samples-card">
             <a href="/samples/portrait/">
               <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-portrait.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「灯」のスマホ画面。黒い背景に、女性のポートレート写真が画面いっぱいに広がる"></span></span>
@@ -278,6 +280,11 @@
             </a>
           </li>
         </ul>
+        <div class="samples-nav" hidden>
+          <button class="samples-nav-btn" type="button" data-dir="-1" aria-controls="samples-list" aria-label="前のサンプルへ"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8H2M6.5 3.5 2 8l4.5 4.5"/></svg></button>
+          <button class="samples-nav-btn" type="button" data-dir="1" aria-controls="samples-list" aria-label="次のサンプルへ"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></button>
+        </div>
+        </div>
 
         <div class="samples-action samples-action-after">
           <p class="samples-note">サンプルに登場する人物・団体・店・曲・作品・内容は架空です。</p>
