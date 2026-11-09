@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空のお店）。検索結果に出さない -->
+  <meta name="robots" content="noindex">
+  <title>ことり｜朝7時のパン屋をめざす天然酵母のパン屋（サンプル）</title>
+  <meta name="description" content="シェアキッチンで焼く天然酵母のパン屋「ことり」。全国発送のハード系パン・冷凍パンセット・毎月のパン便、マルシェでの取り置き予約、飲食店への卸。朝7時に開く町のパン屋をめざしています。（誠屋HP制作のサンプルHP・架空のお店です）">
+  <meta name="theme-color" content="#FDFDE1">
+  <!-- ファビコン（ことりのロゴから作成） -->
+  <link rel="icon" href="/samples/bakery/images/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/samples/bakery/images/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/samples/bakery/images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kaku+Gothic+New:wght@400&family=Zen+Maru+Gothic:wght@400;500;700&display=swap">
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+  </script>
+  <link rel="stylesheet" href="/samples/bakery/bakery.css">
+</head>
+<body id="top">
+  <!-- サンプルであることを示す帯（画面の上に固定） -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場するお店・人物・場所・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <main>
+
+    <!-- ================================================================
+         トップ（ちぎり絵のように切り抜いた写真3枚のスライドショー ＋ 入口ボタン3つ）
+         ================================================================ -->
+    <header class="hero">
+      <!-- ロゴ（ロゴ画像・店名・添え書きを縦に並べる。押すとページの一番上へ） -->
+      <a class="logo" href="#top">
+        <img class="logo-mark" src="/samples/bakery/images/kotori-logo.png" width="320" height="320" fetchpriority="high" alt="ことり">
+        <span class="logo-name" aria-hidden="true">ことり</span>
+        <span class="logo-sub">天然酵母のパン屋</span>
+      </a>
+
+      <!-- 写真：3枚がゆっくり入れ替わる（bakery.js。1枚あたり約4秒、約1.5秒かけてフェード）
+           ・画像はちぎり絵の形に切り抜いた透過画像（3枚とも同じ形）。768px未満は -sp（4:5）、それ以上は -pc（16:10）
+           ・WebP を先に読み、使えないブラウザは PNG。2・3枚目は遅れて読み込む
+           ・動きを減らす設定の端末では、入れ替えずに3枚目だけを出す
+           ・文字と影は入れ替わらず、写真の上にずっと同じ位置で重ねる -->
+      <div class="hero-figure">
+        <div class="hero-slides">
+            <picture class="hero-slide is-active" data-slide>
+              <source media="(max-width: 767px)" type="image/webp" srcset="/samples/bakery/images/hero-1-sp.webp" width="900" height="1125">
+              <source media="(max-width: 767px)" srcset="/samples/bakery/images/hero-1-sp.png" width="900" height="1125">
+              <source type="image/webp" srcset="/samples/bakery/images/hero-1-pc.webp">
+              <img src="/samples/bakery/images/hero-1-pc.png" width="1600" height="1000" fetchpriority="high" alt="粉をふった台の上で、両手でパン生地をまとめているところ">
+            </picture>
+            <picture class="hero-slide" data-slide>
+              <source media="(max-width: 767px)" type="image/webp" srcset="/samples/bakery/images/hero-2-sp.webp" width="900" height="1125">
+              <source media="(max-width: 767px)" srcset="/samples/bakery/images/hero-2-sp.png" width="900" height="1125">
+              <source type="image/webp" srcset="/samples/bakery/images/hero-2-pc.webp">
+              <img src="/samples/bakery/images/hero-2-pc.png" width="1600" height="1000" loading="lazy" decoding="async" alt="焼き上がった丸いパンを半分に切り、断面を見せたところ">
+            </picture>
+            <picture class="hero-slide" data-slide>
+              <source media="(max-width: 767px)" type="image/webp" srcset="/samples/bakery/images/hero-3-sp.webp" width="900" height="1125">
+              <source media="(max-width: 767px)" srcset="/samples/bakery/images/hero-3-sp.png" width="900" height="1125">
+              <source type="image/webp" srcset="/samples/bakery/images/hero-3-pc.webp">
+              <img src="/samples/bakery/images/hero-3-pc.png" width="1600" height="1000" loading="lazy" decoding="async" alt="粉をまとった丸いパンを、両手でまな板の布の上にそっと置いているところ">
+            </picture>
+        </div>
+        <!-- 写真の右下の影（右下ほど暗く）。写真と同じ形で切り抜き、形の外にはみ出さない。白い文字を読みやすくする -->
+        <div class="hero-shade" aria-hidden="true"></div>
+        <h1 class="hero-copy">
+          <span class="hero-catch">朝7時、<br>焼きたてのパンを<br>町の人に。</span>
+          <span class="hero-name">ことり</span>
+        </h1>
+      </div>
+
+      <nav class="entries" aria-label="ことりのパンの買い方">
+        <a class="btn btn-main entry-main" href="#online">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.4 11.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+          オンラインショップで買う
+        </a>
+        <a class="btn btn-sub" href="#marche">マルシェで買う<small>（取り置き予約）</small></a>
+        <a class="btn btn-sub" href="#restaurant">飲食店の方へ</a>
+      </nav>
+    </header>
+
+
+    <!-- ================================================================
+         1. ことりについて（どこへ向かうのか・なぜ向かうのか）
+         ================================================================ -->
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="container narrow">
+        <p class="eyebrow">ことりについて</p>
+        <h2 id="about-title" class="title">町に、<wbr>朝のパン屋さんを。</h2>
+        <div class="about-text">
+          <p>前に住んでいた町には、朝早くから開いているパン屋さんがありました。駅へ向かう道に焼きたての香りがただよって、それだけで一日が少し明るくなったのを覚えています。</p>
+          <p>いまの町には、まだその朝がありません。だから、わたしがつくることにしました。</p>
+          <p>いまはシェアキッチンを借りて天然酵母のパンを焼き、マルシェと予約販売でお届けしています。めざしているのは、朝7時に開く、町の小さなパン屋。登校前の子どもも、通勤途中の人も、焼きたてを手に取れるお店です。</p>
+        </div>
+        <p class="about-sign">ことり 店主</p>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         2. ことりを応援する4つの方法
+         ================================================================ -->
+    <section id="support" class="section support" aria-labelledby="support-title">
+      <div class="container">
+        <p class="eyebrow center">応援のしかた</p>
+        <h2 id="support-title" class="title center">ことりを<wbr>応援する<wbr>4つの方法</h2>
+        <ol class="ways">
+          <li><a href="#online"><span class="ways-num">1</span>ネットで買う</a></li>
+          <li><a href="#marche"><span class="ways-num">2</span>マルシェで買う</a></li>
+          <li><a href="#restaurant"><span class="ways-num">3</span>飲食店で使う</a></li>
+          <li><a href="#voices"><span class="ways-num">4</span>感想と写真を送る</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 2-1. ネットで買う（主役）
+         ▼ 商品はここを書き換えます ▼
+         ・<li class="product"> 1つが1商品。写真・商品名・説明・価格・ボタンのリンク（いまは仮の #）を直す
+         ・パン便の「今月のパン便」の文字は、写真の右上の白いカードの位置に重ねている（.box-label の top / left / width） -->
+    <section id="online" class="section way way-main" aria-labelledby="online-title">
+      <div class="container">
+        <div class="way-head">
+          <p class="way-num">応援のしかた 1</p>
+          <h3 id="online-title" class="way-title">ネットで買う</h3>
+          <p class="way-lead">遠くに住んでいる方にも、<wbr>ことりのパンを。<wbr>オンラインショップ（BASE）で、<wbr>全国にお届けしています。</p>
+        </div>
+        <ul class="products">
+          <li class="product">
+            <div class="product-photo">
+              <img class="photo" src="/samples/bakery/images/bread.jpg" width="1600" height="1600" loading="lazy" alt="切れ目がこんがり開いた、丸いカンパーニュ">
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">ハード系パン</h4>
+              <p class="product-text">カンパーニュ、バゲットなど。<wbr>天然酵母でゆっくり発酵させた、<wbr>噛むほど甘いパンです。全国発送。</p>
+              <p class="price">1本 <b>580</b>円〜</p>
+              <a class="btn btn-main btn-block" href="#" data-dummy>オンラインショップで見る</a>
+            </div>
+          </li>
+          <li class="product">
+            <div class="product-photo">
+              <img class="photo" src="/samples/bakery/images/frozen-set.jpg" width="987" height="1482" loading="lazy" alt="袋に入った丸パン、食パン、フォカッチャなどの詰め合わせ">
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">冷凍パンセット</h4>
+              <p class="product-text">好きな日に焼き戻して、<wbr>焼きたての味を。<wbr>食事パンとおやつパンの詰め合わせです。</p>
+              <p class="price"><b>3,800</b>円<small>（送料別）</small></p>
+              <a class="btn btn-main btn-block" href="#" data-dummy>オンラインショップで見る</a>
+            </div>
+          </li>
+          <li class="product product-box">
+            <div class="product-photo">
+              <img class="photo photo-box" src="/samples/bakery/images/box.jpg" width="1536" height="1024" loading="lazy" alt="窓辺に置いた紙の箱に、カンパーニュ、バゲット、丸パン、スライスしたパンが詰めてある">
+              <p class="box-label" aria-hidden="true">今月の<br>パン便</p>
+            </div>
+            <div class="product-body">
+              <span class="product-tag">毎月のお楽しみ</span>
+              <h4 class="product-name">月1回の「パン便」</h4>
+              <p class="product-text">その月のおすすめを詰めて、<wbr>毎月お届けします。<wbr>季節のパンとの出会いも楽しみに。</p>
+              <p class="price"><b>4,500</b>円／月<small>（送料込み）</small></p>
+              <a class="btn btn-main btn-block" href="#" data-dummy>オンラインショップで見る</a>
+            </div>
+          </li>
+        </ul>
+        <p class="note center">価格はサンプルです。</p>
+      </div>
+    </section>
+    <!-- ▲ ここまで ▲ -->
+
+    <!-- 2-2. マルシェで買う（取り置き予約）
+         ▼ 出店のたびにここを書き換えます ▼
+         ・次回の出店：<time datetime="…"> の datetime と表示の両方、マルシェの名前・場所・時間
+         ・取り置きできるパン：表の <tr> 1つが1品（名前と税込の値段）。売り切れなどその日の情報はHPに書かず、Instagramのストーリーズで知らせる
+         ・Googleフォームの商品の選択肢も、表と合わせて直す -->
+    <section id="marche" class="section way" aria-labelledby="marche-title">
+      <div class="container">
+        <div class="way-head">
+          <p class="way-num">応援のしかた 2</p>
+          <h3 id="marche-title" class="way-title">マルシェで買う<small>（取り置き予約）</small></h3>
+          <p class="way-lead">焼きたてを手渡しできる、<wbr>いちばんうれしい場所です。<wbr>売り切れが心配な方は、<wbr>取り置きをどうぞ。</p>
+        </div>
+
+        <div class="marche">
+          <figure class="marche-photo">
+            <img class="photo" src="/samples/bakery/images/marche.jpg" width="1600" height="900" loading="lazy" alt="かごにたくさん並んだ、バゲットや丸パン、ごまやレーズンのパン">
+          </figure>
+
+          <div class="marche-info">
+            <div class="next-marche">
+              <p class="next-label">次回の出店</p>
+              <p class="next-name">ひとつぶマルシェ</p>
+              <p class="next-date"><time datetime="2026-11-22">11月22日（日）</time> 9:00〜13:00</p>
+              <p class="next-place">さくら坂公園 芝生広場（雨天中止）</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 取り置き予約：予約そのものは Googleフォームで受ける（ページ内には入力欄を置かない）
+             ・「予約フォームを開く」は、誠屋が用意した見本のGoogleフォーム（https://forms.gle/kPHFADwZ8W78veDo6）を新しいタブで開く -->
+        <div class="reserve">
+          <h4 class="reserve-title">取り置きできるパン</h4>
+          <div class="table-wrap reserve-table">
+            <table class="bake-table">
+              <thead>
+                <tr><th scope="col">パンの名前</th><th scope="col">値段<small>（税込）</small></th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">カンパーニュ</th><td>1,100円</td></tr>
+                <tr><th scope="row">バゲット</th><td>580円</td></tr>
+                <tr><th scope="row">くるみパン</th><td>450円</td></tr>
+                <tr><th scope="row">全粒粉の食パン</th><td>600円</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">取り置き分は数に限りがあります。<wbr>ご予約が上限を超えた場合は、<wbr>お店からご連絡します。</p>
+          <!-- その日の情報（売り切れ・焼きたての様子）は Instagram にまかせる。リンクは仮の # -->
+          <p class="insta-note">当日の売り切れ情報や焼きたての様子は、<wbr>Instagramのストーリーズで<wbr>お知らせしています。<br><a href="#" target="_blank" rel="noopener" data-dummy>Instagramを見る</a></p>
+
+          <h4 class="reserve-sub">予約のきまり</h4>
+          <dl class="rules">
+            <div><dt>締切</dt><dd>出店の前日 20:00 まで</dd></div>
+            <div><dt>受け取り</dt><dd>10:00〜11:00／11:00〜12:00／12:00〜13:00 から、フォームで選べます</dd></div>
+            <div><dt>お支払い</dt><dd>当日、受け取りのときに</dd></div>
+          </dl>
+
+          <div class="reserve-actions">
+            <a class="btn btn-main btn-block btn-form" href="https://forms.gle/kPHFADwZ8W78veDo6" target="_blank" rel="noopener">
+              予約フォームを開く
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+            </a>
+            <p class="btn-caption">Googleフォームが開きます<wbr>（見本のフォームなので、<wbr>試しに送信できます）</p>
+            <a class="btn btn-sub btn-block btn-line-sub" href="#" data-dummy>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+              LINEで予約する
+            </a>
+          </div>
+          <p class="after-send">送信が終わると、画面に「ご予約を受け付けました」と表示されます。控えのメールが見当たらないときは、迷惑メールフォルダもご確認ください。</p>
+
+          <!-- 誠屋からの説明（HP制作を検討している人向け。ことりのお店の中身ではない）
+               点線の枠・白い背景で、フォームの続きではなく説明欄だと分かるようにしている。最初は閉じておく -->
+          <details class="howto">
+            <summary>
+              <span class="howto-badge">誠屋より</span>
+              <span class="howto-summary"><span class="howto-for">HPをご検討中の方へ<span class="visually-hidden">｜</span></span>本物のお店では、<wbr>この予約は<wbr>こう動きます</span>
+            </summary>
+            <div class="howto-body">
+              <h4 class="howto-h"><span class="howto-icon" aria-hidden="true">!</span>見本のフォームで試せます</h4>
+              <p>「予約フォームを開く」ボタンから、誠屋が用意した見本のGoogleフォームが開きます。実際に送信して、送信後の画面や、控えのメールが届く様子を体験できます。見本のため、送信しても予約にはなりません。お名前は仮の名前でお試しください。</p>
+
+              <h4 class="howto-h"><span class="howto-icon" aria-hidden="true">✉</span>予約の届き方</h4>
+              <ol class="howto-steps">
+                <li>お客さんがフォームから送信すると、お店のスマホにメールで通知が届きます。</li>
+                <li>お客さんにも「ご予約を受け付けました」という控えが自動で届くので、確認の連絡をしなくて済みます。</li>
+                <li>届いた予約は、表（スプレッドシート）に自動で一行ずつたまっていきます。締切のあとに表を開けば、何をいくつ焼けばいいか、何時に誰が受け取りに来るかが一目で分かります。</li>
+              </ol>
+              <p>LINEで予約を受けたいお店は、「LINEで予約する」ボタンからのやりとりと組み合わせることもできます。</p>
+
+              <h4 class="howto-h"><span class="howto-icon" aria-hidden="true">✓</span>お店の負担を減らす工夫</h4>
+              <p class="howto-tag">まずはここから</p>
+              <ul class="howto-list">
+                <li>電話ではなくフォームで受けるので、パンを焼いている最中に電話に出なくて済み、聞き間違いも起きません。</li>
+                <li>予約の控えが自動でお客さんに届くので、一件ずつ返信する手間がありません。</li>
+                <li>売り切れなど、その日ごとに変わる情報はInstagramにまかせるので、HPを毎回更新する必要がありません。</li>
+              </ul>
+              <p class="howto-tag">慣れてきたら</p>
+              <ul class="howto-list">
+                <li>締切（前日20時）を過ぎたら、自動で受付を終了する。</li>
+                <li>商品ごとに予約の上限を決めて、上限に達したら「完売」と表示する。</li>
+                <li>受け取り時間帯ごとに受付の枠を決めて、当日の混雑を分散する。</li>
+                <li>前日に「明日のお受け取りをお待ちしています」という連絡を自動で送り、受け取り忘れを防ぐ。</li>
+              </ul>
+              <p>どこまで仕組みにするかは、お店の規模や予約の数に合わせて選べます。使うサービスによっては、無料から始められるものも多くあります。</p>
+
+              <h4 class="howto-h"><span class="howto-icon" aria-hidden="true">?</span>設定のご相談</h4>
+              <p>フォームの設定や、お店に合った受け方のご相談も承ります。</p>
+              <!-- 誠屋HPのお問い合わせ（トップの #contact） -->
+              <p class="howto-cta"><a href="/#contact">誠屋に相談する</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+    <!-- ▲ ここまで ▲ -->
+
+    <!-- 2-3. 飲食店で使う
+         ▼ 使ってくれるお店が増えたら、<li class="shop"> を1つコピーして足す（お店はすべて架空） ▼ -->
+    <section id="restaurant" class="section way" aria-labelledby="restaurant-title">
+      <div class="container">
+        <div class="way-head">
+          <p class="way-num">応援のしかた 3</p>
+          <h3 id="restaurant-title" class="way-title">飲食店で使う</h3>
+        </div>
+
+        <div class="wholesale">
+          <div class="wholesale-photos">
+            <img class="photo" src="/samples/bakery/images/cafe-plate.jpg" width="1600" height="900" loading="lazy" alt="アボカドをぬったトーストに目玉焼きをのせたカフェの一皿">
+            <img class="photo" src="/samples/bakery/images/restaurant-basket.jpg" width="987" height="1482" loading="lazy" alt="レストランのテーブルに置かれた、布を敷いたパンかご">
+          </div>
+          <div class="wholesale-text">
+            <h4 class="sub-title">お店で、<wbr>ことりのパンを<wbr>使いませんか</h4>
+            <p>カフェのモーニングやランチのパン、レストランのパンかごに。少しの量から、お店の料理に合わせた焼き加減やサイズのご相談もお受けしています。</p>
+            <p>ことりのパンが町のあちこちで食べられるようになることも、朝のパン屋への一歩です。</p>
+            <a class="btn btn-main" href="#" data-dummy>卸について相談する</a>
+          </div>
+        </div>
+
+        <h4 class="sub-title center shops-title">ことりのパンが<wbr>食べられるお店</h4>
+        <ul class="shops">
+          <li class="shop">
+            <p class="shop-name">喫茶 しろつめ</p>
+            <p class="shop-text">モーニングのトーストに、<wbr>全粒粉の食パンを。</p>
+            <p class="shop-area">さくら坂駅前</p>
+          </li>
+          <li class="shop">
+            <p class="shop-name">季節のスープ屋 ほとり</p>
+            <p class="shop-text">日替わりスープに、<wbr>カンパーニュを添えて。</p>
+            <p class="shop-area">かわせみ町</p>
+          </li>
+          <li class="shop">
+            <p class="shop-name">小さな洋食 あさつゆ亭</p>
+            <p class="shop-text">ランチのパンかごに、<wbr>バゲットとくるみパン。</p>
+            <p class="shop-area">みなと通り</p>
+          </li>
+        </ul>
+        <p class="note center">お店はすべて架空です。</p>
+      </div>
+    </section>
+    <!-- ▲ ここまで ▲ -->
+
+    <!-- 2-4. 食べた感想と写真を送る
+         ▼ 届いた写真を載せるときは、<li class="table-card"> を1つコピーする ▼
+         ・掲載する前に、必ずご本人に確認する。お子さんの顔が写っている写真は載せない。お名前はニックネームで -->
+    <section id="voices" class="section way" aria-labelledby="voices-title">
+      <div class="container">
+        <div class="way-head">
+          <p class="way-num">応援のしかた 4</p>
+          <h3 id="voices-title" class="way-title">食べた感想と<wbr>写真を送る</h3>
+          <p class="way-lead">「おいしかった」のひとことが、<wbr>いちばんの応援です。</p>
+        </div>
+
+        <ul class="send-ways">
+          <li>
+            <a class="btn btn-line btn-block" href="#" data-dummy>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+              LINEで送る
+            </a>
+          </li>
+          <li class="send-insta">
+            <p>Instagramで、<wbr>このタグをつけて投稿</p>
+            <p class="hashtag">#ことりのある朝</p>
+          </li>
+        </ul>
+        <p class="send-thanks">お礼の品はありません。<wbr>純粋な応援として、<wbr>ありがたく受け取ります。<br>そのかわり、<wbr>ひとつひとつに<wbr>ことりからお返事を書いています。</p>
+
+        <h4 class="sub-title center tables-title">みんなの食卓から</h4>
+        <ul class="tables">
+          <li class="table-card">
+            <img class="photo" src="/samples/bakery/images/breakfast-1.jpg" width="1600" height="2400" loading="lazy" alt="バゲットにクリームチーズとアボカド、角切りトマトをのせた朝ごはん。うしろにオレンジジュース">
+            <div class="table-body">
+              <p class="table-who">あさがお さん</p>
+              <p class="table-voice">バゲットにクリームチーズとアボカドをのせました。週末だけの、ちょっとぜいたくな朝ごはんです。</p>
+              <p class="table-reply"><span class="reply-from">ことりより</span>トマトの赤がきれい！ バゲットもよろこんでいると思います。</p>
+            </div>
+          </li>
+          <li class="table-card">
+            <img class="photo" src="/samples/bakery/images/breakfast-2.jpg" width="1254" height="1254" loading="lazy" alt="こんがり焼いたパンにバターをのせた朝ごはんと、マグカップのコーヒー">
+            <div class="table-body">
+              <p class="table-who">みのる さん</p>
+              <p class="table-voice">冷凍のパンをトースターで焼き戻して、バターだけで。外がカリッとして、マルシェで買った日の味でした。</p>
+              <p class="table-reply"><span class="reply-from">ことりより</span>焼き戻し、上手です！ バターがしみたところが、いちばんおいしいですよね。</p>
+            </div>
+          </li>
+          <li class="table-card">
+            <img class="photo" src="/samples/bakery/images/breakfast-3.jpg" width="1254" height="1254" loading="lazy" alt="湯気の立つ野菜スープと、スライスしたパン2枚">
+            <div class="table-body">
+              <p class="table-who">ゆずママ さん</p>
+              <p class="table-voice">パン便のパンを、野菜スープと一緒に。子どもがスープにひたして、最後のひと切れまで食べてくれました。</p>
+              <p class="table-reply"><span class="reply-from">ことりより</span>スープにひたすの、わたしも大好きな食べ方です。また来月のパン便で！</p>
+            </div>
+          </li>
+        </ul>
+        <div class="post-rules">
+          <p class="post-rules-title">掲載のルール</p>
+          <ul>
+            <li>掲載する前に、かならずご本人に確認します</li>
+            <li>お子さんの顔が写った写真は載せません</li>
+            <li>お名前はニックネームで載せます</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- ▲ ここまで ▲ -->
+
+
+    <!-- ================================================================
+         3. アレルギー表示
+         ▼ 商品を足したら <tr> を1つコピーする。含むものは <td class="has">●</td>、含まないものは <td>−</td> ▼
+         ================================================================ -->
+    <section id="allergy" class="section info" aria-labelledby="allergy-title">
+      <div class="container narrow">
+        <p class="eyebrow">アレルギー表示</p>
+        <h2 id="allergy-title" class="title">原材料について</h2>
+        <p>主な商品に使っている特定原材料です。</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="商品ごとの特定原材料の表">
+          <table class="allergy">
+            <thead>
+              <tr><th scope="col">商品</th><th scope="col">小麦</th><th scope="col">乳</th><th scope="col">卵</th><th scope="col">くるみ</th><th scope="col">ごま</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">カンパーニュ</th><td class="has">●</td><td>−</td><td>−</td><td>−</td><td>−</td></tr>
+              <tr><th scope="row">バゲット</th><td class="has">●</td><td>−</td><td>−</td><td>−</td><td>−</td></tr>
+              <tr><th scope="row">くるみパン</th><td class="has">●</td><td>−</td><td>−</td><td class="has">●</td><td>−</td></tr>
+              <tr><th scope="row">全粒粉の食パン</th><td class="has">●</td><td class="has">●</td><td>−</td><td>−</td><td>−</td></tr>
+              <tr><th scope="row">ごまのプチパン</th><td class="has">●</td><td class="has">●</td><td class="has">●</td><td>−</td><td class="has">●</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">● 含む ／ − 含まない。冷凍パンセット・パン便は、中身ごとの表示を同封しています。<br>同じ厨房で、卵・乳・くるみ・ごまを使う商品もつくっています。<br><b>サンプルの表示です。</b></p>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         4. お届けについて
+         ================================================================ -->
+    <section id="delivery" class="section info" aria-labelledby="delivery-title">
+      <div class="container narrow">
+        <p class="eyebrow">お届けについて</p>
+        <h2 id="delivery-title" class="title">冷凍で、<wbr>焼きたての味のまま</h2>
+        <dl class="delivery">
+          <div><dt>お届けのかたち</dt><dd>焼いてすぐ冷凍し、クール便（冷凍）でお届けします。</dd></div>
+          <div><dt>発送する曜日</dt><dd>毎週 火曜日・金曜日</dd></div>
+          <div><dt>送料の目安</dt><dd>近畿 1,000円／関東・中部・中国・四国 1,200円／北海道・九州・沖縄 1,600円<span class="note-inline">（パン便は送料込み）</span></dd></div>
+          <div><dt>届いたら</dt><dd>すぐに冷凍庫へ。2週間ほどを目安にお召し上がりください。</dd></div>
+          <div><dt>焼き戻し方</dt><dd>
+            <ol class="steps">
+              <li>凍ったまま、表面に霧吹きで水をかける</li>
+              <li>温めたトースターで 4〜6分（大きいパンは、先に常温で1時間ほど解凍してから）</li>
+              <li>外がカリッとしたら、焼きたての味に</li>
+            </ol>
+          </dd></div>
+        </dl>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         5. 締めのメッセージ（応援すると見られる景色）
+         ================================================================ -->
+    <section class="section closing" aria-labelledby="closing-title">
+      <div class="container narrow center">
+        <img class="closing-mark" src="/samples/bakery/images/kotori-logo.png" width="320" height="320" loading="lazy" alt="">
+        <h2 id="closing-title" class="visually-hidden">開店の日の朝に</h2>
+        <p class="closing-text">マルシェで買ってもらっていたパンを、<br>いつか、この町の朝に、お店で。</p>
+        <p class="closing-text">開店の日の朝、<wbr>いちばんに並べるのは、<br>ことりを応援してくれた人の<wbr>ためのパンです。</p>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ================================================================
+       6. フッター
+       ================================================================ -->
+  <footer>
+    <div class="foot">
+      <p class="foot-name"><img class="foot-mark" src="/samples/bakery/images/kotori-logo.png" width="320" height="320" loading="lazy" alt="">ことり</p>
+      <p class="foot-sub">シェアキッチンで焼いています。</p>
+      <ul class="sns">
+        <li><a href="#" data-dummy>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+          Instagram
+        </a></li>
+        <li><a href="#" data-dummy>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4C7 4 3 7.2 3 11.2c0 3.6 3.2 6.6 7.5 7.1l-.4 2.4 3.6-2.5c4.3-.6 7.3-3.5 7.3-7C21 7.2 17 4 12 4Z"/></svg>
+          LINE
+        </a></li>
+      </ul>
+      <p class="sample-note">このページは<wbr>誠屋HP制作の<wbr>サンプルです<wbr>（架空のお店です）。</p>
+      <!-- 写真の出どころ
+           ・hero-1〜3（-pc / -sp）← 切り抜き済みの透過PNG。3枚目は Unsplash Franzi Meyer（7ARN514bTuA）。WebP はそこから変換
+           ・bread.jpg ← Unsplash David Todd McCarty（fMIAGd34X9s）
+           ・frozen-set.jpg ← Unsplash（photo-1585735633320）
+           ・box.jpg ← 生成AI（窓辺の焼きたてパンボックス.png）
+           ・marche.jpg ← Unsplash Mohamed Hassouna（N4gtuEZ5gWc）
+           ・cafe-plate.jpg ← Unsplash Freddy G（s0aMPYk2IDQ）
+           ・restaurant-basket.jpg ← Unsplash（photo-1785031799369）
+           ・breakfast-1.jpg ← Unsplash Fernanda Martinez（y_FOHklvZ3M）
+           ・breakfast-2.jpg・breakfast-3.jpg ← 生成AI -->
+      <p class="credit">写真：Unsplash（Franzi Meyer、David Todd McCarty、Mohamed Hassouna、Freddy G、Fernanda Martinez ほか）、一部は生成AIで作成しています。<br>お店・人物・場所・内容はすべて架空です。</p>
+    </div>
+    <!-- 誠屋への導線（ほかのサンプルと同じ。誠屋の配色） -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/bakery/bakery.js"></script>
+</body>
+</html>

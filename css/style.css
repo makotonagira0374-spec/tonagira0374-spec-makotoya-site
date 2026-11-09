@@ -917,7 +917,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 }
 .samples-card { flex: 0 0 calc((100% - var(--gap-x) * (var(--cols) - 1)) / var(--cols)); min-width: 0; }
 @media (min-width: 600px) { .samples-list { --cols: 3; } }
-@media (min-width: 960px) { .samples-list { --cols: 5; } }
+@media (min-width: 960px) { .samples-list { --cols: 6; } }
 .samples-card a {
   display: flex;
   flex-direction: column;
@@ -967,8 +967,8 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .samples-card-more .btn-arrow { display: none; }
 }
 @media (min-width: 960px) {
-  /* 5列並ぶので、1列はおよそ200px。枠と文字はそれに合わせる */
-  .samples-list { --gap-x: 28px; gap: 48px var(--gap-x); margin-top: 56px; }
+  /* 6列並ぶので、1列はおよそ160px。枠と文字はそれに合わせる */
+  .samples-list { --gap-x: 20px; gap: 48px var(--gap-x); margin-top: 56px; }
   .samples-card-phone { padding: 7px; border-radius: 32px; }
   .samples-card-phone .phone-screen { border-radius: 25px; }
   .samples-card-kind { font-size: .75rem; letter-spacing: .02em; }
