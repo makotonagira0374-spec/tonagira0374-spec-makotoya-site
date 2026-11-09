@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 誠屋の制作サンプル（架空のお店）。検索結果に出さない（ほかのサンプルと同じ） -->
+  <meta name="robots" content="noindex">
+  <title>TAKIBI（たきび）｜お一人さま専用の、焚き火の音が聞こえる喫茶店（サンプル）</title>
+  <meta name="description" content="仕事帰りに、ひとりで。焚き火のはぜる音と小川の音だけが聞こえる、お一人さま専用の喫茶店「たきび」。町の喫茶店を間借りして、毎週水曜・金曜の夕方に焼き菓子と珈琲をお出ししています。（誠屋HP制作のサンプルHP・架空のお店です）">
+  <meta name="theme-color" content="#1F2A24">
+  <link rel="icon" href="/samples/cafe/images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap">
+  <!-- Googleアナリティクス（サンプルHPが見られた回数を知るため。手元の確認・撮影では計測しない） -->
+  <script>
+    if (location.hostname === 'makotoyarickshaw.jp' && !/[?&]shot\b/.test(location.search)) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V1L4QYSHG1';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-V1L4QYSHG1');
+    }
+    // JS が動くときだけ、スクロールでふわっと出す演出を使う
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="stylesheet" href="/samples/cafe/cafe.css">
+</head>
+<body>
+  <!-- サンプルであることを示す帯（画面の上に固定） -->
+  <p class="sample-band" role="note">これは誠屋が制作したサンプルHPです。登場するお店・人物・場所・内容はすべて架空です。<a href="/#samples">誠屋のHPへ戻る</a></p>
+
+  <!-- ヘッダー（帯のすぐ下に固定。左：メニュー、中央：店名、右：予約） -->
+  <header class="site-header">
+    <button class="head-btn head-menu" type="button" data-open="menu" aria-haspopup="dialog" aria-controls="menu">
+      <span class="menu-lines" aria-hidden="true"></span>MENU
+    </button>
+    <a class="head-logo" href="#top" lang="en">TAKIBI<span class="visually-hidden" lang="ja">（たきび）トップへ</span></a>
+    <a class="head-btn head-reserve" href="#" target="_blank" rel="noopener" data-dummy>RESERVATION<span class="visually-hidden">（席を予約する・新しいタブ）</span></a>
+  </header>
+
+  <!-- 今どのセクションにいるかを示す点（PCだけ。押すとそのセクションへ） -->
+  <nav class="dots" aria-label="ページ内の移動">
+    <ol>
+      <li><a href="#top" data-dot><span class="dot-label">HOME</span></a></li>
+      <li><a href="#about" data-dot><span class="dot-label">ABOUT</span></a></li>
+      <li><a href="#visit" data-dot><span class="dot-label">VISIT</span></a></li>
+      <li><a href="#gift" data-dot><span class="dot-label">GIFT</span></a></li>
+      <li><a href="#sponsor" data-dot><span class="dot-label">SPONSOR</span></a></li>
+      <li><a href="#access" data-dot><span class="dot-label">ACCESS</span></a></li>
+    </ol>
+  </nav>
+
+  <!--
+    ページは「画面いっぱいの写真＋短い文章」のセクションだけを並べる。
+    長い情報（営業日・ギフトの内容・スポンサーの詳細など）は、写真の上のボタンから開く重なり画面（<dialog class="modal">。ページの最後にまとめて置いている）にしまう。
+    ・写真の暗さは <section class="scene" style="--shade: .55;"> の数字（0〜1。大きいほど暗い）
+    ・写真のどこを見せるかは <img> の style の --pos（スマホ）・--pos-pc（PC）。「横 縦」の%
+  -->
+  <main>
+
+    <!-- ================================================================
+         HOME（写真3枚がゆっくり入れ替わる）
+         ・cafe.js：1枚あたり約6秒（見せる4.5秒＋フェード1.5秒）。順番は top-1 → top-2 → top-3
+         ・動きを減らす設定の端末では、入れ替えずに1枚目だけ
+         ================================================================ -->
+    <section id="top" class="hero" aria-label="HOME" data-section>
+      <div class="hero-slides">
+        <img class="hero-slide is-active" data-slide src="/samples/cafe/images/top-1.jpg" width="2400" height="1600" fetchpriority="high" alt="暗がりの中で、火が灯ったランタン" style="--pos: 50% 50%;">
+        <img class="hero-slide" data-slide src="/samples/cafe/images/top-2.jpg" width="2400" height="3200" loading="lazy" decoding="async" alt="木の台の上に、黒いマグカップと焼き菓子" style="--pos: 62% 50%; --pos-pc: 50% 62%;">
+        <img class="hero-slide" data-slide src="/samples/cafe/images/top-3.jpg" width="2400" height="3426" loading="lazy" decoding="async" alt="セーターの袖からのぞく両手で、珈琲のカップを包んでいる" style="--pos: 70% 50%; --pos-pc: 50% 72%;">
+      </div>
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="hero-name" lang="en">TAKIBI<span class="visually-hidden" lang="ja">（たきび）</span></span>
+          <span class="hero-lead">お一人さま専用の、<wbr>焚き火の音が聞こえる喫茶店</span>
+        </h1>
+        <p class="hero-small">仕事帰りに、ひとりで。</p>
+      </div>
+      <a class="scroll" href="#about"><span>scroll</span></a>
+    </section>
+
+
+    <!-- ================================================================
+         ABOUT（たきびについて）
+         ================================================================ -->
+    <section id="about" class="scene" style="--shade: .52;" aria-labelledby="about-title" data-section>
+      <img class="scene-img" src="/samples/cafe/images/about.jpg" width="2400" height="1600" loading="lazy" alt="" style="--pos: 72% 50%;">
+      <div class="scene-body reveal">
+        <h2 id="about-title" class="scene-title"><span class="scene-en" lang="en">ABOUT</span><span class="scene-ja">たきびについて</span></h2>
+        <p class="scene-text">会社員だったころ、<br>仕事帰りに寄る喫茶店が、<br>心のよりどころでした。<br>誰にも気をつかわず、<br>ただ珈琲を飲む時間に、<wbr>何度も救われました。<br>今度は、わたしが<wbr>その場所をつくります。</p>
+        <div class="scene-actions">
+          <button class="pill" type="button" data-open="modal-spend" aria-haspopup="dialog" aria-controls="modal-spend" lang="en">HOW TO SPEND<span class="visually-hidden" lang="ja">（たきびの過ごし方）</span></button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         VISIT（営業日に来る）
+         ================================================================ -->
+    <section id="visit" class="scene" style="--shade: .6;" aria-labelledby="visit-title" data-section>
+      <img class="scene-img" src="/samples/cafe/images/visit.jpg" width="954" height="1094" loading="lazy" alt="" style="--pos: 52% 50%; --pos-pc: 50% 42%;">
+      <div class="scene-body reveal">
+        <h2 id="visit-title" class="scene-title"><span class="scene-en" lang="en">VISIT</span><span class="scene-ja">営業日に来る</span></h2>
+        <p class="scene-text">今日も、<wbr>一人分の席を<wbr>用意して<wbr>待っています。</p>
+        <p class="scene-price">珈琲1杯<span aria-hidden="true">　</span><span class="accent">1,000円</span></p>
+        <p class="scene-sub">お席はお一人さま2時間まで</p>
+        <div class="scene-actions">
+          <button class="pill" type="button" data-open="modal-info" aria-haspopup="dialog" aria-controls="modal-info" lang="en">INFORMATION<span class="visually-hidden" lang="ja">（営業日と席のご案内）</span></button>
+          <a class="pill pill-main" href="#" target="_blank" rel="noopener" data-dummy lang="en">RESERVATION<span class="visually-hidden" lang="ja">（席を予約する・新しいタブ）</span></a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         GIFT（ひとりの時間を贈る）
+         ================================================================ -->
+    <section id="gift" class="scene" style="--shade: .52;" aria-labelledby="gift-title" data-section>
+      <img class="scene-img" src="/samples/cafe/images/gift.jpg" width="620" height="1380" loading="lazy" alt="" style="--pos: 40% 50%; --pos-pc: 50% 64%;">
+      <div class="scene-body reveal">
+        <h2 id="gift-title" class="scene-title"><span class="scene-en" lang="en">GIFT</span><span class="scene-ja">ひとりの時間を贈る</span></h2>
+        <p class="scene-text">大切な人の誕生日に、<br>静かなひとときを<wbr>贈りませんか。</p>
+        <p class="scene-sub">焼き菓子とドリップバッグのセット</p>
+        <div class="scene-actions">
+          <button class="pill" type="button" data-open="modal-gift" aria-haspopup="dialog" aria-controls="modal-gift" lang="en">ABOUT GIFT<span class="visually-hidden" lang="ja">（ギフトの内容）</span></button>
+          <a class="pill pill-main" href="#" target="_blank" rel="noopener" data-dummy lang="en">ORDER<span class="visually-hidden" lang="ja">（ギフトを注文する・新しいタブ）</span></a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SPONSOR（キャンプチェアのスポンサーになる）
+         ================================================================ -->
+    <section id="sponsor" class="scene" style="--shade: .56;" aria-labelledby="sponsor-title" data-section>
+      <img class="scene-img" src="/samples/cafe/images/chair.jpg" width="1800" height="2700" loading="lazy" alt="" style="--pos: 66% 50%; --pos-pc: 50% 46%;">
+      <div class="scene-body reveal">
+        <h2 id="sponsor-title" class="scene-title"><span class="scene-en" lang="en">SPONSOR</span><span class="scene-ja">キャンプチェアの<wbr>スポンサーになる</span></h2>
+        <p class="scene-text">いつか開くお店の、<wbr>一脚をいっしょに。</p>
+        <p class="scene-sub">お返しは、<wbr>たきびオリジナルの<wbr>ステンレスマグ。</p>
+        <div class="scene-actions">
+          <button class="pill" type="button" data-open="modal-sponsor" aria-haspopup="dialog" aria-controls="modal-sponsor" lang="en">ABOUT SPONSOR<span class="visually-hidden" lang="ja">（スポンサーのしくみ）</span></button>
+          <a class="pill pill-main" href="#" target="_blank" rel="noopener" data-dummy lang="en">SUPPORT<span class="visually-hidden" lang="ja">（クラウドファンディングで応援する・新しいタブ）</span></a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         ACCESS（小さな焚き火の写真の上に、景色の一文と店舗情報）
+         ================================================================ -->
+    <section id="access" class="scene scene-access" style="--shade: .45;" aria-labelledby="access-title" data-section>
+      <img class="scene-img" src="/samples/cafe/images/ending.jpg" width="2400" height="3600" loading="lazy" alt="" style="--pos: 50% 62%; --pos-pc: 50% 30%;">
+      <div class="scene-body reveal">
+        <h2 id="access-title" class="scene-title"><span class="scene-en" lang="en">ACCESS</span><span class="scene-ja">アクセス</span></h2>
+        <p class="scene-text">扉をあけると、<wbr>焚き火のはぜる音と、<wbr>小川の音だけ。</p>
+        <dl class="shop-info">
+          <div><dt>営業場所</dt><dd>◯◯町の喫茶店を<wbr>間借りしています</dd></div>
+          <div><dt>営業日</dt><dd>毎週 水曜・金曜</dd></div>
+          <div><dt>営業時間</dt><dd>17:00〜21:00</dd></div>
+          <div><dt>席</dt><dd>一人席 4席（予約優先）</dd></div>
+          <div><dt>アクセス</dt><dd>◯◯駅より徒歩5分</dd></div>
+        </dl>
+        <div class="scene-actions">
+          <a class="pill pill-main" href="#" target="_blank" rel="noopener" data-dummy lang="en">RESERVATION<span class="visually-hidden" lang="ja">（席を予約する・新しいタブ）</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ================================================================
+       フッター（ACCESS の下に小さく）
+       ================================================================ -->
+  <footer>
+    <div class="foot">
+      <p class="foot-name" lang="en">TAKIBI<span class="visually-hidden" lang="ja">（たきび）</span></p>
+      <p class="foot-sub">◯◯町の喫茶店を<wbr>間借りして<wbr>営業しています</p>
+      <p class="sns"><a href="#" target="_blank" rel="noopener" data-dummy>
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+        Instagram
+      </a></p>
+      <p class="sample-note">このページは<wbr>誠屋HP制作の<wbr>サンプルです<wbr>（架空のお店です）。</p>
+      <!-- 写真の出どころ
+           ・top-1.jpg ← Unsplash Joshua Bartell（B5PGhF55FgU）
+           ・top-2.jpg ← Unsplash Pratik Prasad（VAuw62qBib8）
+           ・top-3.jpg ← Unsplash Rafki Altoberi（BEJ_RYAtknY）
+           ・about.jpg ← Unsplash Bruno Nascimento（9XTyIiFceKM）
+           ・visit.jpg ← Unsplash（photo-1599861495616。はかりのロゴが入らないよう下と右端を切り落とし）
+           ・gift.jpg ← Unsplash（photo-1635646597195。本の文字が入らないよう左40%を切り落とし）
+           ・chair.jpg ← Unsplash Alexey Demidov（4ktR8WI-Tuo）
+           ・mug.jpg ← Unsplash（photo-1725237278349）
+           ・ending.jpg ← Unsplash Clay Banks（sgM7vHx0D2s） -->
+      <p class="credit">写真：Unsplash（Joshua Bartell、Pratik Prasad、Rafki Altoberi、Bruno Nascimento、Alexey Demidov、Clay Banks ほか）<br>お店・人物・場所・内容はすべて架空です。</p>
+    </div>
+    <!-- 誠屋への導線（ほかのサンプルと同じ。誠屋の配色） -->
+    <div class="makotoya">
+      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <a href="/">誠屋HP制作を見る</a>
+    </div>
+  </footer>
+
+
+  <!-- ================================================================
+       全画面のメニュー（ヘッダーの MENU から開く）
+       ================================================================ -->
+  <dialog id="menu" class="menu" aria-label="メニュー">
+    <div class="menu-inner" tabindex="-1" data-focus>
+      <button class="modal-close menu-close" type="button" data-close aria-label="メニューを閉じる"></button>
+      <ol class="menu-list">
+        <li><a href="#top" data-menu-link><span lang="en">HOME</span><small>トップ</small></a></li>
+        <li><a href="#about" data-menu-link><span lang="en">ABOUT</span><small>たきびについて</small></a></li>
+        <li><a href="#visit" data-menu-link><span lang="en">VISIT</span><small>営業日に来る</small></a></li>
+        <li><a href="#gift" data-menu-link><span lang="en">GIFT</span><small>ひとりの時間を贈る</small></a></li>
+        <li><a href="#sponsor" data-menu-link><span lang="en">SPONSOR</span><small>キャンプチェアのスポンサーになる</small></a></li>
+        <li><a href="#access" data-menu-link><span lang="en">ACCESS</span><small>アクセス</small></a></li>
+      </ol>
+    </div>
+  </dialog>
+
+
+  <!-- ================================================================
+       重なって開く画面（モーダル）。写真の上のボタン（data-open="…"）から開く
+       ・× ボタン、背景のクリック、Esc キーで閉じる。開くとパネルにフォーカスが移る
+       ================================================================ -->
+
+  <!-- HOW TO SPEND（たきびの過ごし方） -->
+  <dialog id="modal-spend" class="modal" aria-labelledby="modal-spend-title">
+    <div class="modal-panel" tabindex="-1" data-focus>
+      <div class="modal-head">
+        <p class="modal-en" lang="en">HOW TO SPEND</p>
+        <h3 id="modal-spend-title" class="modal-title">たきびの過ごし方</h3>
+        <button class="modal-close" type="button" data-close aria-label="閉じる"></button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-lead">ここでは、<wbr>誰とも話さなくていい。</p>
+        <ul class="features">
+          <li class="feature">
+            <p class="feature-num" aria-hidden="true">01</p>
+            <h4 class="feature-title">お一人さま専用</h4>
+            <p>ご来店はお一人ずつ。<wbr>誰にも気をつかわずに<wbr>過ごせます。</p>
+          </li>
+          <li class="feature">
+            <p class="feature-num" aria-hidden="true">02</p>
+            <h4 class="feature-title">焚き火と小川の音</h4>
+            <p>店内に流れるのは、<wbr>焚き火のはぜる音と<wbr>小川の音だけ。</p>
+          </li>
+          <li class="feature">
+            <p class="feature-num" aria-hidden="true">03</p>
+            <h4 class="feature-title">キャンプチェアの席</h4>
+            <p>一席ずつゆったり間をあけて、<wbr>座り心地のよい<wbr>キャンプチェアを<wbr>置いています。<br>お一人さま2時間、<wbr>ゆっくりお過ごしください。</p>
+          </li>
+        </ul>
+        <div class="manners">
+          <p class="manners-title">静かに過ごすための、<wbr>小さなお願い</p>
+          <ul>
+            <li>店内での会話は控えめに</li>
+            <li>お電話は店の外で</li>
+            <li>ご来店はお一人ずつ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- INFORMATION（営業日と席のご案内）
+       ▼ 毎月ここを書き換えます ▼
+       ・カレンダー：<caption> の年月と、営業日の <td> に class="open" と「（営業日）」の文字を付ける
+       ・お休みにする日は class="open" を外す -->
+  <dialog id="modal-info" class="modal" aria-labelledby="modal-info-title">
+    <div class="modal-panel" tabindex="-1" data-focus>
+      <div class="modal-head">
+        <p class="modal-en" lang="en">INFORMATION</p>
+        <h3 id="modal-info-title" class="modal-title">営業日と席のご案内</h3>
+        <button class="modal-close" type="button" data-close aria-label="閉じる"></button>
+      </div>
+      <div class="modal-body">
+        <dl class="info">
+          <div><dt>営業場所</dt><dd>◯◯町の喫茶店を<wbr>間借りしています</dd></div>
+          <div><dt>営業日</dt><dd>毎週 水曜・金曜<br>17:00〜21:00</dd></div>
+          <div><dt>席</dt><dd>一人席 4席<br><small>予約優先。空いていれば、予約なしでもどうぞ。</small></dd></div>
+          <div><dt>料金</dt><dd>珈琲1杯 1,000円<br><small>お席はお一人さま2時間まで。焼き菓子は＋300円で添えられます。</small></dd></div>
+        </dl>
+
+        <div class="calendar">
+          <table class="cal">
+            <caption><span class="cal-title">今月の営業日</span><span class="cal-month">2026年11月</span></caption>
+            <thead>
+              <tr><th scope="col" class="sun">日</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col" class="sat">土</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>2</td><td>3</td><td class="open">4<span class="visually-hidden">（営業日）</span></td><td>5</td><td class="open">6<span class="visually-hidden">（営業日）</span></td><td>7</td></tr>
+              <tr><td>8</td><td>9</td><td>10</td><td class="open">11<span class="visually-hidden">（営業日）</span></td><td>12</td><td class="open">13<span class="visually-hidden">（営業日）</span></td><td>14</td></tr>
+              <tr><td>15</td><td>16</td><td>17</td><td class="open">18<span class="visually-hidden">（営業日）</span></td><td>19</td><td class="open">20<span class="visually-hidden">（営業日）</span></td><td>21</td></tr>
+              <tr><td>22</td><td>23</td><td>24</td><td class="open">25<span class="visually-hidden">（営業日）</span></td><td>26</td><td class="open">27<span class="visually-hidden">（営業日）</span></td><td>28</td></tr>
+              <tr><td>29</td><td>30</td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+          <p class="cal-legend"><span class="cal-mark" aria-hidden="true"></span>営業日 17:00〜21:00</p>
+          <p class="note center">臨時のお休みは、<wbr>Instagramでお知らせします。</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+  <!-- ▲ ここまで ▲ -->
+
+  <!-- ABOUT GIFT（ギフトの内容） -->
+  <dialog id="modal-gift" class="modal" aria-labelledby="modal-gift-title">
+    <div class="modal-panel" tabindex="-1" data-focus>
+      <div class="modal-head">
+        <p class="modal-en" lang="en">ABOUT GIFT</p>
+        <h3 id="modal-gift-title" class="modal-title">ひとりの時間を贈る</h3>
+        <button class="modal-close" type="button" data-close aria-label="閉じる"></button>
+      </div>
+      <div class="modal-body">
+        <div class="body-text">
+          <p>焼き菓子とドリップバッグのセットは、お菓子を贈るというより、「ひとりの時間」を贈るギフトです。</p>
+          <p>仕事を終えて家に帰ったら、お湯をわかして、ゆっくり注ぐ。焼き菓子をひとつ添えれば、そこはもう、たきびと同じ静かな時間です。</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">ギフトセット</p>
+          <p class="gift-name">焼き菓子3種と<wbr>ドリップバッグ3袋</p>
+          <p class="price"><b>2,800</b>円<small>（送料別）</small></p>
+          <ul class="checks">
+            <li>お届けする日を指定できます</li>
+            <li>メッセージカードを添えられます</li>
+          </ul>
+        </div>
+
+        <div class="flow">
+          <h4 class="sub-title">ご注文の流れ</h4>
+          <ol class="steps">
+            <li><span class="step-num">1</span><p>「ORDER」ボタンから、<wbr>注文フォームへ</p></li>
+            <li><span class="step-num">2</span><p>お店から、確認とお支払い方法の<wbr>ご連絡をします</p></li>
+            <li><span class="step-num">3</span><p>指定の日に、<wbr>お届けします</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ABOUT SPONSOR（スポンサーのしくみ）
+       ▼ 応援が増えたらここを書き換えます ▼
+       ・椅子のアイコン：<li class="seat"> に class="is-taken" を付けると塗られる
+       ・数字：「3 / 8脚」の 3 と、aria-label の数字の両方を直す -->
+  <dialog id="modal-sponsor" class="modal" aria-labelledby="modal-sponsor-title">
+    <div class="modal-panel" tabindex="-1" data-focus>
+      <div class="modal-head">
+        <p class="modal-en" lang="en">ABOUT SPONSOR</p>
+        <h3 id="modal-sponsor-title" class="modal-title">キャンプチェアの<wbr>スポンサーになる</h3>
+        <button class="modal-close" type="button" data-close aria-label="閉じる"></button>
+      </div>
+      <div class="modal-body">
+        <div class="body-text">
+          <p>自分の店を開くときには、いま間借りの店で使っているのと同じキャンプチェアをそろえたいと思っています。その一脚分を、応援していただけませんか。</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">一脚分の応援</p>
+          <p class="price"><b>15,000</b>円</p>
+          <div class="reward">
+            <img class="reward-photo" src="/samples/cafe/images/mug.jpg" width="987" height="1480" loading="lazy" alt="布の上に置いた、ステンレスのマグカップと珈琲豆">
+            <div class="reward-text">
+              <p class="reward-label">お返し</p>
+              <p class="reward-name">たきびオリジナルの<wbr>ステンレスマグ</p>
+              <p>開店したら、このマグを持って来てください。あなたのマグで、珈琲をお出しします。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="seats">
+          <p class="seats-title">目標は8脚</p>
+          <ul class="seat-list" role="img" aria-label="8脚のうち3脚の応援が集まっています">
+            <li class="seat is-taken"></li>
+            <li class="seat is-taken"></li>
+            <li class="seat is-taken"></li>
+            <li class="seat"></li>
+            <li class="seat"></li>
+            <li class="seat"></li>
+            <li class="seat"></li>
+            <li class="seat"></li>
+          </ul>
+          <p class="seats-count" aria-hidden="true"><b>3</b> / 8脚</p>
+        </div>
+
+        <p class="note center">応援の受付は、<wbr>クラウドファンディングの<wbr>サービスで行います。</p>
+      </div>
+    </div>
+  </dialog>
+  <!-- ▲ ここまで ▲ -->
+
+  <p class="toast" role="status" aria-live="polite"></p>
+
+  <script src="/samples/cafe/cafe.js"></script>
+</body>
+</html>
