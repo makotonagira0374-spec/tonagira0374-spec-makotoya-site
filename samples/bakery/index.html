@@ -186,25 +186,25 @@
          ・Googleフォームの商品の選択肢も、表と合わせて直す -->
     <section id="marche" class="section way" aria-labelledby="marche-title">
       <div class="container">
-        <div class="way-head">
-          <p class="way-num">応援のしかた 2</p>
-          <h3 id="marche-title" class="way-title">マルシェで買う<small>（取り置き予約）</small></h3>
-          <p class="way-lead">焼きたてを手渡しできる、<wbr>いちばんうれしい場所です。<wbr>売り切れが心配な方は、<wbr>取り置きをどうぞ。</p>
-        </div>
-
-        <div class="marche">
-          <figure class="marche-photo">
+        <!-- 冒頭：淡い小麦色の四角の上に、写真を少しずらして重ねる（写真の下端は四角からはみ出す）。写真は左、文章は右
+             飲食店で使う（#restaurant）は左右を入れ替えた .stack-reverse -->
+        <div class="stack">
+          <figure class="stack-photo">
             <img class="photo" src="/samples/bakery/images/marche.jpg" width="1600" height="900" loading="lazy" alt="かごにたくさん並んだ、バゲットや丸パン、ごまやレーズンのパン">
           </figure>
-
-          <div class="marche-info">
-            <div class="next-marche">
-              <p class="next-label">次回の出店</p>
-              <p class="next-name">ひとつぶマルシェ</p>
-              <p class="next-date"><time datetime="2026-11-22">11月22日（日）</time> 9:00〜13:00</p>
-              <p class="next-place">さくら坂公園 芝生広場（雨天中止）</p>
-            </div>
+          <div class="stack-text">
+            <p class="way-num">応援のしかた 2</p>
+            <h3 id="marche-title" class="stack-title"><img class="stack-logo" src="/samples/bakery/images/kotori-logo.png" width="320" height="320" loading="lazy" alt="">マルシェで買う<small>（取り置き予約）</small></h3>
+            <p class="stack-lead">焼きたてを手渡しできる、いちばんうれしい場所です。売り切れが心配な方は、取り置きをどうぞ。</p>
+            <a class="btn-pill" href="#reserve-form">取り置き予約へ</a>
           </div>
+        </div>
+
+        <div class="next-marche">
+          <p class="next-label">次回の出店</p>
+          <p class="next-name">ひとつぶマルシェ</p>
+          <p class="next-date"><time datetime="2026-11-22">11月22日（日）</time> 9:00〜13:00</p>
+          <p class="next-place">さくら坂公園 芝生広場（雨天中止）</p>
         </div>
 
         <!-- 取り置き予約：予約そのものは Googleフォームで受ける（ページ内には入力欄を置かない）
@@ -235,7 +235,7 @@
             <div><dt>お支払い</dt><dd>当日、受け取りのときに</dd></div>
           </dl>
 
-          <div class="reserve-actions">
+          <div class="reserve-actions" id="reserve-form">
             <a class="btn btn-main btn-block btn-form" href="https://forms.gle/kPHFADwZ8W78veDo6" target="_blank" rel="noopener">
               予約フォームを開く
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
@@ -298,21 +298,16 @@
          ▼ 使ってくれるお店が増えたら、<li class="shop"> を1つコピーして足す（お店はすべて架空） ▼ -->
     <section id="restaurant" class="section way" aria-labelledby="restaurant-title">
       <div class="container">
-        <div class="way-head">
-          <p class="way-num">応援のしかた 3</p>
-          <h3 id="restaurant-title" class="way-title">飲食店で使う</h3>
-        </div>
-
-        <div class="wholesale">
-          <div class="wholesale-photos">
+        <!-- 冒頭：四角の上に写真を重ねる（マルシェと左右反転。写真は右、文章は左） -->
+        <div class="stack stack-reverse">
+          <figure class="stack-photo">
             <img class="photo" src="/samples/bakery/images/cafe-plate.jpg" width="1600" height="900" loading="lazy" alt="アボカドをぬったトーストに目玉焼きをのせたカフェの一皿">
-            <img class="photo" src="/samples/bakery/images/restaurant-basket.jpg" width="987" height="1482" loading="lazy" alt="レストランのテーブルに置かれた、布を敷いたパンかご">
-          </div>
-          <div class="wholesale-text">
-            <h4 class="sub-title">お店で、<wbr>ことりのパンを<wbr>使いませんか</h4>
-            <p>カフェのモーニングやランチのパン、レストランのパンかごに。少しの量から、お店の料理に合わせた焼き加減やサイズのご相談もお受けしています。</p>
-            <p>ことりのパンが町のあちこちで食べられるようになることも、朝のパン屋への一歩です。</p>
-            <a class="btn btn-main" href="#" data-dummy>卸について相談する</a>
+          </figure>
+          <div class="stack-text">
+            <p class="way-num">応援のしかた 3</p>
+            <h3 id="restaurant-title" class="stack-title"><img class="stack-logo" src="/samples/bakery/images/kotori-logo.png" width="320" height="320" loading="lazy" alt="">飲食店で使う</h3>
+            <p class="stack-lead">カフェのモーニングやランチ、レストランのパンかごに。少しの量から、お店の料理に合わせた焼き加減やサイズのご相談をお受けしています。</p>
+            <a class="btn-pill" href="#" data-dummy>卸について相談する</a>
           </div>
         </div>
 

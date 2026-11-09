@@ -344,16 +344,83 @@ a { color: inherit; }
 @media (min-width: 768px) { .box-label { font-size: clamp(.6875rem, 1.25vw, .9375rem); } }
 
 /* 2-2. マルシェで買う */
-.marche { display: grid; gap: 24px; }
-.marche-photo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); }
-.next-marche { padding: 18px 20px; border-radius: var(--radius); background: var(--paper); border: 1.5px solid var(--line); }
+/* 冒頭の「四角の上に写真を重ねる」レイアウト（マルシェ：写真が左 ／ 飲食店：.stack-reverse で写真が右）
+   ・淡い小麦色の四角（::before。角丸なし）の上に、写真を少しずらして重ねる
+   ・写真の下端は四角から下へはみ出し、外側の端も四角の外へ出す。影はつけない */
+.stack { --sq: #F2EAD3; --shift: 24px; position: relative; margin-top: 8px; }
+.stack::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  /* スマホ：写真の下半分あたりから始めて、文章の背景になる（写真の高さ ＝ 幅×2/3） */
+  top: calc((100vw - var(--gutter) * 2 - var(--shift)) / 3);
+  bottom: 0;
+  left: var(--shift);
+  right: 0;
+  background: var(--sq);
+}
+.stack-photo { position: relative; z-index: 1; width: calc(100% - var(--shift)); }
+.stack-photo img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.stack-text { position: relative; z-index: 1; margin-left: var(--shift); padding: 24px 20px 32px; }
+.stack-reverse::before { left: 0; right: var(--shift); }
+.stack-reverse .stack-photo { margin-left: var(--shift); }
+.stack-reverse .stack-text { margin-left: 0; margin-right: var(--shift); }
+.stack-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-top: 6px;
+  font-family: var(--hand);
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: 400;
+  line-height: 1.45;
+}
+.stack-title small { font-size: .55em; }
+.stack-logo { width: 40px; height: 40px; flex: none; }
+.stack-lead { margin-top: 12px; font-size: .9375rem; line-height: 1.95; }
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 20px;
+  padding: 10px 30px;
+  border: 1px solid #494949;
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: #494949;
+  font-size: .9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color .2s;
+}
+.btn-pill::after { content: "→"; margin-left: 10px; }
+.btn-pill:hover { background: var(--accent-t); }
+@media (min-width: 768px) {
+  /* PC：四角はコンテンツ幅の90%（写真と反対側に寄せる）。写真は全体の45%で、四角の上端の80px下から始まり、下端の80px下まではみ出す */
+  .stack { --drop: 80px; display: grid; grid-template-columns: 45% 1fr; align-items: start; margin-top: 0; }
+  .stack::before { top: 0; bottom: var(--drop); left: auto; right: 0; width: 90%; }
+  .stack-photo { grid-column: 1; grid-row: 1; align-self: end; width: 100%; margin: var(--drop) 0 0; } /* 下端をそろえて、いつも四角の下端から --drop だけはみ出す */
+  .stack-text { grid-column: 2; grid-row: 1; margin: 0; padding: 56px 48px calc(var(--drop) + 40px) 56px; }
+  .stack-reverse { grid-template-columns: 1fr 45%; }
+  .stack-reverse::before { left: 0; right: auto; }
+  .stack-reverse .stack-photo { grid-column: 2; margin-left: 0; }
+  .stack-reverse .stack-text { grid-column: 1; margin: 0; padding: 56px 56px calc(var(--drop) + 40px) 48px; }
+  .stack-title { font-size: 2rem; }
+}
+@media (min-width: 1024px) {
+  .stack-text { padding-left: 72px; }
+  .stack-reverse .stack-text { padding-left: 48px; padding-right: 72px; }
+}
+/* 重ねたブロックの下は、はみ出した写真とぶつからないよう余白をとる */
+.stack + .next-marche, .stack + .shops-title { margin-top: 48px; }
+@media (min-width: 768px) { .stack + .next-marche, .stack + .shops-title { margin-top: 72px; } }
+.next-marche { max-width: 640px; margin-inline: auto; padding: 18px 20px; border-radius: var(--radius); background: var(--paper); border: 1.5px solid var(--line); }
 .next-label { display: inline-block; padding: 0 12px; border-radius: 999px; background: var(--accent); color: #FFFFFF; font-size: .8125rem; font-weight: 700; }
 .next-name { margin-top: 6px; font-family: var(--hand); font-size: 1.5rem; line-height: 1.5; }
 .next-date { font-size: 1.125rem; font-weight: 700; }
 .next-place { color: var(--sub-ink); font-size: .875rem; }
-@media (min-width: 768px) {
-  .marche { grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
-}
 
 /* 取り置き予約（予約そのものは Googleフォーム。ページ内には入力欄を置かない） */
 .reserve {
@@ -395,14 +462,6 @@ a { color: inherit; }
 @media (min-width: 768px) { .reserve { padding: 36px 40px; } .bake-table { font-size: .9375rem; } .bake-table th, .bake-table td { padding: 12px 10px; } }
 
 /* 2-3. 飲食店で使う */
-.wholesale { display: grid; gap: 24px; }
-.wholesale-photos { display: grid; grid-template-columns: 1.5fr 1fr; gap: 10px; }
-.wholesale-photos img { width: 100%; height: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: var(--radius); }
-.wholesale-text p { margin-top: 12px; }
-.wholesale-text .btn { margin-top: 20px; }
-@media (min-width: 768px) {
-  .wholesale { grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
-}
 .shops-title { margin-top: 48px; }
 .shops { display: grid; gap: 12px; margin-top: 16px; }
 .shop { position: relative; padding: 18px 20px 16px; border-radius: var(--radius); background: var(--paper); border: 1.5px solid var(--line); }
