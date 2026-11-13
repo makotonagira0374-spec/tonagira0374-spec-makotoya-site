@@ -229,6 +229,35 @@ a { color: inherit; text-underline-offset: 4px; }
   cursor: pointer;
 }
 
+/* ---------- 3.5 こんな人に（強みと、相談の入口） ---------- */
+.for { padding: 140px var(--gutter) 120px; text-align: center; }
+.for .label { margin-bottom: 48px; color: var(--sub); }
+.for ul { display: grid; gap: 18px; }
+.for li {
+  font-size: clamp(1rem, .9rem + .5vw, 1.25rem);
+  line-height: 2;
+  letter-spacing: .14em;
+  word-break: keep-all;
+}
+.for-note { margin-top: 48px; color: var(--sub); font-size: .875rem; letter-spacing: .1em; word-break: keep-all; }
+.for-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 32px;
+  padding: 10px 36px;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: .8125rem;
+  letter-spacing: .14em;
+  text-decoration: none;
+  transition: background-color .2s;
+}
+.for-cta:hover { background-color: rgba(184, 155, 106, .14); }
+@media (prefers-reduced-motion: reduce) { .for-cta { transition: none; } }
+
 /* ---------- 4. 歩みと今 ---------- */
 .journey {
   position: relative;
@@ -287,14 +316,15 @@ a { color: inherit; text-underline-offset: 4px; }
 /* ---------- 7. クレジット・誠屋への導線 ---------- */
 .credit { padding: 0 var(--gutter) 64px; color: var(--sub); font-family: var(--sans); font-size: .6875rem; line-height: 1.9; text-align: center; }
 .credit a { color: var(--sub); }
+/* 誠屋の枠：誠屋のブランド（紺 #1F3A5F と白・ゴシック体）でそろえる */
 .makotoya {
   padding: 56px var(--gutter) 64px;
-  background: #F4F1EA;
-  color: #2A2A26;
-  font-family: "Zen Kaku Gothic New", var(--sans);
+  background: #FFFFFF;
+  color: #1F3A5F;
+  font-family: var(--sans);
   text-align: center;
 }
-.makotoya p { font-size: .875rem; line-height: 1.9; letter-spacing: .05em; }
+.makotoya p { font-size: .875rem; line-height: 1.9; letter-spacing: .05em; word-break: keep-all; }
 .makotoya a {
   display: inline-flex;
   align-items: center;
@@ -303,13 +333,13 @@ a { color: inherit; text-underline-offset: 4px; }
   margin-top: 20px;
   padding: 12px 28px;
   border-radius: 999px;
-  background: #2F5B7C;
+  background: #1F3A5F;
   color: #FFFFFF;
   font-size: .9375rem;
   text-decoration: none;
 }
-.makotoya a:hover { background: #24485F; }
-.makotoya :focus-visible { outline-color: #2F5B7C; }
+.makotoya a:hover { background: #162B47; }
+.makotoya :focus-visible { outline-color: #1F3A5F; }
 
 /* ダミーのリンクを押したときのお知らせ */
 .toast {

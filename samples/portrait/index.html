@@ -40,7 +40,7 @@
        「4つの問い」の答えになる範囲は data-answer の付いたセクション
        ========================================================= */
     .is-shot body { overflow: hidden; }
-    .is-shot .credit, .is-shot .makotoya, .is-shot .journey,
+    .is-shot .credit, .is-shot .makotoya, .is-shot .journey, .is-shot .for,
     .is-shot .works-head, .is-shot .work:not(:first-of-type),
     .is-shot .voices li:nth-child(n+3),
     .is-shot .info dl > div:not(.info-contact) { display: none; }
@@ -95,7 +95,7 @@
       </div>
     </section>
 
-    <!-- 3. 作品（4つの問い：応援すると、どんな景色を一緒に見られるのか）
+    <!-- 3. 作品（4つの問い：頼むと、何が手に入るのか）
          画面いっぱい（work-full）と、余白の中に掛ける（work-hung）を交互に。写真を足すときは figure を1つコピーする -->
     <section id="works" class="works" aria-labelledby="works-title">
       <div class="works-head">
@@ -133,6 +133,19 @@
       </figure>
     </section>
 
+    <!-- 3.5 こんな人に（4つの問い：頼むと、何が手に入るのか＝強み／どう頼めばいいのか＝入口）
+         作品を見て「頼みたい」と思った瞬間に、自分のことだと気づける言葉と、相談の入口を置く -->
+    <section class="for" aria-labelledby="for-title">
+      <h2 id="for-title" class="label" lang="en">For</h2>
+      <ul>
+        <li>撮られるのが、苦手な人へ。</li>
+        <li>宣材写真を、自分らしく残したい人へ。</li>
+        <li>自分を、少し好きになりたい人へ。</li>
+      </ul>
+      <p class="for-note">緊張をほどくところから、<wbr>撮影ははじまります。</p>
+      <a class="for-cta" href="#information">撮影を相談する</a>
+    </section>
+
     <!-- 4. 歩みと今 -->
     <section class="journey" aria-labelledby="journey-title">
       <img src="/images/samples/portrait/journey.webp" width="1333" height="2000" loading="lazy" alt="">
@@ -149,7 +162,7 @@
     </section>
 
     <!-- 5. 声（文字だけ） -->
-    <!-- 4つの問い：応援すると、どんな景色を一緒に見られるのか -->
+    <!-- 4つの問い：頼むと、何が手に入るのか（依頼した人の言葉で、価値を伝える） -->
     <section class="voices" data-answer="voices" aria-labelledby="voices-title">
       <h2 id="voices-title" class="label" lang="en">Voices</h2>
       <ul>
@@ -166,13 +179,13 @@
           <p class="who">ヘアメイク・Yさん<span class="tag">サンプル</span></p>
         </li>
         <li>
-          <blockquote><p>撮られる人の緊張を、<wbr>ほどく人。<wbr>誠屋も、灯さんの個展を<wbr>心待ちにしているひとりです。</p></blockquote>
+          <blockquote><p>撮られる人の緊張を、<wbr>ほどく人。<wbr>外から見ていて、<wbr>それが灯さんにしかない<wbr>強みだと思います。</p></blockquote>
           <p class="who">誠屋より<span class="tag">サンプル</span></p>
         </li>
       </ul>
     </section>
 
-    <!-- 6. Information（4つの問い：どう応援すればいいのか） -->
+    <!-- 6. Information（4つの問い：どう頼めばいいのか＝頼まれ方） -->
     <section id="information" class="info" data-answer="info" aria-labelledby="info-title">
       <div class="info-inner">
         <h2 id="info-title" class="label" lang="en">Information</h2>
@@ -182,7 +195,7 @@
             <dd>
               <p class="row"><span>作品撮り<small>60分・データ15枚</small></span><span>15,000円〜</span></p>
               <p class="row"><span>宣材撮影<small>90分・データ30枚</small></span><span>25,000円〜</span></p>
-              <p class="row"><span>はじめてのポートレート<small>60分・データ10枚</small></span><span>12,000円〜</span></p>
+              <p class="row"><span>はじめてのポートレート<small>60分・データ10枚・撮られるのが苦手な方へ</small></span><span>12,000円〜</span></p>
               <p class="small">料金はすべて架空のサンプルです（税込・関西圏は出張費無料）。</p>
             </dd>
           </div>
@@ -212,7 +225,7 @@
     </p>
     <!-- 誠屋への導線 -->
     <div class="makotoya">
-      <p>このサンプルHPは、誠屋HP制作がつくりました。<br>あなたの名刺HPも、一緒につくりませんか。</p>
+      <p>このサンプルHPは、<wbr>誠屋HP制作がつくりました。<br>あなたの強みを言葉にして、<br>選ばれるHPを一緒につくりませんか。</p>
       <a href="/">誠屋HP制作を見る</a>
     </div>
   </footer>
