@@ -13,19 +13,6 @@ var SEATS = { total: 5, left: null };
   });
 })();
 
-// 登り坂：画面に入ったら1回だけ演出を始める（線 → 言葉 → 二人。順番と時間は CSS 側）
-(function () {
-  var climb = document.querySelector('.why-climb');
-  if (!climb) return;
-  if (!('IntersectionObserver' in window)) { climb.classList.add('is-play'); return; }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { climb.classList.add('is-play'); io.disconnect(); }
-    });
-  }, { threshold: 0.25 });
-  io.observe(climb);
-})();
-
 // サンプルHP：PCだけ、4つの問いをスマホ画面の中の答えと同じ高さに並べ、
 // 問いから答えの範囲の縦線（.samples-mark）まで、まっすぐ横に線を引く。
 // 同じ範囲を指す問い（どこへ／なぜ）は、近くにまとめて置く

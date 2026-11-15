@@ -3,37 +3,47 @@
    色・余白などはここの変数を変えると全体に反映されます
    ========================================================= */
 :root {
-  /* ナチュラル系：写真の山の青 × 草の黄土 */
+  /* 色は3色だけ：紺（#1F3A5F）・白・オレンジ（#F08C2E）。
+     背景は白と、ごく薄い紺（#F3F6F9）を交互に。補助の文字や線は、紺を白で薄めた色を使う */
   color-scheme: light;
-  --bg: #F4F1EA;          /* 背景（生成り） */
-  --bg-alt: #FBFAF6;      /* 交互のセクション背景（面の色） */
-  --surface: #FBFAF6;     /* 面：カード・表など */
-  --text: #2A2A26;        /* 文字 */
-  --text-sub: #6B675E;    /* 補助文字：注記・表の見出しなど小さい補足だけ */
-  --accent: #2F5B7C;      /* メイン：ボタン・リンク・小見出しのラベル・料金の数字 */
-  --accent-hover: #24485F;
-  --ochre: #A9843F;       /* 差し色（黄土）。文字には使わず、線などの装飾だけ */
-  --btn-bg: var(--accent);        /* メインボタン */
-  --btn-bg-hover: var(--accent-hover);
+  --navy: #1F3A5F;
+  --navy-hover: #162B47;  /* 紺のボタンにマウスを乗せたとき */
+  --navy-75: #576B87;     /* 紺を薄めた文字（注記・表の見出しなど）。白・薄い紺の上で 4.5:1 以上 */
+  --navy-line: #D9DFE7;   /* 紺を薄めた線 */
+  --bg: #FFFFFF;          /* 背景（白） */
+  --bg-alt: #F3F6F9;      /* 交互のセクション背景（ごく薄い紺） */
+  --surface: #FFFFFF;     /* 面：カード・表など */
+  --text: var(--navy);    /* 文字 */
+  --text-sub: var(--navy-75);
+  --accent: var(--navy);  /* ボタン・リンク・小見出しのラベル・料金の数字 */
+  --accent-hover: var(--navy-hover);
+  --ochre: var(--navy);   /* もとは黄土の線。いまは紺 */
+  --btn-bg: var(--navy);
+  --btn-bg-hover: var(--navy-hover);
   --btn-text: #FFFFFF;
-  --btn-light-bg: #F4F1EA;        /* 写真の上・濃い面の上のボタン */
-  --btn-light-bg-hover: #FFFFFF;
-  --btn-light-text: #2A2A26;
-  --dark-bg: #1F3A4F;     /* 濃い面（最後の相談） */
-  --dark-text: #F1EEE7;
-  --dark-text-sub: #C9D3DC;
-  --dark-line: rgba(241, 238, 231, .18);
-  --line: #E0DACD;        /* 線 */
-  --line-strong: #B9B2A3; /* 仮枠の点線 */
+  --btn-light-bg: #FFFFFF;        /* 写真の上・濃い面の上のボタン */
+  --btn-light-bg-hover: var(--bg-alt);
+  --btn-light-text: var(--navy);
+  --dark-bg: var(--navy); /* 濃い面（最後の相談） */
+  --dark-text: #FFFFFF;
+  --dark-text-sub: #C8D2DE;
+  --dark-line: rgba(255, 255, 255, .2);
+  --line: var(--navy-line);
+  --line-strong: #A7B3C3; /* 仮枠の点線 */
   --on-photo: #FFFFFF;    /* 写真の上の文字 */
-  --photo-shade: 31, 58, 79; /* 写真に重ねる山の青（rgb） */
-  --header-bg: rgba(244, 241, 234, .92);
+  --photo-shade: 31, 58, 95; /* 写真に重ねる紺（rgb） */
+  --header-bg: rgba(255, 255, 255, .92);
   --text-max: 680px;      /* 長い文章の1行の最大幅 */
 
-  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-  --font-heading: var(--font-body); /* 小見出し（カード・料金など）はゴシック700 */
-  /* 明朝はロゴ・トップ見出し・各セクションの大見出し（h2）だけに使う。太さは500 */
-  --font-mincho: "Shippori Mincho B1", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  /* 書体は見出しも本文もすべて Noto Sans JP（明朝は使わない）。見出しは太め（700）、本文は400 */
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --font-heading: var(--font-body);
+  --font-mincho: var(--font-body); /* もとは明朝。いまはゴシック */
+  --font-hero: var(--font-body);
+  /* ブランドカラー：「昇る」のオレンジ。色はここだけで管理する（ほかの場所は var(--orange) を使う）。
+     使うのは BUDDYRISE の上半分と、LINEの相談ボタン（ヒーロー・ご依頼の流れ・最後の相談は塗り、ヘッダーは枠線）だけ */
+  --orange: #F08C2E;
+  --orange-hover: #F6A85A; /* ヒーローのボタンにマウスを乗せたとき */
 
   --max-width: 1120px;
   --gutter: 20px;
@@ -157,22 +167,23 @@ a:hover { color: var(--accent-hover); }
   color: var(--btn-light-text);
 }
 .btn-outline:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
-/* 写真の上の主役ボタン：生成りの塗り。ホバーで白に変わり、矢印が右へ動く */
+/* 写真の上の主役ボタン：オレンジ地に紺の文字。ホバーで少し明るいオレンジになり、矢印が右へ動く */
 .btn.btn-fill {
   gap: 10px;
   min-height: 48px;
   padding: 16px 32px;
   border: 1px solid transparent;
   border-radius: 999px;
-  background: var(--btn-light-bg);
-  color: var(--btn-light-text);
+  background: var(--orange);
+  color: var(--navy);
   font-weight: 500;
   letter-spacing: .08em;
   text-shadow: none;
   transition: background-color .2s, color .2s;
 }
-.btn-fill:hover { background: #FFFFFF; color: var(--btn-light-text); }
+.btn-fill:hover { background: var(--orange-hover); color: var(--navy); }
 .btn-fill:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
+.flow .btn-fill:focus-visible { outline-color: var(--navy); } /* 明るい背景の上では紺の輪郭線 */
 .btn-fill:hover .btn-arrow { transform: translateX(4px); }
 .btn-arrow { flex-shrink: 0; transition: transform .2s; }
 .btn-outline:hover .btn-arrow { transform: translateX(4px); }
@@ -187,6 +198,7 @@ a:hover { color: var(--accent-hover); }
 /* トップ写真の上に重ねる。スクロールしたら（JSで is-scrolled）背景とぼかしが付く */
 .site-header {
   --header-fg: var(--on-photo);
+  font-family: var(--font-hero);
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
@@ -205,14 +217,19 @@ html:not(.js) .site-header {
   border-bottom-color: var(--line);
   text-shadow: none;
 }
-/* 写真の上では「無料で相談する」も明るいボタン。スクロール後はメインの配色 */
-.site-header .btn-primary { background: var(--btn-light-bg); color: var(--btn-light-text); text-shadow: none; }
-.site-header .btn-primary:hover { background: var(--btn-light-bg-hover); color: var(--btn-light-text); }
+/* ヘッダーの「LINEで相談する」：塗りなし・オレンジの枠線と文字。マウスを乗せるとオレンジで塗る */
+.site-header .btn-primary,
 .site-header.is-scrolled .btn-primary,
 .site-header.is-menu-open .btn-primary,
-html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(--btn-text); }
+html:not(.js) .site-header .btn-primary {
+  background: transparent;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  text-shadow: none;
+}
+.site-header .btn-primary:hover,
 .site-header.is-scrolled .btn-primary:hover,
-.site-header.is-menu-open .btn-primary:hover { background: var(--btn-bg-hover); color: var(--btn-text); }
+.site-header.is-menu-open .btn-primary:hover { background: var(--orange); color: var(--navy); }
 .site-header :focus-visible { outline-color: var(--header-fg); }
 .header-inner {
   display: flex;
@@ -223,7 +240,8 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 }
 .logo {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
+  gap: 10px;
   min-height: 44px;
   align-content: center;
   padding: 8px 0;
@@ -232,18 +250,11 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   white-space: nowrap;
 }
 .logo:hover { color: var(--header-fg); }
-/* ロゴは「誠屋」「HP制作」とも明朝。サイズの差で強弱をつける */
+/* ロゴ：いまは「誠屋」の文字だけ（ロゴ画像はあとで差し替え） */
 .logo-main {
-  font-family: var(--font-mincho);
-  font-weight: 500;
-  font-size: 1.375rem;
+  font-weight: 700;
+  font-size: 1.25rem;
   letter-spacing: .04em;
-}
-.logo-sub {
-  font-family: var(--font-mincho);
-  font-size: .875rem;
-  font-weight: 500;
-  margin-left: .4em; /* 「誠屋」と「HP制作」の間を少しあける */
 }
 
 .menu-button {
@@ -308,7 +319,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
     left: 0; right: 0;
     background: var(--bg);
     border-bottom: 1px solid var(--line);
-    box-shadow: 0 16px 32px rgba(42, 42, 38, .12);
+    box-shadow: 0 16px 32px rgba(31, 58, 95, .12);
   }
   .js .site-nav.is-open { display: block; }
   .site-nav ul {
@@ -353,8 +364,8 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 }
 .section-title,
 .hero-title {
-  font-family: var(--font-mincho);
-  font-weight: 500;
+  font-family: var(--font-heading);
+  font-weight: 700;
   line-height: 1.6;
   letter-spacing: .04em;
   word-break: auto-phrase;
@@ -431,7 +442,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(20, 38, 52, .66);
+  background: rgba(31, 58, 95, .7);
 }
 .cover .eyebrow,
 .cover p { color: var(--dark-text); }
@@ -470,6 +481,8 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 .hero .cover-img { object-position: 50% 50%; }
 .hero-inner { position: relative; }
 .hero-text { max-width: 600px; }
+.hero,
+.hero .hero-title { font-family: var(--font-hero); }
 .hero-label {
   margin-bottom: 20px;
   font-size: .875rem;
@@ -477,11 +490,46 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   color: rgba(255, 255, 255, .9);
   word-break: keep-all;
 }
+/* 見出しは2段：英字「BUDDYRISE」を一番大きく、すぐ下に小さなカタカナ、2段目は小さめ */
 .hero-title {
-  font-size: clamp(2rem, 0.8rem + 3vw, 3.25rem);
-  line-height: 1.5;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   color: var(--on-photo);
+  font-weight: 700;
+}
+.hero-title > span:not(.visually-hidden) { display: block; }
+/* BUDDYRISE：文字の上半分をオレンジ、下半分を白に、ぼかさず切り替える。
+   境目の位置 --split は、行の箱ではなく大文字の高さの真ん中（Noto Sans JP 700・行の高さ1.15で実測。
+   文字の大きさや画面の幅が変わっても比率は同じ。書体か line-height を変えたら測り直す） */
+.hero-title .hero-title-main {
+  --split: 55.4%;
+  display: inline-block;
+  font-size: clamp(2.75rem, 1.2rem + 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .08em; /* 英字の一語。字間はやや広め */
+  white-space: nowrap; /* 一語なので途中で折り返さない */
+  color: #FFFFFF; /* 背景の切り抜きに対応しない環境では白 */
+  background: linear-gradient(180deg, var(--orange) var(--split), #FFFFFF var(--split));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* 文字の影は切り抜いた色の上に重なってしまうので、影は filter で付ける */
+  text-shadow: none;
+  filter: drop-shadow(0 1px 10px rgba(var(--photo-shade), .45));
+}
+.hero-title-kana {
+  margin-top: 8px;
+  font-size: .8125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .32em;
+}
+.hero-title-sub {
+  margin-top: 20px;
+  font-size: clamp(1.25rem, .9rem + 1.3vw, 1.75rem);
+  line-height: 1.5;
+  letter-spacing: .04em;
+  word-break: keep-all;
 }
 .hero .hero-lead,
 .hero .cta-note { color: var(--on-photo); }
@@ -491,12 +539,12 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   font-size: 1.0625rem;
   word-break: keep-all;
 }
-/* 価格は1行：「名刺HP オープン価格 20,000円（税込）」＋バッジ。20,000円だけ大きく太く。狭い画面ではバッジの前でだけ折り返す */
+/* 価格は1行：「最初の5人 20,000円（税込） 通常30,000円」。20,000円だけ大きく太く。狭い画面では区切りの単位ごとに折り返す */
 .hero-price {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 12px; /* バッジとの間はすき間で取る（折り返したときに左がそろう） */
+  gap: 4px 12px;
   margin-bottom: 48px;
   color: var(--on-photo);
   font-size: .9375rem;
@@ -509,20 +557,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   font-weight: 700;
   letter-spacing: .04em;
 }
-/* 「先着5名限定」：主役はボタンなので、バッジは枠線だけ */
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 12px;
-  border: 1px solid rgba(255, 255, 255, .6);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--on-photo);
-  font-size: .8125rem;
-  font-weight: 500;
-  line-height: 1.6;
-  white-space: nowrap;
-}
+.hero-price-normal { font-size: .875rem; }
 .cta { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
 .cta-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
 /* サブのリンク：ボタンより控えめな文字リンク */
@@ -566,10 +601,16 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 @media (max-width: 599px) {
   /* 最初の画面にメインボタンまで収まるよう、スマホでは余白を少しだけ詰める */
   .hero-label { margin-bottom: 14px; font-size: .8125rem; }
-  .hero-title { margin-bottom: 24px; }
+  .hero-title { margin-bottom: 22px; }
+  .hero-title-sub { margin-top: 14px; }
+  /* スマホ：BUDDYRISE の右端を「誠屋の、店舗代わりのホームページ」の右端にそろえる。
+     2段目の文字の大きさの 2.655 倍（実測した文字幅の比）にし、文字が画面の左右の余白の内側に収まる上限も付ける
+     （6.26 は BUDDYRISE の文字の幅÷文字の大きさ） */
+  .hero-title .hero-title-main {
+    font-size: min(calc(2.655 * clamp(1.25rem, .9rem + 1.3vw, 1.75rem)), calc((100vw - 2 * var(--gutter)) / 6.26));
+  }
   .hero-lead { margin-bottom: 28px; font-size: 1rem; }
   .hero-price { margin-bottom: 36px; }
-  .hero-badge { padding: 2px 10px; }
   .hero-price-open { font-size: 1.375rem; }
   .hero-price-tax { font-size: .75rem; }
   .cta { align-items: stretch; }
@@ -582,9 +623,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 /* ---------- なぜホームページなのか ---------- */
 /* 短い一文は、HTMLの <wbr> の位置でだけ改行する（auto-phrase だけだと「本気を伝える／場所」のように切れるため） */
 .why .section-title,
-.why-step-title,
-.why-message p,
-.why-closing p { word-break: keep-all; }
+.why-step-title { word-break: keep-all; }
 
 /* 冒頭の写真の帯 */
 .why-hero { position: relative; isolation: isolate; }
@@ -605,8 +644,8 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .why-hero-photo img { height: 100%; object-position: 50% 30%; }
   .why-hero-photo::after {
     background:
-      linear-gradient(180deg, rgba(244, 241, 234, 0) 72%, var(--bg) 100%),
-      linear-gradient(270deg, rgba(244, 241, 234, .75) 0%, rgba(244, 241, 234, .4) 45%, rgba(244, 241, 234, 0) 70%);
+      linear-gradient(180deg, rgba(255, 255, 255, 0) 72%, var(--bg) 100%),
+      linear-gradient(270deg, rgba(255, 255, 255, .75) 0%, rgba(255, 255, 255, .4) 45%, rgba(255, 255, 255, 0) 70%);
   }
   .why-hero-inner { padding-top: 104px; padding-bottom: 120px; }
   /* 写真の右上の空に置く。人物（左）と太陽の光（右下）には重ねない */
@@ -620,8 +659,8 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .why-hero-photo img { aspect-ratio: 4 / 5; height: auto; object-position: 30% 0; }
   .why-hero-photo::after {
     background:
-      linear-gradient(180deg, rgba(244, 241, 234, 0) 82%, var(--bg) 100%),
-      linear-gradient(180deg, rgba(244, 241, 234, .8) 0%, rgba(244, 241, 234, .45) 40%, rgba(244, 241, 234, 0) 65%);
+      linear-gradient(180deg, rgba(255, 255, 255, 0) 82%, var(--bg) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, .8) 0%, rgba(255, 255, 255, .45) 40%, rgba(255, 255, 255, 0) 65%);
   }
   .why-hero-inner,
   .why-hero-text { display: contents; }
@@ -630,18 +669,19 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   .why-intro { grid-area: 2 / 1; padding: 8px var(--gutter) 0; }
 }
 
-/* 登り坂：手描き風の山道（SVG）に、3つの言葉と登る二人を重ねる */
-.why-body { padding-top: 8px; padding-bottom: var(--section-space); }
+/* Instagram → ホームページ：2つを左右（スマホは上下）に並べ、間に紺の矢印 */
+.why-body { padding-top: 56px; padding-bottom: var(--section-space); }
 .why-step-title {
   margin-bottom: 12px;
-  font-family: var(--font-mincho);
-  font-weight: 500;
+  font-family: var(--font-heading);
+  font-weight: 700;
   font-size: 1.375rem;
   line-height: 1.6;
   letter-spacing: .04em;
 }
 /* 本文も <wbr> の位置でだけ改行（auto-phrase が効かない環境でも意味の区切りで折り返す） */
 .why-step p { word-break: keep-all; }
+.why-step .nw { white-space: nowrap; } /* かぎかっこと「と」を離さない */
 .why-step-key .why-step-title::after {
   content: "";
   display: block;
@@ -650,136 +690,55 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   margin-top: 12px;
   background: var(--ochre);
 }
-.why-climb-path path {
-  fill: none;
-  stroke: var(--line);
-  stroke-width: 7px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* PC：横幅いっぱい（最大1280px）。線の上の空白を詰めるため、SVGは y=230〜1080 の範囲だけを表示し、
-   縦横比もやや横長（1920:700）にしている。言葉と二人の位置はこの箱に対する% */
-@media (min-width: 1024px) {
-  .why-climb {
-    position: relative;
-    max-width: 1280px;
-    margin: 0 auto 96px;
-    aspect-ratio: 1920 / 700;
+.why-flow { display: grid; gap: 28px; justify-items: start; }
+.why-flow-arrow { color: var(--navy); line-height: 0; }
+.why-flow-arrow svg { display: block; transform: rotate(90deg); } /* スマホは ↓ */
+@media (min-width: 768px) {
+  .why-flow {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+    max-width: 960px;
   }
-  .why-climb-path { position: absolute; inset: 0; width: 100%; height: 100%; }
-  /* 幅が狭めのPCでは下の言葉が箱からはみ出すので、そのぶん下の余白を足す */
-  @media (max-width: 1199px) { .why-climb { margin-bottom: 220px; } }
-  .why-step { position: absolute; }
-  .why-step:nth-child(1) { left: 14%; top: 63.2%; width: 24%; }
-  .why-step:nth-child(2) { left: 47%; top: 39%; width: 24%; } /* 見出し「声をかける前に、／あなたを検索している」が狭いPCでも2行に収まる幅 */
-  .why-step:nth-child(3) { left: 78%; top: 30%; width: 20%; } /* 二人の足元より下に置き、シルエットと重ねない */
-  /* 二人：足元が線にちょうど乗る位置 */
-  .why-hikers {
-    position: absolute;
-    left: 69%;
-    bottom: calc(72.4% + 2px);
-    width: 10%;
-    max-width: 142px; /* 高さ最大140px */
-    height: auto;
-  }
+  .why-flow-arrow svg { transform: none; } /* PCは → */
 }
 
-/* スマホ・タブレット：左に1本の縦線、言葉は上から順に */
-@media (max-width: 1023px) {
-  .why-climb { position: relative; max-width: calc(var(--max-width) + var(--gutter) * 2); margin: 0 auto 72px; padding: 0 var(--gutter); }
-  .why-body { padding-top: 56px; }
-  .why-climb-path,
-  .why-hikers { display: none; }
-  .why-climb-list { position: relative; display: grid; gap: 40px; padding-left: 28px; }
-  .why-climb-list::before {
-    content: "";
-    position: absolute;
-    left: 0; top: 4px; bottom: 4px;
-    width: 4px;
-    border-radius: 2px;
-    background: var(--line);
-    transform-origin: top;
-  }
+/* ---------- For（こんな人に） ---------- */
+/* 色は紺と白だけ。1行目（望み）を大きく、2行目（誠屋の答え）を小さく控えめに */
+.for {
+  padding: var(--section-space) 0;
+  background: var(--bg-alt);
+  color: var(--navy);
+  font-family: var(--font-hero);
 }
-
-/* 読む順番を誘導する演出：線を描く → 1つ目 → 2つ目 → 3つ目 → 二人。
-   JSが動き、動きを減らす設定でないときだけ、最初に隠しておく（JSなしでは全部見える） */
-@media (prefers-reduced-motion: no-preference) {
-  .js .why-climb-path path { stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 1.6s ease-in-out; }
-  .js .why-step,
-  .js .why-hikers { transition: opacity .6s ease-out, transform .6s ease-out; }
-  .js .why-climb-list::before { transition: transform 1.6s ease-in-out; }
-  .js .why-step:nth-child(1) { transition-delay: .2s; }
-  .js .why-step:nth-child(2) { transition-delay: .7s; }
-  .js .why-step:nth-child(3) { transition-delay: 1.2s; }
-  .js .why-hikers { transition-duration: .8s; transition-delay: 1.6s; }
-
-  .js .why-climb:not(.is-play) .why-climb-path path { stroke-dashoffset: 1; }
-  .js .why-climb:not(.is-play) .why-step { opacity: 0; transform: translateY(12px); }
-  .js .why-climb:not(.is-play) .why-hikers { opacity: 0; transform: translateY(16px); }
-  .js .why-climb:not(.is-play) .why-climb-list::before { transform: scaleY(0); }
+.for-label {
+  margin-bottom: 56px;
+  font-size: .875rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--navy);
 }
-
-/* 柳楽の言葉：PCは左に言葉・右に写真、スマホは写真が上 */
-.why-message {
-  display: grid;
-  gap: 32px;
-  align-items: center;
-  margin-top: 96px;
-}
-.why-message-lead {
-  margin-bottom: 28px;
-  font-family: var(--font-mincho);
-  font-weight: 500;
-  font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem);
-  line-height: 1.7;
+.for-list { max-width: 760px; }
+.for-item { padding: 40px 0; border-top: 1px solid rgba(31, 58, 95, .18); }
+.for-item:last-child { border-bottom: 1px solid rgba(31, 58, 95, .18); }
+.for-wish,
+.for-answer { word-break: keep-all; } /* <wbr> の位置でだけ改行 */
+.for-wish {
+  font-size: clamp(1.375rem, 1rem + 1.4vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.6;
   letter-spacing: .04em;
+  color: var(--navy);
 }
-@media (min-width: 769px) {
-  .why-message { grid-template-columns: 1.15fr 1fr; gap: 64px; }
-  .why-message-photo img { border-radius: 0; } /* 角丸なし */
-}
-/* スマホ（768px以下）：縦長の写真を画面幅いっぱいに置き、上部の空に言葉を重ねる。
-   山頂の光（上から約45%）と麓の人物には文字をかけない */
-@media (max-width: 768px) {
-  .why-message {
-    display: block;
-    position: relative;
-    margin: 24px calc(var(--gutter) * -1) 0;
-  }
-  .why-message-photo { position: relative; display: block; }
-  .why-message-photo img { width: 100%; height: auto; aspect-ratio: 3 / 4; border-radius: 0; }
-  .why-message-photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    /* 空の明るい部分でも白い文字が 4.5:1 以上になるよう、言葉の下端（約42%）までは濃く、山頂の光（45%〜）の手前で透明にする */
-    background: linear-gradient(180deg, rgba(31, 58, 79, .75) 0%, rgba(31, 58, 79, .66) 25%, rgba(31, 58, 79, .65) 42%, rgba(31, 58, 79, 0) 47%);
-  }
-  .why-message-text {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    z-index: 1;
-    padding: 24px 24px 0;
-    color: #FFFFFF;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, .25);
-  }
-  .why-message-text p { color: #FFFFFF; font-size: .9375rem; line-height: 1.8; }
-  .why-message-text .why-message-lead { margin-bottom: 12px; font-size: 1.25rem; line-height: 1.55; }
-}
-
-/* 締めの文 */
-.why-closing {
-  max-width: var(--text-max);
-  margin: 96px auto 0;
-  text-align: center;
-}
-.why-closing-lead {
-  margin-bottom: 16px;
-  font-size: 1.25rem;
-  font-weight: 500;
+.for-answer {
+  margin-top: 12px;
+  font-size: 1rem;
   line-height: 1.9;
+  color: rgba(31, 58, 95, .72); /* 紺を薄めた控えめな色（白地で 4.5:1 以上） */
+}
+@media (max-width: 767px) {
+  .for-label { margin-bottom: 32px; }
+  .for-item { padding: 32px 0; }
 }
 
 /* ---------- サンプルHP（4つの問い） ---------- */
@@ -797,15 +756,15 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   position: relative;
   padding: 8px;
   border-radius: 40px;
-  background: #1E1E1C;
-  box-shadow: 0 32px 56px -28px rgba(42, 42, 38, .5);
+  background: var(--navy);
+  box-shadow: 0 32px 56px -28px rgba(31, 58, 95, .45);
 }
 .phone-screen {
   position: relative;
   overflow: hidden;
   padding-top: 24px;      /* ステータスバー */
   border-radius: 32px;
-  background: #141414;    /* サンプルHPの帯と同じ黒 */
+  background: var(--navy);
 }
 .phone-screen::before {   /* カメラ */
   content: "";
@@ -815,7 +774,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   width: 30%;
   height: 14px;
   border-radius: 999px;
-  background: #000;
+  background: var(--navy-hover);
   transform: translateX(-50%);
 }
 .phone-shot { position: relative; }
@@ -842,8 +801,8 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 .samples-q:last-child { border-bottom: 1px solid var(--line); }
 .samples-q-title {
   margin-bottom: 6px;
-  font-family: var(--font-mincho);
-  font-weight: 500;
+  font-family: var(--font-heading);
+  font-weight: 700;
   font-size: 1.25rem;
   line-height: 1.6;
   letter-spacing: .04em;
@@ -884,7 +843,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
     overflow: visible;
     pointer-events: none;
   }
-  .samples-lines line { stroke: #E0DACD; stroke-width: 1px; }
+  .samples-lines line { stroke: var(--line); stroke-width: 1px; }
 }
 
 .samples-action {
@@ -947,7 +906,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   cursor: pointer;
   transition: background-color .2s, opacity .2s;
 }
-.samples-nav-btn:hover:not(:disabled) { background: rgba(0, 0, 0, .04); }
+.samples-nav-btn:hover:not(:disabled) { background: var(--bg-alt); }
 .samples-nav-btn:disabled { opacity: .3; cursor: default; }
 .samples-card a {
   display: flex;
@@ -965,7 +924,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 .samples-card a:hover .samples-card-phone { transform: translateY(-4px); }
 @media (prefers-reduced-motion: reduce) { .samples-card-phone { transition: none; } }
 .samples-card-kind { color: var(--text-sub); font-size: .6875rem; line-height: 1.6; letter-spacing: 0; }
-.samples-card-name { margin-top: 2px; font-family: var(--font-mincho); font-size: 1.25rem; font-weight: 500; line-height: 1.5; letter-spacing: .08em; }
+.samples-card-name { margin-top: 2px; font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; line-height: 1.5; letter-spacing: .08em; }
 .samples-card-text { margin-top: 8px; font-size: .875rem; line-height: 1.8; word-break: keep-all; }
 .samples-card-more {
   display: inline-flex;
@@ -1032,11 +991,11 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   height: 400px;
   padding: 0;
   overflow: hidden;
-  border: 6px solid #1E1E1C;
+  border: 6px solid var(--navy);
   border-radius: 22px;
-  background: #0E0E0E;
+  background: var(--navy);
   cursor: zoom-in;
-  box-shadow: 0 24px 40px -24px rgba(42, 42, 38, .5);
+  box-shadow: 0 24px 40px -24px rgba(31, 58, 95, .45);
 }
 .page-shot img { width: 100%; height: auto; }
 .page-shot::after {
@@ -1044,7 +1003,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 96px;
-  background: linear-gradient(180deg, rgba(14, 14, 14, 0), rgba(14, 14, 14, .92));
+  background: linear-gradient(180deg, rgba(31, 58, 95, 0), rgba(31, 58, 95, .92));
 }
 .page-shot-hint {
   position: absolute;
@@ -1117,9 +1076,9 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   margin: 0;
   padding: 0;
   border: 0;
-  background: rgba(20, 20, 18, .94);
+  background: rgba(31, 58, 95, .96);
 }
-.shot-viewer::backdrop { background: rgba(20, 20, 18, .94); }
+.shot-viewer::backdrop { background: rgba(31, 58, 95, .96); }
 .shot-viewer-body { height: 100%; overflow-y: auto; padding: 64px 16px 48px; }
 .shot-viewer-body img { width: min(390px, 100%); height: auto; margin: 0 auto; box-shadow: 0 0 0 1px rgba(255, 255, 255, .12); }
 .shot-viewer-close {
@@ -1130,7 +1089,7 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
   padding: 0 16px;
   border: 1px solid rgba(255, 255, 255, .6);
   border-radius: 999px;
-  background: rgba(20, 20, 18, .8);
+  background: rgba(31, 58, 95, .8);
   color: #FFFFFF;
   font: inherit;
   font-size: .875rem;
@@ -1195,17 +1154,17 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 .notes li::before { content: "※"; position: absolute; left: 0; }
 
 /* ---------- ご依頼の流れ ---------- */
-/* 写真（木のテーブルに珈琲とノート）をセクション全体の背景に敷き、生成り色を重ねて薄くする。
+/* 写真（木のテーブルに珈琲とノート）をセクション全体の背景に敷き、白を重ねて薄くする。
    重ねは .88（指定の .85 より少し濃く）。写真のいちばん暗い所（窓枠）の上でも、本文は 9:1 以上になる */
 .flow {
   background:
-    linear-gradient(rgba(244, 241, 234, .88), rgba(244, 241, 234, .88)),
+    linear-gradient(rgba(255, 255, 255, .88), rgba(255, 255, 255, .88)),
     url("/images/flow-bg.webp") center / cover no-repeat;
 }
 .flow-inner { max-width: calc(720px + var(--gutter) * 2); }
 /* 補助の文字（所要時間・注記）は、写真の上でも 4.5:1 以上になるよう、少しだけ濃くする */
 .flow .step-time,
-.flow .notes li { color: #57534B; }
+.flow .notes li { color: #46597A; }
 @media (max-width: 767px) {
   /* スマホは縦長に切り抜かれるので、手前の珈琲カップが画面に入る位置に合わせる */
   .flow { background-position: 0 0, 47% 50%; }
@@ -1270,8 +1229,9 @@ html:not(.js) .site-header .btn-primary { background: var(--btn-bg); color: var(
 }
 
 /* ---------- 誠屋について ---------- */
+#about-title { word-break: keep-all; } /* <wbr> の位置でだけ改行（「登り／はじめた」と切れないように） */
 .about .photo { max-width: 440px; }
-/* 柳楽の写真：角は直角（柳楽の言葉のブロックの写真とそろえる）。切り抜き済みの 4:5 なので、柳楽と人力車が中央に収まる */
+/* 柳楽の写真：角は直角。切り抜き済みの 4:5 なので、柳楽と人力車が中央に収まる */
 .about-photo { border-radius: 0; object-position: 50% 50%; }
 @media (min-width: 900px) { .about { align-items: start; } } /* 本文が長いので、写真は上にそろえる */
 /* これまでにつくったページ：料金の「ページの違い」と同じスマホ枠を2つ並べる。スマホでも横に2つ */

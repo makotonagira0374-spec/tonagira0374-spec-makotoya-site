@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>誠屋HP制作｜あなたの夢の、最初の応援者に。</title>
-  <meta name="description" content="個人事業主・アーティスト・モデルのためのHP制作。あなたを応援したい人が、迷わないホームページを、一緒につくります。名刺HPはオープン価格20,000円（税込・先着5名）。簡易見積りは無料です。">
-  <meta name="theme-color" content="#F4F1EA">
+  <title>誠屋のバディライズ｜店舗代わりのホームページ</title>
+  <meta name="description" content="お店を持たずに働くプロのための、店舗代わりのホームページ。あなたが育てていく、お店です。強みを言葉にするところから、共に昇ります。最初の5人は20,000円（税込）。ご相談・お見積りは無料です。">
+  <meta name="theme-color" content="#FFFFFF">
 
   <!-- 公開先：https://makotoyarickshaw.jp/（README「公開」参照） -->
   <link rel="canonical" href="https://makotoyarickshaw.jp/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:site_name" content="誠屋HP制作">
-  <meta property="og:title" content="誠屋HP制作｜あなたの夢の、最初の応援者に。">
-  <meta property="og:description" content="あなたを応援したい人が、迷わないホームページを、一緒につくります。簡易見積りは無料です。">
+  <meta property="og:site_name" content="誠屋のバディライズ">
+  <meta property="og:title" content="誠屋のバディライズ｜店舗代わりのホームページ">
+  <meta property="og:description" content="あなたが育てていく、お店です。強みを言葉にするところから、共に昇る。ご相談・お見積りは無料です。">
   <meta property="og:url" content="https://makotoyarickshaw.jp/">
   <meta property="og:image" content="https://makotoyarickshaw.jp/images/ogp.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="誠屋HP制作　あなたの夢の、最初の応援者に。">
+  <meta property="og:image:alt" content="誠屋のバディライズ　店舗代わりのホームページ">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -26,7 +26,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/css/style.css">
   <script>document.documentElement.classList.add('js');</script>
   <!-- Googleアナリティクス（人力車 誠屋と同じプロパティ「makotoya」。README「アクセス解析」参照）。
@@ -52,7 +52,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#top">
-        <span class="logo-main">誠屋</span><span class="logo-sub">HP制作</span>
+        <!-- TODO(未確定): ロゴ画像はあとで差し替え（いまは文字だけ） -->
+        <span class="logo-main">誠屋</span>
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="menu-icon" aria-hidden="true"></span>
@@ -63,7 +64,7 @@
           <li><a href="#price">料金</a></li>
           <li><a href="#about">誠屋について</a></li>
           <!-- LINEで相談（README「LINEボタンのURL」参照）。「HPの相談をしたいです」と入力された状態でトークが開く -->
-          <li><a class="btn btn-primary btn-small" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">無料で相談する</a></li>
+          <li><a class="btn btn-primary btn-small" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">LINEで相談する</a></li>
         </ul>
       </nav>
     </div>
@@ -76,20 +77,26 @@
       <img class="cover-img hero-img" src="/images/hero-1920.webp" srcset="/images/hero-1920.webp 1920w, /images/hero-2560.webp 2560w" sizes="(max-width: 767px) 420vw, 100vw" width="1920" height="1280" fetchpriority="high" alt="急な山の斜面を登る二人の登山者">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="hero-label">個人事業主・アーティスト・<wbr>モデルのためのHP制作</p>
-          <h1 class="hero-title">あなたの夢の、<br>最初の応援者に。</h1>
-          <p class="hero-lead">あなたを応援したい人が、<wbr>迷わないホームページを、<wbr>一緒につくります。</p>
-          <!-- 先着枠の数は js/main.js の SEATS で一括管理 -->
+          <!-- 見出しは2段。テキストは「BUDDYRISE バディライズ 誠屋の、店舗代わりのホームページ」 -->
+          <h1 class="hero-title">
+            <span class="hero-title-main" lang="en">BUDDYRISE</span><span class="visually-hidden"> </span>
+            <span class="hero-title-kana">バディライズ</span><span class="visually-hidden"> </span>
+            <span class="hero-title-sub">誠屋の、<wbr>店舗代わりのホームページ</span>
+          </h1>
+          <p class="hero-lead">あなたが育てていく、<wbr>お店です。<br>強みを言葉にするところから、<wbr>共に昇る。</p>
           <p class="hero-price">
-            <span class="hero-price-unit">名刺HP オープン価格 <strong class="hero-price-open">20,000円</strong><span class="hero-price-tax">（税込）</span></span><span class="hero-badge" data-seats="hero">先着5名限定</span>
+            <span class="hero-price-unit">ホームページ制作</span>
+            <span class="hero-price-unit">最初の5人</span>
+            <span class="hero-price-unit"><strong class="hero-price-open">20,000円</strong><span class="hero-price-tax">（税込）</span></span>
+            <span class="hero-price-unit hero-price-normal">通常30,000円</span>
           </p>
           <div class="cta">
             <div class="cta-actions">
               <!-- LINEで相談（README「LINEボタンのURL」参照）。「HPの相談をしたいです」と入力された状態でトークが開く -->
-              <a class="btn btn-fill btn-large" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">HP制作を相談する<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
-              <a class="hero-sublink" href="#samples">サンプルHPを見る<svg class="hero-sublink-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+              <a class="btn btn-fill btn-large" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">LINEで相談する<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+              <a class="hero-sublink" href="#samples">サンプルを見る<svg class="hero-sublink-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
             </div>
-            <p class="cta-note">LINEで気軽に。ご相談・簡易見積りは無料です。</p>
+            <p class="cta-note">ご相談・お見積りは無料です。</p>
           </div>
         </div>
       </div>
@@ -107,59 +114,53 @@
           <div class="why-hero-text">
             <div class="why-hero-head">
               <p class="eyebrow">なぜホームページなのか</p>
-              <h2 id="why-title" class="section-title">応援される人には、<wbr>行き先がある。</h2>
+              <h2 id="why-title" class="section-title">入れるお店がなければ、<wbr>人は素通りしていく。</h2>
             </div>
             <div class="why-intro">
-              <p>夢や目標は、ひとりでは叶いません。</p>
-              <p>はじめに、応援してくれる人がいる。やがて、力を貸してくれる人が現れ、チャンスをくれる人に出会う。そうして人は、少しずつ前に進んでいきます。</p>
-              <p>そして人は、相手がどこへ向かっていて、なぜ挑んでいるのかを知ったとき、その人を応援したくなります。</p>
+              <p>実店舗を持つ人には、看板があり、メニュー表があり、目の前のお客さんに直接説明できる時間があります。</p>
+              <p>実店舗を持たない人には、そのどれもありません。お客さんがあなたを見つけ、知り、選び、頼むまでのすべてが、画面の上で起きています。</p>
+              <p>気になってくれた人を、迎え入れる場所があるかどうか。ホームページは、実店舗を持たないあなたにとっての、お店です。</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="why-body">
-        <!-- 登り坂：手描き風の山道（SVG）に、3つの言葉と登る二人を重ねる。位置は箱に対する%指定 -->
-        <div class="why-climb">
-          <svg class="why-climb-path" aria-hidden="true" focusable="false" viewBox="0 230 1920 850" preserveAspectRatio="none">
-            <path pathLength="1" d="M100,833 C113.3,822.8 153.3,788.7 180,772 C206.7,755.3 233.3,743.2 260,733 C286.7,722.8 313.3,715 340,711 C366.7,707 393.3,708.3 420,709 C446.7,709.7 473.3,717 500,715 C526.7,713 553.3,706.7 580,697 C606.7,687.3 633.3,673.5 660,657 C686.7,640.5 713.3,617.7 740,598 C766.7,578.3 793.3,556.8 820,539 C846.7,521.2 873.3,503.8 900,491 C926.7,478.2 953.3,469 980,462 C1006.7,455 1033.3,451.3 1060,449 C1086.7,446.7 1113.3,446.7 1140,448 C1166.7,449.3 1193.3,453.8 1220,457 C1246.7,460.2 1273.3,466.8 1300,467 C1326.7,467.2 1353.3,465.5 1380,458 C1406.7,450.5 1433.3,435.3 1460,422 C1486.7,408.7 1513.3,392.7 1540,378 C1566.7,363.3 1593.3,348 1620,334 C1646.7,320 1673.3,306.3 1700,294 C1726.7,281.7 1756.7,267.7 1780,260 C1803.3,252.3 1830,250 1840,248" vector-effect="non-scaling-stroke"/>
-          </svg>
-          <img class="why-hikers" src="/images/hikers.webp" width="271" height="268" alt="" loading="lazy">
-          <ul class="why-climb-list">
-            <li class="why-step">
-              <h3 class="why-step-title">Instagramは、<wbr>出会いの場所</h3>
-              <p>日々の活動や<wbr>今の姿を届けて、<wbr>新しい人と出会う<wbr>きっかけをつくる。</p>
-            </li>
-            <li class="why-step why-step-key">
-              <h3 class="why-step-title">声をかける前に、<wbr>あなたを検索している</h3>
-              <p>主催者も、<wbr>スポンサーも、<wbr>お客さんも、<wbr>まずあなたの名前を調べる。<wbr>そこで何も<wbr>見つからなければ、<wbr>チャンスは<wbr>静かに通り過ぎていく。</p>
-            </li>
-            <li class="why-step">
-              <h3 class="why-step-title">ホームページは、<wbr>本気を伝える場所</h3>
-              <p>歩みと行き先が、<wbr>そこにある。<wbr>個人で<wbr>ホームページを持つ人が<wbr>まだ多くない今、<wbr>それだけで<wbr>「この人は本気だ」と<wbr>伝わる。</p>
-            </li>
-          </ul>
-        </div>
-
+        <!-- Instagram（店先）→ ホームページ（店内）。2つの間に紺の矢印（PCは →、スマホは ↓） -->
         <div class="container">
-
-        <!-- 柳楽の言葉 -->
-        <figure class="why-message">
-          <blockquote class="why-message-text">
-            <p class="why-message-lead">チャンスが来てから、<wbr>準備をするのではない。<br>準備ができているところに、<wbr>チャンスはやってくる。</p>
-            <p>有名になってから作るのではなく、<wbr>有名になる準備として、<wbr>ホームページを持つ。</p>
-          </blockquote>
-          <picture class="why-message-photo">
-            <source media="(max-width: 768px)" srcset="/images/message-sp.webp" width="1080" height="1440">
-            <img class="photo" src="/images/message-4x5.webp" width="1080" height="1350" loading="lazy" alt="朝日に照らされた雪山を、麓から見上げる人">
-          </picture>
-        </figure>
-
-        <div class="why-closing">
-          <p class="why-closing-lead">Instagramで出会い、<wbr>ホームページで知ってもらう。<wbr>応援される人には、<wbr>どちらも欠かせない場所です。</p>
-          <p>だから誠屋は、<wbr>あなたの行き先を一緒に言葉にする、<wbr>最初の応援者でありたいと思っています。</p>
+          <ol class="why-flow">
+            <li class="why-step">
+              <h3 class="why-step-title">Instagramは、<wbr>店先</h3>
+              <p>通りがかった人に<wbr>見つけてもらい、<wbr><span class="nw">「気になる」と</span><wbr>思ってもらう場所。</p>
+            </li>
+            <li class="why-flow-arrow" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16h22M19 8l8 8-8 8"/></svg></li>
+            <li class="why-step why-step-key">
+              <h3 class="why-step-title">ホームページは、<wbr>店内</h3>
+              <p>メニューを見て、<wbr>話を聞いて、<wbr><span class="nw">「この人に頼もう」と</span><wbr>決めてもらう場所。</p>
+            </li>
+          </ol>
         </div>
-        </div>
+      </div>
+    </section>
+
+    <!-- 3.2 For（こんな人に）：色は紺と白だけ。3項目はPCでも縦並び -->
+    <section id="for" class="for" aria-labelledby="for-label">
+      <div class="container">
+        <h2 id="for-label" class="for-label">こんな人に</h2>
+        <ul class="for-list">
+          <li class="for-item">
+            <p class="for-wish">ホームページを、<wbr>自分のお店にしたい人へ。</p>
+            <p class="for-answer">誠屋も、<wbr>店舗を持たないひとりです。</p>
+          </li>
+          <li class="for-item">
+            <p class="for-wish">自分の強みを、<wbr>しっかり伝えたい人へ。</p>
+            <p class="for-answer">強みのない人はいない。</p>
+          </li>
+          <li class="for-item">
+            <p class="for-wish">作って終わりではなく、<wbr>育てていきたい人へ。</p>
+            <p class="for-answer">時間が経つほど、<wbr>味が出る。</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -169,34 +170,34 @@
     <section id="samples" class="section samples" aria-labelledby="samples-title">
       <div class="container">
         <p class="eyebrow">サンプルHP</p>
-        <h2 id="samples-title" class="section-title">応援される人の<wbr>ホームページには、<wbr>4つの答えがある。</h2>
-        <p class="section-lead">見に来た人が迷わないために、<wbr>誠屋の名刺HPは、<wbr>4つの問いに答えるように作ります。</p>
+        <h2 id="samples-title" class="section-title">店員さんが答えることを、<wbr>ホームページが答える。</h2>
+        <p class="section-lead">お店なら、気になったことは店員さんに聞けば答えてくれます。ホームページでは、それができません。だから誠屋のバディライズは、見に来たお客さんが心の中で聞いている4つの問いに、先に答えておくように作ります。</p>
 
         <div class="samples-stage">
           <!-- 問いは、スマホ画面の上から順に出てくる答えの高さに並べる（PCだけ。js/main.js） -->
           <ul class="samples-qs">
             <li class="samples-q" data-range="statement">
-              <h3 class="samples-q-title">どこへ向かうのか</h3>
-              <p>夢と目標。<wbr>あなたの行き先を、<wbr>ひと目で伝えます。</p>
+              <h3 class="samples-q-title">何をしてくれる人？</h3>
+              <p>ひと目で、<wbr>何者で、<wbr>何を頼める人なのかを<wbr>伝えます。</p>
             </li>
             <li class="samples-q" data-range="statement">
-              <h3 class="samples-q-title">なぜ向かうのか</h3>
-              <p>原点と想い。<wbr>その理由に共感したとき、<wbr>人は応援したくなります。</p>
+              <h3 class="samples-q-title">自分に合う？</h3>
+              <p>あなたの強みを、<wbr>お客さんの言葉に<wbr>置き換えます。</p>
             </li>
             <li class="samples-q" data-range="voices">
-              <h3 class="samples-q-title">応援すると、<wbr>どんな景色を一緒に見られるのか</h3>
-              <p>依頼した人、応援した人が<wbr>受け取れるもの。<wbr>その先に広がる景色を。</p>
+              <h3 class="samples-q-title">この人で大丈夫？</h3>
+              <p>想い、歩み、作品、<wbr>お客さんの声。<wbr>実績が少なくても、<wbr>信頼の材料はあります。</p>
             </li>
             <li class="samples-q" data-range="info">
-              <h3 class="samples-q-title">どう応援すればいいのか</h3>
-              <p>依頼の窓口とSNS。<wbr>応援したい気持ちを、<wbr>迷わず行動に。</p>
+              <h3 class="samples-q-title">どうすれば頼める？</h3>
+              <p>メニュー、料金、<wbr>予約の入口。<wbr>迷わず次の一歩へ<wbr>進めます。</p>
             </li>
           </ul>
           <figure class="samples-phone">
             <div class="phone">
               <div class="phone-screen">
                 <div class="phone-shot">
-                <img src="/images/samples/portrait-sp.webp" width="780" height="2080" loading="lazy" alt="サンプルHP（ポートレートフォトグラファー「灯」）のスマホ画面。トップの写真の下に、ステートメント、作品の写真、応援者の声、連絡先が並ぶ">
+                <img src="/images/samples/portrait-sp.webp" width="780" height="2080" loading="lazy" alt="サンプルHP（ポートレートフォトグラファー「灯」）のスマホ画面。トップの写真の下に、ステートメント、作品の写真、お客さんの声、連絡先が並ぶ">
                 <!-- 問いにマウスを乗せたとき、ほんのり明るくする範囲 -->
                 <span class="samples-glow" data-range="statement" style="top: 23.6%; height: 18.3%"></span>
                 <span class="samples-glow" data-range="voices" style="top: 55.3%; height: 23.1%"></span>
@@ -216,7 +217,7 @@
         </div>
 
         <div class="samples-action">
-          <p class="samples-reassure">4つの答えは、<wbr>自分で書かなくて大丈夫です。<br>話しているうちに、<wbr>誠屋が一緒に<wbr>言葉にしていきます。</p>
+          <p class="samples-reassure">4つの答えは、<wbr>自分で書かなくて大丈夫です。<wbr>誠屋が一緒に<wbr>言葉にしていきます。</p>
         </div>
 
         <!-- サンプルHPの一覧（並べて、デザインの違いを見せる）
@@ -235,24 +236,6 @@
             </a>
           </li>
           <li class="samples-card">
-            <a href="/samples/kitchencar/">
-              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-kitchencar.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「こみち」のスマホ画面。画面いっぱいのカレーの写真の上に、店名とひとこと、3つの入口ボタンが並ぶ"></span></span>
-              <span class="samples-card-kind">スパイスカレーの<wbr>キッチンカー</span>
-              <span class="samples-card-name">こみち</span>
-              <span class="samples-card-text">応援してくれる人が<wbr>3種類いる、<wbr>キッチンカーのHP</span>
-              <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
-            </a>
-          </li>
-          <li class="samples-card">
-            <a href="/samples/singer/">
-              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-singer.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「凪」のスマホ画面。ギターを弾く手の写真が夜の青に溶け、名前とひとこと、3つの入口ボタンが並ぶ"></span></span>
-              <span class="samples-card-kind">シンガー<wbr>ソングライター</span>
-              <span class="samples-card-name">凪 NAGI</span>
-              <span class="samples-card-text">夢までの道のりを、<wbr>応援者と一緒に歩く<wbr>シンガー<wbr>ソングライターのHP</span>
-              <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
-            </a>
-          </li>
-          <li class="samples-card">
             <a href="/samples/artist/">
               <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-artist.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「栞」のスマホ画面。水彩紙のような白い背景に、名前とひとこと、3つの入口ボタン、窓辺の花の水彩画が並ぶ"></span></span>
               <span class="samples-card-kind">水彩画家</span>
@@ -262,11 +245,20 @@
             </a>
           </li>
           <li class="samples-card">
-            <a href="/samples/kodomo-shokudo/">
-              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-kodomo-shokudo.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「ひだまり食堂」のスマホ画面。やわらかい黄色の背景に、丸い太字の店名とごはんのイラスト、次の開催日までのカウントダウンが並ぶ"></span></span>
-              <span class="samples-card-kind">子ども食堂</span>
-              <span class="samples-card-name">ひだまり食堂</span>
-              <span class="samples-card-text">子どもが<wbr>行きたくなり、<wbr>大人が<wbr>関わりたくなる、<wbr>子ども食堂のHP</span>
+            <a href="/samples/singer/">
+              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-singer.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「凪」のスマホ画面。ギターを弾く手の写真が夜の青に溶け、名前とひとこと、3つの入口ボタンが並ぶ"></span></span>
+              <span class="samples-card-kind">シンガー<wbr>ソングライター</span>
+              <span class="samples-card-name">凪 NAGI</span>
+              <span class="samples-card-text">ライブに<wbr>足を運んでもらい、<wbr>出演を頼まれる、<wbr>シンガー<wbr>ソングライターのHP</span>
+              <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
+            </a>
+          </li>
+          <li class="samples-card">
+            <a href="/samples/kitchencar/">
+              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-kitchencar.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「こみち」のスマホ画面。画面いっぱいのカレーの写真の上に、店名とひとこと、3つの入口ボタンが並ぶ"></span></span>
+              <span class="samples-card-kind">スパイスカレーの<wbr>キッチンカー</span>
+              <span class="samples-card-name">こみち</span>
+              <span class="samples-card-text">出店先で<wbr>見つけてもらい、<wbr>出店を頼まれる、<wbr>キッチンカーのHP</span>
               <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
             </a>
           </li>
@@ -275,7 +267,7 @@
               <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-bakery.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「ことり」のスマホ画面。クリームイエローの背景に、ちぎり絵のように切り抜いたパンの写真と手書き風のひとこと、3つの入口ボタンが並ぶ"></span></span>
               <span class="samples-card-kind">天然酵母のパン屋</span>
               <span class="samples-card-name">ことり</span>
-              <span class="samples-card-text">お店を<wbr>持つ前から<wbr>応援される、<wbr>パン屋のHP</span>
+              <span class="samples-card-text">お店を<wbr>持つ前から、<wbr>常連ができる<wbr>パン屋のHP</span>
               <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
             </a>
           </li>
@@ -285,6 +277,15 @@
               <span class="samples-card-kind">お一人さま専用の<wbr>喫茶店</span>
               <span class="samples-card-name">TAKIBI</span>
               <span class="samples-card-text">写真が<wbr>主役の、<wbr>間借りから<wbr>自分の店へ<wbr>向かう<wbr>喫茶店のHP</span>
+              <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
+            </a>
+          </li>
+          <li class="samples-card">
+            <a href="/samples/kodomo-shokudo/">
+              <span class="samples-card-phone phone"><span class="phone-screen"><img src="/images/samples/card-kodomo-shokudo.webp" width="780" height="1688" loading="lazy" alt="サンプルHP「ひだまり食堂」のスマホ画面。やわらかい黄色の背景に、丸い太字の店名とごはんのイラスト、次の開催日までのカウントダウンが並ぶ"></span></span>
+              <span class="samples-card-kind">子ども食堂</span>
+              <span class="samples-card-name">ひだまり食堂</span>
+              <span class="samples-card-text">子どもが<wbr>行きたくなり、<wbr>大人が<wbr>関わりたくなる、<wbr>子ども食堂のHP</span>
               <span class="samples-card-more">サンプルHPを見る<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></span>
             </a>
           </li>
@@ -306,21 +307,21 @@
       <div class="container">
         <p class="eyebrow">料金</p>
         <h2 id="price-title" class="section-title">はじめやすく、続けやすく。</h2>
-        <p class="section-lead">一般的なフリーランスへの依頼は、10〜30万円ほどが相場です。誠屋はAIで作業時間を短くし、その分の時間を、あなたの夢を聞くことに使っています。</p>
+        <p class="section-lead">一般的なフリーランスへの依頼は、10〜30万円ほどが相場です。誠屋はAIで作業時間を短くし、その分の時間を、あなたの強みを一緒に言葉にすることに使っています。</p>
 
         <!-- ページの違い：サンプルHPの1ページ目・2ページ目の全体（スマホ表示）。クリックで拡大（js/main.js）
              画像は tools/shoot-sample.mjs が /samples/portrait/ と /samples/portrait/exhibition/ を撮って作る。
              サンプルHPの写真やデザインを変えたら `node tools/shoot-sample.mjs` で撮り直す（下の height も自動で書き換わる） -->
         <div class="pages">
           <figure class="page-card">
-            <button class="page-shot" type="button" aria-label="名刺HP（1ページ目）の全体を拡大して見る">
+            <button class="page-shot" type="button" aria-label="バディライズ（1ページ目）の全体を拡大して見る">
               <img src="/images/samples/page-1.webp" width="390" height="9576" loading="lazy" alt="サンプルHP「灯」の1ページ目（スマホ表示）の全体">
               <span class="page-shot-hint" aria-hidden="true">全体を見る</span>
             </button>
             <figcaption>
-              <p class="page-name">名刺HP<span>（1ページ目）</span></p>
-              <p class="page-desc">あなたの行き先・作品・歩み・<wbr>応援者の声・連絡先をまとめた1枚</p>
-              <p class="page-price">20,000円<span>（オープン期間・先着5名）</span></p>
+              <p class="page-name">バディライズ<span>（1ページ目）</span></p>
+              <p class="page-desc">あなたの強み・作品・歩み・<wbr>お客さんの声・頼み方をまとめた1枚</p>
+              <p class="page-price">20,000円<span>（最初の5人）</span></p>
               <p class="page-later">6人目からは30,000円</p>
             </figcaption>
           </figure>
@@ -333,7 +334,7 @@
             <figcaption>
               <p class="page-name">ページ追加<span>（2ページ目）</span></p>
               <p class="page-desc">個展・ライブ・出店など、<wbr>イベントごとの専用ページとして作れます</p>
-              <p class="page-price">＋15,000円<span>（オープン期間・先着5名）</span></p>
+              <p class="page-price">＋15,000円<span>（最初の5人）</span></p>
               <p class="page-later">6人目からは20,000円</p>
             </figcaption>
           </figure>
@@ -358,15 +359,15 @@
         <!-- 詳細は開閉式（<details>。最初は閉じた状態。なめらかな開閉は js/main.js） -->
         <div class="price-details">
           <details class="detail">
-            <summary>名刺HPに含まれるものを見る</summary>
+            <summary>バディライズに含まれるものを見る</summary>
             <div class="detail-body">
               <div class="plan-includes">
                 <ul>
                   <li>あなたの行き先と想い</li>
                   <li>作品・実績・できること</li>
                   <li>これまでの歩みと、今の挑戦</li>
-                  <li>応援者の声<span class="plan-includes-note">（お客さんや仲間からの推薦の言葉。最初の一言は、誠屋から贈ります）</span></li>
-                  <li>応援・依頼の方法<span class="plan-includes-note">（SNS・連絡先・依頼の窓口）</span></li>
+                  <li>お客さんの声<span class="plan-includes-note">（お客さんや仲間からの推薦の言葉。最初の一言は、誠屋から贈ります）</span></li>
+                  <li>頼み方<span class="plan-includes-note">（メニュー・料金・連絡先）</span></li>
                   <li>写真は10枚まで載せられます<span class="plan-includes-note">（あなたの人柄が伝わる写真も含めて、一緒に選びます）</span></li>
                   <li>写真がなくても大丈夫です<span class="plan-includes-note">（スマホでよければ、誠屋がその場で撮影します。プロに頼みたい方には、カメラマンをご紹介します。撮影料は別途）</span></li>
                   <li>制作中の相談は何度でも無料です</li>
@@ -406,7 +407,7 @@
                       <td>1,500円</td>
                     </tr>
                     <tr>
-                      <th scope="row">項目の追加<span class="th-desc">作品、メニュー、応援者の声などを1つ</span></th>
+                      <th scope="row">項目の追加<span class="th-desc">作品、メニュー、お客さんの声などを1つ</span></th>
                       <td>2,000円</td>
                     </tr>
                   </tbody>
@@ -424,7 +425,7 @@
             <summary>その他の費用・注意事項を見る</summary>
             <div class="detail-body">
               <ul class="notes">
-                <li>ページ追加：写真10枚まで・確認2回は、名刺HPと同じです。</li>
+                <li>ページ追加：写真10枚まで・確認2回は、1ページ目と同じです。</li>
                 <li>独自ドメイン代は、Xserverドメインで「.com」を取得した場合の更新料金の目安です。ドメインの種類によって変わります。</li>
                 <li>価格はすべて税込です。</li>
               </ul>
@@ -440,7 +441,7 @@
       <div class="container flow-inner">
         <div>
           <p class="eyebrow">ご依頼の流れ</p>
-          <h2 id="flow-title" class="section-title">2時間、話すだけ。<br>最短2日で、<wbr>あなたのHPに。</h2>
+          <h2 id="flow-title" class="section-title">2時間、話すだけ。<br>最短2日で、<wbr>あなたのお店に。</h2>
           <ol class="steps">
             <li>
               <span class="step-num" aria-hidden="true">01</span>
@@ -460,7 +461,14 @@
               <span class="step-num" aria-hidden="true">03</span>
               <div>
                 <h3 class="step-title">公開</h3>
-                <p>あなたのHPが、応援される場所になります。</p>
+                <p>あなたのお店が、開きます。</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num" aria-hidden="true">04</span>
+              <div>
+                <h3 class="step-title">育てる</h3>
+                <p>公開した日が、はじまり。更新はLINEで送るだけ。時間が経つほど、味が出るお店に。</p>
               </div>
             </li>
           </ol>
@@ -469,13 +477,13 @@
           </ul>
           <div class="flow-action">
             <!-- LINEで相談（README「LINEボタンのURL」参照）。「HPの相談をしたいです」と入力された状態でトークが開く -->
-            <a class="btn btn-primary btn-large" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">LINEで相談する<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+            <a class="btn btn-fill btn-large" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">LINEで相談する<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 10. 応援者の声（いまは非表示）
+    <!-- 10. お客さんの声（いまは非表示）
          後で「制作事例とお客さまの声」として使うため、HTMLは <template> の中に残している。
          <template> の中身は表示されず、背景画像（voices.webp）も読み込まれない。
          表示に戻すときは、<template> と </template> の2行を消す。
@@ -489,12 +497,12 @@
         <div class="cover cover-card voices-cover">
           <img class="cover-img" src="/images/voices.webp" width="1600" height="900" loading="lazy" alt="ステージに向かって、ひとつの手が挙がっている">
           <div class="cover-content">
-            <p class="eyebrow">応援者の声</p>
+            <p class="eyebrow">お客さんの声</p>
             <h2 id="voices-title" class="section-title">ここから、増えていきます。</h2>
           </div>
         </div>
         <div class="voices">
-          <!-- TODO(未確定): 応援者の声。追加するときは下の <article> を1つコピーして中身を書き換える。
+          <!-- TODO(未確定): お客さんの声。追加するときは下の <article> を1つコピーして中身を書き換える。
                準備中の枠は、本物の声が入ったら削除する。
           <article class="voice">
             <blockquote><p>（声の本文）</p></blockquote>
@@ -520,10 +528,8 @@
 
         <div class="split-text">
           <p class="eyebrow">誠屋について</p>
-          <h2 id="about-title" class="section-title">一緒に本気になれる仲間を、<br>探しています。</h2>
-          <p>2025年から、貝塚市の水間門前町で「地域活性化人材」として活動しています。その一環として、同年11月に「人力車 誠屋」を始めました。</p>
-          <p>始めるとき、たくさんの人に応援してもらいました。応援してもらえることのありがたさを、身をもって知っています。</p>
-          <p>その応援に応えたくて、AIを使って人力車のホームページを自分でつくりました。やがて、水間で開いている大人のボードゲーム会「サットフラット」など、地域のイベントのページもつくるようになりました。</p>
+          <h2 id="about-title" class="section-title">まだ、<wbr>登りはじめた<wbr>ばかりです。</h2>
+          <p>2025年から、貝塚市の水間門前町で「地域活性化人材」として活動しています。その中で人力車「誠屋」をはじめ、そのホームページを自分でつくりました。やがて、地域のボードゲーム会「サットフラット」のページもつくるようになりました。</p>
 
           <!-- これまでにつくったページ：料金の「ページの違い」と同じスマホ枠。クリックで全体を拡大（js/main.js の .page-shot）。
                画像は tools/shoot-sample.mjs が公開中のページを撮って作る（height も自動で書き換わる）。元のページへのリンクは付けない -->
@@ -547,8 +553,11 @@
             </div>
           </div>
 
-          <p>もらった応援に、自分にできることで、少しでも恩返しがしたい。今の自分にできるのは、ホームページをつくること。だから今度は、夢の途中にいる誰かを、応援する側に回りたいと思いました。</p>
-          <p>あなたの夢を、近くで見させてください。</p>
+          <p>ホームページ制作の実績は、まだ多くありません。</p>
+          <p>一人でも、前には進める。でも、一緒に考えれば、もっと高い場所まで行ける。誠屋は、そう考えています。</p>
+          <p>強みのない人はいません。自分では見えにくいだけです。外からの目線で一緒に言葉にし、公開したあとも、一緒に育てていきます。</p>
+          <p>最初の5人とは、誠屋にとっての最初の実績を、一緒につくりたいと思っています。</p>
+          <p>共に昇りましょう。</p>
           <p class="signature">誠屋　柳楽 誠</p>
         </div>
       </div>
@@ -560,7 +569,7 @@
         <h2 id="contact-title" class="section-title">まずは、<br>気軽に話してみませんか。</h2>
         <p>簡易見積りは無料です。珈琲でも飲みながら、気軽に話しましょう。</p>
         <!-- LINEで相談（README「LINEボタンのURL」参照）。「HPの相談をしたいです」と入力された状態でトークが開く -->
-        <a class="btn btn-outline btn-large" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">HP制作を相談する<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
+        <a class="btn btn-fill btn-large" href="https://line.me/R/oaMessage/%40mizuma.makotoya/?HP%E3%81%AE%E7%9B%B8%E8%AB%87%E3%82%92%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99" target="_blank" rel="noopener">LINEで相談する<svg class="btn-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9.5 3.5 14 8l-4.5 4.5"/></svg></a>
         <!-- PCで見ている人向け：スマホで読み取る友だち追加のQRコード（https://line.me/R/ti/p/%40mizuma.makotoya）。
              画像は public/images/line-qr.svg（npm の qrcode で生成済み。毎回の外部生成はしない） -->
         <div class="contact-qr">
@@ -575,7 +584,7 @@
   <!-- 13. フッター -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p><small>&copy; 誠屋HP制作</small></p>
+      <p><small>&copy; 誠屋</small></p>
       <!-- Instagram：枠線のボタンにして、アイコンとアカウント名を添える -->
       <a class="footer-insta" href="https://www.instagram.com/makotoya_rickshaw/" target="_blank" rel="noopener" aria-label="Instagram（@makotoya_rickshaw、新しいタブで開く）">
         <svg class="footer-insta-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg>
