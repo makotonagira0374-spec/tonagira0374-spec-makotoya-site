@@ -22,38 +22,44 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* 昼下がりの喫茶。明るいけれど落ち着いた大人のトーン */
+  /* ロゴの紺（#113462）と金（#D9B348）に合わせた配色。金は小さな文字だと読みにくいので、文字には濃い金 --gold-ink を使う */
   :root {
-    --bg: #ECE8E0;
-    --bg-2: #E2DDD2;
-    --ink: #1F2A26;
-    --muted: #6B6A62;
-    --green: #2F5946;
-    --green-soft: rgba(47, 89, 70, 0.35);
-    --brass: #9A7438;
+    --bg: #EDEBE5;
+    --bg-2: #E3E0D8;
+    --ink: #14223A;
+    --muted: #5E6575;
+    --navy: #113462;
+    --navy-soft: rgba(17, 52, 98, 0.30);
+    --on-navy: #FFFFFF;
+    --gold: #D9B348;
+    --gold-soft: rgba(217, 179, 72, 0.55);
+    --gold-ink: #8A6C14;
     --card: #FBFAF6;
-    --line: rgba(31, 42, 38, 0.16);
+    --line: rgba(17, 52, 98, 0.14);
+    --shadow: rgba(17, 52, 98, 0.30);
     /* 写真の上に重ねる明るい半透明の層 */
-    --veil-top: rgba(236, 232, 224, 0.80);
-    --veil-mid: rgba(236, 232, 224, 0.88);
-    --veil-bottom: rgba(226, 221, 210, 0.94);
+    --veil-top: rgba(237, 235, 229, 0.80);
+    --veil-mid: rgba(237, 235, 229, 0.88);
+    --veil-bottom: rgba(227, 224, 216, 0.94);
     box-sizing: border-box;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #1E2421; --bg-2: #181D1B; --ink: #ECE8E0; --muted: #A9A79E;
-      --green: #8FBBA5; --green-soft: rgba(143,187,165,.35); --brass: #CDA867;
-      --card: #252C29; --line: rgba(236,232,224,.16);
-      --veil-top: rgba(30,36,33,.80); --veil-mid: rgba(30,36,33,.88); --veil-bottom: rgba(24,29,27,.94);
+      --bg: #121A28; --bg-2: #0E1520; --ink: #EEF0F4; --muted: #A3AAB8;
+      --navy: #8DB0E0; --navy-soft: rgba(141,176,224,.35); --on-navy: #0E1520;
+      --gold: #E2C063; --gold-soft: rgba(226,192,99,.45); --gold-ink: #E2C063;
+      --card: #1A2436; --line: rgba(238,240,244,.14); --shadow: rgba(0,0,0,.45);
+      --veil-top: rgba(18,26,40,.80); --veil-mid: rgba(18,26,40,.88); --veil-bottom: rgba(14,21,32,.94);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #1E2421; --bg-2: #181D1B; --ink: #ECE8E0; --muted: #A9A79E;
-    --green: #8FBBA5; --green-soft: rgba(143,187,165,.35); --brass: #CDA867;
-    --card: #252C29; --line: rgba(236,232,224,.16);
-    --veil-top: rgba(30,36,33,.80); --veil-mid: rgba(30,36,33,.88); --veil-bottom: rgba(24,29,27,.94);
+    --bg: #121A28; --bg-2: #0E1520; --ink: #EEF0F4; --muted: #A3AAB8;
+    --navy: #8DB0E0; --navy-soft: rgba(141,176,224,.35); --on-navy: #0E1520;
+    --gold: #E2C063; --gold-soft: rgba(226,192,99,.45); --gold-ink: #E2C063;
+    --card: #1A2436; --line: rgba(238,240,244,.14); --shadow: rgba(0,0,0,.45);
+    --veil-top: rgba(18,26,40,.80); --veil-mid: rgba(18,26,40,.88); --veil-bottom: rgba(14,21,32,.94);
   }
 
   *, *::before, *::after { box-sizing: inherit; }
@@ -106,15 +112,15 @@
     border-radius: 14px;
     padding: 2.6rem 1.75rem 3rem;
     text-align: center;
-    box-shadow: 0 24px 40px -24px rgba(31,42,38,.35), 0 0 0 1px var(--line);
+    box-shadow: 0 24px 40px -24px var(--shadow), 0 0 0 1px var(--line);
     animation: deal 0.9s cubic-bezier(.2,.8,.2,1) both;
   }
   .card::before, .card::after {
     content: ""; position: absolute; pointer-events: none;
-    border: 1px solid var(--green-soft); border-radius: 9px;
+    border: 1px solid var(--navy-soft); border-radius: 9px;
   }
   .card::before { inset: 9px; }
-  .card::after { inset: 13px; opacity: .5; }
+  .card::after { inset: 13px; border-color: var(--gold-soft); }
   @keyframes deal {
     from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: none; }
@@ -125,33 +131,33 @@
   }
   .track::before {
     content: ""; position: absolute; left: 4px; right: 4px; top: 50%;
-    border-top: 1px dashed var(--green-soft); z-index: 0;
+    border-top: 1px dashed var(--navy-soft); z-index: 0;
   }
   .track.tl { top: 20px; left: 22px; }
   .track.br { bottom: 20px; right: 22px; transform: rotate(180deg); }
   .track i {
     position: relative; z-index: 1; flex: none;
     width: 11px; height: 11px; border-radius: 2px;
-    background: var(--card); border: 1px solid var(--green-soft);
+    background: var(--card); border: 1px solid var(--navy-soft);
   }
-  .track i.done { background: linear-gradient(var(--green-soft), var(--green-soft)), var(--card); border-color: transparent; }
+  .track i.done { background: linear-gradient(var(--gold-soft), var(--gold-soft)), var(--card); border-color: transparent; }
   .track i.now {
     width: 18px; height: 18px; border-radius: 3px;
-    background: var(--green); border-color: var(--green);
+    background: var(--navy); border-color: var(--navy);
     color: var(--card); font: normal 700 11px/16px "Shippori Mincho", serif; text-align: center;
   }
-  .round { margin: 0; color: var(--green); font-size: 0.85rem; letter-spacing: 0.2em; }
+  .round { margin: 0; color: var(--navy); font-size: 0.85rem; letter-spacing: 0.2em; }
   .date {
     margin: 0.6rem 0 0; line-height: 1;
     font-family: "Shippori Mincho", serif; font-weight: 700;
     display: flex; justify-content: center; align-items: baseline; gap: 0.5rem;
   }
   .date .md { font-size: clamp(4rem, 19vw, 5.4rem); letter-spacing: 0.02em; }
-  .date .dow { font-size: 1.3rem; color: var(--brass); }
+  .date .dow { font-size: 1.3rem; color: var(--gold-ink); }
   .time { margin: 0.9rem 0 0; font-size: 1.25rem; letter-spacing: 0.08em; }
   .walkin { margin: 0.7rem 0 0; font-size: 0.85rem; color: var(--muted); display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.2rem 0.55rem; }
-  .walkin b { font-weight: 500; font-size: 0.78rem; color: var(--green); border: 1px solid var(--green-soft); border-radius: 4px; padding: 0 0.5rem; letter-spacing: 0.1em; }
-  .rule { width: 3rem; height: 1px; background: var(--brass); margin: 1.4rem auto; border: 0; }
+  .walkin b { font-weight: 500; font-size: 0.78rem; color: var(--navy); border: 1px solid var(--navy-soft); border-radius: 4px; padding: 0 0.5rem; letter-spacing: 0.1em; }
+  .rule { width: 3rem; height: 1px; background: var(--gold); margin: 1.4rem auto; border: 0; }
   .place { margin: 0; font-size: 1.21rem; font-weight: 500; }
   .area { margin: 0 0 0.2rem; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.12em; }
   .access {
@@ -159,32 +165,32 @@
     font-size: 0.85rem; color: var(--muted); line-height: 1.7;
   }
   .access b { color: var(--ink); font-weight: 500; }
-  .access small { display: block; font-size: 0.75rem; color: var(--brass); }
+  .access small { display: block; font-size: 0.75rem; color: var(--gold-ink); }
   /* 駐車場の地図：会場の地図（緑の大ボタン）と混ざらないよう、行内の小さな枠線リンクに */
   .pmap {
     display: inline-flex; align-items: center; gap: 0.3rem; vertical-align: 1px;
     margin-left: 0.3rem; padding: 0.05rem 0.55rem 0.05rem 0.25rem;
-    border: 1px solid var(--green-soft); border-radius: 999px;
-    color: var(--green); text-decoration: none; font-size: 0.75rem; line-height: 1.6;
+    border: 1px solid var(--navy-soft); border-radius: 999px;
+    color: var(--navy); text-decoration: none; font-size: 0.75rem; line-height: 1.6;
     transition: background-color .2s, color .2s;
   }
   .pmap i {
     font: normal 700 0.65rem/1 "Zen Kaku Gothic New", sans-serif;
     width: 1.05rem; height: 1.05rem; border-radius: 3px;
     display: inline-grid; place-items: center;
-    background: var(--green); color: var(--card);
+    background: var(--navy); color: var(--card);
   }
-  .pmap:hover, .pmap:active { background: var(--green); color: var(--card); }
-  .pmap:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+  .pmap:hover, .pmap:active { background: var(--navy); color: var(--card); }
+  .pmap:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 3px; }
   .map {
     display: inline-block; text-decoration: none;
-    color: #fff; background: var(--green); border: 1px solid var(--green);
+    color: var(--on-navy); background: var(--navy); border: 1px solid var(--navy);
     padding: 0.56rem 1.76rem; border-radius: 999px;
     font-size: 0.76rem; letter-spacing: 0.12em;
     transition: background-color .2s, color .2s;
   }
-  .map:hover, .map:active { background: var(--card); color: var(--green); }
-  .map:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+  .map:hover, .map:active { background: var(--card); color: var(--navy); }
+  .map:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 4px; }
 
   .terms {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 2.2rem;
@@ -207,14 +213,14 @@
     padding: 1.1rem 0.25rem;
     border-bottom: 1px solid var(--line);
   }
-  .rules .no { display: block; width: 30px; height: 42px; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(31,42,38,.18)); }
+  .rules .no { display: block; width: 30px; height: 42px; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(17,52,98,.18)); }
   .rules strong { display: block; font-weight: 700; font-size: 1.05rem; line-height: 1.6; }
   .rules small { display: block; color: var(--muted); font-size: 0.88rem; }
 
   /* これまでに遊んだゲーム：見出しをタップで一覧、タイトルをタップで説明 */
   details summary { list-style: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   details summary::-webkit-details-marker { display: none; }
-  details summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; border-radius: 6px; }
+  details summary:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 4px; border-radius: 6px; }
 
   .shelf > summary { text-align: center; }
   .shelf > summary h2 { margin: 0; }
@@ -222,7 +228,7 @@
     display: inline-flex; align-items: center; gap: 0.5rem;
     margin-top: 0.8rem; padding: 0.4rem 1.1rem;
     background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-    font-size: 0.85rem; color: var(--green); letter-spacing: 0.08em;
+    font-size: 0.85rem; color: var(--navy); letter-spacing: 0.08em;
   }
   .chev {
     width: 0.5rem; height: 0.5rem; flex: none;
@@ -235,7 +241,7 @@
   .games {
     list-style: none; margin: 1.2rem 0 0; padding: 0 1.1rem;
     background: var(--card); border-radius: 14px;
-    box-shadow: 0 18px 32px -24px rgba(31,42,38,.35), 0 0 0 1px var(--line);
+    box-shadow: 0 18px 32px -24px var(--shadow), 0 0 0 1px var(--line);
   }
   .games li + li { border-top: 1px solid var(--line); }
   .games summary {
@@ -246,8 +252,8 @@
   .game-body { padding: 0 0.2rem 1.1rem; }
   .game-meta { margin: 0 0 0.4rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .game-meta span {
-    font-size: 0.75rem; color: var(--green); letter-spacing: 0.05em;
-    border: 1px solid var(--green-soft); border-radius: 4px; padding: 0 0.45rem;
+    font-size: 0.75rem; color: var(--navy); letter-spacing: 0.05em;
+    border: 1px solid var(--navy-soft); border-radius: 4px; padding: 0 0.45rem;
   }
   .game-body p:last-child { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
 
@@ -258,7 +264,7 @@
     display: flex; justify-content: center; align-items: baseline; gap: 0.45rem;
     font-family: "Shippori Mincho", serif; font-weight: 700;
   }
-  .tally-total .pre, .tally-total .unit { font-size: 1.05rem; color: var(--brass); }
+  .tally-total .pre, .tally-total .unit { font-size: 1.05rem; color: var(--gold-ink); }
   .tally-total .num { font-size: clamp(3.2rem, 15vw, 4.2rem); color: var(--ink); font-variant-numeric: tabular-nums; }
 
   .sns { text-align: center; }
@@ -267,11 +273,11 @@
   .sns a {
     display: inline-flex; align-items: center; gap: 0.7rem;
     padding: 0.6rem 1.4rem; border-radius: 999px; text-decoration: none;
-    color: var(--green); background: var(--card); border: 1px solid var(--green-soft);
+    color: var(--navy); background: var(--card); border: 1px solid var(--navy-soft);
     transition: background-color .2s, color .2s;
   }
-  .sns a:hover, .sns a:active { background: var(--green); color: #fff; }
-  .sns a:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+  .sns a:hover, .sns a:active { background: var(--navy); color: var(--on-navy); }
+  .sns a:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 4px; }
   .sns svg { width: 22px; height: 22px; flex: none; }
   .sns span { display: flex; flex-direction: column; text-align: left; line-height: 1.3; font-size: 0.9rem; letter-spacing: 0.08em; }
   .sns small { font-size: 0.75rem; opacity: .8; letter-spacing: 0.02em; }
