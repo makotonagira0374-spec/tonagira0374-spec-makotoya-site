@@ -912,6 +912,12 @@ html:not(.js) .site-header .btn-primary {
   letter-spacing: .08em;
 }
 .page-shot:hover .page-shot-hint { text-decoration: underline; text-underline-offset: 4px; }
+/* スマホ：見本の画面を6割ほどの幅に（200×400 → 120×240） */
+@media (max-width: 767px) {
+  .pages .page-shot { width: 120px; height: 240px; border-width: 4px; border-radius: 14px; }
+  .pages .page-shot::after { height: 60px; }
+  .pages .page-shot-hint { bottom: 8px; font-size: .6875rem; letter-spacing: .05em; }
+}
 .page-name { font-weight: 700; font-size: 1.0625rem; line-height: 1.6; letter-spacing: .04em; }
 .page-name span { color: var(--text-sub); font-size: .875rem; font-weight: 500; }
 .page-desc { color: var(--text-sub); font-size: .875rem; line-height: 1.8; word-break: keep-all; }
@@ -921,6 +927,13 @@ html:not(.js) .site-header .btn-primary {
 .page-later { color: var(--text-sub); font-size: .8125rem; }
 
 /* 費用のまとめ（常に表示） */
+/* 料金の見出し：「月額0円。」「その分は、あなたの挑戦に。」の2行に固定。
+   2行目は折り返さず、狭い画面では画面の幅に収まる大きさまで文字を小さくする（13文字ぶん） */
+.price-title span { white-space: nowrap; }
+@media (max-width: 599px) {
+  .price-title { font-size: min(clamp(1.5rem, 1.1rem + 1.8vw, 2.25rem), calc((100vw - 2 * var(--gutter)) / 13.8)); }
+}
+
 /* 料金の説明文（2段落） */
 .price-lead p + p { margin-top: 1.2em; }
 
