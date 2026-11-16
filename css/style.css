@@ -980,20 +980,19 @@ html:not(.js) .site-header .btn-primary {
   color: #FFF;
 }
 .compare-table tbody tr:last-child .is-buddy { border-bottom: 3px solid var(--navy); border-radius: 0 0 8px 8px; }
-/* .nw の中では折り返さない（語の途中で切れないように） */
-.compare-table .nw { white-space: nowrap; }
 /* 補足（小さく薄い文字。改行して下に置く） */
-.compare-table small { display: block; margin-top: 2px; color: var(--navy-75); font-size: .8125rem; font-weight: 400; }
+.compare-table small { display: block; margin-top: 2px; overflow-wrap: anywhere; color: var(--navy-75); font-size: .8125rem; font-weight: 400; }
 .compare-note { margin-top: 12px; color: var(--text-sub); font-size: .8125rem; word-break: keep-all; }
 @media (max-width: 599px) {
   /* 4列を画面の幅に収める：文字を小さく、余白を詰める */
   .compare-wrap { margin: 0 calc(12px - var(--gutter)); } /* 左右の余白を12pxまで詰めて表を広げる */
-  .compare-table { font-size: .75rem; line-height: 1.55; letter-spacing: 0; }
+  .compare-table { font-size: .6875rem; line-height: 1.55; letter-spacing: 0; }
   .compare-table th,
-  .compare-table td { padding: 12px 2px; word-break: auto-phrase; } /* 文節の切れ目で折り返す */
+  .compare-table td { padding: 10px 2px; word-break: auto-phrase; } /* 文節の切れ目で折り返す。はみ出しそうなら語の途中でも折り返す */
+  .compare-table .is-buddy { padding-left: 1px; padding-right: 1px; } /* 縁の内側に収める */
   .compare-table tbody th { width: 15%; }
   .compare-table .is-buddy { width: 25%; }
-  .compare-table small { font-size: .6875rem; }
+  .compare-table small { font-size: .625rem; }
 }
 
 .price-summary { max-width: 760px; margin: 0 auto 48px; text-align: center; }
