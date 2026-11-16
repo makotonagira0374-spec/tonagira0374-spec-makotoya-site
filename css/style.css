@@ -360,8 +360,16 @@ html:not(.js) .site-header .btn-primary {
   width: 24px;
   height: 2px;
   margin-top: 8px;
-  background: var(--ochre);
+  background: var(--orange); /* ラベルの下の短い線だけオレンジ */
 }
+/* オレンジのマーカー線：文字の下半分に、蛍光ペンで引いたような太い線。文字の色は変えない */
+.marker {
+  background: linear-gradient(transparent 56%, rgba(240, 140, 46, .45) 56%, rgba(240, 140, 46, .45) 92%, transparent 92%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 .1em;
+}
+
 .section-title,
 .hero-title {
   font-family: var(--font-heading);
@@ -921,7 +929,21 @@ html:not(.js) .site-header .btn-primary {
 .page-name { font-weight: 700; font-size: 1.0625rem; line-height: 1.6; letter-spacing: .04em; }
 .page-name span { color: var(--text-sub); font-size: .875rem; font-weight: 500; }
 .page-desc { color: var(--text-sub); font-size: .875rem; line-height: 1.8; word-break: keep-all; }
-.page-price { margin-top: 4px; color: var(--accent); font-weight: 700; font-size: 1.25rem; letter-spacing: .04em; }
+/* 金額の上の札：オレンジの枠線だけ（塗りつぶさない）。文字は紺・小さめ・太字 */
+.page-tag {
+  display: inline-block;
+  justify-self: center;
+  margin-top: 4px;
+  padding: 2px 10px;
+  border: 1.5px solid var(--orange);
+  border-radius: 4px;
+  color: var(--navy);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  line-height: 1.6;
+}
+.page-price { margin-top: -6px; color: var(--navy); font-weight: 700; font-size: 1.625rem; line-height: 1.4; letter-spacing: .04em; }
 .page-price span { color: var(--text-sub); font-size: .8125rem; font-weight: 500; }
 .pages-plus { color: var(--ochre); font-size: 2rem; line-height: 1; }
 .page-later { color: var(--text-sub); font-size: .8125rem; }
