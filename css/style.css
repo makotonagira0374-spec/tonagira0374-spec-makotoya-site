@@ -1236,11 +1236,15 @@ html:not(.js) .site-header .btn-primary {
 }
 
 /* ---------- 誠屋について ---------- */
-#about-title { word-break: keep-all; } /* <wbr> の位置でだけ改行（「登り／はじめた」と切れないように） */
+#about-title { word-break: keep-all; } /* <wbr> の位置でだけ改行（「昇り／はじめた」と切れないように） */
 .about .photo { max-width: 440px; }
 /* 柳楽の写真：角は直角。切り抜き済みの 4:5 なので、柳楽と人力車が中央に収まる */
 .about-photo { border-radius: 0; object-position: 50% 50%; }
-@media (min-width: 900px) { .about { align-items: start; } } /* 本文が長いので、写真は上にそろえる */
+/* PC：本文が長いので写真は上にそろえ、スクロールしても本文を読み終えるまで画面に残す（ヘッダーの下に24px空けて止まる） */
+@media (min-width: 900px) {
+  .about { align-items: start; }
+  .about-photo { position: sticky; top: calc(var(--header-height) + 24px); }
+}
 /* これまでにつくったページ：料金の「ページの違い」と同じスマホ枠を2つ並べる。スマホでも横に2つ */
 .made-pages { margin: 2em 0; }
 .made-pages-title { margin-bottom: 16px !important; color: var(--text-sub); font-size: .875rem; font-weight: 500; }
