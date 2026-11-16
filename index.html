@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
   <!-- ?v= は版の番号。CSS・JSを変えたら日付を書き換える（古いキャッシュで表示が崩れないように。README「公開」参照） -->
-  <link rel="stylesheet" href="/css/style.css?v=20261116">
+  <link rel="stylesheet" href="/css/style.css?v=20261116f">
   <script>document.documentElement.classList.add('js');</script>
   <!-- Googleアナリティクス（人力車 誠屋と同じプロパティ「makotoya」。README「アクセス解析」参照）。
        手元の確認（localhost）では計測しない -->
@@ -44,7 +44,7 @@
       gtag('config', 'G-V1L4QYSHG1');
     }
   </script>
-  <script src="/js/main.js?v=20261116" defer></script>
+  <script src="/js/main.js?v=20261116f" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">本文へスキップ</a>
@@ -120,26 +120,11 @@
             <div class="why-intro">
               <p>実店舗を持つ人には、看板があり、メニュー表があり、目の前のお客さんに直接説明できる時間があります。</p>
               <p>実店舗を持たない人には、そのどれもありません。お客さんがあなたを見つけ、知り、選び、頼むまでのすべてが、画面の上で起きています。</p>
-              <p>気になってくれた人を、迎え入れる場所があるかどうか。ホームページは、実店舗を持たないあなたにとっての、お店です。</p>
+              <!-- この2行だけ一回り大きく太字（紺）。上下に段落より広めの余白 -->
+              <p class="why-pair">Instagramは、<wbr>店先。<br>ホームページは、<wbr>店内。</p>
+              <p>店先で足を止めてくれた人を、<wbr>迎え入れる店内があるかどうか。<br>ホームページは、実店舗を持たないあなたにとっての、お店です。</p>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="why-body">
-        <!-- Instagram（店先）→ ホームページ（店内）。2つの間に紺の矢印（PCは →、スマホは ↓） -->
-        <div class="container">
-          <ol class="why-flow">
-            <li class="why-step">
-              <h3 class="why-step-title">Instagramは、<wbr>店先</h3>
-              <p>通りがかった人に<wbr>見つけてもらい、<wbr><span class="nw">「気になる」と</span><wbr>思ってもらう場所。</p>
-            </li>
-            <li class="why-flow-arrow" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16h22M19 8l8 8-8 8"/></svg></li>
-            <li class="why-step why-step-key">
-              <h3 class="why-step-title">ホームページは、<wbr>店内</h3>
-              <p>メニューを見て、<wbr>話を聞いて、<wbr><span class="nw">「この人に頼もう」と</span><wbr>決めてもらう場所。</p>
-            </li>
-          </ol>
         </div>
       </div>
     </section>
@@ -165,61 +150,11 @@
       </div>
     </section>
 
-    <!-- 3.5 サンプルHP（4つの問い）
-         スマホ画面の画像は tools/shoot-sample.mjs で public/samples/portrait/ から撮る（README参照）。
-         data-range は答えの範囲。style の top・height は画像の高さに対する%で、撮り直すと自動で書き換わる -->
+    <!-- 3.5 サンプル：7つのサンプルHPを横一列のスライダーで見せる -->
     <section id="samples" class="section samples" aria-labelledby="samples-title">
       <div class="container">
-        <p class="eyebrow">サンプルHP</p>
-        <h2 id="samples-title" class="section-title">店員さんが答えることを、<wbr>ホームページが答える。</h2>
-        <p class="section-lead">お店なら、気になったことは店員さんに聞けば答えてくれます。ホームページでは、それができません。だから誠屋のバディライズは、見に来たお客さんが心の中で聞いている4つの問いに、先に答えておくように作ります。</p>
-
-        <div class="samples-stage">
-          <!-- 問いは、スマホ画面の上から順に出てくる答えの高さに並べる（PCだけ。js/main.js） -->
-          <ul class="samples-qs">
-            <li class="samples-q" data-range="statement">
-              <h3 class="samples-q-title">何をしてくれる人？</h3>
-              <p>ひと目で、<wbr>何者で、<wbr>何を頼める人なのかを<wbr>伝えます。</p>
-            </li>
-            <li class="samples-q" data-range="statement">
-              <h3 class="samples-q-title">自分に合う？</h3>
-              <p>あなたの強みを、<wbr>お客さんの言葉に<wbr>置き換えます。</p>
-            </li>
-            <li class="samples-q" data-range="voices">
-              <h3 class="samples-q-title">この人で大丈夫？</h3>
-              <p>想い、歩み、作品、<wbr>お客さんの声。<wbr>実績が少なくても、<wbr>信頼の材料はあります。</p>
-            </li>
-            <li class="samples-q" data-range="info">
-              <h3 class="samples-q-title">どうすれば頼める？</h3>
-              <p>メニュー、料金、<wbr>予約の入口。<wbr>迷わず次の一歩へ<wbr>進めます。</p>
-            </li>
-          </ul>
-          <figure class="samples-phone">
-            <div class="phone">
-              <div class="phone-screen">
-                <div class="phone-shot">
-                <img src="/images/samples/portrait-sp.webp" width="780" height="2080" loading="lazy" alt="サンプルHP（ポートレートフォトグラファー「灯」）のスマホ画面。トップの写真の下に、ステートメント、作品の写真、お客さんの声、連絡先が並ぶ">
-                <!-- 問いにマウスを乗せたとき、ほんのり明るくする範囲 -->
-                <span class="samples-glow" data-range="statement" style="top: 23.6%; height: 18.3%"></span>
-                <span class="samples-glow" data-range="voices" style="top: 55.3%; height: 23.1%"></span>
-                <span class="samples-glow" data-range="info" style="top: 78.4%; height: 19%"></span>
-                </div>
-              </div>
-              <!-- 答えの範囲を示す縦線（スマホ画面の左の外側） -->
-              <div class="samples-marks" aria-hidden="true">
-                <span class="samples-mark" data-range="statement" style="top: 23.6%; height: 18.3%"></span>
-                <span class="samples-mark" data-range="voices" style="top: 55.3%; height: 23.1%"></span>
-                <span class="samples-mark" data-range="info" style="top: 78.4%; height: 19%"></span>
-              </div>
-            </div>
-          </figure>
-          <!-- 問いから縦線への横線（PCだけ。js/main.js で描く） -->
-          <svg class="samples-lines" aria-hidden="true" focusable="false"></svg>
-        </div>
-
-        <div class="samples-action">
-          <p class="samples-reassure">4つの答えは、<wbr>自分で書かなくて大丈夫です。<wbr>誠屋が一緒に<wbr>言葉にしていきます。</p>
-        </div>
+        <p class="eyebrow">サンプル</p>
+        <h2 id="samples-title" class="section-title">共につくる、<wbr>理想の形。</h2>
 
         <!-- サンプルHPの一覧（並べて、デザインの違いを見せる）
              画面の画像は tools/shoot-sample.mjs が各サンプルの最初の画面を撮って作る（--cards でこれだけ撮り直せる）。
@@ -307,8 +242,11 @@
     <section id="price" class="section section-white" aria-labelledby="price-title">
       <div class="container">
         <p class="eyebrow">料金</p>
-        <h2 id="price-title" class="section-title">はじめやすく、続けやすく。</h2>
-        <p class="section-lead">一般的なフリーランスへの依頼は、10〜30万円ほどが相場です。誠屋はAIで作業時間を短くし、その分の時間を、あなたの強みを一緒に言葉にすることに使っています。</p>
+        <h2 id="price-title" class="section-title">月額0円。<wbr>その分は、<wbr>あなたの挑戦に。</h2>
+        <div class="section-lead price-lead">
+          <p>ホームページは、借り続けるより、自分のものとして持つほうがいい。そして毎月払い続けるはずだったお金は、技術を磨くことや、商品やサービスをより良くすることに使ってほしい。そのほうが、ずっと速く昇っていけるから。</p>
+          <p>だからバディライズは、最初の制作費だけ。月額は0円。ドメインもデータも、あなたの名義です。</p>
+        </div>
 
         <!-- ページの違い：サンプルHPの1ページ目・2ページ目の全体（スマホ表示）。クリックで拡大（js/main.js）
              画像は tools/shoot-sample.mjs が /samples/portrait/ と /samples/portrait/exhibition/ を撮って作る。
@@ -323,7 +261,8 @@
               <p class="page-name">バディライズ<span>（1ページ目）</span></p>
               <p class="page-desc">あなたの強み・作品・歩み・<wbr>お客さんの声・頼み方をまとめた1枚</p>
               <p class="page-price">20,000円<span>（最初の5人）</span></p>
-              <p class="page-later">6人目からは30,000円</p>
+              <p class="page-later">2027年6月までのご依頼：30,000円</p>
+              <p class="page-later">2027年7月から：50,000円</p>
             </figcaption>
           </figure>
           <p class="pages-plus" aria-hidden="true">＋</p>
@@ -341,9 +280,72 @@
           </figure>
         </div>
 
+        <!-- 比較表。バディライズの列だけ紺の太い縁で囲む。スマホでも4列を1画面に収める。会社名は出さない -->
+        <div class="compare">
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <caption class="visually-hidden">バディライズ・月額制のサービス・自分で作る・一般的な制作会社の比較（目安）</caption>
+              <thead>
+                <tr>
+                  <td></td>
+                  <th scope="col" class="is-buddy">バディライズ</th>
+                  <th scope="col">月額制の<wbr>サービス</th>
+                  <th scope="col">自分で作る</th>
+                  <th scope="col">一般的な<wbr>制作会社</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">制作費用</th>
+                  <td class="is-buddy">3万円</td>
+                  <td>0円〜</td>
+                  <td>ツール代＋手間</td>
+                  <td>30〜100万円</td>
+                </tr>
+                <tr>
+                  <th scope="row">毎月の費用</th>
+                  <td class="is-buddy">0円<small><span class="nw">更新時のみ</span><span class="nw">1,000円〜</span></small></td>
+                  <td>約1万円</td>
+                  <td>数百〜数千円</td>
+                  <td>別途契約</td>
+                </tr>
+                <tr>
+                  <th scope="row">3年間の目安</th>
+                  <td class="is-buddy">約14万円<small><span class="nw">毎月更新</span><span class="nw">した場合</span></small></td>
+                  <td>約35万円</td>
+                  <td><span class="nw">ツール代</span><span class="nw">のみ</span></td>
+                  <td>100万円〜</td>
+                </tr>
+                <tr>
+                  <th scope="row">持ち主</th>
+                  <td class="is-buddy">あなた<small><span class="nw">ドメインも</span><span class="nw">本人名義</span></small></td>
+                  <td>契約次第</td>
+                  <td><span class="nw">ツール依存</span></td>
+                  <td>契約次第</td>
+                </tr>
+                <tr>
+                  <th scope="row">強みの言葉</th>
+                  <td class="is-buddy">対話で一緒に</td>
+                  <td><span class="nw">サービス</span><span class="nw">次第</span></td>
+                  <td>自分で</td>
+                  <td><span class="nw">打ち合わせ</span><span class="nw">次第</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">まとめ</th>
+                  <td class="is-buddy">強みを言葉に<br>共に育てる</td>
+                  <td>手軽<br><span class="nw">払い続ける</span></td>
+                  <td>安い<br><span class="nw">すべて自力</span></td>
+                  <td>高品質<br>高費用</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="compare-note">※料金や内容は目安です。<wbr>サービスや契約によって異なります。</p>
+        </div>
+
         <!-- 費用のまとめ（常に表示） -->
         <ul class="price-summary">
-          <li>見積り無料・サーバー代0円・<wbr>独自ドメイン代は実費（年1,700円程度）</li>
+          <li>月額0円・見積り無料・サーバー代0円・<wbr>独自ドメイン代は実費（年1,700円程度）</li>
           <li>公開後の更新は1,000円から<wbr>（公開後1週間は無料）</li>
         </ul>
 
@@ -448,7 +450,7 @@
               <span class="step-num" aria-hidden="true">01</span>
               <div>
                 <h3 class="step-title">話す・選ぶ<span class="step-time">（2時間）</span></h3>
-                <p>4つの問いに答えて、載せる写真を一緒に選びます。ドメインの手続きも、ここで一緒に済ませます。</p>
+                <p>あなたのInstagramを一緒に眺めながら、強みと伝えたいことを言葉にし、載せる写真を選びます。足りない写真は、誠屋がその場でスマホで撮影します。ドメインの手続きも、ここで一緒に済ませます。</p>
               </div>
             </li>
             <li>

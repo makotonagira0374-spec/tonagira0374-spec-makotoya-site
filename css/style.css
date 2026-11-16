@@ -622,8 +622,7 @@ html:not(.js) .site-header .btn-primary {
 
 /* ---------- なぜホームページなのか ---------- */
 /* 短い一文は、HTMLの <wbr> の位置でだけ改行する（auto-phrase だけだと「本気を伝える／場所」のように切れるため） */
-.why .section-title,
-.why-step-title { word-break: keep-all; }
+.why .section-title { word-break: keep-all; }
 
 /* 冒頭の写真の帯 */
 .why-hero { position: relative; isolation: isolate; }
@@ -633,6 +632,17 @@ html:not(.js) .site-header .btn-primary {
 .why-hero-photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
 .why-intro { line-height: 2.1; }
 .why-intro p + p { margin-top: 1.4em; }
+/* 「Instagramは、店先。／ホームページは、店内。」だけ一回り大きく太字。上下は段落より広めに空ける */
+.why-intro .why-pair,
+.why-intro .why-pair + p { margin-top: 2em; }
+.why-pair {
+  color: var(--navy);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: .04em;
+  word-break: keep-all;
+}
 
 @media (min-width: 768px) {
   .why-hero {
@@ -666,41 +676,7 @@ html:not(.js) .site-header .btn-primary {
   .why-hero-text { display: contents; }
   .why-hero-head { grid-area: 1 / 1; align-self: start; position: relative; padding: 24px var(--gutter) 0; }
   .why-hero-head .section-title { margin-bottom: 0; }
-  .why-intro { grid-area: 2 / 1; padding: 8px var(--gutter) 0; }
-}
-
-/* Instagram → ホームページ：2つを左右（スマホは上下）に並べ、間に紺の矢印 */
-.why-body { padding-top: 56px; padding-bottom: var(--section-space); }
-.why-step-title {
-  margin-bottom: 12px;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.375rem;
-  line-height: 1.6;
-  letter-spacing: .04em;
-}
-/* 本文も <wbr> の位置でだけ改行（auto-phrase が効かない環境でも意味の区切りで折り返す） */
-.why-step p { word-break: keep-all; }
-.why-step .nw { white-space: nowrap; } /* かぎかっこと「と」を離さない */
-.why-step-key .why-step-title::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  margin-top: 12px;
-  background: var(--ochre);
-}
-.why-flow { display: grid; gap: 28px; justify-items: start; }
-.why-flow-arrow { color: var(--navy); line-height: 0; }
-.why-flow-arrow svg { display: block; transform: rotate(90deg); } /* スマホは ↓ */
-@media (min-width: 768px) {
-  .why-flow {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-    gap: 48px;
-    max-width: 960px;
-  }
-  .why-flow-arrow svg { transform: none; } /* PCは → */
+  .why-intro { grid-area: 2 / 1; padding: 8px var(--gutter) var(--section-space); }
 }
 
 /* ---------- For（こんな人に） ---------- */
@@ -741,16 +717,8 @@ html:not(.js) .site-header .btn-primary {
   .for-item { padding: 32px 0; }
 }
 
-/* ---------- サンプルHP（4つの問い） ---------- */
-/* PC：左に4つの問いを縦に、右にサンプルHPのスマホ画面。問いは画面の中の答えと同じ高さに置き（js/main.js）、
-       問いから、画面の左の外側にある答えの範囲の縦線（差し色）まで、まっすぐ横に線を引く
-   スマホ：画面の画像が上、その下に4つの問いを順に（線なし） */
-.samples .section-title,
-.samples .section-lead,
-.samples-q-title,
-.samples-q p { word-break: keep-all; }
-.samples-stage { position: relative; display: grid; }
-.samples-phone { order: -1; justify-self: center; width: min(240px, 64vw); margin-bottom: 48px; }
+/* ---------- サンプル ---------- */
+.samples .section-title { word-break: keep-all; }
 /* スマホの枠 */
 .phone {
   position: relative;
@@ -777,75 +745,6 @@ html:not(.js) .site-header .btn-primary {
   background: var(--navy-hover);
   transform: translateX(-50%);
 }
-.phone-shot { position: relative; }
-.phone-shot img { width: 100%; }
-
-/* 答えの範囲：top・height は画像の高さに対する%（tools/shoot-sample.mjs が書き換える） */
-.samples-glow {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, .14);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .35s;
-}
-.samples-stage[data-active="statement"] .samples-glow[data-range="statement"],
-.samples-stage[data-active="voices"] .samples-glow[data-range="voices"],
-.samples-stage[data-active="info"] .samples-glow[data-range="info"] { opacity: 1; }
-@media (prefers-reduced-motion: reduce) { .samples-glow { transition: none; } }
-.samples-marks { display: none; }
-
-.samples-q { padding: 24px 0; border-top: 1px solid var(--line); }
-.samples-q:last-child { border-bottom: 1px solid var(--line); }
-.samples-q-title {
-  margin-bottom: 6px;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.6;
-  letter-spacing: .04em;
-}
-.samples-q p { font-size: .9375rem; line-height: 1.9; letter-spacing: .05em; }
-.samples-lines { display: none; }
-
-@media (min-width: 960px) {
-  .samples-stage {
-    grid-template-columns: 1fr 300px;
-    column-gap: clamp(64px, 8vw, 120px);
-    align-items: start;
-  }
-  .samples-phone { order: 0; width: 100%; margin: 0; }
-  .samples-qs { position: relative; }
-  .samples-q,
-  .samples-q:last-child { padding: 0; border: 0; cursor: default; }
-  .samples-q + .samples-q { margin-top: 40px; }
-  /* JSで高さをそろえたあとは、問いを答えの高さに置く */
-  .samples-stage.is-aligned .samples-q { position: absolute; top: 0; left: 0; right: 0; margin: 0; }
-  .samples-q-title { transition: color .25s; }
-  .samples-stage[data-active="statement"] .samples-q[data-range="statement"] .samples-q-title,
-  .samples-stage[data-active="voices"] .samples-q[data-range="voices"] .samples-q-title,
-  .samples-stage[data-active="info"] .samples-q[data-range="info"] .samples-q-title { color: var(--accent); }
-
-  /* 答えの範囲の縦線：スマホの枠の左の外側 */
-  .samples-marks { display: block; position: absolute; top: 32px; right: 8px; bottom: 8px; left: 8px; pointer-events: none; }
-  .samples-mark { position: absolute; left: -22px; width: 2px; }
-  /* となり合う範囲の線がつながって見えないよう、上下を少し詰める */
-  .samples-mark::before { content: ""; position: absolute; top: 6px; bottom: 6px; left: 0; right: 0; background: var(--ochre); }
-
-  .samples-lines {
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    pointer-events: none;
-  }
-  .samples-lines line { stroke: var(--line); stroke-width: 1px; }
-}
-
 .samples-action {
   display: flex;
   flex-direction: column;
@@ -854,7 +753,6 @@ html:not(.js) .site-header .btn-primary {
   margin-top: 64px;
   text-align: center;
 }
-.samples-reassure { margin-bottom: 8px; word-break: keep-all; } /* ボタンの上の2行（本文サイズ・中央寄せ） */
 .samples-action .btn { gap: 10px; border-radius: 999px; }
 .samples-action .btn:hover .btn-arrow { transform: translateX(4px); }
 .samples-note { color: var(--text-sub); font-size: .8125rem; }
@@ -1023,6 +921,81 @@ html:not(.js) .site-header .btn-primary {
 .page-later { color: var(--text-sub); font-size: .8125rem; }
 
 /* 費用のまとめ（常に表示） */
+/* 料金の説明文（2段落） */
+.price-lead p + p { margin-top: 1.2em; }
+
+/* 比較表：スマホでも4列すべてが1画面に収まるように（横スクロールなし）。
+   マス目は細い線、行の名前と他の列の見出しはごく薄い紺の地。文字は中央寄せ。
+   バディライズの列だけ紺の太い縁（3px）で囲み、見出しは紺地に白、中は太字の紺。ほかの列は普通の太さで補助の薄い紺 */
+.compare { max-width: 1040px; margin: 0 auto 40px; }
+.compare-wrap { overflow-x: auto; } /* ごく狭い画面だけの保険 */
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-size: .9375rem;
+  line-height: 1.6;
+}
+.compare-table th,
+.compare-table td {
+  padding: 18px 12px;
+  border-right: 1px solid var(--navy-line);
+  border-bottom: 1px solid var(--navy-line);
+  background: var(--bg);
+  text-align: center;
+  vertical-align: middle;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  color: var(--navy-75);
+  font-weight: 400;
+}
+/* 見出しの行 */
+.compare-table thead th { background: var(--bg-alt); border-top: 1px solid var(--navy-line); padding-top: 14px; padding-bottom: 14px; }
+.compare-table thead th:last-child { border-top-right-radius: 8px; }
+.compare-table thead td { background: transparent; border-right: 0; border-bottom: 0; } /* 左上の空きマス */
+/* 行の名前 */
+.compare-table tbody th {
+  width: 9em;
+  background: var(--bg-alt);
+  border-left: 1px solid var(--navy-line);
+  color: var(--navy);
+  font-weight: 700;
+}
+.compare-table tbody tr:first-child th { border-top: 1px solid var(--navy-line); border-top-left-radius: 8px; }
+.compare-table tbody tr:last-child th { border-bottom-left-radius: 8px; }
+.compare-table tbody tr:last-child td:last-child { border-bottom-right-radius: 8px; }
+/* バディライズの列 */
+.compare-table .is-buddy {
+  width: 26%;
+  border-left: 3px solid var(--navy);
+  border-right: 3px solid var(--navy);
+  color: var(--navy);
+  font-weight: 700;
+}
+.compare-table thead .is-buddy {
+  background: var(--navy);
+  border-top: 3px solid var(--navy);
+  border-radius: 8px 8px 0 0;
+  color: #FFF;
+}
+.compare-table tbody tr:last-child .is-buddy { border-bottom: 3px solid var(--navy); border-radius: 0 0 8px 8px; }
+/* .nw の中では折り返さない（語の途中で切れないように） */
+.compare-table .nw { white-space: nowrap; }
+/* 補足（小さく薄い文字。改行して下に置く） */
+.compare-table small { display: block; margin-top: 2px; color: var(--navy-75); font-size: .8125rem; font-weight: 400; }
+.compare-note { margin-top: 12px; color: var(--text-sub); font-size: .8125rem; word-break: keep-all; }
+@media (max-width: 599px) {
+  /* 4列を画面の幅に収める：文字を小さく、余白を詰める */
+  .compare-wrap { margin: 0 calc(12px - var(--gutter)); } /* 左右の余白を12pxまで詰めて表を広げる */
+  .compare-table { font-size: .75rem; line-height: 1.55; letter-spacing: 0; }
+  .compare-table th,
+  .compare-table td { padding: 12px 2px; word-break: auto-phrase; } /* 文節の切れ目で折り返す */
+  .compare-table tbody th { width: 15%; }
+  .compare-table .is-buddy { width: 25%; }
+  .compare-table small { font-size: .6875rem; }
+}
+
 .price-summary { max-width: 760px; margin: 0 auto 48px; text-align: center; }
 .price-summary li { font-size: .9375rem; line-height: 1.9; word-break: keep-all; }
 
