@@ -1267,6 +1267,9 @@ html:not(.js) .site-header .btn-primary {
 }
 .contact-inner > p { max-width: var(--text-max); margin-bottom: 36px; }
 .section-contact .section-title { margin-bottom: 20px; }
+.contact-lead { word-break: keep-all; } /* <wbr> の位置でだけ折り返す */
+/* ボタンのすぐ下の小さな一文 */
+.contact-inner > .contact-free { margin: 12px 0 0; color: var(--dark-text-sub); font-size: .8125rem; }
 /* PCで見ている人向けの、友だち追加のQRコード（スマホ・タブレットでは押せばLINEが開くので出さない）。
    PCかどうかは js/main.js が判断して <html> に is-pc を付ける。JSが動かないときは幅768px以上で出す */
 .contact-qr {
