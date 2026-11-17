@@ -331,7 +331,15 @@ h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem); line-height: 1.5; word-
 .section .for-note { margin-top: 28px; font-family: var(--maru); font-weight: 500; line-height: 1.9; word-break: keep-all; }
 
 /* ---------- 4. 大切にしていること ---------- */
-#value h2 { font-size: clamp(1.625rem, 1.3rem + 1.6vw, 2.5rem); }
+#value h2 { font-size: clamp(1.625rem, 1.3rem + 1.6vw, 2.5rem); word-break: keep-all; }
+.value-head { max-width: 720px; }
+.value-head p { word-break: keep-all; }
+/* こだわり3つ：上にターメリックの線を引いたカード。スマホは縦、PCは横に3つ */
+.value-points { display: grid; gap: 16px; margin-top: 36px; padding: 0; list-style: none; }
+.value-points li { padding: 22px 22px 24px; border-top: 4px solid var(--turmeric); border-radius: 12px; background: var(--surface); }
+.value-num { display: block; margin-bottom: 6px; color: var(--sub); font-family: var(--maru); font-weight: 700; letter-spacing: .1em; }
+.value-points p { line-height: 1.85; word-break: keep-all; }
+@media (min-width: 900px) { .value-points { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
 
 /* ---------- 7. プロフィール ---------- */
 .why { display: grid; gap: 32px; }
