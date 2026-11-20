@@ -1198,6 +1198,11 @@ html:not(.js) .site-header .btn-primary {
   line-height: 1.6;
 }
 .steps p { margin-top: 2px !important; }
+/* 01 の下の対面エリア：左に細い線を引いて、説明文の補足として控えめに置く */
+.step-area { margin-top: 14px; padding: 2px 0 2px 14px; border-left: 2px solid var(--line); }
+.step-area-title { font-size: .875rem; font-weight: 700; line-height: 1.7; letter-spacing: .04em; }
+.step-area p { font-size: .875rem; line-height: 1.8; }
+.step-area .step-area-note { color: #46597A; font-size: .8125rem; }
 .step-time { margin-left: .3em; color: var(--text-sub); font-size: .875rem; font-weight: 500; }
 .flow-action { margin-top: 32px; }
 .flow-action .btn { gap: 10px; border-radius: 999px; }
